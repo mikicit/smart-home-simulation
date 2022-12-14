@@ -1,37 +1,55 @@
 package dev.mikita.sh.entity.device;
 
-import dev.mikita.sh.core.ITimeTracker;
-import dev.mikita.sh.entity.device.state.ADeviceState;
+import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.core.event.IEventSource;
+import dev.mikita.sh.core.time.ITimeTracker;
+import dev.mikita.sh.entity.UsableObject;
+import dev.mikita.sh.entity.location.Room;
 
-public abstract class ADevice implements IConsumer, ITimeTracker {
-    private ADeviceState state;
-    private double currentElectricityConsumption = 0;
-    private double currentWaterConsumption = 0;
-    private double currentGasConsumption = 0;
-    private double lastElectricityConsumption = 0;
-    private double lastWaterConsumption = 0;
-    private double lastGasConsumption = 0;
+public abstract class ADevice implements ITimeTracker, IEventSource, UsableObject {
+    protected Room room;
+    protected ADeviceState state;
+    protected String name;
+    protected long time = 0;
+    protected double currentElectricityConsumption = 0;
+    protected double currentWaterConsumption = 0;
+    protected double currentGasConsumption = 0;
+    protected double lastElectricityConsumption = 0;
+    protected double lastWaterConsumption = 0;
+    protected double lastGasConsumption = 0;
+
+    public ADevice(Room room, String name) {
+        this.room = room;
+        this.name = name;
+
+        // Init
+        SHSystem.getInstance().getTimer().subscribe(this);
+    }
 
     public void changeState(ADeviceState state) {
         this.state = state;
     }
 
-    @Override
+    public Room getRoom() {
+        return room;
+    }
+
     public double getCurrentElectricityConsumption() {
         return currentElectricityConsumption;
     }
 
-    @Override
+    public void setCurrentElectricityConsumption(double consumption) {
+        currentElectricityConsumption = consumption;
+    }
+
     public double getCurrentWaterConsumption() {
         return currentWaterConsumption;
     }
 
-    @Override
     public double getCurrentGasConsumption() {
         return currentGasConsumption;
     }
 
-    @Override
     public double calculateElectricityConsumption() {
         double result = currentElectricityConsumption - lastElectricityConsumption;
         lastElectricityConsumption = currentElectricityConsumption;
@@ -39,7 +57,6 @@ public abstract class ADevice implements IConsumer, ITimeTracker {
         return result;
     }
 
-    @Override
     public double calculateWaterConsumption() {
         double result = currentWaterConsumption - lastWaterConsumption;
         lastWaterConsumption = currentWaterConsumption;
@@ -47,11 +64,18 @@ public abstract class ADevice implements IConsumer, ITimeTracker {
         return result;
     }
 
-    @Override
     public double calculateGasConsumption() {
         double result = currentGasConsumption - lastGasConsumption;
         lastGasConsumption = currentGasConsumption;
 
         return result;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 }

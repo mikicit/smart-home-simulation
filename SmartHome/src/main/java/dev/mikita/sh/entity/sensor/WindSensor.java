@@ -1,12 +1,18 @@
 package dev.mikita.sh.entity.sensor;
 
-public class WindSensor extends ASensor {
+import dev.mikita.sh.entity.location.House;
+
+public class WindSensor extends AExternalSensor {
     private enum WindSensorState {
         WIND,
         NO_WIND
     }
 
     private WindSensorState state = WindSensorState.NO_WIND;
+
+    public WindSensor(House house) {
+        super(house);
+    }
 
     @Override
     public void update(long time) {

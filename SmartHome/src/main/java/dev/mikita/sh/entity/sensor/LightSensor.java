@@ -1,12 +1,18 @@
 package dev.mikita.sh.entity.sensor;
 
-public class LightSensor extends ASensor {
+import dev.mikita.sh.entity.location.Room;
+
+public class LightSensor extends AInternalSensor {
     private enum LightSensorState {
         ENOUGH_LIGHT,
         NOT_ENOUGH_LIGHT
     }
 
     private LightSensorState state = LightSensorState.ENOUGH_LIGHT;
+
+    public LightSensor(Room room) {
+        super(room);
+    }
 
     @Override
     public void update(long time) {

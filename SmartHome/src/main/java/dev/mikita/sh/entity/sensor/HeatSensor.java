@@ -1,27 +1,40 @@
 package dev.mikita.sh.entity.sensor;
 
-public class HeatSensor extends ASensor {
+import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.entity.location.Room;
+import dev.mikita.sh.event.LowTemperature;
+import dev.mikita.sh.event.NormalTemperature;
+
+public class HeatSensor extends AInternalSensor {
     private enum HeatSensorState {
-        HELL,
+        NORMAL,
         COLD
     }
 
-    private HeatSensorState state = HeatSensorState.COLD;
-    private double minTemp;
-    private double maxTemp;
+    private final double MIN_TEMP = 18;
+    private final double MAX_TEMP = 24;
 
-    public HeatSensor(double minTemp, double maxTemp) {
-        this.minTemp = minTemp;
-        this.maxTemp = maxTemp;
+    private HeatSensorState state = HeatSensorState.NORMAL;
+
+    public HeatSensor(Room room) {
+        super(room);
     }
 
     @Override
     public void update(long time) {
+        double temp = room.getAtmosphere().getTemperature();
 
+        if (temp < MIN_TEMP && state == HeatSensorState.NORMAL) {
+            switchState();
+            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new LowTemperature(this, room), room.toString());
+        } else if (temp > MAX_TEMP && state == HeatSensorState.COLD) {
+            switchState();
+            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new NormalTemperature(this, room), room.toString());
+        }
     }
 
     @Override
     protected void switchState() {
-        state = state == HeatSensorState.HELL ? HeatSensorState.COLD : HeatSensorState.HELL;
+        state = state == HeatSensorState.NORMAL ? HeatSensorState.COLD : HeatSensorState.NORMAL;
     }
 }

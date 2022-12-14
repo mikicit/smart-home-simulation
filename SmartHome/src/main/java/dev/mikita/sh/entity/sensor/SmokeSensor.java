@@ -1,12 +1,18 @@
 package dev.mikita.sh.entity.sensor;
 
-public class SmokeSensor extends ASensor {
+import dev.mikita.sh.entity.location.Room;
+
+public class SmokeSensor extends AInternalSensor {
     private enum SmokeSensorState {
         BIG_SMOKE,
         NO_SMOKE
     }
 
     private SmokeSensorState state = SmokeSensorState.NO_SMOKE;
+
+    public SmokeSensor(Room room) {
+        super(room);
+    }
 
     @Override
     public void update(long time) {
