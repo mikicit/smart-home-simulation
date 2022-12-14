@@ -1,7 +1,7 @@
-**/.idea
+/.idea
 **/*.iml
 **/target
 **/node_modules
 **/generated-sources
 **/npm-debug.log
-**/.DS_Store		
+**/.DS_Store
