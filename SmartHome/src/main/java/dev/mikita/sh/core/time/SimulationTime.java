@@ -41,12 +41,17 @@ public class SimulationTime {
             day++;
         }
 
-        // Per second
-        if (this.time == 0) {
-            for (ITimeTracker subscriber : this.subscribers) {
-                subscriber.update(time);
-            }
+        for (ITimeTracker subscriber : this.subscribers) {
+            subscriber.update(time);
         }
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public String getFormattedTime() {
+        return String.format("Day: %s, Hour: %s, Min: %s", day, hour, min);
     }
 
     public int getMin() {

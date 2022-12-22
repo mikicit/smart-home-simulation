@@ -1,17 +1,6 @@
 package dev.mikita.sh.entity.item;
 
-import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.DeviceFactory;
-import dev.mikita.sh.entity.device.ariConditioner.AirConditioner;
-import dev.mikita.sh.entity.device.fridge.Fridge;
-import dev.mikita.sh.entity.device.heater.Heater;
-import dev.mikita.sh.entity.device.light.Light;
-import dev.mikita.sh.entity.device.microwave.Microwave;
-import dev.mikita.sh.entity.device.oven.Oven;
-import dev.mikita.sh.entity.device.tv.TV;
-import dev.mikita.sh.entity.device.washingMachine.WashingMachine;
 import dev.mikita.sh.entity.location.Room;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,9 +1,10 @@
 package dev.mikita.sh.entity.device.light.state;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.ADeviceFixingState;
 import dev.mikita.sh.entity.device.ADeviceState;
 
-public class LightFixingState extends ADeviceState {
+public class LightFixingState extends ADeviceFixingState {
     public LightFixingState(ADevice device) {
         super(device);
     }

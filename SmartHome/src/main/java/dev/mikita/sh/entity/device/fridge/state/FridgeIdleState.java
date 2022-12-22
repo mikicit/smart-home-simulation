@@ -1,21 +1,36 @@
 package dev.mikita.sh.entity.device.fridge.state;
 
+import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceState;
+import dev.mikita.sh.entity.device.ADeviceIdleState;
 
-public class FridgeIdleState extends ADeviceState  {
+import java.util.logging.Logger;
+
+public class FridgeIdleState extends ADeviceIdleState {
+    // Logger
+    private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
+
     public FridgeIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
+
+        log.info(String.format("Fridge is not being used now [%s]",
+                SHSystem.getInstance().getTimer().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 10L * 1000000000L) {
+        this.time += time;
+        device.setTime(device.getTime() + time);
+
+        // TODO Ломается сразу, херня со временем, странные значения в глобальном тайме
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600F * 1000000000) {
             device.changeState(new FridgeBrokenState(device));
         }
 
-        device.setTime(device.getTime() + time);
-        this.time += time;
+        // Consumption
+        device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
+
     }
 }

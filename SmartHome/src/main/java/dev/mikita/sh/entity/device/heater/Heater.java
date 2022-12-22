@@ -17,6 +17,10 @@ public class Heater extends ADevice {
     public Heater(Room room, String name) {
         super(room, name);
         this.state = new HeaterIdleState(this);
+        this.operatingTimeInHours = 1350;
+        this.usageTimeInHour = 0;
+        this.hungerPerHour = 0;
+        this.leisurePerHour = 0;
 
         initEventHandlers();
     }
@@ -53,17 +57,8 @@ public class Heater extends ADevice {
     }
 
     @Override
-    public void use(Adult person) {
-
-    }
-
-    @Override
-    public void unUse(Adult person) {
-
-    }
-
-    @Override
     public void update(long time) {
+        this.time += time;
         state.update(time);
     }
 }

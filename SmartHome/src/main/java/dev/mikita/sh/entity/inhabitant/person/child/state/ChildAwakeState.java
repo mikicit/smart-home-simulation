@@ -10,6 +10,6 @@ public class ChildAwakeState extends AInhabitantState {
 
     @Override
     public void update(long time) {
-
+        this.time += time;
     }
 }

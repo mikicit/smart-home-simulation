@@ -1,9 +1,10 @@
 package dev.mikita.sh.entity.device.microwave.state;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.ADeviceFixingState;
 import dev.mikita.sh.entity.device.ADeviceState;
 
-public class MicrowaveFixingState extends ADeviceState {
+public class MicrowaveFixingState extends ADeviceFixingState {
     public MicrowaveFixingState(ADevice device) {
         super(device);
     }

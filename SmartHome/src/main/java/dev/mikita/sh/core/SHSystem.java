@@ -23,8 +23,10 @@ public class SHSystem {
     }
 
     public void init() {
+        // Init Services
         eventDispatcher = new EventDispatcher();
         timer = new SimulationTime();
+        reportSystem = new ReportSystem();
 
         // house config
         HouseBuilder houseBuilder = new HouseBuilder();
@@ -37,38 +39,45 @@ public class SHSystem {
                         .addEntrance("DOOR", 2)
                         .addEntrance("WINDOW", 3)
                         .addDevice("FRIDGE", "Fridge")
-                        .addPerson("ADULT", "Mikita")
-                        .addPerson("ADULT", "Darina")
+                        .addItem("GUITAR", "Guitar")
                         .addDevice("HEATER", "Heater")
+                        .addPerson("ADULT", "Mikita")
                         .end()
-//                    .addRoom("Kitchen")
-//                        .addSensor("HEAT")
-//                        .addSensor("LIGHT")
-//                        .addEntrance("DOOR", 2)
-//                        .addEntrance("WINDOW", 3)
-//                        .addPerson("CHILD", "Jiri")
-//                        .addDevice("HEATER", "Heater")
-//                        .end()
-//                    .addRoom("Garage")
-//                        .addEntrance("DOOR", 2)
-//                        .addEntrance("WINDOW", 3)
-//                        .addItem("CAR", "Car")
-//                        .addItem("SKIS", "Skis")
-//                        .addItem("BIKE", "Bike")
-//                        .addDevice("HEATER", "Heater")
-//                        .end()
+                    .addRoom("Kitchen")
+                        .addSensor("HEAT")
+                        .addSensor("LIGHT")
+                        .addEntrance("DOOR", 2)
+                        .addEntrance("WINDOW", 3)
+                        .addDevice("HEATER", "Heater")
+                        .addDevice("TV", "Tv")
+                        .addDevice("WASHING_MACHINE", "Washing machine")
+                        .addPerson("ADULT", "Roma")
+                        .addPerson("CHILD", "Jiri Sebek")
+                        .end()
+                    .addRoom("Garage")
+                        .addEntrance("DOOR", 2)
+                        .addEntrance("WINDOW", 3)
+                        .addItem("CAR", "Car")
+                        .addItem("SKIS", "Skis")
+                        .addItem("BIKE", "Bike")
+                        .addDevice("HEATER", "Heater")
+                        .addPet("DRAGON", "La la Dragon")
+                        .end()
                     .end()
                 .getResult();
+    }
 
+    public void start(long timeToSimulate) {
         long lastUpdate = System.nanoTime();
         int speed = 1000;
 
-        while (true) {
+        while (timeToSimulate > 0) {
             long currentTime = speed * (System.nanoTime());
 
             if (currentTime - lastUpdate > (1000000000 / 60)) {
                 long delta = currentTime - lastUpdate;
                 lastUpdate = currentTime;
+                timeToSimulate -= delta;
 
                 timer.update(delta);
             }

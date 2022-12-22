@@ -1,9 +1,9 @@
-package dev.mikita.sh.entity.device.ariConditioner.state;
+package dev.mikita.sh.entity.device.airConditioner.state;
 
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceState;
+import dev.mikita.sh.entity.device.ADeviceOffState;
 
-public class AirConditionerOffState extends ADeviceState {
+public class AirConditionerOffState extends ADeviceOffState {
     public AirConditionerOffState(ADevice device) {
         super(device);
     }

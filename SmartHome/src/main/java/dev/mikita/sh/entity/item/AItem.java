@@ -1,14 +1,18 @@
 package dev.mikita.sh.entity.item;
 
 import dev.mikita.sh.entity.UsableObject;
-import dev.mikita.sh.entity.inhabitant.person.APerson;
-import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
+import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.location.Room;
 
 public abstract class AItem implements UsableObject {
     private boolean isUsing = false;
     private final String name;
     private final Room room;
+
+    protected int operatingTimeInHours = 0;
+    protected double usageTimeInHour = 0;
+    protected int hungerPerHour = 0;
+    protected int leisurePerHour = 0;
 
     public AItem(Room room, String name) {
         this.room = room;
@@ -24,14 +28,41 @@ public abstract class AItem implements UsableObject {
     }
 
     @Override
-    public void use(Adult adult) {
-        adult.useObject(this);
-        isUsing = true;
+    public int getOperatingTimeInHours() {
+        return operatingTimeInHours;
     }
 
     @Override
-    public void unUse(Adult adult) {
-        adult.unUseObject();
+    public double getUsageTimeInHour() {
+        return usageTimeInHour;
+    }
+
+    @Override
+    public int getHungerPerHour() {
+        return hungerPerHour;
+    }
+
+    @Override
+    public int getLeisurePerHour() {
+        return leisurePerHour;
+    }
+
+    @Override
+    public boolean isUsing() {
+        return isUsing;
+    }
+
+    @Override
+    public void use(AInhabitant inhabitant) {
+        inhabitant.useObject(this);
+        isUsing = true;
+//        System.out.println(inhabitant.getName() + " юзает итем " + name);
+    }
+
+    @Override
+    public void unUse(AInhabitant inhabitant) {
+        inhabitant.unUseObject(this);
         isUsing = false;
+//        System.out.println(inhabitant.getName() + " перестает юзать итем " + name);
     }
 }

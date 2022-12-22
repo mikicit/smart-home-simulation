@@ -1,9 +1,9 @@
 package dev.mikita.sh.entity.device.light.state;
 
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceState;
+import dev.mikita.sh.entity.device.ADeviceOffState;
 
-public class LightOffState extends ADeviceState {
+public class LightOffState extends ADeviceOffState {
     public LightOffState(ADevice device) {
         super(device);
     }

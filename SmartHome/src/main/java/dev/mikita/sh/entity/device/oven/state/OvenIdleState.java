@@ -1,12 +1,22 @@
 package dev.mikita.sh.entity.device.oven.state;
 
+import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.device.ADeviceState;
 
-public class OvenIdleState extends ADeviceState  {
+import java.util.logging.Logger;
+
+public class OvenIdleState extends ADeviceIdleState {
+    // Logger
+    private static final Logger log = Logger.getLogger(OvenIdleState.class.getName());
+
     public OvenIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
+
+        log.info(String.format("Oven is not being used now [%s]",
+                SHSystem.getInstance().getTimer().getFormattedTime()));
     }
 
     @Override
@@ -17,5 +27,9 @@ public class OvenIdleState extends ADeviceState  {
 
         device.setTime(device.getTime() + time);
         this.time += time;
+
+        // Consumption
+        device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
     }
 }

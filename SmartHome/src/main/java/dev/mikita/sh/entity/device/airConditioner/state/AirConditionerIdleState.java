@@ -1,9 +1,9 @@
-package dev.mikita.sh.entity.device.ariConditioner.state;
+package dev.mikita.sh.entity.device.airConditioner.state;
 
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceState;
+import dev.mikita.sh.entity.device.ADeviceIdleState;
 
-public class AirConditionerIdleState extends ADeviceState  {
+public class AirConditionerIdleState extends ADeviceIdleState {
     public AirConditionerIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
@@ -17,5 +17,9 @@ public class AirConditionerIdleState extends ADeviceState  {
 
         device.setTime(device.getTime() + time);
         this.time += time;
+
+        // Consumption
+        device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
     }
 }

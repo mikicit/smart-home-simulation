@@ -51,4 +51,12 @@ public class Room implements ILocation {
     public String getName() {
         return name;
     }
+
+    public List<ADevice> getDevices() {
+        return devices;
+    }
+
+    public List<AItem> getItems() {
+        return items;
+    }
 }

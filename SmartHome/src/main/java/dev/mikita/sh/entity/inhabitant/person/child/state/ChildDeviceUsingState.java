@@ -1,10 +1,10 @@
 package dev.mikita.sh.entity.inhabitant.person.child.state;
 
-import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
+import dev.mikita.sh.entity.inhabitant.AInhabitant;
 
-public class ChildSleepingState extends AInhabitantState {
-    public ChildSleepingState(AInhabitant inhabitant) {
+public class ChildDeviceUsingState extends AInhabitantState {
+    public ChildDeviceUsingState(AInhabitant inhabitant) {
         super(inhabitant);
     }
 

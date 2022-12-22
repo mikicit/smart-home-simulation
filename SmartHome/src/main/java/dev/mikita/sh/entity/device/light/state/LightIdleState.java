@@ -1,9 +1,10 @@
 package dev.mikita.sh.entity.device.light.state;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.device.ADeviceState;
 
-public class LightIdleState extends ADeviceState  {
+public class LightIdleState extends ADeviceIdleState {
     public LightIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
@@ -17,5 +18,9 @@ public class LightIdleState extends ADeviceState  {
 
         device.setTime(device.getTime() + time);
         this.time += time;
+
+        // Consumption
+        device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
     }
 }

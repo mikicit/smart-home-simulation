@@ -6,5 +6,7 @@ public class ReportSystem {
     private final ConsumptionReport consumptionReport = new ConsumptionReport();
     private final EventReport eventReport = new EventReport();
 
-
+    public ActivityAndUsageReport getActivityAndUsageReport() {
+        return activityAndUsageReport;
+    }
 }

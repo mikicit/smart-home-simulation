@@ -1,6 +1,6 @@
 package dev.mikita.sh.entity.device;
 
-import dev.mikita.sh.entity.device.ariConditioner.AirConditioner;
+import dev.mikita.sh.entity.device.airConditioner.AirConditioner;
 import dev.mikita.sh.entity.device.fridge.Fridge;
 import dev.mikita.sh.entity.device.heater.Heater;
 import dev.mikita.sh.entity.device.light.Light;

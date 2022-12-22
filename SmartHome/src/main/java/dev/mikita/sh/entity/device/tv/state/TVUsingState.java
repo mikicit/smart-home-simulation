@@ -1,12 +1,21 @@
 package dev.mikita.sh.entity.device.tv.state;
 
+import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceState;
+import dev.mikita.sh.entity.device.ADeviceUsingState;
 
-public class TVUsingState extends ADeviceState {
+import java.util.logging.Logger;
+
+public class TVUsingState extends ADeviceUsingState {
+    // Logger
+    private static final Logger log = Logger.getLogger(TVUsingState.class.getName());
+
     public TVUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
+
+        log.info(String.format("TV is being used now [%s]",
+                SHSystem.getInstance().getTimer().getFormattedTime()));
     }
 
     @Override
@@ -17,5 +26,9 @@ public class TVUsingState extends ADeviceState {
 
         device.setTime(device.getTime() + time);
         this.time += time;
+
+        // Consumption
+        device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
+                 + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
     }
 }
