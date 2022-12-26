@@ -3,7 +3,6 @@ package dev.mikita.sh.entity.inhabitant.person.adult.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-
 import java.util.logging.Logger;
 
 public class AdultDeviceUsingState extends AInhabitantState {
@@ -31,7 +30,7 @@ public class AdultDeviceUsingState extends AInhabitantState {
         inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator() + (inhabitant.getUsableObject().getLeisurePerHour() / 3600D * 1000000000) * time);
 
         // UnUse
-        if (this.time > inhabitant.getUsableObject().getUsageTimeInHour() / 3600D * 1000000000) {
+        if (this.time > inhabitant.getUsableObject().getUsageTimeInHour() / 3600F * 1000000000) {
             inhabitant.getUsableObject().unUse(inhabitant);
             inhabitant.changeState(new AdultWaitingState(inhabitant));
         }

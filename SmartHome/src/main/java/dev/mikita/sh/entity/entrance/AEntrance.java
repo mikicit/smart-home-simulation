@@ -1,15 +1,10 @@
 package dev.mikita.sh.entity.entrance;
 
-import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
-import dev.mikita.sh.core.time.ITimeTracker;
 import dev.mikita.sh.entity.location.Room;
 
-public abstract class AEntrance implements ITimeTracker, IEventSource {
-    public AEntrance() {
-        SHSystem.getInstance().getTimer().subscribe(this);
-    }
-
+public abstract class AEntrance implements IEventSource {
+    // State
     protected enum EntranceState {
         OPEN,
         CLOSE
@@ -22,11 +17,14 @@ public abstract class AEntrance implements ITimeTracker, IEventSource {
         this.room = room;
     }
 
-    protected void switchState() {
-        state = state == EntranceState.OPEN ? EntranceState.CLOSE : EntranceState.OPEN;
-    }
-
     public Room getRoom() {
         return room;
     }
+
+    public boolean isOpen() {
+        return state == EntranceState.OPEN;
+    }
+
+    public abstract void open();
+    public abstract void close();
 }

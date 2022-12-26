@@ -34,29 +34,30 @@ public class SHSystem {
                 .addSensor("WIND")
                 .addFloor(1)
                     .addRoom("Bedroom")
-                        .addSensor("HEAT")
-                        .addSensor("LIGHT")
                         .addEntrance("DOOR", 2)
                         .addEntrance("WINDOW", 3)
-                        .addDevice("FRIDGE", "Fridge")
+                        .addSensor("HEAT")
+                        .addSensor("LIGHT")
                         .addItem("GUITAR", "Guitar")
                         .addDevice("HEATER", "Heater")
                         .addPerson("ADULT", "Mikita")
+                        .addPerson("CHILD", "Jiri Sebek")
                         .end()
                     .addRoom("Kitchen")
-                        .addSensor("HEAT")
-                        .addSensor("LIGHT")
                         .addEntrance("DOOR", 2)
                         .addEntrance("WINDOW", 3)
+                        .addSensor("HEAT")
+                        .addSensor("LIGHT")
                         .addDevice("HEATER", "Heater")
                         .addDevice("TV", "Tv")
                         .addDevice("WASHING_MACHINE", "Washing machine")
+                        .addDevice("FRIDGE", "Fridge")
                         .addPerson("ADULT", "Roma")
-                        .addPerson("CHILD", "Jiri Sebek")
                         .end()
                     .addRoom("Garage")
                         .addEntrance("DOOR", 2)
                         .addEntrance("WINDOW", 3)
+                        .addSensor("HEAT")
                         .addItem("CAR", "Car")
                         .addItem("SKIS", "Skis")
                         .addItem("BIKE", "Bike")
@@ -72,10 +73,10 @@ public class SHSystem {
         int speed = 1000;
 
         while (timeToSimulate > 0) {
-            long currentTime = speed * (System.nanoTime());
+            long currentTime = System.nanoTime();
 
             if (currentTime - lastUpdate > (1000000000 / 60)) {
-                long delta = currentTime - lastUpdate;
+                long delta = speed * (currentTime - lastUpdate);
                 lastUpdate = currentTime;
                 timeToSimulate -= delta;
 
@@ -94,5 +95,9 @@ public class SHSystem {
 
     public SimulationTime getTimer() {
         return timer;
+    }
+
+    public House getHouse() {
+        return house;
     }
 }

@@ -4,8 +4,8 @@ import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.event.ILocation;
 
-public class NormalTemperature extends AEvent {
-    public NormalTemperature(IEventSource source, ILocation location) {
+public class StrongWindEvent extends AEvent {
+    public StrongWindEvent(IEventSource source, ILocation location) {
         super(source, location);
     }
 }

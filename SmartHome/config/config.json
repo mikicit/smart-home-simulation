@@ -1,4 +1,21 @@
 {
+  "inhabitants": {
+    "persons": {
+      "children": [{
+
+      }],
+      "adults": [
+        {
+
+        }
+      ]
+    },
+    "pets": [
+      {
+
+      }
+    ]
+  },
   "home": {
     "floors": [
       {

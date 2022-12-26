@@ -1,9 +1,11 @@
 package dev.mikita.sh.entity.device.tv;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.tv.state.TVFixingState;
 import dev.mikita.sh.entity.device.tv.state.TVIdleState;
 import dev.mikita.sh.entity.device.tv.state.TVUsingState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
+import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 public class TV extends ADevice {
@@ -26,6 +28,12 @@ public class TV extends ADevice {
     public void unUse(AInhabitant inhabitant) {
         inhabitant.unUseObject(this);
         changeState(new TVIdleState(this));
+    }
+
+    @Override
+    public void fix(Adult person) {
+        person.fixDevice(this);
+        changeState(new TVFixingState(this));
     }
 
     @Override

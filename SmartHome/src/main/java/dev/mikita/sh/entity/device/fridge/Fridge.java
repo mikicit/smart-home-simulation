@@ -31,14 +31,14 @@ public class Fridge extends ADevice {
     }
 
     @Override
-    public void update(long time) {
-        this.time += time;
-        state.update(time);
-    }
-
-    @Override
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new FridgeFixingState(this));
+    }
+
+    @Override
+    public void update(long time) {
+        this.time += time;
+        state.update(time);
     }
 }

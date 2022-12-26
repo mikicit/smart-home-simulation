@@ -22,22 +22,22 @@ public class SimulationTime {
         this.time += time;
 
         if (this.time > 1000000000) {
-            this.time = 0;
-            sec++;
+            sec += this.time / 1000000000;
+            this.time = this.time % 1000000000;
         }
 
         if (sec >= 60) {
-            sec = 0;
+            sec = sec % 60;
             min++;
         }
 
         if (min >= 60) {
-            min = 0;
+            min = min % 60;
             hour++;
         }
 
         if (hour >= 24) {
-            hour = 0;
+            hour = hour % 24;
             day++;
         }
 
@@ -50,10 +50,6 @@ public class SimulationTime {
         return time;
     }
 
-    public String getFormattedTime() {
-        return String.format("Day: %s, Hour: %s, Min: %s", day, hour, min);
-    }
-
     public int getMin() {
         return min;
     }
@@ -64,5 +60,9 @@ public class SimulationTime {
 
     public int getDay() {
         return day;
+    }
+
+    public String getFormattedTime() {
+        return String.format("Day: %s, Hour: %s, Min: %s", day, hour, min);
     }
 }

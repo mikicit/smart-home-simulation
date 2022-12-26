@@ -4,7 +4,6 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.time.ITimeTracker;
 import dev.mikita.sh.entity.UsableObject;
-import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
@@ -127,22 +126,9 @@ public abstract class ADevice implements ITimeTracker, IEventSource, UsableObjec
     }
 
     @Override
-    public void use(AInhabitant inhabitant) {
-//        System.out.println(inhabitant.getName() + " юзает девайс " + name);
-    }
-
-    @Override
-    public void unUse(AInhabitant inhabitant) {
-//        System.out.println(inhabitant.getName() + " перестает юзать девайс " + name);
-    }
-
-    @Override
     public boolean isUsing() {
         return state instanceof ADeviceUsingState;
     }
 
-    // TODO change to abstract
-    public void fix(Adult person) {
-
-    }
+    public abstract void fix(Adult person);
 }

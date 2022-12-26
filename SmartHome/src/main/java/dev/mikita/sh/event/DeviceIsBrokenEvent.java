@@ -4,8 +4,8 @@ import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.event.ILocation;
 
-public class SmokeInRoom extends AEvent {
-    public SmokeInRoom(IEventSource source, ILocation location) {
+public class DeviceIsBrokenEvent extends AEvent {
+    public DeviceIsBrokenEvent(IEventSource source, ILocation location) {
         super(source, location);
     }
 }

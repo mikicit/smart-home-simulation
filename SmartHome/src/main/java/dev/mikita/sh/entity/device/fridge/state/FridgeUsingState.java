@@ -23,7 +23,7 @@ public class FridgeUsingState extends ADeviceUsingState {
         this.time += time;
         device.setTime(device.getTime() + time);
 
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600F * 1000000000) {
             device.changeState(new FridgeBrokenState(device));
         }
 

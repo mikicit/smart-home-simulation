@@ -1,7 +1,6 @@
 package dev.mikita.sh.entity.location;
 
 import dev.mikita.sh.core.event.ILocation;
-import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.location.atmosphere.OuterAtmosphere;
 import dev.mikita.sh.entity.sensor.AExternalSensor;
 

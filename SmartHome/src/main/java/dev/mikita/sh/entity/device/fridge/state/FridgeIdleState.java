@@ -24,13 +24,13 @@ public class FridgeIdleState extends ADeviceIdleState {
         device.setTime(device.getTime() + time);
 
         // TODO Ломается сразу, херня со временем, странные значения в глобальном тайме
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600F * 1000000000) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
             device.changeState(new FridgeBrokenState(device));
         }
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * time);
 
     }
 }

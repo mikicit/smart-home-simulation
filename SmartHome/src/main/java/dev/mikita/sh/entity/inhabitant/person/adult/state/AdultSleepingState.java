@@ -25,7 +25,9 @@ public class AdultSleepingState extends AInhabitantState {
 
         if (simulationTime.getHour() < 23 && simulationTime.getHour() >= 7) {
             inhabitant.changeState(new AdultWaitingState(inhabitant));
-            System.out.println("Я проснулся!");
+            log.info(String.format("Person \"%s\" waked up [%s]",
+                    inhabitant.getName(),
+                    SHSystem.getInstance().getTimer().getFormattedTime()));
         }
     }
 }

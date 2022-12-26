@@ -4,7 +4,7 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceBrokenState;
-import dev.mikita.sh.event.DeviceIsBroken;
+import dev.mikita.sh.event.DeviceIsBrokenEvent;
 
 import java.util.logging.Logger;
 
@@ -16,7 +16,7 @@ public class FridgeBrokenState extends ADeviceBrokenState {
         super(device);
 
         // Event
-        SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBroken((IEventSource) device, device.getRoom()), device.getRoom().toString());
+        SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent((IEventSource) device, device.getRoom()), device.getRoom().toString());
 
         // Logging
         log.info(String.format("Fridge in room \"%s\" is broken now [%s]",
@@ -27,7 +27,5 @@ public class FridgeBrokenState extends ADeviceBrokenState {
     @Override
     public void update(long time) {
         this.time += time;
-
-        System.out.println(device.getTime());
     }
 }

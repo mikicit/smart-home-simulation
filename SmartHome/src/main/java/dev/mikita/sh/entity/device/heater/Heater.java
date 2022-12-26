@@ -6,10 +6,11 @@ import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.heater.state.HeaterIdleState;
 import dev.mikita.sh.entity.device.heater.state.HeaterOffState;
 import dev.mikita.sh.entity.device.heater.state.HeaterUsingState;
+import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
-import dev.mikita.sh.event.LowTemperature;
-import dev.mikita.sh.event.NormalTemperature;
+import dev.mikita.sh.event.LowTemperatureEvent;
+import dev.mikita.sh.event.NormalTemperatureEvent;
 
 public class Heater extends ADevice {
     private final double HEATING_PER_HOUR = 5;
@@ -42,18 +43,33 @@ public class Heater extends ADevice {
     }
 
     private void initEventHandlers() {
-        SHSystem.getInstance().getEventDispatcher().addEventHandler(LowTemperature.class, room.toString(), this::lowTemperatureEventHandler);
-        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalTemperature.class, room.toString(), this::normalTemperatureEventHandler);
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(LowTemperatureEvent.class, room.getName(), this::lowTemperatureEventHandler);
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalTemperatureEvent.class, room.getName(), this::normalTemperatureEventHandler);
     }
 
-    public void on() {
-        if (this.state instanceof HeaterOffState) {
-            changeState(new HeaterIdleState(this));
-        }
+//    public void on() {
+//        if (this.state instanceof HeaterOffState) {
+//            changeState(new HeaterIdleState(this));
+//        }
+//    }
+//
+//    public void off() {
+//        changeState(new HeaterOffState(this));
+//    }
+
+    @Override
+    public void use(AInhabitant inhabitant) {
+
     }
 
-    public void off() {
-        changeState(new HeaterOffState(this));
+    @Override
+    public void unUse(AInhabitant inhabitant) {
+
+    }
+
+    @Override
+    public void fix(Adult person) {
+
     }
 
     @Override

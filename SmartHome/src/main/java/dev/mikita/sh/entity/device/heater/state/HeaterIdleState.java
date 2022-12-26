@@ -25,6 +25,6 @@ public class HeaterIdleState extends ADeviceIdleState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * time);
     }
 }

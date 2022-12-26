@@ -9,6 +9,7 @@ public abstract class AItem implements UsableObject {
     private final String name;
     private final Room room;
 
+    // Constants
     protected int operatingTimeInHours = 0;
     protected double usageTimeInHour = 0;
     protected int hungerPerHour = 0;
@@ -56,13 +57,11 @@ public abstract class AItem implements UsableObject {
     public void use(AInhabitant inhabitant) {
         inhabitant.useObject(this);
         isUsing = true;
-//        System.out.println(inhabitant.getName() + " юзает итем " + name);
     }
 
     @Override
     public void unUse(AInhabitant inhabitant) {
         inhabitant.unUseObject(this);
         isUsing = false;
-//        System.out.println(inhabitant.getName() + " перестает юзать итем " + name);
     }
 }
