@@ -15,7 +15,7 @@ public class FridgeIdleState extends ADeviceIdleState {
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
         log.info(String.format("Fridge is not being used now [%s]",
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

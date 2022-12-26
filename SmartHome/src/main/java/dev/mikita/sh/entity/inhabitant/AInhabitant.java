@@ -2,7 +2,7 @@ package dev.mikita.sh.entity.inhabitant;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
-import dev.mikita.sh.core.time.ITimeTracker;
+import dev.mikita.sh.core.simulation.ITimeTracker;
 import dev.mikita.sh.entity.UsableObject;
 import dev.mikita.sh.entity.location.Room;
 
@@ -33,7 +33,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
         this.name = name;
 
         // Init
-        SHSystem.getInstance().getTimer().subscribe(this);
+        SHSystem.getInstance().getSimulation().subscribe(this);
     }
 
     public Room getRoom() {
@@ -49,7 +49,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
                 this.getName(),
                 this.getRoom(),
                 room.getName(),
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
 
         this.room = room;
     }

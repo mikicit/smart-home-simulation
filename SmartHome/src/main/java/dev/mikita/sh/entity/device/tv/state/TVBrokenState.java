@@ -17,7 +17,7 @@ public class TVBrokenState extends ADeviceBrokenState {
 
         log.info(String.format("TV in room \"%s\" is broken now [%s]",
                 device.getRoom().getName(),
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

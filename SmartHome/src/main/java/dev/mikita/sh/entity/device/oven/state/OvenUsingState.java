@@ -2,7 +2,6 @@ package dev.mikita.sh.entity.device.oven.state;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceState;
 import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
@@ -17,7 +16,7 @@ public class OvenUsingState extends ADeviceUsingState {
         this.GAS_CONSUMPTION = 2;
 
         log.info(String.format("Oven is being used now [%s]",
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

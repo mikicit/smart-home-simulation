@@ -1,8 +1,7 @@
 package dev.mikita.sh.core.report;
 
 import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.time.ITimeTracker;
-
+import dev.mikita.sh.core.simulation.ITimeTracker;
 import java.io.IOException;
 
 public class ReportSystem implements ITimeTracker {
@@ -14,7 +13,7 @@ public class ReportSystem implements ITimeTracker {
 
     public ReportSystem() {
         // Init
-        SHSystem.getInstance().getTimer().subscribe(this);
+        SHSystem.getInstance().getSimulation().subscribe(this);
     }
 
     public ActivityAndUsageReport getActivityAndUsageReport() {

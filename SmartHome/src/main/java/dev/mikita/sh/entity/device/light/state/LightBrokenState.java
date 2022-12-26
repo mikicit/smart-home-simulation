@@ -18,7 +18,7 @@ public class LightBrokenState extends ADeviceBrokenState {
 
         log.info(String.format("Light in room \"%s\" is broken now [%s]",
                 device.getRoom().getName(),
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

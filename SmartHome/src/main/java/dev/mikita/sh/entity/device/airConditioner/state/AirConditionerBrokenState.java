@@ -18,7 +18,7 @@ public class AirConditionerBrokenState extends ADeviceBrokenState {
 
         log.info(String.format("Air conditioner in room \"%s\" is broken now [%s]",
                 device.getRoom().getName(),
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

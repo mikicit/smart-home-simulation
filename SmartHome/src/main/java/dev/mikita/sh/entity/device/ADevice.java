@@ -2,7 +2,7 @@ package dev.mikita.sh.entity.device;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
-import dev.mikita.sh.core.time.ITimeTracker;
+import dev.mikita.sh.core.simulation.ITimeTracker;
 import dev.mikita.sh.entity.UsableObject;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -32,7 +32,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, UsableObjec
         this.name = name;
 
         // Init
-        SHSystem.getInstance().getTimer().subscribe(this);
+        SHSystem.getInstance().getSimulation().subscribe(this);
     }
 
     public void changeState(ADeviceState state) {

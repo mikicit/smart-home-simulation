@@ -1,17 +1,7 @@
 package dev.mikita.sh.entity.inhabitant.person.adult.state;
 
-import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.time.SimulationTime;
-import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceIdleState;
-import dev.mikita.sh.entity.device.DeviceFactory;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-import dev.mikita.sh.entity.item.AItem;
-import dev.mikita.sh.entity.item.ItemFactory;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class AdultWaitingState extends AInhabitantState {
     public AdultWaitingState(AInhabitant inhabitant) {

@@ -2,7 +2,7 @@ package dev.mikita.sh.core;
 
 import dev.mikita.sh.core.event.EventDispatcher;
 import dev.mikita.sh.core.report.ReportSystem;
-import dev.mikita.sh.core.time.SimulationTime;
+import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.location.builder.HouseBuilder;
 
@@ -11,7 +11,7 @@ import java.io.IOException;
 public class SHSystem {
     private static SHSystem instance;
     private EventDispatcher eventDispatcher;
-    private SimulationTime timer;
+    private Simulation simulation;
     private ReportSystem reportSystem;
     private House house;
 
@@ -24,10 +24,12 @@ public class SHSystem {
         return instance;
     }
 
+    public void init(String config) throws IOException {}
+
     public void init() throws IOException {
         // Init Services
         eventDispatcher = new EventDispatcher();
-        timer = new SimulationTime();
+        simulation = new Simulation();
         reportSystem = new ReportSystem();
 
         // house config
@@ -70,21 +72,12 @@ public class SHSystem {
                 .getResult();
     }
 
-    public void start(long timeToSimulate) throws IOException {
-        long lastUpdate = System.nanoTime();
-        int speed = 10000;
+    public void start(int speed, long timeToSimulate) {
+        simulation.start(speed, timeToSimulate);
+    }
 
-        while (timeToSimulate > 0) {
-            long currentTime = System.nanoTime();
-
-            if (currentTime - lastUpdate > (1000000000 / 60)) {
-                long delta = speed * (currentTime - lastUpdate);
-                lastUpdate = currentTime;
-                timeToSimulate -= delta;
-
-                timer.update(delta);
-            }
-        }
+    public void stop() {
+        simulation.stop();
     }
 
     public ReportSystem getReportSystem() {
@@ -95,8 +88,8 @@ public class SHSystem {
         return eventDispatcher;
     }
 
-    public SimulationTime getTimer() {
-        return timer;
+    public Simulation getSimulation() {
+        return simulation;
     }
 
     public House getHouse() {

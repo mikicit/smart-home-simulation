@@ -30,7 +30,7 @@ public class ConsumptionReport {
         double totalElectricity = 0;
         double totalWater = 0;
         double totalGas = 0;
-        int day = SHSystem.getInstance().getTimer().getDay();
+        int day = SHSystem.getInstance().getSimulation().getDay();
 
         consumptionReport.write("__________________________________ Report for the " + day + " day __________________________________\n");
 

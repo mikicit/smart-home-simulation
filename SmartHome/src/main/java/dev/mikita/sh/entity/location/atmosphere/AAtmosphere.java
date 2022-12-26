@@ -1,12 +1,12 @@
 package dev.mikita.sh.entity.location.atmosphere;
 
 import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.time.ITimeTracker;
+import dev.mikita.sh.core.simulation.ITimeTracker;
 
 public abstract class AAtmosphere implements ITimeTracker {
     public AAtmosphere() {
         // Init
-        SHSystem.getInstance().getTimer().subscribe(this);
+        SHSystem.getInstance().getSimulation().subscribe(this);
     }
 
     protected double temperature;

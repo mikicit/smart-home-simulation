@@ -3,7 +3,6 @@ package dev.mikita.sh.entity.device.heater.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-import dev.mikita.sh.entity.device.ADeviceState;
 
 import java.util.logging.Logger;
 
@@ -16,7 +15,7 @@ public class HeaterIdleState extends ADeviceIdleState {
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
         log.info(String.format("Heater is not working now [%s]",
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

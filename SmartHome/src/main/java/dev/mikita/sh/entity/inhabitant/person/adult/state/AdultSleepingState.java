@@ -1,7 +1,7 @@
 package dev.mikita.sh.entity.inhabitant.person.adult.state;
 
 import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.time.SimulationTime;
+import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 
@@ -16,18 +16,18 @@ public class AdultSleepingState extends AInhabitantState {
 
         log.info(String.format("Person \"%s\" went to bed [%s]",
                 inhabitant.getName(),
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
-        SimulationTime simulationTime = SHSystem.getInstance().getTimer();
+        Simulation simulationTime = SHSystem.getInstance().getSimulation();
 
         if (simulationTime.getHour() < 23 && simulationTime.getHour() >= 7) {
             inhabitant.changeState(new AdultWaitingState(inhabitant));
             log.info(String.format("Person \"%s\" waked up [%s]",
                     inhabitant.getName(),
-                    SHSystem.getInstance().getTimer().getFormattedTime()));
+                    SHSystem.getInstance().getSimulation().getFormattedTime()));
         }
     }
 }

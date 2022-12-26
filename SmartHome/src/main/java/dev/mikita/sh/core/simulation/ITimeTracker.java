@@ -1,4 +1,4 @@
-package dev.mikita.sh.core.time;
+package dev.mikita.sh.core.simulation;
 
 import java.io.IOException;
 

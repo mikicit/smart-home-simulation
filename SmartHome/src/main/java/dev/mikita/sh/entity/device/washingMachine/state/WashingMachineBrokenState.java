@@ -18,7 +18,7 @@ public class WashingMachineBrokenState extends ADeviceBrokenState {
 
         log.info(String.format("Washing machine in room \"%s\" is broken now [%s]",
                 device.getRoom().getName(),
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

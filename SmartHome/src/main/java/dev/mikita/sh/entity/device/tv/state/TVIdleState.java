@@ -15,7 +15,7 @@ public class TVIdleState extends ADeviceIdleState {
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
         log.info(String.format("TV is not being used now [%s]",
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
 

@@ -15,7 +15,7 @@ public class MicrowaveUsingState extends ADeviceUsingState {
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
         log.info(String.format("Microwave is being used now [%s]",
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

@@ -16,7 +16,7 @@ public class WashingMachineUsingState extends ADeviceUsingState {
         this.WATER_CONSUMPTION = 60;
 
         log.info(String.format("Washing machine is being used now [%s]",
-                SHSystem.getInstance().getTimer().getFormattedTime()));
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
