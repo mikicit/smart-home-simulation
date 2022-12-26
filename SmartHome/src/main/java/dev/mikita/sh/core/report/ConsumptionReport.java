@@ -1,8 +1,6 @@
 package dev.mikita.sh.core.report;
 
 import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.time.ITimeTracker;
-import dev.mikita.sh.core.time.SimulationTime;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.DeviceFactory;
 
@@ -14,15 +12,16 @@ import java.util.List;
 public class ConsumptionReport {
     private FileWriter consumptionReport = null;
 
+    // TODO Поменять путь для отчетов
     public ConsumptionReport() {
         try {
-            this.consumptionReport = new FileWriter("SmartHome/src/main/resources/ConsumptionReport.txt");
+            this.consumptionReport = new FileWriter("report/ConsumptionReport.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
+    // TODO А нужен ли тут этот публичный метод?
     public List<ADevice> getAllDevices() {
         return new ArrayList<>(DeviceFactory.getInstance().getDevices());
     }
@@ -32,7 +31,6 @@ public class ConsumptionReport {
         double totalWater = 0;
         double totalGas = 0;
         int day = SHSystem.getInstance().getTimer().getDay();
-
 
         consumptionReport.write("__________________________________ Report for the " + day + " day __________________________________\n");
 

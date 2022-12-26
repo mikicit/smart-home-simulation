@@ -6,7 +6,6 @@ import dev.mikita.sh.core.time.ITimeTracker;
 import java.io.IOException;
 
 public class ReportSystem implements ITimeTracker {
-
     private long time = 0;
     private final ActivityAndUsageReport activityAndUsageReport = new ActivityAndUsageReport();
     private final HouseConfigurationReport houseConfigurationReport = new HouseConfigurationReport();
@@ -17,6 +16,7 @@ public class ReportSystem implements ITimeTracker {
         // Init
         SHSystem.getInstance().getTimer().subscribe(this);
     }
+
     public ActivityAndUsageReport getActivityAndUsageReport() {
         return activityAndUsageReport;
     }
@@ -28,7 +28,6 @@ public class ReportSystem implements ITimeTracker {
     private void generateConsumptionReport() throws IOException {
         consumptionReport.generateReport();
     }
-
 
     @Override
     public void update(long time) throws IOException {
