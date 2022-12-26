@@ -28,18 +28,18 @@ public class SimulationTime {
         }
 
         if (sec >= 60) {
+            min += sec / 60;
             sec = sec % 60;
-            min++;
         }
 
         if (min >= 60) {
+            hour += min / 60;
             min = min % 60;
-            hour++;
         }
 
         if (hour >= 24) {
+            day += hour / 24;
             hour = hour % 24;
-            day++;
         }
 
         for (ITimeTracker subscriber : this.subscribers) {
