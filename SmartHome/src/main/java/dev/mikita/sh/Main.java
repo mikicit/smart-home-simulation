@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.logging.LogManager;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         SHSystem system = SHSystem.getInstance();
         system.init();
         system.start(9000000000000000000L);

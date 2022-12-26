@@ -6,6 +6,8 @@ import dev.mikita.sh.core.time.SimulationTime;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.location.builder.HouseBuilder;
 
+import java.io.IOException;
+
 public class SHSystem {
     private static SHSystem instance;
     private EventDispatcher eventDispatcher;
@@ -22,7 +24,7 @@ public class SHSystem {
         return instance;
     }
 
-    public void init() {
+    public void init() throws IOException {
         // Init Services
         eventDispatcher = new EventDispatcher();
         timer = new SimulationTime();
@@ -68,9 +70,9 @@ public class SHSystem {
                 .getResult();
     }
 
-    public void start(long timeToSimulate) {
+    public void start(long timeToSimulate) throws IOException {
         long lastUpdate = System.nanoTime();
-        int speed = 1000;
+        int speed = 10000;
 
         while (timeToSimulate > 0) {
             long currentTime = System.nanoTime();

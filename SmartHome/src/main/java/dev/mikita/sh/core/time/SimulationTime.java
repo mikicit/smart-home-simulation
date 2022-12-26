@@ -1,5 +1,6 @@
 package dev.mikita.sh.core.time;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class SimulationTime {
         this.subscribers.remove(subscriber);
     }
 
-    public void update(long time) {
+    public void update(long time) throws IOException {
         this.time += time;
 
         if (this.time > 1000000000) {
