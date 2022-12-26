@@ -41,4 +41,9 @@ public class HeatSensor extends AInternalSensor {
     protected void switchState() {
         state = state == HeatSensorState.NORMAL ? HeatSensorState.COLD : HeatSensorState.NORMAL;
     }
+
+    @Override
+    protected void resetState() {
+        state = HeatSensorState.NORMAL;
+    }
 }

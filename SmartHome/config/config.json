@@ -1,27 +1,48 @@
 {
   "inhabitants": {
     "persons": {
-      "children": [{
-
-      }],
+      "children": [
+        {
+          "name": "Jiri Sebek"
+        }
+      ],
       "adults": [
         {
-
+          "name": "Mikita"
+        },
+        {
+          "name": "Roma"
+        },
+        {
+          "name": "Darina"
         }
       ]
     },
     "pets": [
       {
-
+        "name": "Dog"
+      },
+      {
+        "name": "Dragon"
       }
     ]
   },
   "home": {
     "floors": [
       {
+        "level": 1,
         "rooms": [
           {
+            "name": "Kitchen",
+            "sensors": [
 
+            ],
+            "items": [
+
+            ],
+            "devices": [
+
+            ]
           }
         ]
       }

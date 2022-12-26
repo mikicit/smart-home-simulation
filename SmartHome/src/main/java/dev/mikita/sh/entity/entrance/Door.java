@@ -7,10 +7,12 @@ public class Door extends AEntrance {
         super(room);
     }
 
+    @Override
     public void open() {
         state = EntranceState.OPEN;
     }
 
+    @Override
     public void close() {
         state = EntranceState.CLOSE;
     }

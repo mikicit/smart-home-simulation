@@ -39,4 +39,9 @@ public class WindSensor extends AExternalSensor {
     protected void switchState() {
         state = state == WindSensorState.WIND ? WindSensorState.NO_WIND : WindSensorState.WIND;
     }
+
+    @Override
+    protected void resetState() {
+        state = WindSensorState.NO_WIND;
+    }
 }
