@@ -12,4 +12,5 @@ public interface IUsableObject {
     int getLeisurePerHour();
     boolean isUsing();
     String getName();
+    boolean isBroken();
 }

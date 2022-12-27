@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.inhabitant.person.adult.state;
 
 import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import java.util.logging.Logger;
@@ -37,6 +38,16 @@ public class AdultDeviceUsingState extends AInhabitantState {
 
         // UnUse
         if (this.time > inhabitant.getUsableObject().getUsageTimeInHour() / 3600F * 1000000000) {
+            inhabitant.getUsableObject().unUse(inhabitant);
+            inhabitant.changeState(new AdultWaitingState(inhabitant));
+        }
+        else if (Math.random() >= inhabitant.getDeviceBreakingChance()) {
+            log.info(String.format("Person \"%s\" broke the device \"%s\" :( [%s]",
+                    inhabitant.getName(),
+                    inhabitant.getUsableObject().getName(),
+                    SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+            ((ADevice) inhabitant.getUsableObject()).toBeBroken(inhabitant);
             inhabitant.getUsableObject().unUse(inhabitant);
             inhabitant.changeState(new AdultWaitingState(inhabitant));
         }

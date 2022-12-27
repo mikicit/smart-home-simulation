@@ -14,18 +14,20 @@ public class MicrowaveUsingState extends ADeviceUsingState {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
-        log.info(String.format("Microwave is being used now [%s]",
+        log.info(String.format("Microwave in room \"%s\" is being used now [%s]",
+                device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
-        this.time += time;
-        device.setTime(device.getTime() + time);
-
-        if (device.getTime() > 5000 * 3600D * 1000000000L) {
+        // Wear out time
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
             device.changeState(new MicrowaveBrokenState(device));
         }
+
+        this.time += time;
+        device.setTime(device.getTime() + time);
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()

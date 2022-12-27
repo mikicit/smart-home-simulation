@@ -49,7 +49,8 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     }
 
     public void moveTo(Room room) {
-        log.info(String.format("\"%s\" moved from room \"%s\" to room \"%s\" [%s]",
+        log.info(String.format("%s \"%s\" moved from room \"%s\" to room \"%s\" [%s]",
+                this.getClass().getSimpleName(),
                 this.getName(),
                 this.getRoom().getName(),
                 room.getName(),

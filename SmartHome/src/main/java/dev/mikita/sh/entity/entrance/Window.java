@@ -38,7 +38,7 @@ public class Window extends AEntrance {
     public void open() {
         state = EntranceState.OPEN;
 
-        log.info(String.format("The window was open in room \"%s\" [%s]",
+        log.info(String.format("The window was opened in room \"%s\" [%s]",
                 room.getName(), SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
@@ -46,7 +46,7 @@ public class Window extends AEntrance {
     public void close() {
         state = EntranceState.CLOSE;
 
-        log.info(String.format("The window was close in room \"%s\" [%s]",
+        log.info(String.format("The window was closed in room \"%s\" [%s]",
                 room.getName(), SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 }

@@ -32,6 +32,9 @@ public class ConsumptionReport {
         // Electricity consumption
         consumptionReport.write("_________________ Electricity consumption _________________\n");
         for (ADevice device : allDevices) {
+
+            // TODO не работает выпис у девайсов
+
             totalElectricity += device.calculateElectricityConsumption();
             consumptionReport.write(device.getName() + " has used " + device.calculateElectricityConsumption() + " KwH " + "electricity for today.\n");
         }

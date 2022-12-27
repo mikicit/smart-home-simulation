@@ -13,6 +13,7 @@ import dev.mikita.sh.entity.location.Room;
 public class Oven extends ADevice {
     public Oven(Room room, String name) {
         super(room, name);
+        this.state = new OvenIdleState(this);
         this.operatingTimeInHours = 1500;
         this.usageTimeInHour = 1;
         this.hungerPerHour = 25;

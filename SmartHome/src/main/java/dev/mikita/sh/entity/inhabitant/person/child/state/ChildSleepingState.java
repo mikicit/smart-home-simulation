@@ -29,6 +29,7 @@ public class ChildSleepingState extends AInhabitantState {
 
         if (simulationTime.getHour() < 21 && simulationTime.getHour() >= 8) {
             inhabitant.changeState(new ChildAwakeState(inhabitant));
+
             log.info(String.format("Child \"%s\" woke up [%s]",
                     inhabitant.getName(),
                     SHSystem.getInstance().getSimulation().getFormattedTime()));

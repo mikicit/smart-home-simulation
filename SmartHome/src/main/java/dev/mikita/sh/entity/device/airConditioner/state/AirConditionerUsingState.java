@@ -11,12 +11,12 @@ public class AirConditionerUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        this.time += time;
-
-        if (device.getTime() > 5000 * 3600D * 1000000000L) {
+        // Wear out time
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
             device.changeState(new AirConditionerBrokenState(device));
         }
 
+        this.time += time;
         device.setTime(device.getTime() + time);
 
         // Consumption

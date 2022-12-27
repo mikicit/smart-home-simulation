@@ -64,4 +64,9 @@ public abstract class AItem implements IUsableObject {
         inhabitant.unUseObject(this);
         isUsing = false;
     }
+
+    @Override
+    public boolean isBroken() {
+        return false;
+    }
 }

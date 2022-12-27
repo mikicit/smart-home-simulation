@@ -13,6 +13,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     protected ADeviceState state;
     protected String name;
     protected long time = 0;
+    protected boolean isBroken = false;
 
     // Constants
     protected int operatingTimeInHours = 0;
@@ -129,6 +130,11 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     @Override
     public boolean isUsing() {
         return state instanceof ADeviceUsingState;
+    }
+
+    @Override
+    public boolean isBroken() {
+        return isBroken;
     }
 
     public abstract void fix(Adult person);

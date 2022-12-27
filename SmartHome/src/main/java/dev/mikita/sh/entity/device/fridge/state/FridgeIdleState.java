@@ -14,19 +14,20 @@ public class FridgeIdleState extends ADeviceIdleState {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
-        log.info(String.format("Fridge is not being used now [%s]",
+        log.info(String.format("Fridge in room \"%s\" is not being used now [%s]",
+                device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
-        this.time += time;
-        device.setTime(device.getTime() + this.time);
-
-        // TODO Ломается сразу, херня со временем, странные значения в глобальном тайме
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
+        // Wear out time
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
             device.changeState(new FridgeBrokenState(device));
         }
+
+        this.time += time;
+        device.setTime(device.getTime() + time);
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()

@@ -15,6 +15,7 @@ public class ChildDeviceUsingState extends AInhabitantState {
 
     public ChildDeviceUsingState(AInhabitant inhabitant) {
         super(inhabitant);
+
         log.info(String.format("Child \"%s\" is trying to use object \"%s\" [%s]",
                 inhabitant.getName(),
                 inhabitant.getUsableObject().getName(),

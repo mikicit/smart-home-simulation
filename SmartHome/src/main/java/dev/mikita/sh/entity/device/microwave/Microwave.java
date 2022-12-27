@@ -13,6 +13,7 @@ import dev.mikita.sh.entity.location.Room;
 public class Microwave extends ADevice {
     public Microwave(Room room, String name) {
         super(room, name);
+        this.state = new MicrowaveIdleState(this);
         this.operatingTimeInHours = 1000;
         this.usageTimeInHour = 0.084;
         this.hungerPerHour = 25;

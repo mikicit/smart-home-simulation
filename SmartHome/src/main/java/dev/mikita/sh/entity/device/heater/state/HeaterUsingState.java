@@ -16,7 +16,8 @@ public class HeaterUsingState extends ADeviceUsingState {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
-        log.info(String.format("Heater is working now [%s]",
+        log.info(String.format("Heater in room \"%s\" is working now [%s]",
+                device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 

@@ -15,18 +15,20 @@ public class OvenUsingState extends ADeviceUsingState {
         this.ELECTRICITY_CONSUMPTION = 1;
         this.GAS_CONSUMPTION = 2;
 
-        log.info(String.format("Oven is being used now [%s]",
+        log.info(String.format("Oven in room \"%s\" is being used now [%s]",
+                device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 5000) {
+        // Wear out time
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
             device.changeState(new OvenBrokenState(device));
         }
 
-        device.setTime(device.getTime() + time);
         this.time += time;
+        device.setTime(device.getTime() + time);
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()

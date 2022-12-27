@@ -1,16 +1,27 @@
 package dev.mikita.sh.entity.inhabitant.person.adult;
 
+import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.core.event.BaseTestHandler;
+import dev.mikita.sh.core.event.BaseTestHandlerA;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineIdleState;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceUsingState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultWaitingState;
+import dev.mikita.sh.entity.inhabitant.person.child.Child;
+import dev.mikita.sh.entity.inhabitant.pet.APet;
 import dev.mikita.sh.entity.location.Room;
+import dev.mikita.sh.event.HungryChildEvent;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 public class Adult extends APerson {
+    // Logger
+    private static final Logger log = Logger.getLogger(Adult.class.getName());
+
     public Adult(Room room, String name) {
         super(room, name);
         this.state = new AdultWaitingState(this);
@@ -26,23 +37,30 @@ public class Adult extends APerson {
         device.fix(this);
     }
 
-    private void usedObjectsMap(APerson person, IUsableObject object) {
-        if (!usedObjects.containsKey(person)) {
-            usedObjects.put(person, new HashMap<>());
-        }
+    // TODO handle events
+    public void feedChild(Child child) {
+        moveTo(child.getRoom());
+        child.setHungerIndicator(100);
+    }
 
-        if (!usedObjects.get(person).containsKey(object)) {
-            usedObjects.get(person).put(object, 0);
-        }
+    public void feedPet(APet pet) {
+        moveTo(pet.getRoom());
+        pet.setHungerIndicator(100);
+    }
 
-        usedObjects.get(person).put(object, usedObjects.get(person).get(object) + 1);
+    public void playWithPet(APet pet) {
+        pet.setLeisureIndicator(85);
     }
 
     @Override
     public void useObject(IUsableObject object) {
-        this.usingObject = object;
-        usedObjectsMap(this, object);
-        changeState(new AdultDeviceUsingState(this));
+            this.usingObject = object;
+            usedObjectsMap(this, object);
+            changeState(new AdultDeviceUsingState(this));
+
+//            log.info(String.format("Device \"%s\" is broken, cannot be used! [%s]",
+//                    object.getName(),
+//                    SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
@@ -65,5 +83,17 @@ public class Adult extends APerson {
     @Override
     public void changeState(AInhabitantState state) {
         this.state = state;
+    }
+
+    private void usedObjectsMap(APerson person, IUsableObject object) {
+        if (!usedObjects.containsKey(person)) {
+            usedObjects.put(person, new HashMap<>());
+        }
+
+        if (!usedObjects.get(person).containsKey(object)) {
+            usedObjects.get(person).put(object, 0);
+        }
+
+        usedObjects.get(person).put(object, usedObjects.get(person).get(object) + 1);
     }
 }

@@ -14,18 +14,20 @@ public class TVUsingState extends ADeviceUsingState {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.28;
 
-        log.info(String.format("TV is being used now [%s]",
+        log.info(String.format("TV in room \"%s\" is being used now [%s]",
+                device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
+        // Wear out time
         if (device.getTime() > 5000 * 3600D * 1000000000L) {
             device.changeState(new TVBrokenState(device));
         }
 
-        device.setTime(device.getTime() + time);
         this.time += time;
+        device.setTime(device.getTime() + time);
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()

@@ -11,12 +11,13 @@ public class LightUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 5000) {
+        // Wear out ime
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
             device.changeState(new LightBrokenState(device));
         }
 
-        device.setTime(device.getTime() + time);
         this.time += time;
+        device.setTime(device.getTime() + time);
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()

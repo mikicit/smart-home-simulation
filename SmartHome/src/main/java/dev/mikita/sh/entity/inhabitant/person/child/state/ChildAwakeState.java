@@ -1,16 +1,21 @@
 package dev.mikita.sh.entity.inhabitant.person.child.state;
 
 import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.device.DeviceFactory;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
+import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceUsingState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultSleepingState;
+import dev.mikita.sh.entity.inhabitant.person.child.Child;
 import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.item.ItemFactory;
+import dev.mikita.sh.event.DeviceIsBrokenEvent;
+import dev.mikita.sh.event.HungryChildEvent;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -41,6 +46,16 @@ public class ChildAwakeState extends AInhabitantState {
                 - (inhabitant.getHungerPerHour() / 3600D * 1000000000) * time);
         inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator()
                 - (inhabitant.getLeisurePerHour() / 3600D * 1000000000) * time);
+
+        // Hungry event
+        if (inhabitant.getHungerIndicator() == 0) {
+            SHSystem.getInstance().getEventDispatcher()
+                    .dispatchEvent(new HungryChildEvent(inhabitant, inhabitant.getRoom()), inhabitant.getRoom().toString());
+
+            log.info(String.format("Child \"%s\": \"I'm HUUUNGRYYY :'(\" [%s]",
+                    inhabitant.getName(),
+                    SHSystem.getInstance().getSimulation().getFormattedTime()));
+        }
 
         // Device using
         if (inhabitant.getLeisureIndicator() == 0) {
