@@ -20,7 +20,7 @@ public class WashingMachineIdleState extends ADeviceIdleState {
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 10L * 1000000000L) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
             device.changeState(new WashingMachineBrokenState(device));
         }
 
@@ -29,6 +29,6 @@ public class WashingMachineIdleState extends ADeviceIdleState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * this.time);
     }
 }

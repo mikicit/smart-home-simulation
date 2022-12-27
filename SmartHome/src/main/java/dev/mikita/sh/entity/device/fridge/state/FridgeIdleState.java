@@ -21,7 +21,7 @@ public class FridgeIdleState extends ADeviceIdleState {
     @Override
     public void update(long time) {
         this.time += time;
-        device.setTime(device.getTime() + time);
+        device.setTime(device.getTime() + this.time);
 
         // TODO Ломается сразу, херня со временем, странные значения в глобальном тайме
         if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
@@ -30,7 +30,7 @@ public class FridgeIdleState extends ADeviceIdleState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * time);
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
 
     }
 }

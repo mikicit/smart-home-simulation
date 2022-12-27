@@ -29,10 +29,10 @@ public class HeaterUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * time);
+                + (ELECTRICITY_CONSUMPTION / 3600L * 1000000000L * this.time));
 
         // Temperature
         atmosphere.setTemperature(atmosphere.getTemperature()
-                + (heatingPerHour / (3600L * 1000000000L)) * time);
+                + (heatingPerHour / (3600L * 1000000000L)) * this.time);
     }
 }

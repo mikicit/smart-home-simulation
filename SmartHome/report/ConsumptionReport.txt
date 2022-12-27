@@ -7,7 +7,7 @@ Tv has used 0.0 KwH electricity for today.
 Washing machine has used 0.0 KwH electricity for today.
 Fridge has used 0.0 KwH electricity for today.
 Heater has used 0.0 KwH electricity for today.
-Total electricity used by day: 2.94439222044473E19 KwH
+Total electricity used by day: 8.709683933696003E21 KwH.
 _________________ Water consumption _________________
 Heater has used 0.0 litre water for today.
 Heater has used 0.0 litre water for today.
@@ -16,7 +16,35 @@ Tv has used 0.0 litre water for today.
 Washing machine has used 0.0 litre water for today.
 Fridge has used 0.0 litre water for today.
 Heater has used 0.0 litre water for today.
-Total water used by day: 0.0 litre
+Total water used by day: 5.555556E18 litre.
+_________________ Gas consumption _________________
+Heater has used 0.0 cu. m. gas for today.
+Heater has used 0.0 cu. m. gas for today.
+Heater has used 0.0 cu. m. gas for today.
+Tv has used 0.0 cu. m. gas for today.
+Washing machine has used 0.0 cu. m. gas for today.
+Fridge has used 0.0 cu. m. gas for today.
+Heater has used 0.0 cu. m. gas for today.
+Total gas used by day: 0.0 cu. m.
+__________________________________ Report for the 2 day __________________________________
+_________________ Electricity consumption _________________
+Heater has used 0.0 KwH electricity for today.
+Heater has used 0.0 KwH electricity for today.
+Heater has used 0.0 KwH electricity for today.
+Tv has used 0.0 KwH electricity for today.
+Washing machine has used 0.0 KwH electricity for today.
+Fridge has used 0.0 KwH electricity for today.
+Heater has used 0.0 KwH electricity for today.
+Total electricity used by day: 1.2458368597788455E22 KwH.
+_________________ Water consumption _________________
+Heater has used 0.0 litre water for today.
+Heater has used 0.0 litre water for today.
+Heater has used 0.0 litre water for today.
+Tv has used 0.0 litre water for today.
+Washing machine has used 0.0 litre water for today.
+Fridge has used 0.0 litre water for today.
+Heater has used 0.0 litre water for today.
+Total water used by day: 2.778264E18 litre.
 _________________ Gas consumption _________________
 Heater has used 0.0 cu. m. gas for today.
 Heater has used 0.0 cu. m. gas for today.

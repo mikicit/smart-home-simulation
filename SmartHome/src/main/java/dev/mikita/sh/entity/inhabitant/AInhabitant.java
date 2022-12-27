@@ -3,9 +3,11 @@ package dev.mikita.sh.entity.inhabitant;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.simulation.ITimeTracker;
-import dev.mikita.sh.entity.UsableObject;
+import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.location.Room;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import static java.lang.Double.max;
@@ -17,7 +19,8 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     protected final String name;
     protected Room room;
     protected AInhabitantState state;
-    protected UsableObject usingObject = null;
+    protected IUsableObject usingObject = null;
+    protected Map<AInhabitant, Map<IUsableObject, Integer>> usedObjects = new HashMap<>();
 
     // Constants
     protected int hungerPerHour = 0;
@@ -47,7 +50,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     public void moveTo(Room room) {
         log.info(String.format("\"%s\" moved from room \"%s\" to room \"%s\" [%s]",
                 this.getName(),
-                this.getRoom(),
+                this.getRoom().getName(),
                 room.getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
 
@@ -82,11 +85,15 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
         return leisureIndicator;
     }
 
-    public UsableObject getUsableObject() {
+    public IUsableObject getUsableObject() {
         return usingObject;
     }
 
+    public Map<AInhabitant, Map<IUsableObject, Integer>> getUsedObjects() {
+        return usedObjects;
+    }
+
     public abstract void changeState(AInhabitantState state);
-    public abstract void useObject(UsableObject object);
-    public abstract void unUseObject(UsableObject object);
+    public abstract void useObject(IUsableObject object);
+    public abstract void unUseObject(IUsableObject object);
 }

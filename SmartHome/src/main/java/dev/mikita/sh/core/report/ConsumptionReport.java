@@ -11,8 +11,6 @@ import java.util.List;
 
 public class ConsumptionReport {
     private FileWriter consumptionReport = null;
-
-    // TODO Поменять путь для отчетов
     public ConsumptionReport() {
         try {
             this.consumptionReport = new FileWriter("report/ConsumptionReport.txt");
@@ -21,12 +19,9 @@ public class ConsumptionReport {
         }
     }
 
-    // TODO А нужен ли тут этот публичный метод?
-    public List<ADevice> getAllDevices() {
-        return new ArrayList<>(DeviceFactory.getInstance().getDevices());
-    }
-
     public void generateReport() throws IOException {
+        List<ADevice> allDevices = new ArrayList<>(DeviceFactory.getInstance().getDevices());
+
         double totalElectricity = 0;
         double totalWater = 0;
         double totalGas = 0;
@@ -36,23 +31,23 @@ public class ConsumptionReport {
 
         // Electricity consumption
         consumptionReport.write("_________________ Electricity consumption _________________\n");
-        for (ADevice device : getAllDevices()) {
+        for (ADevice device : allDevices) {
             totalElectricity += device.calculateElectricityConsumption();
             consumptionReport.write(device.getName() + " has used " + device.calculateElectricityConsumption() + " KwH " + "electricity for today.\n");
         }
-        consumptionReport.write("Total electricity used by day: " + totalElectricity + " KwH\n");
+        consumptionReport.write("Total electricity used by day: " + totalElectricity + " KwH.\n");
 
         // Water consumption
         consumptionReport.write("_________________ Water consumption _________________\n");
-        for (ADevice device : getAllDevices()) {
+        for (ADevice device : allDevices) {
             totalWater += device.calculateWaterConsumption();
             consumptionReport.write(device.getName() + " has used " + device.calculateWaterConsumption() + " litre " + "water for today.\n");
         }
-        consumptionReport.write("Total water used by day: " + totalWater + " litre\n");
+        consumptionReport.write("Total water used by day: " + totalWater + " litre.\n");
 
         // Gas consumption
         consumptionReport.write("_________________ Gas consumption _________________\n");
-        for (ADevice device : getAllDevices()) {
+        for (ADevice device : allDevices) {
             totalGas += device.calculateGasConsumption();
             consumptionReport.write(device.getName() + " has used " + device.calculateGasConsumption() + " cu. m. " + "gas for today.\n");
         }

@@ -2,6 +2,8 @@ package dev.mikita.sh.core.report;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.ITimeTracker;
+import dev.mikita.sh.entity.inhabitant.person.APerson;
+
 import java.io.IOException;
 
 public class ReportSystem implements ITimeTracker {
@@ -28,12 +30,17 @@ public class ReportSystem implements ITimeTracker {
         consumptionReport.generateReport();
     }
 
+    private void generateActivityAndUsageReport() throws IOException {
+        activityAndUsageReport.generateReport();
+    }
+
     @Override
     public void update(long time) throws IOException {
         this.time += time;
 
         if (this.time > 23 * 3600L * 1000000000L && this.time < 24 * 3600L * 1000000000L) {
             generateConsumptionReport();
+            generateActivityAndUsageReport();
             this.time = 0;
         }
     }

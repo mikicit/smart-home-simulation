@@ -1,0 +1,22 @@
+__________________________________ Report for the 1 day __________________________________
+Adult Mikita has used Washing machine 2 times this day.
+Adult Mikita has used Car 7 times this day.
+Adult Mikita has used Bike 10 times this day.
+Adult Mikita has used Skis 11 times this day.
+Adult Mikita has used Guitar 9 times this day.
+Adult Roma has used Tv 2 times this day.
+Adult Roma has used Car 7 times this day.
+Adult Roma has used Bike 10 times this day.
+Adult Roma has used Skis 10 times this day.
+Adult Roma has used Guitar 9 times this day.
+__________________________________ Report for the 2 day __________________________________
+Adult Mikita has used Tv 1 times this day.
+Adult Mikita has used Washing machine 1 times this day.
+Adult Mikita has used Car 7 times this day.
+Adult Mikita has used Skis 14 times this day.
+Adult Mikita has used Bike 13 times this day.
+Adult Roma has used Tv 2 times this day.
+Adult Roma has used Car 2 times this day.
+Adult Roma has used Bike 5 times this day.
+Adult Roma has used Skis 3 times this day.
+Adult Roma has used Guitar 26 times this day.

@@ -6,7 +6,7 @@ import dev.mikita.sh.entity.sensor.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExternalSensorFactory implements SensorFactory {
+public class ExternalSensorFactory implements ISensorFactory {
     private static ExternalSensorFactory instance;
     private final List<ASensor> sensors = new ArrayList<>();
 

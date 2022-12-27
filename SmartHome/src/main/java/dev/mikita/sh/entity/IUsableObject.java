@@ -2,7 +2,7 @@ package dev.mikita.sh.entity;
 
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 
-public interface UsableObject {
+public interface IUsableObject {
     // TODO Add check on broken device
     void use(AInhabitant inhabitant);
     void unUse(AInhabitant inhabitant);

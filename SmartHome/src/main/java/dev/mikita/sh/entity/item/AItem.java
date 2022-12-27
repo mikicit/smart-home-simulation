@@ -1,10 +1,10 @@
 package dev.mikita.sh.entity.item;
 
-import dev.mikita.sh.entity.UsableObject;
+import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.location.Room;
 
-public abstract class AItem implements UsableObject {
+public abstract class AItem implements IUsableObject {
     private boolean isUsing = false;
     private final String name;
     private final Room room;

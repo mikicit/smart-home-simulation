@@ -1,6 +1,5 @@
 package dev.mikita.sh.entity.inhabitant.pet;
 
-import dev.mikita.sh.entity.UsableObject;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.location.Room;
 

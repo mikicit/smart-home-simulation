@@ -1,6 +1,6 @@
 package dev.mikita.sh.entity.inhabitant.person.child;
 
-import dev.mikita.sh.entity.UsableObject;
+import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
@@ -28,8 +28,8 @@ public class Child extends APerson {
     }
 
     @Override
-    public void useObject(UsableObject object) {}
+    public void useObject(IUsableObject object) {}
 
     @Override
-    public void unUseObject(UsableObject object) {}
+    public void unUseObject(IUsableObject object) {}
 }

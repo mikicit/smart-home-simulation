@@ -1,19 +1,15 @@
 package dev.mikita.sh.entity.location.builder;
 
-import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.DeviceFactory;
-import dev.mikita.sh.entity.entrance.AEntrance;
 import dev.mikita.sh.entity.entrance.EntranceFactory;
-import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.PersonFactory;
 import dev.mikita.sh.entity.inhabitant.pet.PetFactory;
-import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.item.ItemFactory;
 import dev.mikita.sh.entity.location.Floor;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.entity.sensor.AInternalSensor;
 import dev.mikita.sh.entity.sensor.factories.InternalSensorFactory;
-import dev.mikita.sh.entity.sensor.factories.SensorFactory;
+import dev.mikita.sh.entity.sensor.factories.ISensorFactory;
 
 public class RoomBuilder {
     private final Room room;
@@ -67,7 +63,7 @@ public class RoomBuilder {
     }
 
     public RoomBuilder addSensor(String type) {
-        SensorFactory sensorFactory = InternalSensorFactory.getInstance();
+        ISensorFactory sensorFactory = InternalSensorFactory.getInstance();
 
         room.addSensor((AInternalSensor) sensorFactory.create(type, room));
         return this;

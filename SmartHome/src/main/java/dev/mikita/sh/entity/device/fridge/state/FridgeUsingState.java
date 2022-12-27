@@ -21,7 +21,7 @@ public class FridgeUsingState extends ADeviceUsingState {
     @Override
     public void update(long time) {
         this.time += time;
-        device.setTime(device.getTime() + time);
+        device.setTime(device.getTime() + this.time);
 
         if (device.getTime() > device.getOperatingTimeInHours() * 3600F * 1000000000) {
             device.changeState(new FridgeBrokenState(device));
@@ -29,6 +29,6 @@ public class FridgeUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * this.time);
     }
 }

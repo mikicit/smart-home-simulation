@@ -21,7 +21,7 @@ public class WashingMachineUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 5000) {
+        if (device.getTime() > 1400 * 3600L * 1000000000L) {
             device.changeState(new WashingMachineBrokenState(device));
         }
 
@@ -30,8 +30,8 @@ public class WashingMachineUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * time);
+                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * this.time);
         device.setCurrentWaterConsumption(device.getCurrentWaterConsumption()
-                + (WATER_CONSUMPTION / 3600F * 1000000000) * time);
+                + (WATER_CONSUMPTION / 3600F * 1000000000) * this.time);
     }
 }

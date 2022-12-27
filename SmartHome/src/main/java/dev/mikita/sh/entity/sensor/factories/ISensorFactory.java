@@ -5,7 +5,7 @@ import dev.mikita.sh.entity.sensor.ASensor;
 
 import java.util.List;
 
-public interface SensorFactory {
+public interface ISensorFactory {
     ASensor create(String type, ILocation location);
     List<ASensor> getSensors();
 }
