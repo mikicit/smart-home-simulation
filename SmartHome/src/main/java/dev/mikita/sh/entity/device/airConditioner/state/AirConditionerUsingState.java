@@ -11,12 +11,13 @@ public class AirConditionerUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 5000) {
+        this.time += time;
+
+        if (device.getTime() > 5000 * 3600D * 1000000000L) {
             device.changeState(new AirConditionerBrokenState(device));
         }
 
         device.setTime(device.getTime() + time);
-        this.time += time;
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()

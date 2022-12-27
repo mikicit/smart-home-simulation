@@ -20,7 +20,7 @@ public class TVUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 5000) {
+        if (device.getTime() > 5000 * 3600D * 1000000000L) {
             device.changeState(new TVBrokenState(device));
         }
 

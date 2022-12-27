@@ -1,9 +1,11 @@
 package dev.mikita.sh.entity.device.light;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.light.state.LightBrokenState;
 import dev.mikita.sh.entity.device.light.state.LightFixingState;
 import dev.mikita.sh.entity.device.light.state.LightIdleState;
 import dev.mikita.sh.entity.device.light.state.LightUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -33,6 +35,12 @@ public class Light extends ADevice {
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new LightFixingState(this));
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
+        inhabitant.toBreakDevice(this);
+        changeState(new LightBrokenState(this));
     }
 
     @Override

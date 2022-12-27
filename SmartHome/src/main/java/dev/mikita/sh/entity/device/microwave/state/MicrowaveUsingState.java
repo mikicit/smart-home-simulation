@@ -20,15 +20,15 @@ public class MicrowaveUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        if (device.getTime() > 5000) {
+        this.time += time;
+        device.setTime(device.getTime() + time);
+
+        if (device.getTime() > 5000 * 3600D * 1000000000L) {
             device.changeState(new MicrowaveBrokenState(device));
         }
 
-        device.setTime(device.getTime() + time);
-        this.time += time;
-
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * this.time);
+                + (ELECTRICITY_CONSUMPTION / 3600D * 1000000000L) * this.time);
     }
 }

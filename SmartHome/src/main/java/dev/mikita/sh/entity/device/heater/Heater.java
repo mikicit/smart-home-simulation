@@ -8,6 +8,7 @@ import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.heater.state.HeaterIdleState;
 import dev.mikita.sh.entity.device.heater.state.HeaterOffState;
 import dev.mikita.sh.entity.device.heater.state.HeaterUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -94,6 +95,11 @@ public class Heater extends ADevice {
 
     @Override
     public void fix(Adult person) {
+
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
 
     }
 

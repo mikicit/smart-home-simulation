@@ -4,6 +4,7 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.simulation.ITimeTracker;
 import dev.mikita.sh.entity.IUsableObject;
+import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.location.Room;
 
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     // Constants
     protected int hungerPerHour = 0;
     protected int leisurePerHour = 0;
-    protected int deviceBreakingChance = 0;
+    protected double deviceBreakingChance = 0;
 
     // Indicators
     protected double hungerIndicator = 0;
@@ -65,7 +66,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
         return leisurePerHour;
     }
 
-    public int getDeviceBreakingChance() {
+    public double getDeviceBreakingChance() {
         return deviceBreakingChance;
     }
 
@@ -96,4 +97,5 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     public abstract void changeState(AInhabitantState state);
     public abstract void useObject(IUsableObject object);
     public abstract void unUseObject(IUsableObject object);
+    public abstract void toBreakDevice(ADevice device);
 }

@@ -1,9 +1,12 @@
 package dev.mikita.sh.entity.inhabitant.person.child;
 
 import dev.mikita.sh.entity.IUsableObject;
+import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
+import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultWaitingState;
 import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
+import dev.mikita.sh.entity.inhabitant.person.child.state.ChildDeviceUsingState;
 import dev.mikita.sh.entity.location.Room;
 
 public class Child extends APerson {
@@ -14,7 +17,7 @@ public class Child extends APerson {
         this.leisureIndicator = 100;
         this.hungerPerHour = 10;
         this.leisurePerHour = 5;
-        this.deviceBreakingChance = 50;
+        this.deviceBreakingChance = 0.5;
     }
 
     @Override
@@ -28,8 +31,20 @@ public class Child extends APerson {
     }
 
     @Override
-    public void useObject(IUsableObject object) {}
+    public void useObject(IUsableObject object) {
+        this.usingObject = object;
+        changeState(new ChildDeviceUsingState(this));
+    }
 
     @Override
-    public void unUseObject(IUsableObject object) {}
+    public void unUseObject(IUsableObject object) {
+        this.usingObject = null;
+        changeState(new ChildAwakeState(this));
+    }
+
+    @Override
+    public void toBreakDevice(ADevice device) {
+        this.usingObject = device;
+        changeState(new ChildAwakeState(this));
+    }
 }

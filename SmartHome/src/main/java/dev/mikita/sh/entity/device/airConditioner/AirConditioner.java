@@ -1,9 +1,11 @@
 package dev.mikita.sh.entity.device.airConditioner;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.airConditioner.state.AirConditionerBrokenState;
 import dev.mikita.sh.entity.device.airConditioner.state.AirConditionerFixingState;
 import dev.mikita.sh.entity.device.airConditioner.state.AirConditionerIdleState;
 import dev.mikita.sh.entity.device.airConditioner.state.AirConditionerUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -33,6 +35,12 @@ public class AirConditioner extends ADevice {
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new AirConditionerFixingState(this));
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
+        inhabitant.toBreakDevice(this);
+        changeState(new AirConditionerBrokenState(this));
     }
 
     @Override

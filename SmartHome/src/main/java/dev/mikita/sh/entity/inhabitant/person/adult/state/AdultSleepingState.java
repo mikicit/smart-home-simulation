@@ -21,11 +21,13 @@ public class AdultSleepingState extends AInhabitantState {
 
     @Override
     public void update(long time) {
+        this.time += time;
+
         Simulation simulationTime = SHSystem.getInstance().getSimulation();
 
         if (simulationTime.getHour() < 23 && simulationTime.getHour() >= 7) {
             inhabitant.changeState(new AdultWaitingState(inhabitant));
-            log.info(String.format("Person \"%s\" waked up [%s]",
+            log.info(String.format("Person \"%s\" woke up [%s]",
                     inhabitant.getName(),
                     SHSystem.getInstance().getSimulation().getFormattedTime()));
         }

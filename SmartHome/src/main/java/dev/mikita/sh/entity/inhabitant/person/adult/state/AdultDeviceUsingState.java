@@ -23,11 +23,17 @@ public class AdultDeviceUsingState extends AInhabitantState {
         this.time += time;
 
         // Indicators
-        inhabitant.setHungerIndicator(inhabitant.getHungerIndicator() - (inhabitant.getHungerPerHour() / 3600D * 1000000000) * time);
-        inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator() - (inhabitant.getLeisurePerHour() / 3600D * 1000000000) * time);
+        inhabitant.setHungerIndicator(inhabitant.getHungerIndicator()
+                - (inhabitant.getHungerPerHour() / 3600D * 1000000000) * time);
 
-        inhabitant.setHungerIndicator(inhabitant.getHungerIndicator() + (inhabitant.getUsableObject().getHungerPerHour() / 3600D * 1000000000) * time);
-        inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator() + (inhabitant.getUsableObject().getLeisurePerHour() / 3600D * 1000000000) * time);
+        inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator()
+                - (inhabitant.getLeisurePerHour() / 3600D * 1000000000) * time);
+
+        inhabitant.setHungerIndicator(inhabitant.getHungerIndicator()
+                + (inhabitant.getUsableObject().getHungerPerHour() / 3600D * 1000000000) * time);
+
+        inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator()
+                + (inhabitant.getUsableObject().getLeisurePerHour() / 3600D * 1000000000) * time);
 
         // UnUse
         if (this.time > inhabitant.getUsableObject().getUsageTimeInHour() / 3600F * 1000000000) {

@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.device.washingMachine;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineFixingState;
 import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineIdleState;
 import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineUsingState;
@@ -34,6 +35,12 @@ public class WashingMachine extends ADevice {
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new WashingMachineFixingState(this));
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
+        inhabitant.toBreakDevice(this);
+        changeState(new WashingMachineBrokenState(this));
     }
 
     @Override

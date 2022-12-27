@@ -18,7 +18,7 @@ public class Adult extends APerson {
         this.leisureIndicator = 100;
         this.hungerPerHour = 10;
         this.leisurePerHour = 5;
-        this.deviceBreakingChance = 10;
+        this.deviceBreakingChance = 0.1;
     }
 
     public void fixDevice(ADevice device) {
@@ -48,6 +48,12 @@ public class Adult extends APerson {
     @Override
     public void unUseObject(IUsableObject object) {
         this.usingObject = null;
+        changeState(new AdultWaitingState(this));
+    }
+
+    @Override
+    public void toBreakDevice(ADevice device) {
+        this.usingObject = device;
         changeState(new AdultWaitingState(this));
     }
 

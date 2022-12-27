@@ -1,9 +1,11 @@
 package dev.mikita.sh.entity.device.fridge;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.device.fridge.state.FridgeFixingState;
 import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
 import dev.mikita.sh.entity.device.fridge.state.FridgeUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -34,6 +36,12 @@ public class Fridge extends ADevice {
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new FridgeFixingState(this));
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
+        inhabitant.toBreakDevice(this);
+        changeState(new FridgeBrokenState(this));
     }
 
     @Override

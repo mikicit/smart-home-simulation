@@ -1,9 +1,11 @@
 package dev.mikita.sh.entity.device.microwave;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.microwave.state.MicrowaveBrokenState;
 import dev.mikita.sh.entity.device.microwave.state.MicrowaveFixingState;
 import dev.mikita.sh.entity.device.microwave.state.MicrowaveIdleState;
 import dev.mikita.sh.entity.device.microwave.state.MicrowaveUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -33,6 +35,12 @@ public class Microwave extends ADevice {
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new MicrowaveFixingState(this));
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
+        inhabitant.toBreakDevice(this);
+        changeState(new MicrowaveBrokenState(this));
     }
 
     @Override

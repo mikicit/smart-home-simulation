@@ -1,9 +1,11 @@
 package dev.mikita.sh.entity.device.oven;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.oven.state.OvenBrokenState;
 import dev.mikita.sh.entity.device.oven.state.OvenFixingState;
 import dev.mikita.sh.entity.device.oven.state.OvenIdleState;
 import dev.mikita.sh.entity.device.oven.state.OvenUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -33,6 +35,12 @@ public class Oven extends ADevice {
     public void fix(Adult person) {
         person.fixDevice(this);
         changeState(new OvenFixingState(this));
+    }
+
+    @Override
+    public void toBeBroken(AInhabitant inhabitant) {
+        inhabitant.toBreakDevice(this);
+        changeState(new OvenBrokenState(this));
     }
 
     @Override

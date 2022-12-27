@@ -4,6 +4,7 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.simulation.ITimeTracker;
 import dev.mikita.sh.entity.IUsableObject;
+import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
@@ -131,4 +132,5 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     public abstract void fix(Adult person);
+    public abstract void toBeBroken(AInhabitant inhabitant);
 }
