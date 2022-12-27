@@ -17,7 +17,7 @@ public class LightSensor extends AInternalSensor {
 
     @Override
     public void update(long time) {
-
+        this.time =+ time;
     }
 
     @Override

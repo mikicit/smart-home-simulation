@@ -6,6 +6,10 @@ import dev.mikita.sh.event.NormalWindEvent;
 import dev.mikita.sh.event.StrongWindEvent;
 
 public class WindSensor extends AExternalSensor {
+    // Constants
+    private final double MIN_SPEED = 8;
+    private final double MAX_SPEED = 12;
+
     // State
     private enum WindSensorState {
         WIND,
@@ -14,16 +18,14 @@ public class WindSensor extends AExternalSensor {
 
     private WindSensorState state = WindSensorState.NO_WIND;
 
-    // Constants
-    private final double MIN_SPEED = 8;
-    private final double MAX_SPEED = 12;
-
     public WindSensor(House house) {
         super(house);
     }
 
     @Override
     public void update(long time) {
+        this.time =+ time;
+
         double windSpeed = house.getAtmosphere().getWindSpeed();
 
         if (windSpeed < MIN_SPEED && state == WindSensorState.WIND) {

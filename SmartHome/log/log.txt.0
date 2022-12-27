@@ -1,14 +1,78 @@
-Dec 26, 2022 11:57:38 PM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
 INFO: Heater is not working now [Day: 1, Hour: 0, Min: 0]
-Dec 26, 2022 11:57:39 PM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
 INFO: Heater is not working now [Day: 1, Hour: 0, Min: 0]
-Dec 26, 2022 11:57:39 PM dev.mikita.sh.entity.device.tv.state.TVIdleState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 0, Min: 0]
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.tv.state.TVIdleState <init>
 INFO: TV is not being used now [Day: 1, Hour: 0, Min: 0]
-Dec 26, 2022 11:57:39 PM dev.mikita.sh.entity.device.washingMachine.state.WashingMachineIdleState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.washingMachine.state.WashingMachineIdleState <init>
 INFO: Washing machine is not being used now [Day: 1, Hour: 0, Min: 0]
-Dec 26, 2022 11:57:39 PM dev.mikita.sh.entity.device.fridge.state.FridgeIdleState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.fridge.state.FridgeIdleState <init>
 INFO: Fridge is not being used now [Day: 1, Hour: 0, Min: 0]
-Dec 26, 2022 11:57:39 PM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
 INFO: Heater is not working now [Day: 1, Hour: 0, Min: 0]
-Dec 26, 2022 11:57:39 PM dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState <init>
+Dec 27, 2022 10:20:43 AM dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState <init>
 INFO: Washing machine in room "Kitchen" is broken now [Day: 1, Hour: 0, Min: 0]
+Dec 27, 2022 10:20:51 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 2, Min: 0]
+Dec 27, 2022 10:20:51 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 2, Min: 0]
+Dec 27, 2022 10:20:51 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 2, Min: 0]
+Dec 27, 2022 10:20:58 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 4, Min: 0]
+Dec 27, 2022 10:20:58 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 4, Min: 0]
+Dec 27, 2022 10:20:58 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 4, Min: 0]
+Dec 27, 2022 10:21:09 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 7, Min: 0]
+Dec 27, 2022 10:21:09 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 7, Min: 0]
+Dec 27, 2022 10:21:09 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 7, Min: 0]
+Dec 27, 2022 10:21:16 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 9, Min: 0]
+Dec 27, 2022 10:21:16 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 9, Min: 0]
+Dec 27, 2022 10:21:16 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 9, Min: 0]
+Dec 27, 2022 10:21:27 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 12, Min: 0]
+Dec 27, 2022 10:21:27 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 12, Min: 0]
+Dec 27, 2022 10:21:27 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 12, Min: 0]
+Dec 27, 2022 10:21:28 AM dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState <init>
+INFO: Fridge in room "Kitchen" is broken now [Day: 1, Hour: 12, Min: 30]
+Dec 27, 2022 10:21:34 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 14, Min: 0]
+Dec 27, 2022 10:21:34 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 14, Min: 0]
+Dec 27, 2022 10:21:34 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 14, Min: 0]
+Dec 27, 2022 10:21:45 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 17, Min: 1]
+Dec 27, 2022 10:21:45 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 17, Min: 1]
+Dec 27, 2022 10:21:45 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 17, Min: 1]
+Dec 27, 2022 10:21:52 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 19, Min: 1]
+Dec 27, 2022 10:21:52 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 19, Min: 1]
+Dec 27, 2022 10:21:52 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 1, Hour: 19, Min: 1]
+Dec 27, 2022 10:22:03 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 22, Min: 1]
+Dec 27, 2022 10:22:03 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 22, Min: 1]
+Dec 27, 2022 10:22:03 AM dev.mikita.sh.entity.device.heater.state.HeaterUsingState <init>
+INFO: Heater is working now [Day: 1, Hour: 22, Min: 1]
+Dec 27, 2022 10:22:10 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 2, Hour: 0, Min: 2]
+Dec 27, 2022 10:22:10 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 2, Hour: 0, Min: 2]
+Dec 27, 2022 10:22:10 AM dev.mikita.sh.entity.device.heater.state.HeaterIdleState <init>
+INFO: Heater is not working now [Day: 2, Hour: 0, Min: 2]

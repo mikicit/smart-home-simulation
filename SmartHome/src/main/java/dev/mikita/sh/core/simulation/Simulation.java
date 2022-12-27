@@ -42,6 +42,8 @@ public class Simulation {
     }
 
     public void start(int speed, long timeToSimulate) {
+        exit = false;
+
         new Thread(() -> {
             long lastUpdate = System.nanoTime();
 

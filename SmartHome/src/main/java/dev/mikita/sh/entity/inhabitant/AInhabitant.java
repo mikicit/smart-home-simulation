@@ -14,7 +14,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     // Logger
     private static final Logger log = Logger.getLogger(AInhabitant.class.getName());
 
-    protected String name;
+    protected final String name;
     protected Room room;
     protected AInhabitantState state;
     protected UsableObject usingObject = null;

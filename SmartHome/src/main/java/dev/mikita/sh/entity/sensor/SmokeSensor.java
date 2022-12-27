@@ -17,7 +17,9 @@ public class SmokeSensor extends AInternalSensor {
 
     @Override
     public void update(long time) {
+        this.time =+ time;
 
+        // TODO Подумать как сделать зависимость вероятности события от времени
     }
 
     @Override

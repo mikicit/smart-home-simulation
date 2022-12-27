@@ -18,8 +18,8 @@ public class Window extends AEntrance {
     }
 
     private void initEventHandlers() {
-        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalWindEvent.class, "global", this::normalWindEventHandler);
-        SHSystem.getInstance().getEventDispatcher().addEventHandler(StrongWindEvent.class, "global", this::strongWindEventHandler);
+//        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalWindEvent.class, "global", this::normalWindEventHandler);
+//        SHSystem.getInstance().getEventDispatcher().addEventHandler(StrongWindEvent.class, "global", this::strongWindEventHandler);
     }
 
     private void normalWindEventHandler(AEvent event) {

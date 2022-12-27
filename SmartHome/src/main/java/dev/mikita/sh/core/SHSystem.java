@@ -9,13 +9,21 @@ import dev.mikita.sh.entity.location.builder.HouseBuilder;
 import java.io.IOException;
 
 public class SHSystem {
+    // References
     private static SHSystem instance;
     private EventDispatcher eventDispatcher;
     private Simulation simulation;
     private ReportSystem reportSystem;
     private House house;
 
-    private SHSystem() {}
+    // State
+    private boolean wasInitialized = false;
+
+    private SHSystem() {
+//        this.simulation = new Simulation();
+//        this.eventDispatcher = new EventDispatcher();
+//        this.reportSystem = new ReportSystem();
+    }
 
     public static SHSystem getInstance() {
         if (instance == null) {
@@ -27,10 +35,9 @@ public class SHSystem {
     public void init(String config) throws IOException {}
 
     public void init() throws IOException {
-        // Init Services
-        eventDispatcher = new EventDispatcher();
-        simulation = new Simulation();
-        reportSystem = new ReportSystem();
+        this.simulation = new Simulation();
+        this.eventDispatcher = new EventDispatcher();
+        this.reportSystem = new ReportSystem();
 
         // house config
         HouseBuilder houseBuilder = new HouseBuilder();
@@ -53,6 +60,7 @@ public class SHSystem {
                         .addSensor("HEAT")
                         .addSensor("LIGHT")
                         .addDevice("HEATER", "Heater")
+                        .addDevice("HEATER", "Heater")
                         .addDevice("TV", "Tv")
                         .addDevice("WASHING_MACHINE", "Washing machine")
                         .addDevice("FRIDGE", "Fridge")
@@ -70,9 +78,15 @@ public class SHSystem {
                         .end()
                     .end()
                 .getResult();
+
+        wasInitialized = true;
     }
 
-    public void start(int speed, long timeToSimulate) {
+    public void start(int speed, long timeToSimulate) throws Exception {
+        if (!wasInitialized) {
+            throw new Exception("The system must be initialized");
+        }
+
         simulation.start(speed, timeToSimulate);
     }
 

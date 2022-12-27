@@ -8,6 +8,10 @@ import dev.mikita.sh.event.NormalTemperatureEvent;
 //TODO при мануальном вкл/откл обогревателя имплементировать сброс сенсора
 
 public class HeatSensor extends AInternalSensor {
+    // Constants
+    private final double MIN_TEMP = 18;
+    private final double MAX_TEMP = 24;
+
     // State
     private enum HeatSensorState {
         NORMAL,
@@ -16,16 +20,14 @@ public class HeatSensor extends AInternalSensor {
 
     private HeatSensorState state = HeatSensorState.NORMAL;
 
-    // Constants
-    private final double MIN_TEMP = 18;
-    private final double MAX_TEMP = 24;
-
     public HeatSensor(Room room) {
         super(room);
     }
 
     @Override
     public void update(long time) {
+        this.time =+ time;
+
         double temp = room.getAtmosphere().getTemperature();
 
         if (temp < MIN_TEMP && state == HeatSensorState.NORMAL) {
