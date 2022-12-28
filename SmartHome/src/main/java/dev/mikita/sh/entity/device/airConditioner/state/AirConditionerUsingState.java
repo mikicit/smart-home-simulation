@@ -2,11 +2,13 @@ package dev.mikita.sh.entity.device.airConditioner.state;
 
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceUsingState;
+import dev.mikita.sh.entity.device.airConditioner.AirConditioner;
+import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 
 public class AirConditionerUsingState extends ADeviceUsingState {
     public AirConditionerUsingState(ADevice device) {
         super(device);
-        this.ELECTRICITY_CONSUMPTION = 1.28;
+        this.ELECTRICITY_CONSUMPTION = 3.12;
     }
 
     @Override
@@ -22,5 +24,12 @@ public class AirConditionerUsingState extends ADeviceUsingState {
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
                 + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
+
+        // Temperature
+        double coolingPerHour = ((AirConditioner) device).getCoolingPerHour();
+        InnerAtmosphere atmosphere = device.getRoom().getAtmosphere();
+
+        atmosphere.setTemperature(atmosphere.getTemperature()
+                - (coolingPerHour / (3600L * 1000000000L)) * this.time);
     }
 }

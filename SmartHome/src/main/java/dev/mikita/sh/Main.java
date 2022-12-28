@@ -18,7 +18,7 @@ public class Main {
         SHSystem system = SHSystem.getInstance();
 
         system.init();
-        system.start(100,9000000000000000000L);
+        system.start(10000,9000000000000000000L);
 
 //        Thread.sleep(1000);
 //        system.stop();

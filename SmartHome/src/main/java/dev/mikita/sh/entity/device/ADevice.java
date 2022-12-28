@@ -12,8 +12,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     protected Room room;
     protected ADeviceState state;
     protected String name;
+    protected AInhabitant user = null;
     protected long time = 0;
-    protected boolean isBroken = false;
 
     // Constants
     protected int operatingTimeInHours = 0;
@@ -102,6 +102,14 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
         return state;
     }
 
+    public AInhabitant getUser() {
+        return user;
+    }
+
+    public void setUser(AInhabitant inhabitant) {
+        user = inhabitant;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -128,15 +136,27 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     @Override
+    public boolean isOn() {
+        return state instanceof ADeviceIdleState;
+    }
+
+    @Override
+    public boolean isOff() {
+        return state instanceof ADeviceOffState;
+    }
+
+    @Override
     public boolean isUsing() {
         return state instanceof ADeviceUsingState;
     }
 
     @Override
     public boolean isBroken() {
-        return isBroken;
+        return state instanceof ADeviceBrokenState;
     }
 
+    public abstract void on();
+    public abstract void off();
     public abstract void fix(Adult person);
     public abstract void toBeBroken(AInhabitant inhabitant);
 }

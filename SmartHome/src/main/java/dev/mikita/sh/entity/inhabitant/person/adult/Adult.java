@@ -52,10 +52,6 @@ public class Adult extends APerson {
             this.usingObject = object;
             usedObjectsMap(this, object);
             changeState(new AdultDeviceUsingState(this));
-
-//            log.info(String.format("Device \"%s\" is broken, cannot be used! [%s]",
-//                    object.getName(),
-//                    SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override

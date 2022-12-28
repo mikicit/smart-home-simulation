@@ -2,8 +2,6 @@ package dev.mikita.sh.core.report;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.ITimeTracker;
-import dev.mikita.sh.entity.inhabitant.person.APerson;
-
 import java.io.IOException;
 
 public class ReportSystem implements ITimeTracker {

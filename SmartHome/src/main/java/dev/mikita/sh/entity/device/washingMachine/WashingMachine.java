@@ -1,13 +1,12 @@
 package dev.mikita.sh.entity.device.washingMachine;
 
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineFixingState;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineIdleState;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineUsingState;
+import dev.mikita.sh.entity.device.washingMachine.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
+
+import java.util.Objects;
 
 public class WashingMachine extends ADevice {
     public WashingMachine(Room room, String name) {
@@ -20,27 +19,60 @@ public class WashingMachine extends ADevice {
     }
 
     @Override
+    public void on() {
+        if (isOff()) {
+            changeState(new WashingMachineIdleState(this));
+        }
+    }
+
+    @Override
+    public void off() {
+        if (isOn()) {
+            changeState(new WashingMachineOffState(this));
+        }
+    }
+
+    @Override
     public void use(AInhabitant inhabitant) {
-        inhabitant.useObject(this);
-        changeState(new WashingMachineUsingState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (!isUsing() && !isBroken()) {
+            setUser(inhabitant);
+            inhabitant.useObject(this);
+            changeState(new WashingMachineUsingState(this));
+        }
     }
 
     @Override
     public void unUse(AInhabitant inhabitant) {
-        inhabitant.unUseObject(this);
-        changeState(new WashingMachineIdleState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (isUsing() && inhabitant.equals(getUser())) {
+            setUser(null);
+            inhabitant.unUseObject(this);
+            changeState(new WashingMachineIdleState(this));
+        }
     }
 
     @Override
     public void fix(Adult person) {
-        person.fixDevice(this);
-        changeState(new WashingMachineFixingState(this));
+        Objects.requireNonNull(person);
+
+        if (isBroken()) {
+            setUser(person);
+            person.fixDevice(this);
+            changeState(new WashingMachineFixingState(this));
+        }
     }
 
     @Override
     public void toBeBroken(AInhabitant inhabitant) {
-        inhabitant.toBreakDevice(this);
-        changeState(new WashingMachineBrokenState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (!isBroken()) {
+            inhabitant.toBreakDevice(this);
+            changeState(new WashingMachineBrokenState(this));
+        }
     }
 
     @Override

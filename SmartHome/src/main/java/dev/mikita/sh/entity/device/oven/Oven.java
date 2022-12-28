@@ -1,47 +1,78 @@
 package dev.mikita.sh.entity.device.oven;
 
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.oven.state.OvenBrokenState;
-import dev.mikita.sh.entity.device.oven.state.OvenFixingState;
-import dev.mikita.sh.entity.device.oven.state.OvenIdleState;
-import dev.mikita.sh.entity.device.oven.state.OvenUsingState;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
+import dev.mikita.sh.entity.device.oven.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
+
+import java.util.Objects;
 
 public class Oven extends ADevice {
     public Oven(Room room, String name) {
         super(room, name);
         this.state = new OvenIdleState(this);
-        this.operatingTimeInHours = 1500;
+        this.operatingTimeInHours = 700;
         this.usageTimeInHour = 1;
         this.hungerPerHour = 25;
         this.leisurePerHour = 11;
     }
 
     @Override
+    public void on() {
+        if (isOff()) {
+            changeState(new OvenIdleState(this));
+        }
+    }
+
+    @Override
+    public void off() {
+        if (isOn()) {
+            changeState(new OvenOffState(this));
+        }
+    }
+
+    @Override
     public void use(AInhabitant inhabitant) {
-        inhabitant.useObject(this);
-        changeState(new OvenUsingState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (!isUsing() && !isBroken()) {
+            setUser(inhabitant);
+            inhabitant.useObject(this);
+            changeState(new OvenUsingState(this));
+        }
     }
 
     @Override
     public void unUse(AInhabitant inhabitant) {
-        inhabitant.unUseObject(this);
-        changeState(new OvenIdleState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (isUsing() && inhabitant.equals(getUser())) {
+            setUser(null);
+            inhabitant.unUseObject(this);
+            changeState(new OvenIdleState(this));
+        }
     }
 
     @Override
     public void fix(Adult person) {
-        person.fixDevice(this);
-        changeState(new OvenFixingState(this));
+        Objects.requireNonNull(person);
+
+        if (isBroken()) {
+            setUser(person);
+            person.fixDevice(this);
+            changeState(new OvenFixingState(this));
+        }
     }
 
     @Override
     public void toBeBroken(AInhabitant inhabitant) {
-        inhabitant.toBreakDevice(this);
-        changeState(new OvenBrokenState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (!isBroken()) {
+            inhabitant.toBreakDevice(this);
+            changeState(new OvenBrokenState(this));
+        }
     }
 
     @Override

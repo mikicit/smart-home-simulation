@@ -1,14 +1,12 @@
 package dev.mikita.sh.entity.device.tv;
 
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.tv.state.TVBrokenState;
-import dev.mikita.sh.entity.device.tv.state.TVFixingState;
-import dev.mikita.sh.entity.device.tv.state.TVIdleState;
-import dev.mikita.sh.entity.device.tv.state.TVUsingState;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineBrokenState;
+import dev.mikita.sh.entity.device.tv.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
+
+import java.util.Objects;
 
 public class TV extends ADevice {
     public TV(Room room, String name) {
@@ -21,27 +19,60 @@ public class TV extends ADevice {
     }
 
     @Override
+    public void on() {
+        if (isOff()) {
+            changeState(new TVIdleState(this));
+        }
+    }
+
+    @Override
+    public void off() {
+        if (isOn()) {
+            changeState(new TVOffState(this));
+        }
+    }
+
+    @Override
     public void use(AInhabitant inhabitant) {
-        inhabitant.useObject(this);
-        changeState(new TVUsingState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (!isUsing() && !isBroken()) {
+            setUser(inhabitant);
+            inhabitant.useObject(this);
+            changeState(new TVUsingState(this));
+        }
     }
 
     @Override
     public void unUse(AInhabitant inhabitant) {
-        inhabitant.unUseObject(this);
-        changeState(new TVIdleState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (isUsing() && inhabitant.equals(getUser())) {
+            setUser(null);
+            inhabitant.unUseObject(this);
+            changeState(new TVIdleState(this));
+        }
     }
 
     @Override
     public void fix(Adult person) {
-        person.fixDevice(this);
-        changeState(new TVFixingState(this));
+        Objects.requireNonNull(person);
+
+        if (isBroken()) {
+            setUser(person);
+            person.fixDevice(this);
+            changeState(new TVFixingState(this));
+        }
     }
 
     @Override
     public void toBeBroken(AInhabitant inhabitant) {
-        inhabitant.toBreakDevice(this);
-        changeState(new TVBrokenState(this));
+        Objects.requireNonNull(inhabitant);
+
+        if (!isBroken()) {
+            inhabitant.toBreakDevice(this);
+            changeState(new TVBrokenState(this));
+        }
     }
 
     @Override

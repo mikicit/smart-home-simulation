@@ -4,13 +4,20 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.AEventHandler;
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
+import dev.mikita.sh.entity.device.fridge.state.FridgeFixingState;
+import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
+import dev.mikita.sh.entity.device.fridge.state.FridgeUsingState;
 import dev.mikita.sh.entity.device.heater.state.HeaterIdleState;
+import dev.mikita.sh.entity.device.heater.state.HeaterOffState;
 import dev.mikita.sh.entity.device.heater.state.HeaterUsingState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.LowTemperatureEvent;
 import dev.mikita.sh.event.NormalTemperatureEvent;
+
+import java.util.Objects;
 
 public class Heater extends ADevice {
     // Constants
@@ -19,7 +26,7 @@ public class Heater extends ADevice {
     public Heater(Room room, String name) {
         super(room, name);
         this.state = new HeaterIdleState(this);
-        this.operatingTimeInHours = 1350;
+        this.operatingTimeInHours = 500;
         this.usageTimeInHour = 0;
         this.hungerPerHour = 0;
         this.leisurePerHour = 0;
@@ -32,23 +39,56 @@ public class Heater extends ADevice {
     }
 
     @Override
-    public void use(AInhabitant inhabitant) {
+    public void on() {
+        if (isOff()) {
+            changeState(new HeaterIdleState(this));
+        }
+    }
 
+    @Override
+    public void off() {
+        if (isOn()) {
+            changeState(new HeaterOffState(this));
+        }
+    }
+
+    @Override
+    public void use(AInhabitant inhabitant) {
+        Objects.requireNonNull(inhabitant);
+
+        if (!isUsing() && !isBroken()) {
+            inhabitant.useObject(this);
+            changeState(new FridgeUsingState(this));
+        }
     }
 
     @Override
     public void unUse(AInhabitant inhabitant) {
+        Objects.requireNonNull(inhabitant);
 
+        if (isUsing() && inhabitant.equals(getUser())) {
+            inhabitant.unUseObject(this);
+            changeState(new FridgeIdleState(this));
+        }
     }
 
     @Override
     public void fix(Adult person) {
+        Objects.requireNonNull(person);
 
+        if (isBroken()) {
+            setUser(person);
+            person.fixDevice(this);
+            changeState(new FridgeFixingState(this));
+        }
     }
 
     @Override
     public void toBeBroken(AInhabitant inhabitant) {
+        Objects.requireNonNull(inhabitant);
 
+        inhabitant.toBreakDevice(this);
+        changeState(new FridgeBrokenState(this));
     }
 
     @Override
@@ -70,6 +110,7 @@ public class Heater extends ADevice {
                 }
             }
         });
+
         SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalTemperatureEvent.class, room.getName(), new AEventHandler() {
             @Override
             public void handle(AEvent e) {

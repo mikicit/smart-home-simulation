@@ -49,11 +49,6 @@ public abstract class AItem implements IUsableObject {
     }
 
     @Override
-    public boolean isUsing() {
-        return isUsing;
-    }
-
-    @Override
     public void use(AInhabitant inhabitant) {
         inhabitant.useObject(this);
         isUsing = true;
@@ -63,6 +58,21 @@ public abstract class AItem implements IUsableObject {
     public void unUse(AInhabitant inhabitant) {
         inhabitant.unUseObject(this);
         isUsing = false;
+    }
+
+    @Override
+    public boolean isOn() {
+        return false;
+    }
+
+    @Override
+    public boolean isOff() {
+        return false;
+    }
+
+    @Override
+    public boolean isUsing() {
+        return isUsing;
     }
 
     @Override
