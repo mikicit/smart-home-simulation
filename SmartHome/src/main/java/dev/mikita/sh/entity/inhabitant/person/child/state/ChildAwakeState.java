@@ -47,16 +47,6 @@ public class ChildAwakeState extends AInhabitantState {
         inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator()
                 - (inhabitant.getLeisurePerHour() / 3600D * 1000000000) * time);
 
-        // Hungry event
-        if (inhabitant.getHungerIndicator() == 0) {
-            SHSystem.getInstance().getEventDispatcher()
-                    .dispatchEvent(new HungryChildEvent(inhabitant, inhabitant.getRoom()), inhabitant.getRoom().toString());
-
-            log.info(String.format("Child \"%s\": \"I'm HUUUNGRYYY :'(\" [%s]",
-                    inhabitant.getName(),
-                    SHSystem.getInstance().getSimulation().getFormattedTime()));
-        }
-
         // Device using
         if (inhabitant.getLeisureIndicator() == 0) {
             List<ADevice> devices = inhabitant.getRoom().getDevices().stream()

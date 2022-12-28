@@ -32,6 +32,10 @@ public class ReportSystem implements ITimeTracker {
         activityAndUsageReport.generateReport();
     }
 
+    private void generateHouseConfReport() throws IOException {
+        houseConfigurationReport.generateReport();
+    }
+
     @Override
     public void update(long time) throws IOException {
         this.time += time;
@@ -40,6 +44,10 @@ public class ReportSystem implements ITimeTracker {
             generateConsumptionReport();
             generateActivityAndUsageReport();
             this.time = 0;
+        }
+        if (SHSystem.getInstance().getSimulation().getDay() == 1
+                && SHSystem.getInstance().getSimulation().getHour() == 0) {
+            generateHouseConfReport();
         }
     }
 }

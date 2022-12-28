@@ -26,4 +26,12 @@ public class House implements ILocation {
     public String getName() {
         return "House";
     }
+
+    public List<Floor> getFloors() {
+        return floors;
+    }
+
+    public List<AExternalSensor> getExternalSensors() {
+        return sensors;
+    }
 }

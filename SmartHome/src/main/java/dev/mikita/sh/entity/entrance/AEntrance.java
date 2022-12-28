@@ -25,6 +25,10 @@ public abstract class AEntrance implements IEventSource {
         return state == EntranceState.OPEN;
     }
 
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
+
     public abstract void open();
     public abstract void close();
 }

@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 public abstract class APet extends AInhabitant  {
     // Logger
     private static final Logger log = Logger.getLogger(APet.class.getName());
+    protected boolean dispatchedHungerEvent = false;
+    protected boolean dispatchedBoredEvent = false;
 
     public APet(Room room, String name) {
         super(room, name);

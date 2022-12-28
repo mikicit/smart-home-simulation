@@ -12,6 +12,10 @@ public abstract class ASensor implements ITimeTracker, IEventSource {
         SHSystem.getInstance().getSimulation().subscribe(this);
     }
 
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
+
     protected abstract void switchState();
     protected abstract void resetState();
 }

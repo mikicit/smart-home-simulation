@@ -6,11 +6,13 @@ import dev.mikita.sh.entity.device.DeviceFactory;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConsumptionReport {
     private FileWriter consumptionReport = null;
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     public ConsumptionReport() {
         try {
@@ -33,29 +35,29 @@ public class ConsumptionReport {
         // Electricity consumption
         consumptionReport.write("_________________ Electricity consumption _________________\n");
         for (ADevice device : allDevices) {
-
-            // TODO не работает выпис у девайсов
-
-            totalElectricity += device.calculateElectricityConsumption();
-            consumptionReport.write(device.getName() + " has used " + device.calculateElectricityConsumption() + " KwH " + "electricity for today.\n");
+            double elUsed = device.calculateElectricityConsumption();
+            totalElectricity += elUsed;
+            consumptionReport.write(device.getName() + " has used " + df.format(elUsed) + " KwH " + "electricity for today.\n");
         }
-        consumptionReport.write("Total electricity used by day: " + totalElectricity + " KwH.\n");
+        consumptionReport.write("Total electricity used by day: " + df.format(totalElectricity) + " KwH.\n");
 
         // Water consumption
         consumptionReport.write("_________________ Water consumption _________________\n");
         for (ADevice device : allDevices) {
-            totalWater += device.calculateWaterConsumption();
-            consumptionReport.write(device.getName() + " has used " + device.calculateWaterConsumption() + " litre " + "water for today.\n");
+            double waterUsed = device.calculateWaterConsumption();
+            totalWater += waterUsed;
+            consumptionReport.write(device.getName() + " has used " + df.format(waterUsed) + " litre " + "water for today.\n");
         }
-        consumptionReport.write("Total water used by day: " + totalWater + " litre.\n");
+        consumptionReport.write("Total water used by day: " + df.format(totalWater) + " litre.\n");
 
         // Gas consumption
         consumptionReport.write("_________________ Gas consumption _________________\n");
         for (ADevice device : allDevices) {
-            totalGas += device.calculateGasConsumption();
-            consumptionReport.write(device.getName() + " has used " + device.calculateGasConsumption() + " cu. m. " + "gas for today.\n");
+            double gasUsed = device.calculateGasConsumption();
+            totalGas += gasUsed;
+            consumptionReport.write(device.getName() + " has used " + df.format(gasUsed) + " cu. m. " + "gas for today.\n");
         }
-        consumptionReport.write("Total gas used by day: " + totalGas + " cu. m.\n");
+        consumptionReport.write("Total gas used by day: " + df.format(totalGas) + " cu. m.\n");
 
         consumptionReport.flush();
     }
