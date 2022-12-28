@@ -1,5 +1,7 @@
 package dev.mikita.sh.core.event;
 
+import dev.mikita.sh.entity.location.ILocation;
+
 public abstract class AEvent {
     private final IEventSource source;
     private final ILocation location;

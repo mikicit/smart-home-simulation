@@ -5,8 +5,6 @@ import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.LowTemperatureEvent;
 import dev.mikita.sh.event.NormalTemperatureEvent;
 
-//TODO при мануальном вкл/откл обогревателя имплементировать сброс сенсора
-
 public class HeatSensor extends AInternalSensor {
     // Constants
     private final double MIN_TEMP = 18;

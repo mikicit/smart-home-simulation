@@ -1,6 +1,6 @@
 package dev.mikita.sh.entity.inhabitant.person;
 
-import dev.mikita.sh.core.event.ILocation;
+import dev.mikita.sh.entity.location.ILocation;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.inhabitant.person.child.Child;
 import dev.mikita.sh.entity.location.Room;

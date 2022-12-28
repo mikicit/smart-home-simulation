@@ -1,6 +1,5 @@
 package dev.mikita.sh.entity.location;
 
-import dev.mikita.sh.core.event.ILocation;
 import dev.mikita.sh.entity.location.atmosphere.OuterAtmosphere;
 import dev.mikita.sh.entity.sensor.AExternalSensor;
 
@@ -22,5 +21,9 @@ public class House implements ILocation {
 
     public OuterAtmosphere getAtmosphere() {
         return this.atmosphere;
+    }
+
+    public String getName() {
+        return "House";
     }
 }

@@ -1,6 +1,6 @@
 package dev.mikita.sh.entity.sensor.factories;
 
-import dev.mikita.sh.core.event.ILocation;
+import dev.mikita.sh.entity.location.ILocation;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.sensor.*;
 import java.util.ArrayList;

@@ -1,9 +1,8 @@
 package dev.mikita.sh.entity.sensor.factories;
 
-import dev.mikita.sh.core.event.ILocation;
+import dev.mikita.sh.entity.location.ILocation;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.entity.sensor.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +25,7 @@ public class InternalSensorFactory implements ISensorFactory {
             case "HEAT" -> new HeatSensor((Room) room);
             case "LIGHT" -> new LightSensor((Room) room);
             case "SMOKE" -> new SmokeSensor((Room) room);
+            case "WATER" -> new WaterSensor((Room) room);
             default -> throw new IllegalArgumentException("Type of sensor " + type + " was not found.");
         };
 

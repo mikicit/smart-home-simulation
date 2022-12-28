@@ -1,6 +1,5 @@
 package dev.mikita.sh.entity.location;
 
-import dev.mikita.sh.core.event.ILocation;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.entrance.AEntrance;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
