@@ -19,11 +19,7 @@ public class SHSystem {
     // State
     private boolean wasInitialized = false;
 
-    private SHSystem() {
-//        this.simulation = new Simulation();
-//        this.eventDispatcher = new EventDispatcher();
-//        this.reportSystem = new ReportSystem();
-    }
+    private SHSystem() {}
 
     public static SHSystem getInstance() {
         if (instance == null) {
@@ -32,58 +28,11 @@ public class SHSystem {
         return instance;
     }
 
-    public void init(String config) throws IOException {}
-
-    public void init() throws IOException {
+    public void init(House house) throws IOException {
         this.simulation = new Simulation();
         this.eventDispatcher = new EventDispatcher();
         this.reportSystem = new ReportSystem();
-
-        // house config
-        HouseBuilder houseBuilder = new HouseBuilder();
-        house = houseBuilder
-                .addSensor("WIND")
-                .addFloor(1)
-                    .addRoom("Bedroom")
-                        .addEntrance("DOOR", 2)
-                        .addEntrance("WINDOW", 3)
-                        .addSensor("HEAT")
-                        .addSensor("LIGHT")
-                        .addSensor("SMOKE")
-                        .addDevice("TV", "Tv")
-                        .addItem("GUITAR", "Guitar")
-                        .addDevice("HEATER", "Heater")
-                        .addPerson("ADULT", "Mikita")
-                        .addPet("DRAGON", "La la Dragon")
-                        .end()
-                    .addRoom("Kitchen")
-                        .addEntrance("DOOR", 2)
-                        .addEntrance("WINDOW", 3)
-                        .addSensor("HEAT")
-                        .addSensor("LIGHT")
-                        .addSensor("SMOKE")
-                        .addDevice("HEATER", "Heater")
-                        .addDevice("HEATER", "Heater")
-                        .addDevice("TV", "Tv")
-                        .addDevice("OVEN", "Oven")
-                        .addDevice("MICROWAVE", "Microwave")
-                        .addDevice("WASHING_MACHINE", "Washing machine")
-                        .addDevice("FRIDGE", "Fridge")
-                        .addPerson("CHILD", "Jiri Sebek")
-                        .addPerson("ADULT", "Roma")
-                        .end()
-                    .addRoom("Garage")
-                        .addEntrance("DOOR", 2)
-                        .addEntrance("WINDOW", 3)
-                        .addSensor("HEAT")
-                        .addSensor("SMOKE")
-                        .addItem("CAR", "Car")
-                        .addItem("SKIS", "Skis")
-                        .addItem("BIKE", "Bike")
-                        .addDevice("HEATER", "Heater")
-                        .end()
-                    .end()
-                .getResult();
+        this.house = house;
 
         wasInitialized = true;
     }

@@ -1,6 +1,10 @@
 package dev.mikita.sh.entity.sensor;
 
+import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.location.Room;
+import dev.mikita.sh.event.SmokeInRoomEvent;
+import dev.mikita.sh.event.WaterInRoomEvent;
+
 import java.io.IOException;
 
 public class WaterSensor extends AInternalSensor {
@@ -28,7 +32,12 @@ public class WaterSensor extends AInternalSensor {
 
     @Override
     public void update(long time) throws IOException {
+        this.time += time;
 
+        if (state == WaterSensorState.NO_WATER && this.time >= triggeredTimeInHours * 3600L * 1000000000L) {
+            switchState();
+            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new WaterInRoomEvent(this, room), room.getName());
+        }
     }
 
     @Override
@@ -38,6 +47,8 @@ public class WaterSensor extends AInternalSensor {
 
     @Override
     protected void resetState() {
-
+        this.time = 0;
+        state = WaterSensorState.NO_WATER;
+        triggeredTimeInHours = calculateTriggeredTime();
     }
 }
