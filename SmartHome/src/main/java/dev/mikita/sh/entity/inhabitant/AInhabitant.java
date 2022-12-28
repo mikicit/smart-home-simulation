@@ -6,11 +6,7 @@ import dev.mikita.sh.core.simulation.ITimeTracker;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.location.Room;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
-
 import static java.lang.Double.max;
 
 public abstract class AInhabitant implements ITimeTracker, IEventSource {
@@ -21,7 +17,6 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     protected Room room;
     protected AInhabitantState state;
     protected IUsableObject usingObject = null;
-    protected Map<AInhabitant, Map<IUsableObject, Integer>> usedObjects = new HashMap<>();
     protected long time = 0;
 
     // Constants
@@ -90,10 +85,6 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
 
     public IUsableObject getUsableObject() {
         return usingObject;
-    }
-
-    public Map<AInhabitant, Map<IUsableObject, Integer>> getUsedObjects() {
-        return usedObjects;
     }
 
     public abstract void changeState(AInhabitantState state);
