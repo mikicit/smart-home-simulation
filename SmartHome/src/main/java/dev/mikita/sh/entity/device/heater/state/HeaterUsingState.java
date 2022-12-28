@@ -14,7 +14,7 @@ public class HeaterUsingState extends ADeviceUsingState {
 
     public HeaterUsingState(ADevice device) {
         super(device);
-        this.ELECTRICITY_CONSUMPTION = 1.28;
+        this.ELECTRICITY_CONSUMPTION = 3;
 
         log.info(String.format("Heater in room \"%s\" is working now [%s]",
                 device.getRoom().getName(),
@@ -23,16 +23,22 @@ public class HeaterUsingState extends ADeviceUsingState {
 
     @Override
     public void update(long time) {
-        this.time += time;
+        // Wear out ime
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
+            device.changeState(new HeaterBrokenState(device));
+        }
 
-        double heatingPerHour = ((Heater) device).getHeatingPerHour();
-        InnerAtmosphere atmosphere = device.getRoom().getAtmosphere();
+        this.time += time;
+        device.setTime(device.getTime() + time);
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600L * 1000000000L * this.time));
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
 
         // Temperature
+        double heatingPerHour = ((Heater) device).getHeatingPerHour();
+        InnerAtmosphere atmosphere = device.getRoom().getAtmosphere();
+
         atmosphere.setTemperature(atmosphere.getTemperature()
                 + (heatingPerHour / (3600L * 1000000000L)) * this.time);
     }

@@ -12,9 +12,10 @@ public class WashingMachineUsingState extends ADeviceUsingState {
 
     public WashingMachineUsingState(ADevice device) {
         super(device);
-        this.ELECTRICITY_CONSUMPTION = 1.28;
+        this.ELECTRICITY_CONSUMPTION = 6.8;
         this.WATER_CONSUMPTION = 60;
 
+        // Logging
         log.info(String.format("Washing machine in room \"%s\" is being used now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
@@ -23,7 +24,7 @@ public class WashingMachineUsingState extends ADeviceUsingState {
     @Override
     public void update(long time) {
         // Wear out time
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
             device.changeState(new WashingMachineBrokenState(device));
         }
 
@@ -32,8 +33,8 @@ public class WashingMachineUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600D * 1000000000) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
         device.setCurrentWaterConsumption(device.getCurrentWaterConsumption()
-                + (WATER_CONSUMPTION / 3600D * 1000000000) * this.time);
+                + (WATER_CONSUMPTION / (3600L * 1000000000L)) * this.time);
     }
 }

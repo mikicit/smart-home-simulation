@@ -11,6 +11,7 @@ import java.util.List;
 
 public class ConsumptionReport {
     private FileWriter consumptionReport = null;
+
     public ConsumptionReport() {
         try {
             this.consumptionReport = new FileWriter("report/ConsumptionReport.txt");

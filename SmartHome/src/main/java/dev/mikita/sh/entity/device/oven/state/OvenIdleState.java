@@ -12,8 +12,9 @@ public class OvenIdleState extends ADeviceIdleState {
 
     public OvenIdleState(ADevice device) {
         super(device);
-        this.ELECTRICITY_CONSUMPTION = 1.28;
+        this.ELECTRICITY_CONSUMPTION = 0.2;
 
+        // Logging
         log.info(String.format("Oven in room \"%s\" is not being used now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
@@ -22,7 +23,7 @@ public class OvenIdleState extends ADeviceIdleState {
     @Override
     public void update(long time) {
         // Wear out time
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
             device.changeState(new OvenBrokenState(device));
         }
 
@@ -31,6 +32,6 @@ public class OvenIdleState extends ADeviceIdleState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000)) * this.time);
     }
 }

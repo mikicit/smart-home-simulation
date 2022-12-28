@@ -1,19 +1,29 @@
 package dev.mikita.sh.entity.device.light.state;
 
+import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-import dev.mikita.sh.entity.device.ADeviceState;
+
+import java.util.logging.Logger;
 
 public class LightIdleState extends ADeviceIdleState {
+    // Logger
+    private static final Logger log = Logger.getLogger(LightIdleState.class.getName());
+
     public LightIdleState(ADevice device) {
         super(device);
-        this.ELECTRICITY_CONSUMPTION = 1.28;
+        this.ELECTRICITY_CONSUMPTION = 0.1;
+
+        // Logging
+        log.info(String.format("Light in room \"%s\" is not working now [%s]",
+                device.getRoom().getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     @Override
     public void update(long time) {
         // Wear out time
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
             device.changeState(new LightBrokenState(device));
         }
 
@@ -22,6 +32,6 @@ public class LightIdleState extends ADeviceIdleState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / 3600F * 1000000000) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
     }
 }

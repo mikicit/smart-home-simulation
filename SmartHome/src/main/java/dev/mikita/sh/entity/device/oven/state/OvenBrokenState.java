@@ -13,8 +13,9 @@ public class OvenBrokenState extends ADeviceBrokenState {
 
     public OvenBrokenState(ADevice device) {
         super(device);
-        SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent(device, device.getRoom()), device.getRoom().toString());
+        SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent(device, device.getRoom()), "global");
 
+        // Logging
         log.info(String.format("Oven in room \"%s\" is broken now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));

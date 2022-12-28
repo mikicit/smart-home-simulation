@@ -1,11 +1,9 @@
 package dev.mikita.sh.entity.device.airConditioner.state;
 
 import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
-
 import java.util.logging.Logger;
 
 public class AirConditionerBrokenState extends ADeviceBrokenState {
@@ -14,8 +12,9 @@ public class AirConditionerBrokenState extends ADeviceBrokenState {
 
     public AirConditionerBrokenState(ADevice device) {
         super(device);
-        SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent((IEventSource) device, device.getRoom()), device.getRoom().toString());
+        SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent(device, device.getRoom()), "global");
 
+        // Logging
         log.info(String.format("Air conditioner in room \"%s\" is broken now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));

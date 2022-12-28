@@ -1,11 +1,7 @@
 package dev.mikita.sh.entity.inhabitant.person.adult;
 
-import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.core.event.BaseTestHandler;
-import dev.mikita.sh.core.event.BaseTestHandlerA;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.washingMachine.state.WashingMachineIdleState;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceUsingState;
@@ -13,7 +9,6 @@ import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultWaitingState;
 import dev.mikita.sh.entity.inhabitant.person.child.Child;
 import dev.mikita.sh.entity.inhabitant.pet.APet;
 import dev.mikita.sh.entity.location.Room;
-import dev.mikita.sh.event.HungryChildEvent;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
