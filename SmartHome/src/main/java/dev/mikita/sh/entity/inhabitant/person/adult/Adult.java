@@ -1,16 +1,21 @@
 package dev.mikita.sh.entity.inhabitant.person.adult;
 
+import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.core.event.AEvent;
+import dev.mikita.sh.core.event.AEventHandler;
+import dev.mikita.sh.core.task.Task;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
+import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceFixingState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceUsingState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultWaitingState;
 import dev.mikita.sh.entity.inhabitant.person.child.Child;
 import dev.mikita.sh.entity.inhabitant.pet.APet;
+import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.location.Room;
-
-import java.util.HashMap;
+import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 public class Adult extends APerson {
@@ -25,14 +30,10 @@ public class Adult extends APerson {
         this.hungerPerHour = 10;
         this.leisurePerHour = 5;
         this.deviceBreakingChance = 0.1;
+
+        initEventHandlers();
     }
 
-    public void fixDevice(ADevice device) {
-        usingObject = device;
-        device.fix(this);
-    }
-
-    // TODO handle events
     public void feedChild(Child child) {
         moveTo(child.getRoom());
         child.setHungerIndicator(100);
@@ -47,11 +48,27 @@ public class Adult extends APerson {
         pet.setLeisureIndicator(85);
     }
 
+    public void fixDevice(ADevice device) {
+        usingObject = device;
+        changeState(new AdultDeviceFixingState(this));
+    }
+
+    public void completeFixingDevice(ADevice device) {
+        usingObject = null;
+        changeState(new AdultWaitingState(this));
+    }
+
     @Override
     public void useObject(IUsableObject object) {
-            this.usingObject = object;
-            usedObjectsMap(this, object);
-            changeState(new AdultDeviceUsingState(this));
+        this.usingObject = object;
+
+        if (object instanceof ADevice) {
+            SHSystem.getInstance().getReportSystem().getActivityAndUsageReport().deviceCount(this, (ADevice) object);
+        } else {
+            SHSystem.getInstance().getReportSystem().getActivityAndUsageReport().itemCount(this, (AItem) object);
+        }
+
+        changeState(new AdultDeviceUsingState(this));
     }
 
     @Override
@@ -76,15 +93,34 @@ public class Adult extends APerson {
         this.state = state;
     }
 
-    private void usedObjectsMap(APerson person, IUsableObject object) {
-        if (!usedObjects.containsKey(person)) {
-            usedObjects.put(person, new HashMap<>());
-        }
+    private void initEventHandlers() {
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(DeviceIsBrokenEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Adult.this.state instanceof AdultWaitingState) {
+                    if (!Adult.this.getRoom().equals(e.getLocation())) {
+                        Adult.this.moveTo((Room) e.getLocation());
+                    }
+                    ((ADevice) e.getSource()).fix(Adult.this);
+                }
 
-        if (!usedObjects.get(person).containsKey(object)) {
-            usedObjects.get(person).put(object, 0);
-        }
+                if (nextHandler != null) {
+                    nextHandler.handle(e);
+                } else {
+                    SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                }
+            }
+        });
 
-        usedObjects.get(person).put(object, usedObjects.get(person).get(object) + 1);
+//        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalTemperatureEvent.class, room.getName(), new AEventHandler() {
+//            @Override
+//            public void handle(AEvent e) {
+//
+//
+//                if (nextHandler != null) {
+//                    nextHandler.handle(e);
+//                }
+//            }
+//        });
     }
 }

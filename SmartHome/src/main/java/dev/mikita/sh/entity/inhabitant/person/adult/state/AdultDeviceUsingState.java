@@ -17,6 +17,17 @@ public class AdultDeviceUsingState extends AInhabitantState {
                 inhabitant.getName(),
                 inhabitant.getUsableObject().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+//        (Math.random() >= inhabitant.getDeviceBreakingChance()) {
+//            log.info(String.format("Person \"%s\" broke the device \"%s\" :( [%s]",
+//                    inhabitant.getName(),
+//                    inhabitant.getUsableObject().getName(),
+//                    SHSystem.getInstance().getSimulation().getFormattedTime()));
+//
+//            ((ADevice) inhabitant.getUsableObject()).toBeBroken(inhabitant);
+//            inhabitant.getUsableObject().unUse(inhabitant);
+//            inhabitant.changeState(new AdultWaitingState(inhabitant));
+//        }
     }
 
     @Override
@@ -25,29 +36,19 @@ public class AdultDeviceUsingState extends AInhabitantState {
 
         // Indicators
         inhabitant.setHungerIndicator(inhabitant.getHungerIndicator()
-                - (inhabitant.getHungerPerHour() / 3600D * 1000000000) * time);
+                - (inhabitant.getHungerPerHour() / (3600D * 1000000000)) * time);
 
         inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator()
-                - (inhabitant.getLeisurePerHour() / 3600D * 1000000000) * time);
+                - (inhabitant.getLeisurePerHour() / (3600D * 1000000000)) * time);
 
         inhabitant.setHungerIndicator(inhabitant.getHungerIndicator()
-                + (inhabitant.getUsableObject().getHungerPerHour() / 3600D * 1000000000) * time);
+                + (inhabitant.getUsableObject().getHungerPerHour() / (3600D * 1000000000)) * time);
 
         inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator()
-                + (inhabitant.getUsableObject().getLeisurePerHour() / 3600D * 1000000000) * time);
+                + (inhabitant.getUsableObject().getLeisurePerHour() / (3600D * 1000000000)) * time);
 
         // UnUse
-        if (this.time > inhabitant.getUsableObject().getUsageTimeInHour() / 3600F * 1000000000) {
-            inhabitant.getUsableObject().unUse(inhabitant);
-            inhabitant.changeState(new AdultWaitingState(inhabitant));
-        }
-        else if (Math.random() >= inhabitant.getDeviceBreakingChance()) {
-            log.info(String.format("Person \"%s\" broke the device \"%s\" :( [%s]",
-                    inhabitant.getName(),
-                    inhabitant.getUsableObject().getName(),
-                    SHSystem.getInstance().getSimulation().getFormattedTime()));
-
-            ((ADevice) inhabitant.getUsableObject()).toBeBroken(inhabitant);
+        if (this.time > inhabitant.getUsableObject().getUsageTimeInHour() * 3600L * 1000000000L) {
             inhabitant.getUsableObject().unUse(inhabitant);
             inhabitant.changeState(new AdultWaitingState(inhabitant));
         }

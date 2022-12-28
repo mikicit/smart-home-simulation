@@ -22,5 +22,7 @@ public class FridgeFixingState extends ADeviceFixingState {
     @Override
     public void update(long time) {
         this.time += time;
+
+
     }
 }

@@ -36,7 +36,7 @@ public class WaterSensor extends AInternalSensor {
 
         if (state == WaterSensorState.NO_WATER && this.time >= triggeredTimeInHours * 3600L * 1000000000L) {
             switchState();
-            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new WaterInRoomEvent(this, room), room.getName());
+            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new WaterInRoomEvent(this, room), "global");
         }
     }
 

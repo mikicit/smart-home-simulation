@@ -14,4 +14,5 @@ public interface IUsableObject {
     boolean isOff();
     boolean isUsing();
     boolean isBroken();
+    boolean isFixing();
 }

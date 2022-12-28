@@ -33,7 +33,7 @@ public class SmokeSensor extends AInternalSensor {
 
         if (state == SmokeSensorState.NO_SMOKE && this.time >= triggeredTimeInHours * 3600L * 1000000000L) {
             switchState();
-            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new SmokeInRoomEvent(this, room), room.getName());
+            SHSystem.getInstance().getEventDispatcher().dispatchEvent(new SmokeInRoomEvent(this, room), "global");
         }
     }
 

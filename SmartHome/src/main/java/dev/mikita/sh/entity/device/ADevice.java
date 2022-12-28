@@ -155,8 +155,14 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
         return state instanceof ADeviceBrokenState;
     }
 
+    @Override
+    public boolean isFixing() {
+        return state instanceof ADeviceFixingState;
+    }
+
     public abstract void on();
     public abstract void off();
     public abstract void fix(Adult person);
-    public abstract void toBeBroken(AInhabitant inhabitant);
+    public abstract void completeFixing(Adult person);
+//    public abstract void toBeBroken(AInhabitant inhabitant);
 }

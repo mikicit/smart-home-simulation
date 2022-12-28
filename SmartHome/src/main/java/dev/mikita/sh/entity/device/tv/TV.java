@@ -6,8 +6,6 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
-import java.util.Objects;
-
 public class TV extends ADevice {
     public TV(Room room, String name) {
         super(room, name);
@@ -34,9 +32,14 @@ public class TV extends ADevice {
 
     @Override
     public void use(AInhabitant inhabitant) {
-        Objects.requireNonNull(inhabitant);
-
         if (!isUsing() && !isBroken()) {
+            if (Math.random() <= inhabitant.getDeviceBreakingChance()) {
+                changeState(new TVBrokenState(this));
+                return;
+            }
+
+            if (!(inhabitant instanceof Adult)) return;
+
             setUser(inhabitant);
             inhabitant.useObject(this);
             changeState(new TVUsingState(this));
@@ -45,8 +48,6 @@ public class TV extends ADevice {
 
     @Override
     public void unUse(AInhabitant inhabitant) {
-        Objects.requireNonNull(inhabitant);
-
         if (isUsing() && inhabitant.equals(getUser())) {
             setUser(null);
             inhabitant.unUseObject(this);
@@ -56,8 +57,6 @@ public class TV extends ADevice {
 
     @Override
     public void fix(Adult person) {
-        Objects.requireNonNull(person);
-
         if (isBroken()) {
             setUser(person);
             person.fixDevice(this);
@@ -66,12 +65,11 @@ public class TV extends ADevice {
     }
 
     @Override
-    public void toBeBroken(AInhabitant inhabitant) {
-        Objects.requireNonNull(inhabitant);
-
-        if (!isBroken()) {
-            inhabitant.toBreakDevice(this);
-            changeState(new TVBrokenState(this));
+    public void completeFixing(Adult person) {
+        if (isFixing() && person.equals(getUser())) {
+            setUser(null);
+            person.completeFixingDevice(this);
+            changeState(new TVIdleState(this));
         }
     }
 

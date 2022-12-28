@@ -1,8 +1,11 @@
 package dev.mikita.sh.entity.inhabitant;
 
 public abstract class AInhabitantState {
-    protected long time;
+    // References
     protected AInhabitant inhabitant;
+
+    // State
+    protected long time = 0;
 
     public AInhabitantState(AInhabitant inhabitant) {
         this.inhabitant = inhabitant;

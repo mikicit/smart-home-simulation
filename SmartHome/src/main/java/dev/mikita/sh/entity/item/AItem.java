@@ -79,4 +79,9 @@ public abstract class AItem implements IUsableObject {
     public boolean isBroken() {
         return false;
     }
+
+    @Override
+    public boolean isFixing() {
+        return false;
+    }
 }
