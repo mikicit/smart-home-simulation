@@ -2,6 +2,7 @@ package dev.mikita.sh.entity.entrance;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
+import dev.mikita.sh.core.event.AEventHandler;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.NormalWindEvent;
 import dev.mikita.sh.event.StrongWindEvent;
@@ -18,20 +19,31 @@ public class Window extends AEntrance {
     }
 
     private void initEventHandlers() {
-//        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalWindEvent.class, "global", this::normalWindEventHandler);
-//        SHSystem.getInstance().getEventDispatcher().addEventHandler(StrongWindEvent.class, "global", this::strongWindEventHandler);
-    }
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalWindEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (!Window.this.isOpen()) {
+                    Window.this.open();
+                }
 
-    private void normalWindEventHandler(AEvent event) {
-        if (!isOpen()) {
-            open();
-        }
-    }
+                if (nextHandler != null) {
+                    nextHandler.handle(e);
+                }
+            }
+        });
 
-    private void strongWindEventHandler(AEvent event) {
-        if (isOpen()) {
-            close();
-        }
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(StrongWindEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Window.this.isOpen()) {
+                    Window.this.close();
+                }
+
+                if (nextHandler != null) {
+                    nextHandler.handle(e);
+                }
+            }
+        });
     }
 
     @Override
