@@ -4,6 +4,7 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.AEventHandler;
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.fridge.state.FridgeFixingState;
 import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
 import dev.mikita.sh.entity.device.fridge.state.FridgeUsingState;
@@ -24,10 +25,10 @@ public class Heater extends ADevice {
     public Heater(Room room, String name) {
         super(room, name);
         this.state = new HeaterIdleState(this);
+        this.fixingTimeInHours = 2;
         this.operatingTimeInHours = 500;
         this.usageTimeInHour = 0;
-        this.hungerPerHour = 0;
-        this.leisurePerHour = 0;
+        this.doc = new Documentation(this, this.fixingTimeInHours);
 
         initEventHandlers();
     }

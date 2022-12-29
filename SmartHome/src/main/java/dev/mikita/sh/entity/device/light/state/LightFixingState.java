@@ -14,7 +14,7 @@ public class LightFixingState extends ADeviceFixingState {
         super(device);
 
         // Logging
-        log.info(String.format("Light in room \"%s\" is fixing now [%s]",
+        log.info(String.format("Light in room \"%s\" is being fixed now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }

@@ -3,6 +3,7 @@ package dev.mikita.sh.entity.location.builder;
 import dev.mikita.sh.entity.device.DeviceFactory;
 import dev.mikita.sh.entity.entrance.EntranceFactory;
 import dev.mikita.sh.entity.inhabitant.person.PersonFactory;
+import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.inhabitant.pet.PetFactory;
 import dev.mikita.sh.entity.item.ItemFactory;
 import dev.mikita.sh.entity.location.Floor;
@@ -24,10 +25,10 @@ public class RoomBuilder {
         floor.addRoom(room);
     }
 
-    public RoomBuilder addPerson(String type, String name) {
+    public RoomBuilder addPerson(String type, String name, PersonGender gender) {
         PersonFactory personFactory = PersonFactory.getInstance();
 
-        room.addInhabitant(personFactory.create(type, name, room));
+        room.addInhabitant(personFactory.create(type, name, gender, room));
         return this;
     }
 

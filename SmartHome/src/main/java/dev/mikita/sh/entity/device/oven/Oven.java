@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.device.oven;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.oven.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -10,10 +11,10 @@ public class Oven extends ADevice {
     public Oven(Room room, String name) {
         super(room, name);
         this.state = new OvenIdleState(this);
+        this.fixingTimeInHours = 2;
         this.operatingTimeInHours = 700;
         this.usageTimeInHour = 1;
-        this.hungerPerHour = 25;
-        this.leisurePerHour = 11;
+        this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
     @Override

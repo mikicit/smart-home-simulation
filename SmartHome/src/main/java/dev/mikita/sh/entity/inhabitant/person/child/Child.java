@@ -2,6 +2,7 @@ package dev.mikita.sh.entity.inhabitant.person.child;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
+import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
 import dev.mikita.sh.entity.location.Room;
@@ -26,9 +27,10 @@ public class Child extends APerson {
     private double triggeredHungerTimeInHours;
     private double triggeredPoopedTimeInHours;
 
-    public Child(Room room, String name) {
+    public Child(Room room, String name, PersonGender gender) {
         super(room, name);
         this.state = new ChildAwakeState(this);
+        this.gender = gender;
         this.triggeredHungerTimeInHours = calculateTriggeredTime();
         this.triggeredPoopedTimeInHours = calculateTriggeredTime();
         this.deviceBreakingChance = 0.5;

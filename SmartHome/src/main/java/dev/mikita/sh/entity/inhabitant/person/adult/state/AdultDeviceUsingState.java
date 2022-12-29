@@ -12,7 +12,8 @@ public class AdultDeviceUsingState extends AInhabitantState {
     public AdultDeviceUsingState(AInhabitant inhabitant) {
         super(inhabitant);
 
-        log.info(String.format("Person \"%s\" started using object \"%s\" [%s]",
+        log.info(String.format("%s \"%s\" started using object \"%s\" [%s]",
+                inhabitant.getClass().getSimpleName(),
                 inhabitant.getName(),
                 inhabitant.getUsableObject().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));

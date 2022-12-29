@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.device.fridge;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.fridge.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -10,10 +11,10 @@ public class Fridge extends ADevice {
     public Fridge(Room room, String name) {
         super(room, name);
         this.state = new FridgeIdleState(this);
+        this.fixingTimeInHours = 1;
         this.operatingTimeInHours = 376;
         this.usageTimeInHour = 0.25;
-        this.hungerPerHour = 35;
-        this.leisurePerHour = 15;
+        this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
     @Override

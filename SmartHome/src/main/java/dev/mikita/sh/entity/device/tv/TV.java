@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.device.tv;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.tv.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -10,10 +11,10 @@ public class TV extends ADevice {
     public TV(Room room, String name) {
         super(room, name);
         this.state = new TVIdleState(this);
+        this.fixingTimeInHours = 4;
         this.operatingTimeInHours = 1000;
         this.usageTimeInHour = 1;
-        this.hungerPerHour = 0;
-        this.leisurePerHour = 20;
+        this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
     @Override

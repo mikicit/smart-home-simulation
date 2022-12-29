@@ -15,7 +15,7 @@ public class FridgeUsingState extends ADeviceUsingState {
         this.ELECTRICITY_CONSUMPTION = 5;
 
         // Logging
-        log.info(String.format("Fridge in room \"%s\" is being used now[%s]",
+        log.info(String.format("Fridge in room \"%s\" is being used now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }

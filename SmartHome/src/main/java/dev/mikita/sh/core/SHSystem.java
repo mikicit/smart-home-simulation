@@ -4,6 +4,8 @@ import dev.mikita.sh.core.event.EventDispatcher;
 import dev.mikita.sh.core.report.ReportSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.core.task.TaskSystem;
+import dev.mikita.sh.entity.inhabitant.AInhabitant;
+import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.location.builder.HouseBuilder;
 
@@ -50,7 +52,8 @@ public class SHSystem {
                         .addDevice("TV", "Tv")
                         .addItem("GUITAR", "Guitar")
                         .addDevice("HEATER", "Heater")
-                        .addPerson("ADULT", "Mikita")
+                        .addPerson("ADULT", "Mikita", PersonGender.MALE)
+                        .addPerson("ADULT", "Roma", PersonGender.MALE)
                         .addPet("DRAGON", "La la Dragon")
                         .end()
                     .addRoom("Kitchen")
@@ -67,8 +70,8 @@ public class SHSystem {
                         .addDevice("MICROWAVE", "Microwave")
                         .addDevice("WASHING_MACHINE", "Washing machine")
                         .addDevice("FRIDGE", "Fridge")
-                        .addPerson("CHILD", "Jiri Sebek")
-                        .addPerson("ADULT", "Roma")
+                        .addPerson("CHILD", "Jiri Sebek", PersonGender.MALE)
+                        .addPerson("ADULT", "Darina", PersonGender.FEMALE)
                         .end()
                     .addRoom("Garage")
                         .addEntrance("DOOR", 2)

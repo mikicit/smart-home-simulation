@@ -8,6 +8,7 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.device.DeviceFactory;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
+import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.item.ItemFactory;
@@ -32,6 +33,13 @@ public class AdultWaitingState extends AInhabitantState {
         // Sleeping time
         if (simulationTime.getHour() >= 23 || simulationTime.getHour() < 7) {
             inhabitant.changeState(new AdultSleepingState(inhabitant));
+            return;
+        }
+
+        // Work time
+        if (simulationTime.getHour() >= 10 && simulationTime.getHour() < 17
+                && ((Adult) inhabitant).getGender() == PersonGender.MALE) {
+            inhabitant.changeState(new AdultWorkingState(inhabitant));
             return;
         }
 

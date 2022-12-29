@@ -43,16 +43,6 @@ public abstract class AItem implements IUsableObject {
     }
 
     @Override
-    public int getHungerPerHour() {
-        return hungerPerHour;
-    }
-
-    @Override
-    public int getLeisurePerHour() {
-        return leisurePerHour;
-    }
-
-    @Override
     public void use(AInhabitant inhabitant) {
         ((Adult) inhabitant).useObject(this);
         isUsing = true;

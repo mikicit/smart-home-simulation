@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.device.microwave;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.microwave.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -10,10 +11,10 @@ public class Microwave extends ADevice {
     public Microwave(Room room, String name) {
         super(room, name);
         this.state = new MicrowaveIdleState(this);
+        this.fixingTimeInHours = 1;
         this.operatingTimeInHours = 600;
         this.usageTimeInHour = 0.084;
-        this.hungerPerHour = 25;
-        this.leisurePerHour = 12;
+        this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
     @Override

@@ -14,7 +14,8 @@ public class AdultSleepingState extends AInhabitantState {
     public AdultSleepingState(AInhabitant inhabitant) {
         super(inhabitant);
 
-        log.info(String.format("Person \"%s\" went to bed [%s]",
+        log.info(String.format("%s \"%s\" went to bed [%s]",
+                inhabitant.getClass().getSimpleName(),
                 inhabitant.getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
@@ -27,7 +28,8 @@ public class AdultSleepingState extends AInhabitantState {
 
         if (simulationTime.getHour() < 23 && simulationTime.getHour() >= 7) {
             inhabitant.changeState(new AdultWaitingState(inhabitant));
-            log.info(String.format("Person \"%s\" woke up [%s]",
+            log.info(String.format("%s \"%s\" woke up [%s]",
+                    inhabitant.getClass().getSimpleName(),
                     inhabitant.getName(),
                     SHSystem.getInstance().getSimulation().getFormattedTime()));
         }

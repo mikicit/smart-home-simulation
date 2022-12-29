@@ -21,10 +21,10 @@ public class PersonFactory {
         return instance;
     }
 
-    public APerson create(String type, String name, ILocation room) {
+    public APerson create(String type, String name, PersonGender gender, ILocation room) {
         APerson person = switch (type) {
-            case "ADULT" -> new Adult((Room) room, name);
-            case "CHILD" -> new Child((Room) room, name);
+            case "ADULT" -> new Adult((Room) room, name, gender);
+            case "CHILD" -> new Child((Room) room, name, gender);
             default -> throw new IllegalArgumentException("Type of person " + type + " was not found.");
         };
 

@@ -1,6 +1,7 @@
 package dev.mikita.sh.entity.device.washingMachine;
 
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.washingMachine.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -10,10 +11,10 @@ public class WashingMachine extends ADevice {
     public WashingMachine(Room room, String name) {
         super(room, name);
         this.state = new WashingMachineIdleState(this);
+        this.fixingTimeInHours = 5;
         this.operatingTimeInHours = 1400;
         this.usageTimeInHour = 1;
-        this.hungerPerHour = 0;
-        this.leisurePerHour = 15;
+        this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
     @Override

@@ -18,13 +18,7 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     protected long time = 0;
 
     // Constants
-    protected int hungerPerHour = 0;
-    protected int leisurePerHour = 0;
     protected double deviceBreakingChance = 0;
-
-    // Indicators
-    protected double hungerIndicator = 0;
-    protected double leisureIndicator = 0;
 
     public AInhabitant(Room room, String name) {
         this.room = room;

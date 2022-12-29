@@ -6,11 +6,10 @@ import dev.mikita.sh.core.event.AEventHandler;
 import dev.mikita.sh.core.task.Task;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
-import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceFixingState;
-import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceUsingState;
-import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultSleepingState;
-import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultWaitingState;
+import dev.mikita.sh.entity.inhabitant.person.PersonGender;
+import dev.mikita.sh.entity.inhabitant.person.adult.state.*;
 import dev.mikita.sh.entity.inhabitant.person.child.Child;
 import dev.mikita.sh.entity.inhabitant.pet.APet;
 import dev.mikita.sh.entity.item.AItem;
@@ -26,10 +25,11 @@ public class Adult extends APerson {
     // Logger
     private static final Logger log = Logger.getLogger(Adult.class.getName());
 
-    public Adult(Room room, String name) {
+    public Adult(Room room, String name, PersonGender gender) {
         super(room, name);
         this.state = new AdultWaitingState(this);
         this.deviceBreakingChance = 0.1;
+        this.gender = gender;
 
         initEventHandlers();
     }
@@ -113,13 +113,21 @@ public class Adult extends APerson {
     }
 
     public void fixDevice(ADevice device) {
+        Documentation doc = device.getDocumentation();
         usingObject = device;
         changeState(new AdultDeviceFixingState(this));
+        doc.fixDevice(device);
     }
 
     public void completeFixingDevice(ADevice device) {
         usingObject = null;
         changeState(new AdultWaitingState(this));
+
+        log.info(String.format("%s \"%s\" fixed the object \"%s\" [%s]",
+                this.getClass().getSimpleName(),
+                this.getName(),
+                device.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     public void useObject(IUsableObject object) {
@@ -166,166 +174,189 @@ public class Adult extends APerson {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(PoopedChildEvent.class, "global", new AEventHandler() {
             @Override
             public void handle(AEvent e) {
-                if (Math.random() <= 0.40) {
-                    log.info(String.format("Adult \"%s\" did not want to change baby \"%s\" diapers [%s]",
-                            name,
-                            e.getSource().getName(),
-                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+                    if (Math.random() <= 0.40 && !(Adult.this.state instanceof AdultWorkingState)) {
+                        log.info(String.format("Adult \"%s\" did not want to change baby \"%s\" diapers [%s]",
+                                name,
+                                e.getSource().getName(),
+                                SHSystem.getInstance().getSimulation().getFormattedTime()));
 
-                    if (nextHandler != null) {
-                        nextHandler.handle(e);
-                    } else {
-                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        if (nextHandler != null) {
+                            nextHandler.handle(e);
+                        } else {
+                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        }
+
+                        return;
                     }
 
-                    return;
-                }
 
-                if (!(Adult.this.state instanceof AdultWaitingState)) {
-                    Adult.this.changeState(new AdultWaitingState(Adult.this));
-                }
+                    if (!(Adult.this.state instanceof AdultWaitingState)
+                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                        Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    }
 
-                ((Child) e.getSource()).changeDiaper(Adult.this);
-            }
+                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                        ((Child) e.getSource()).changeDiaper(Adult.this);
+                    }
+                }
         });
 
         SHSystem.getInstance().getEventDispatcher().addEventHandler(HungryChildEvent.class, "global", new AEventHandler() {
             @Override
             public void handle(AEvent e) {
-                if (Math.random() <= 0.40) {
-                    log.info(String.format("Adult \"%s\" did not want to feed the baby \"%s\" [%s]",
-                            name,
-                            e.getSource().getName(),
-                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+                    if (Math.random() <= 0.40 && !(Adult.this.state instanceof AdultWorkingState)) {
+                        log.info(String.format("Adult \"%s\" did not want to feed the baby \"%s\" [%s]",
+                                name,
+                                e.getSource().getName(),
+                                SHSystem.getInstance().getSimulation().getFormattedTime()));
 
-                    if (nextHandler != null) {
-                        nextHandler.handle(e);
-                    } else {
-                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        if (nextHandler != null) {
+                            nextHandler.handle(e);
+                        } else {
+                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        }
+
+                        return;
                     }
 
-                    return;
-                }
 
-                if (!(Adult.this.state instanceof AdultWaitingState)) {
-                    Adult.this.changeState(new AdultWaitingState(Adult.this));
-                }
+                    if (!(Adult.this.state instanceof AdultWaitingState)
+                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                        Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    }
 
-                ((Child) e.getSource()).feed(Adult.this);
-            }
+                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                        ((Child) e.getSource()).feed(Adult.this);
+                    }
+                }
         });
 
         SHSystem.getInstance().getEventDispatcher().addEventHandler(HungryPetEvent.class, "global", new AEventHandler() {
             @Override
             public void handle(AEvent e) {
-                if (Math.random() <= 0.40) {
-                    log.info(String.format("Adult \"%s\" did not want to feed the pet \"%s\" [%s]",
-                            name,
-                            e.getSource().getName(),
-                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+                    if (Math.random() <= 0.40 && !(Adult.this.state instanceof AdultWorkingState)) {
+                        log.info(String.format("Adult \"%s\" did not want to feed the pet \"%s\" [%s]",
+                                name,
+                                e.getSource().getName(),
+                                SHSystem.getInstance().getSimulation().getFormattedTime()));
 
-                    if (nextHandler != null) {
-                        nextHandler.handle(e);
-                    } else {
-                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        if (nextHandler != null) {
+                            nextHandler.handle(e);
+                        } else {
+                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        }
+
+                        return;
                     }
 
-                    return;
-                }
 
-                if (!(Adult.this.state instanceof AdultWaitingState)) {
-                    Adult.this.changeState(new AdultWaitingState(Adult.this));
-                }
+                    if (!(Adult.this.state instanceof AdultWaitingState)
+                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                        Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    }
 
-                ((APet) e.getSource()).feed(Adult.this);
-            }
+                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                        ((APet) e.getSource()).feed(Adult.this);
+                    }
+                }
         });
 
         SHSystem.getInstance().getEventDispatcher().addEventHandler(BoredPetEvent.class, "global", new AEventHandler() {
             @Override
             public void handle(AEvent e) {
-                if (Math.random() <= 0.20) {
-                    log.info(String.format("Adult \"%s\" did not want to play with pet \"%s\" [%s]",
-                            name,
-                            e.getSource().getName(),
-                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+                    if (Math.random() <= 0.20 && !(Adult.this.state instanceof AdultWorkingState)) {
+                        log.info(String.format("Adult \"%s\" did not want to play with pet \"%s\" [%s]",
+                                name,
+                                e.getSource().getName(),
+                                SHSystem.getInstance().getSimulation().getFormattedTime()));
 
-                    if (nextHandler != null) {
-                        nextHandler.handle(e);
-                    } else {
-                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        if (nextHandler != null) {
+                            nextHandler.handle(e);
+                        } else {
+                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        }
+
+                        return;
                     }
 
-                    return;
-                }
+                    if (!(Adult.this.state instanceof AdultWaitingState)
+                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                        Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    }
 
-                if (!(Adult.this.state instanceof AdultWaitingState)) {
-                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                        ((APet) e.getSource()).play(Adult.this);
+                    }
                 }
-
-                ((APet) e.getSource()).play(Adult.this);
-            }
         });
 
         SHSystem.getInstance().getEventDispatcher().addEventHandler(WaterInRoomEvent.class, "global", new AEventHandler() {
             @Override
             public void handle(AEvent e) {
-                if (Adult.this.state instanceof AdultSleepingState) {
-                    if (Math.random() <= 0.20) {
-                        log.info(String.format("Adult \"%s\" didn't wake up during a water leak in the room \"%s\" [%s]",
-                                name,
-                                e.getLocation().getName(),
-                                SHSystem.getInstance().getSimulation().getFormattedTime()));
+                    if (Adult.this.state instanceof AdultSleepingState) {
+                        if (Math.random() <= 0.20) {
+                            log.info(String.format("Adult \"%s\" didn't wake up during a water leak in the room \"%s\" [%s]",
+                                    name,
+                                    e.getLocation().getName(),
+                                    SHSystem.getInstance().getSimulation().getFormattedTime()));
 
-                        if (nextHandler != null) {
-                            nextHandler.handle(e);
-                        } else {
-                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                            if (nextHandler != null) {
+                                nextHandler.handle(e);
+                            } else {
+                                SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                            }
+
+                            return;
                         }
-
-                        return;
                     }
+
+                    if (!(Adult.this.state instanceof AdultWaitingState)
+                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                        Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    }
+
+                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                        ((Room) e.getLocation()).fixWaterLeak(Adult.this);
+                        ((ASensor) e.getSource()).resetState();
+                    }
+
+//                log.info(String.format("Adult \"%s\" fixed a water leak in the room \"%s\" [%s]",
+//                        name,
+//                        e.getLocation().getName(),
+//                        SHSystem.getInstance().getSimulation().getFormattedTime()));
                 }
-
-                if (!(Adult.this.state instanceof AdultWaitingState)) {
-                    Adult.this.changeState(new AdultWaitingState(Adult.this));
-                }
-
-                ((ASensor) e.getSource()).resetState();
-
-                log.info(String.format("Adult \"%s\" fixed a water leak in the room \"%s\" [%s]",
-                        name,
-                        e.getLocation().getName(),
-                        SHSystem.getInstance().getSimulation().getFormattedTime()));
-            }
         });
 
         SHSystem.getInstance().getEventDispatcher().addEventHandler(SmokeInRoomEvent.class, "global", new AEventHandler() {
             @Override
             public void handle(AEvent e) {
-                if (Adult.this.state instanceof AdultSleepingState) {
-                    if (Math.random() <= 0.20) {
-                        log.info(String.format("Adult \"%s\" didn't wake up during a fire in the room \"%s\" [%s]",
-                                name,
-                                e.getLocation().getName(),
-                                SHSystem.getInstance().getSimulation().getFormattedTime()));
+                    if (Adult.this.state instanceof AdultSleepingState) {
+                        if (Math.random() <= 0.20) {
+                            log.info(String.format("Adult \"%s\" didn't wake up during a fire in the room \"%s\" [%s]",
+                                    name,
+                                    e.getLocation().getName(),
+                                    SHSystem.getInstance().getSimulation().getFormattedTime()));
 
-                        if (nextHandler != null) {
-                            nextHandler.handle(e);
-                        } else {
-                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                            if (nextHandler != null) {
+                                nextHandler.handle(e);
+                            } else {
+                                SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                            }
+
+                            return;
                         }
+                    }
 
-                        return;
+                    if (!(Adult.this.state instanceof AdultWaitingState)
+                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                        Adult.this.changeState(new AdultWaitingState(Adult.this));
+                    }
+
+                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                        ((Room) e.getLocation()).putOutTheFire(Adult.this);
+                        ((ASensor) e.getSource()).resetState();
                     }
                 }
-
-                if (!(Adult.this.state instanceof AdultWaitingState)) {
-                    Adult.this.changeState(new AdultWaitingState(Adult.this));
-                }
-
-                ((Room) e.getLocation()).putOutTheFire(Adult.this);
-            }
         });
     }
 }

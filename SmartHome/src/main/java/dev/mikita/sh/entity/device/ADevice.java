@@ -18,8 +18,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     // Constants
     protected int operatingTimeInHours = 0;
     protected double usageTimeInHour = 0;
-    protected int hungerPerHour = 0;
-    protected int leisurePerHour = 0;
+    protected Documentation doc;
 
     // Consumption
     protected double currentElectricityConsumption = 0;
@@ -28,6 +27,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     protected double lastElectricityConsumption = 0;
     protected double lastWaterConsumption = 0;
     protected double lastGasConsumption = 0;
+    protected int fixingTimeInHours = 0;
 
     public ADevice(Room room, String name) {
         this.room = room;
@@ -43,6 +43,10 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     public Room getRoom() {
         return room;
+    }
+
+    public Documentation getDocumentation() {
+        return doc;
     }
 
     public double getCurrentElectricityConsumption() {
@@ -98,6 +102,10 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
         this.time = time;
     }
 
+    public int getFixingTimeInHours() {
+        return fixingTimeInHours;
+    }
+
     public ADeviceState getState() {
         return state;
     }
@@ -123,16 +131,6 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     @Override
     public double getUsageTimeInHour() {
         return usageTimeInHour;
-    }
-
-    @Override
-    public int getHungerPerHour() {
-        return hungerPerHour;
-    }
-
-    @Override
-    public int getLeisurePerHour() {
-        return leisurePerHour;
     }
 
     @Override

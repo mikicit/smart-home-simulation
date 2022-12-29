@@ -14,7 +14,7 @@ public class WashingMachineFixingState extends ADeviceFixingState {
         super(device);
 
         // Logging
-        log.info(String.format("Washing machine in room \"%s\" is fixing now [%s]",
+        log.info(String.format("Washing machine in room \"%s\" is being fixed now [%s]",
                 device.getRoom().getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }

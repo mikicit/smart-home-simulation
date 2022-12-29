@@ -8,8 +8,6 @@ public interface IUsableObject {
     void unUse(AInhabitant inhabitant);
     double getUsageTimeInHour();
     int getOperatingTimeInHours();
-    int getHungerPerHour();
-    int getLeisurePerHour();
     boolean isOn();
     boolean isOff();
     boolean isUsing();
