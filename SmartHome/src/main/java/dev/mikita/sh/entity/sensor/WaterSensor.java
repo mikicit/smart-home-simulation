@@ -2,7 +2,6 @@ package dev.mikita.sh.entity.sensor;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.location.Room;
-import dev.mikita.sh.event.SmokeInRoomEvent;
 import dev.mikita.sh.event.WaterInRoomEvent;
 
 import java.io.IOException;

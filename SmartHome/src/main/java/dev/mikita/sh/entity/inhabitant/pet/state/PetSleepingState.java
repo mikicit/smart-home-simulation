@@ -4,8 +4,6 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
-import dev.mikita.sh.entity.inhabitant.person.child.state.ChildSleepingState;
 
 import java.util.logging.Logger;
 

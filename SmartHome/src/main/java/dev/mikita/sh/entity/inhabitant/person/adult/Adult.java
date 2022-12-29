@@ -319,11 +319,6 @@ public class Adult extends APerson {
                         ((Room) e.getLocation()).fixWaterLeak(Adult.this);
                         ((ASensor) e.getSource()).resetState();
                     }
-
-//                log.info(String.format("Adult \"%s\" fixed a water leak in the room \"%s\" [%s]",
-//                        name,
-//                        e.getLocation().getName(),
-//                        SHSystem.getInstance().getSimulation().getFormattedTime()));
                 }
         });
 

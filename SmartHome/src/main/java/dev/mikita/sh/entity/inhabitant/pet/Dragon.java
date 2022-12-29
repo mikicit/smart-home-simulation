@@ -2,13 +2,10 @@ package dev.mikita.sh.entity.inhabitant.pet;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
-import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
 import dev.mikita.sh.entity.inhabitant.pet.state.PetAwakeState;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.BoredPetEvent;
-import dev.mikita.sh.event.HungryChildEvent;
 import dev.mikita.sh.event.HungryPetEvent;
-import dev.mikita.sh.event.PoopedChildEvent;
 
 public class Dragon extends APet {
     // Constants
