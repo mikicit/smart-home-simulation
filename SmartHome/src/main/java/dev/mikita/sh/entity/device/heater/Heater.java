@@ -60,7 +60,7 @@ public class Heater extends ADevice {
 
             if (!(inhabitant instanceof Adult)) return;
 
-            inhabitant.useObject(this);
+            ((Adult) inhabitant).useObject(this);
             changeState(new FridgeUsingState(this));
         }
     }
@@ -68,7 +68,7 @@ public class Heater extends ADevice {
     @Override
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
-            inhabitant.unUseObject(this);
+            ((Adult) inhabitant).unUseObject(this);
             changeState(new FridgeIdleState(this));
         }
     }

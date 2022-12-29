@@ -30,10 +30,6 @@ public class SHSystem {
         return instance;
     }
 
-    public void init(House house) throws IOException {
-
-    }
-
     public void init() throws IOException {
         this.simulation = new Simulation();
         this.eventDispatcher = new EventDispatcher();

@@ -46,7 +46,7 @@ public class WaterSensor extends AInternalSensor {
     }
 
     @Override
-    protected void resetState() {
+    public void resetState() {
         this.time = 0;
         state = WaterSensorState.NO_WATER;
         triggeredTimeInHours = calculateTriggeredTime();

@@ -12,7 +12,7 @@ public class FridgeUsingState extends ADeviceUsingState {
 
     public FridgeUsingState(ADevice device) {
         super(device);
-        this.ELECTRICITY_CONSUMPTION = 1.28;
+        this.ELECTRICITY_CONSUMPTION = 5;
 
         // Logging
         log.info(String.format("Fridge in room \"%s\" is being used now[%s]",
@@ -32,6 +32,6 @@ public class FridgeUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600D * 1000000000L)) * time);
     }
 }

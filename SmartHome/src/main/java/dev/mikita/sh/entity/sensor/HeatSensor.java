@@ -43,7 +43,7 @@ public class HeatSensor extends AInternalSensor {
     }
 
     @Override
-    protected void resetState() {
+    public void resetState() {
         state = HeatSensorState.NORMAL;
     }
 }

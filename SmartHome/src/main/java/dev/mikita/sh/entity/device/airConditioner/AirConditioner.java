@@ -47,7 +47,7 @@ public class AirConditioner extends ADevice {
             if (!(inhabitant instanceof Adult)) return;
 
             setUser(inhabitant);
-            inhabitant.useObject(this);
+            ((Adult) inhabitant).useObject(this);
             changeState(new AirConditionerUsingState(this));
         }
     }
@@ -56,7 +56,7 @@ public class AirConditioner extends ADevice {
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
             setUser(null);
-            inhabitant.unUseObject(this);
+            ((Adult) inhabitant).unUseObject(this);
             changeState(new AirConditionerIdleState(this));
         }
     }

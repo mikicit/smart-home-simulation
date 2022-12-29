@@ -3,10 +3,13 @@ package dev.mikita.sh.core.task;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
-import dev.mikita.sh.event.DeviceIsBrokenEvent;
+import dev.mikita.sh.entity.inhabitant.person.child.Child;
+import dev.mikita.sh.entity.inhabitant.pet.APet;
+import dev.mikita.sh.entity.location.Room;
+import dev.mikita.sh.event.*;
 
 public class Task {
-    private AEvent event;
+    private final AEvent event;
 
     public Task(AEvent event) {
         this.event = event;
@@ -15,6 +18,18 @@ public class Task {
     public void apply(Adult adult) {
         if (event instanceof DeviceIsBrokenEvent) {
             ((ADevice) event.getSource()).fix(adult);
+        } else if (event instanceof SmokeInRoomEvent) {
+            ((Room) event.getLocation()).putOutTheFire(adult);
+        } else if (event instanceof WaterInRoomEvent) {
+            ((Room) event.getLocation()).fixWaterLeak(adult);
+        } else if (event instanceof HungryChildEvent) {
+            ((Child) event.getSource()).feed(adult);
+        } else if (event instanceof PoopedChildEvent) {
+            ((Child) event.getSource()).changeDiaper(adult);
+        } else if (event instanceof HungryPetEvent) {
+            ((APet) event.getSource()).feed(adult);
+        } else if (event instanceof BoredPetEvent) {
+            ((APet) event.getSource()).play(adult);
         }
     }
 }

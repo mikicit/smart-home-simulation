@@ -41,52 +41,45 @@ public class AdultWaitingState extends AInhabitantState {
             return;
         }
 
-        // Indicators
-        inhabitant.setHungerIndicator(inhabitant.getHungerIndicator() - (inhabitant.getHungerPerHour() / (3600D * 1000000000)) * time);
-        inhabitant.setLeisureIndicator(inhabitant.getLeisureIndicator() - (inhabitant.getLeisurePerHour() / (3600D * 1000000000)) * time);
+        // Delay between using items or devices
+        if (this.time < WAITING_TIME_IN_HOUR * 3600L * 1000000000L) return;
 
-//        // Delay between using items or devices
-//        if (this.time < WAITING_TIME_IN_HOUR * 3600L * 1000000000L) return;
+        if (Math.random() < 0.5) {
+            List<ADevice> devices = inhabitant.getRoom().getDevices().stream()
+                    .filter(device -> device.getState() instanceof ADeviceIdleState)
+                    .collect(Collectors.toList());
 
-        // Find device or item for using
-        if (inhabitant.getLeisureIndicator() == 0) {
-            if (Math.random() < 0.5) {
-                List<ADevice> devices = inhabitant.getRoom().getDevices().stream()
+            if (devices.isEmpty()) {
+                List<ADevice> allDevices = DeviceFactory.getInstance().getDevices().stream()
                         .filter(device -> device.getState() instanceof ADeviceIdleState)
                         .collect(Collectors.toList());
 
-                if (devices.isEmpty()) {
-                    List<ADevice> allDevices = DeviceFactory.getInstance().getDevices().stream()
-                            .filter(device -> device.getState() instanceof ADeviceIdleState)
-                            .collect(Collectors.toList());
-
-                    if (!allDevices.isEmpty()) {
-                        ADevice device = allDevices.get((int) (Math.random() * allDevices.size()));
-                        inhabitant.moveTo(device.getRoom());
-                        device.use(inhabitant);
-                    }
-                } else {
-                    devices.get((int) (Math.random() * devices.size())).use(inhabitant);
+                if (!allDevices.isEmpty()) {
+                    ADevice device = allDevices.get((int) (Math.random() * allDevices.size()));
+                    inhabitant.moveTo(device.getRoom());
+                    device.use(inhabitant);
                 }
             } else {
-                List<AItem> items = inhabitant.getRoom().getItems().stream()
+                devices.get((int) (Math.random() * devices.size())).use(inhabitant);
+            }
+        } else {
+            List<AItem> items = inhabitant.getRoom().getItems().stream()
+                    .filter(item -> !item.isUsing())
+                    .collect(Collectors.toList());
+
+            if (items.isEmpty()) {
+                List<AItem> allItems = ItemFactory.getInstance().getItems().stream()
                         .filter(item -> !item.isUsing())
                         .collect(Collectors.toList());
 
-                if (items.isEmpty()) {
-                    List<AItem> allItems = ItemFactory.getInstance().getItems().stream()
-                            .filter(item -> !item.isUsing())
-                            .collect(Collectors.toList());
-
-                    if (!allItems.isEmpty()) {
-                        AItem item = allItems.get((int) (Math.random() * allItems.size()));
-                        inhabitant.moveTo(item.getRoom());
-                        item.use(inhabitant);
-                    }
-                } else {
-                    items.get((int) (Math.random() * items.size())).use(inhabitant);
+                if (!allItems.isEmpty()) {
+                    AItem item = allItems.get((int) (Math.random() * allItems.size()));
+                    inhabitant.moveTo(item.getRoom());
+                    item.use(inhabitant);
                 }
+            } else {
+                items.get((int) (Math.random() * items.size())).use(inhabitant);
             }
         }
-    }
+        }
 }

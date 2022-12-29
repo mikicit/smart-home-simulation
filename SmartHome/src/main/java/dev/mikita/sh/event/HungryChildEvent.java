@@ -3,7 +3,6 @@ package dev.mikita.sh.event;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.IEventSource;
-import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
 import dev.mikita.sh.entity.location.ILocation;
 
 import java.util.logging.Logger;

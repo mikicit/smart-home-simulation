@@ -43,7 +43,7 @@ public class SmokeSensor extends AInternalSensor {
     }
 
     @Override
-    protected void resetState() {
+    public void resetState() {
         this.time = 0;
         state = SmokeSensorState.NO_SMOKE;
         triggeredTimeInHours = calculateTriggeredTime();

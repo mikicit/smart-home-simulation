@@ -32,8 +32,8 @@ public class OvenUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600D * 1000000000)) * time);
         device.setCurrentGasConsumption(device.getCurrentGasConsumption()
-                + (GAS_CONSUMPTION / (3600L * 1000000000L)) * this.time);
+                + (GAS_CONSUMPTION / (3600D * 1000000000)) * time);
     }
 }

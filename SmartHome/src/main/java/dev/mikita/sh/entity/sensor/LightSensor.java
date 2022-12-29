@@ -26,7 +26,7 @@ public class LightSensor extends AInternalSensor {
     }
 
     @Override
-    protected void resetState() {
+    public void resetState() {
         state = LightSensorState.ENOUGH_LIGHT;
     }
 }

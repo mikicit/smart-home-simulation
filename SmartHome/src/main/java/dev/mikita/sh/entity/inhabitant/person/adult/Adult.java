@@ -7,15 +7,19 @@ import dev.mikita.sh.core.task.Task;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
-import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceFixingState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultDeviceUsingState;
+import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultSleepingState;
 import dev.mikita.sh.entity.inhabitant.person.adult.state.AdultWaitingState;
 import dev.mikita.sh.entity.inhabitant.person.child.Child;
 import dev.mikita.sh.entity.inhabitant.pet.APet;
 import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.location.Room;
-import dev.mikita.sh.event.DeviceIsBrokenEvent;
+import dev.mikita.sh.entity.sensor.ASensor;
+import dev.mikita.sh.entity.sensor.SmokeSensor;
+import dev.mikita.sh.entity.sensor.WaterSensor;
+import dev.mikita.sh.event.*;
+
 import java.util.logging.Logger;
 
 public class Adult extends APerson {
@@ -25,27 +29,87 @@ public class Adult extends APerson {
     public Adult(Room room, String name) {
         super(room, name);
         this.state = new AdultWaitingState(this);
-        this.hungerIndicator = 100;
-        this.leisureIndicator = 100;
-        this.hungerPerHour = 10;
-        this.leisurePerHour = 5;
         this.deviceBreakingChance = 0.1;
 
         initEventHandlers();
     }
 
     public void feedChild(Child child) {
-        moveTo(child.getRoom());
-        child.setHungerIndicator(100);
+        if (!room.equals(child.getRoom())) {
+            moveTo(child.getRoom());
+        }
+
+        log.info(String.format("Adult \"%s\" fed the child \"%s\" [%s]",
+                name,
+                child.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
+    }
+
+    public void changeDiapers(Child child) {
+        if (!room.equals(child.getRoom())) {
+            moveTo(child.getRoom());
+        }
+
+        log.info(String.format("Adult \"%s\" changed baby's diaper \"%s\" [%s]",
+                name,
+                child.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     public void feedPet(APet pet) {
-        moveTo(pet.getRoom());
-        pet.setHungerIndicator(100);
+        if (!room.equals(pet.getRoom())) {
+            moveTo(pet.getRoom());
+        }
+
+        log.info(String.format("Adult \"%s\" fed the pet \"%s\" [%s]",
+                name,
+                pet.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     public void playWithPet(APet pet) {
-        pet.setLeisureIndicator(85);
+        if (!room.equals(pet.getRoom())) {
+            moveTo(pet.getRoom());
+        }
+
+        log.info(String.format("Adult \"%s\" played with pet \"%s\" [%s]",
+                name,
+                pet.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
+    }
+
+    public void fixWaterLeak(Room room) {
+        if (!this.room.equals(room)) {
+            moveTo(room);
+        }
+
+        for (ASensor sensor : room.getSensors()) {
+            if (sensor instanceof WaterSensor) {
+                sensor.resetState();
+            }
+        }
+
+        log.info(String.format("Adult \"%s\" fixed a water leak in the room \"%s\" [%s]",
+                name,
+                room.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
+    }
+
+    public void putOutTheFire(Room room) {
+        if (!this.room.equals(room)) {
+            moveTo(room);
+        }
+
+        for (ASensor sensor : room.getSensors()) {
+            if (sensor instanceof SmokeSensor) {
+                sensor.resetState();
+            }
+        }
+
+        log.info(String.format("Adult \"%s\" put out the fire in the room \"%s\" [%s]",
+                name,
+                room.getName(),
+                SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
     public void fixDevice(ADevice device) {
@@ -58,7 +122,6 @@ public class Adult extends APerson {
         changeState(new AdultWaitingState(this));
     }
 
-    @Override
     public void useObject(IUsableObject object) {
         this.usingObject = object;
 
@@ -71,26 +134,14 @@ public class Adult extends APerson {
         changeState(new AdultDeviceUsingState(this));
     }
 
-    @Override
     public void unUseObject(IUsableObject object) {
         this.usingObject = null;
         changeState(new AdultWaitingState(this));
     }
 
     @Override
-    public void toBreakDevice(ADevice device) {
-        this.usingObject = device;
-        changeState(new AdultWaitingState(this));
-    }
-
-    @Override
     public void update(long time) {
         this.state.update(time);
-    }
-
-    @Override
-    public void changeState(AInhabitantState state) {
-        this.state = state;
     }
 
     private void initEventHandlers() {
@@ -112,15 +163,169 @@ public class Adult extends APerson {
             }
         });
 
-//        SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalTemperatureEvent.class, room.getName(), new AEventHandler() {
-//            @Override
-//            public void handle(AEvent e) {
-//
-//
-//                if (nextHandler != null) {
-//                    nextHandler.handle(e);
-//                }
-//            }
-//        });
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(PoopedChildEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Math.random() <= 0.40) {
+                    log.info(String.format("Adult \"%s\" did not want to change baby \"%s\" diapers [%s]",
+                            name,
+                            e.getSource().getName(),
+                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+                    if (nextHandler != null) {
+                        nextHandler.handle(e);
+                    } else {
+                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                    }
+
+                    return;
+                }
+
+                if (!(Adult.this.state instanceof AdultWaitingState)) {
+                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                }
+
+                ((Child) e.getSource()).changeDiaper(Adult.this);
+            }
+        });
+
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(HungryChildEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Math.random() <= 0.40) {
+                    log.info(String.format("Adult \"%s\" did not want to feed the baby \"%s\" [%s]",
+                            name,
+                            e.getSource().getName(),
+                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+                    if (nextHandler != null) {
+                        nextHandler.handle(e);
+                    } else {
+                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                    }
+
+                    return;
+                }
+
+                if (!(Adult.this.state instanceof AdultWaitingState)) {
+                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                }
+
+                ((Child) e.getSource()).feed(Adult.this);
+            }
+        });
+
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(HungryPetEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Math.random() <= 0.40) {
+                    log.info(String.format("Adult \"%s\" did not want to feed the pet \"%s\" [%s]",
+                            name,
+                            e.getSource().getName(),
+                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+                    if (nextHandler != null) {
+                        nextHandler.handle(e);
+                    } else {
+                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                    }
+
+                    return;
+                }
+
+                if (!(Adult.this.state instanceof AdultWaitingState)) {
+                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                }
+
+                ((APet) e.getSource()).feed(Adult.this);
+            }
+        });
+
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(BoredPetEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Math.random() <= 0.20) {
+                    log.info(String.format("Adult \"%s\" did not want to play with pet \"%s\" [%s]",
+                            name,
+                            e.getSource().getName(),
+                            SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+                    if (nextHandler != null) {
+                        nextHandler.handle(e);
+                    } else {
+                        SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                    }
+
+                    return;
+                }
+
+                if (!(Adult.this.state instanceof AdultWaitingState)) {
+                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                }
+
+                ((APet) e.getSource()).play(Adult.this);
+            }
+        });
+
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(WaterInRoomEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Adult.this.state instanceof AdultSleepingState) {
+                    if (Math.random() <= 0.20) {
+                        log.info(String.format("Adult \"%s\" didn't wake up during a water leak in the room \"%s\" [%s]",
+                                name,
+                                e.getLocation().getName(),
+                                SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+                        if (nextHandler != null) {
+                            nextHandler.handle(e);
+                        } else {
+                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        }
+
+                        return;
+                    }
+                }
+
+                if (!(Adult.this.state instanceof AdultWaitingState)) {
+                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                }
+
+                ((ASensor) e.getSource()).resetState();
+
+                log.info(String.format("Adult \"%s\" fixed a water leak in the room \"%s\" [%s]",
+                        name,
+                        e.getLocation().getName(),
+                        SHSystem.getInstance().getSimulation().getFormattedTime()));
+            }
+        });
+
+        SHSystem.getInstance().getEventDispatcher().addEventHandler(SmokeInRoomEvent.class, "global", new AEventHandler() {
+            @Override
+            public void handle(AEvent e) {
+                if (Adult.this.state instanceof AdultSleepingState) {
+                    if (Math.random() <= 0.20) {
+                        log.info(String.format("Adult \"%s\" didn't wake up during a fire in the room \"%s\" [%s]",
+                                name,
+                                e.getLocation().getName(),
+                                SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+                        if (nextHandler != null) {
+                            nextHandler.handle(e);
+                        } else {
+                            SHSystem.getInstance().getTaskSystem().addTask(new Task(e));
+                        }
+
+                        return;
+                    }
+                }
+
+                if (!(Adult.this.state instanceof AdultWaitingState)) {
+                    Adult.this.changeState(new AdultWaitingState(Adult.this));
+                }
+
+                ((Room) e.getLocation()).putOutTheFire(Adult.this);
+            }
+        });
     }
 }

@@ -41,7 +41,7 @@ public class WashingMachine extends ADevice {
             if (!(inhabitant instanceof Adult)) return;
 
             setUser(inhabitant);
-            inhabitant.useObject(this);
+            ((Adult) inhabitant).useObject(this);
             changeState(new WashingMachineUsingState(this));
         }
     }
@@ -50,7 +50,7 @@ public class WashingMachine extends ADevice {
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
             setUser(null);
-            inhabitant.unUseObject(this);
+            ((Adult) inhabitant).unUseObject(this);
             changeState(new WashingMachineIdleState(this));
         }
     }

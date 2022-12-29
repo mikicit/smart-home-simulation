@@ -164,5 +164,4 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     public abstract void off();
     public abstract void fix(Adult person);
     public abstract void completeFixing(Adult person);
-//    public abstract void toBeBroken(AInhabitant inhabitant);
 }

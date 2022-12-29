@@ -14,7 +14,7 @@ public class AirConditionerUsingState extends ADeviceUsingState {
     @Override
     public void update(long time) {
         // Wear out time
-        if (device.getTime() > device.getOperatingTimeInHours() * 3600D * 1000000000L) {
+        if (device.getTime() > device.getOperatingTimeInHours() * 3600L * 1000000000L) {
             device.changeState(new AirConditionerBrokenState(device));
         }
 
@@ -23,13 +23,13 @@ public class AirConditionerUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600D * 1000000000)) * time);
 
         // Temperature
         double coolingPerHour = ((AirConditioner) device).getCoolingPerHour();
         InnerAtmosphere atmosphere = device.getRoom().getAtmosphere();
 
         atmosphere.setTemperature(atmosphere.getTemperature()
-                - (coolingPerHour / (3600L * 1000000000L)) * this.time);
+                - (coolingPerHour / (3600D * 1000000000)) * time);
     }
 }

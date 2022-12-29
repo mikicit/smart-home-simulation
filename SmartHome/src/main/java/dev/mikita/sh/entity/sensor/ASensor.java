@@ -17,5 +17,5 @@ public abstract class ASensor implements ITimeTracker, IEventSource {
     }
 
     protected abstract void switchState();
-    protected abstract void resetState();
+    public abstract void resetState();
 }

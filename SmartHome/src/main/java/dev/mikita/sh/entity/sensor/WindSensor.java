@@ -43,7 +43,7 @@ public class WindSensor extends AExternalSensor {
     }
 
     @Override
-    protected void resetState() {
+    public void resetState() {
         state = WindSensorState.NO_WIND;
     }
 }

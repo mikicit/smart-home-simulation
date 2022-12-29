@@ -31,6 +31,6 @@ public class MicrowaveUsingState extends ADeviceUsingState {
 
         // Consumption
         device.setCurrentElectricityConsumption(device.getCurrentElectricityConsumption()
-                + (ELECTRICITY_CONSUMPTION / (3600L * 1000000000L)) * this.time);
+                + (ELECTRICITY_CONSUMPTION / (3600D * 1000000000)) * time);
     }
 }
