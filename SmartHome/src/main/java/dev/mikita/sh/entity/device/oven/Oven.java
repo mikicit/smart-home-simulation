@@ -2,6 +2,7 @@ package dev.mikita.sh.entity.device.oven;
 
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
+import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.device.oven.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -11,8 +12,8 @@ public class Oven extends ADevice {
     public Oven(Room room, String name) {
         super(room, name);
         this.state = new OvenIdleState(this);
-        this.fixingTimeInHours = 2;
-        this.operatingTimeInHours = 700;
+        this.fixingTimeInHours = 1;
+        this.operatingTimeInHours = 1000;
         this.usageTimeInHour = 1;
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
@@ -72,6 +73,11 @@ public class Oven extends ADevice {
             person.completeFixingDevice(this);
             changeState(new OvenIdleState(this));
         }
+    }
+
+    @Override
+    public void toBreak() {
+        changeState(new OvenBrokenState(this));
     }
 
     @Override

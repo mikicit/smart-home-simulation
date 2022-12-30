@@ -8,9 +8,9 @@ public class Documentation {
     private static final Logger log = Logger.getLogger(Documentation.class.getName());
 
     private final ADevice device;
-    private final int fixingTimeInHours;
+    private final double fixingTimeInHours;
 
-    public Documentation(ADevice device, int fixingTimeInHours) {
+    public Documentation(ADevice device, double fixingTimeInHours) {
         this.device = device;
         this.fixingTimeInHours = fixingTimeInHours;
     }

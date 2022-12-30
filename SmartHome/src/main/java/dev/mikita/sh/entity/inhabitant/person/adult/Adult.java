@@ -50,7 +50,7 @@ public class Adult extends APerson {
             moveTo(child.getRoom());
         }
 
-        log.info(String.format("Adult \"%s\" changed baby's diaper \"%s\" [%s]",
+        log.info(String.format("Adult \"%s\" changed \"%s's\" diaper [%s]",
                 name,
                 child.getName(),
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
@@ -120,6 +120,7 @@ public class Adult extends APerson {
     }
 
     public void completeFixingDevice(ADevice device) {
+        device.setTime(0);
         usingObject = null;
         changeState(new AdultWaitingState(this));
 
@@ -191,11 +192,15 @@ public class Adult extends APerson {
 
 
                     if (!(Adult.this.state instanceof AdultWaitingState)
-                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                            && !(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         Adult.this.changeState(new AdultWaitingState(Adult.this));
                     }
 
-                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                    if (!(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         ((Child) e.getSource()).changeDiaper(Adult.this);
                     }
                 }
@@ -221,11 +226,15 @@ public class Adult extends APerson {
 
 
                     if (!(Adult.this.state instanceof AdultWaitingState)
-                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                            && !(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         Adult.this.changeState(new AdultWaitingState(Adult.this));
                     }
 
-                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                    if (!(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         ((Child) e.getSource()).feed(Adult.this);
                     }
                 }
@@ -251,11 +260,15 @@ public class Adult extends APerson {
 
 
                     if (!(Adult.this.state instanceof AdultWaitingState)
-                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                            && !(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         Adult.this.changeState(new AdultWaitingState(Adult.this));
                     }
 
-                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                    if (!(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         ((APet) e.getSource()).feed(Adult.this);
                     }
                 }
@@ -280,11 +293,15 @@ public class Adult extends APerson {
                     }
 
                     if (!(Adult.this.state instanceof AdultWaitingState)
-                            && !(Adult.this.state instanceof AdultWorkingState)) {
+                            && !(Adult.this.state instanceof AdultWorkingState)
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState)) {
                         Adult.this.changeState(new AdultWaitingState(Adult.this));
                     }
 
-                    if (!(Adult.this.state instanceof AdultWorkingState)) {
+                    if (!(Adult.this.state instanceof AdultWorkingState
+                            && !(Adult.this.state instanceof AdultDeviceFixingState)
+                            && !(Adult.this.state instanceof AdultDeviceUsingState))) {
                         ((APet) e.getSource()).play(Adult.this);
                     }
                 }

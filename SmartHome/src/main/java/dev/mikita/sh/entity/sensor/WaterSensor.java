@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class WaterSensor extends AInternalSensor {
     // Constants
-    private final double MIN_TRIGGERED_TIME_IN_HOURS = 5;
-    private final double MAX_TRIGGERED_TIME_IN_HOURS = 50;
+    private final double MIN_TRIGGERED_TIME_IN_HOURS = 48;
+    private final double MAX_TRIGGERED_TIME_IN_HOURS = 192;
 
     // State
     private enum WaterSensorState {

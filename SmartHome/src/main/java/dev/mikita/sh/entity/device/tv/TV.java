@@ -2,6 +2,7 @@ package dev.mikita.sh.entity.device.tv;
 
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
+import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.device.tv.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -11,8 +12,8 @@ public class TV extends ADevice {
     public TV(Room room, String name) {
         super(room, name);
         this.state = new TVIdleState(this);
-        this.fixingTimeInHours = 4;
-        this.operatingTimeInHours = 1000;
+        this.fixingTimeInHours = 1.5;
+        this.operatingTimeInHours = 2500;
         this.usageTimeInHour = 1;
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
@@ -72,6 +73,11 @@ public class TV extends ADevice {
             person.completeFixingDevice(this);
             changeState(new TVIdleState(this));
         }
+    }
+
+    @Override
+    public void toBreak() {
+        changeState(new TVBrokenState(this));
     }
 
     @Override

@@ -27,7 +27,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     protected double lastElectricityConsumption = 0;
     protected double lastWaterConsumption = 0;
     protected double lastGasConsumption = 0;
-    protected int fixingTimeInHours = 0;
+    protected double fixingTimeInHours = 0;
 
     public ADevice(Room room, String name) {
         this.room = room;
@@ -102,7 +102,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
         this.time = time;
     }
 
-    public int getFixingTimeInHours() {
+    public double getFixingTimeInHours() {
         return fixingTimeInHours;
     }
 
@@ -162,4 +162,5 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     public abstract void off();
     public abstract void fix(Adult person);
     public abstract void completeFixing(Adult person);
+    public abstract void toBreak();
 }

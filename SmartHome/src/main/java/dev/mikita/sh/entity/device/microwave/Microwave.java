@@ -2,6 +2,7 @@ package dev.mikita.sh.entity.device.microwave;
 
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
+import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.device.microwave.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -12,7 +13,7 @@ public class Microwave extends ADevice {
         super(room, name);
         this.state = new MicrowaveIdleState(this);
         this.fixingTimeInHours = 1;
-        this.operatingTimeInHours = 600;
+        this.operatingTimeInHours = 2500;
         this.usageTimeInHour = 0.084;
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
@@ -72,6 +73,11 @@ public class Microwave extends ADevice {
             person.completeFixingDevice(this);
             changeState(new MicrowaveIdleState(this));
         }
+    }
+
+    @Override
+    public void toBreak() {
+        changeState(new MicrowaveBrokenState(this));
     }
 
     @Override

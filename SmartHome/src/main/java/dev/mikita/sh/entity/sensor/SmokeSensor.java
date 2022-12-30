@@ -6,8 +6,8 @@ import dev.mikita.sh.event.SmokeInRoomEvent;
 
 public class SmokeSensor extends AInternalSensor {
     // Constants
-    private final double MIN_TRIGGERED_TIME_IN_HOURS = 5;
-    private final double MAX_TRIGGERED_TIME_IN_HOURS = 50;
+    private final double MIN_TRIGGERED_TIME_IN_HOURS = 96;
+    private final double MAX_TRIGGERED_TIME_IN_HOURS = 192;
 
     // State
     private enum SmokeSensorState {

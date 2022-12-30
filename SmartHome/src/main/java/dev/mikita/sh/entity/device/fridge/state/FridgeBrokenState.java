@@ -3,6 +3,7 @@ package dev.mikita.sh.entity.device.fridge.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceBrokenState;
+import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 

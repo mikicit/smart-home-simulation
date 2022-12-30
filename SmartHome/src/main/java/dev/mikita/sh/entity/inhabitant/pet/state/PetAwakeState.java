@@ -3,6 +3,7 @@ package dev.mikita.sh.entity.inhabitant.pet.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.device.ADevice;
+import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.device.DeviceFactory;
 import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
@@ -34,14 +35,25 @@ public class PetAwakeState extends AInhabitantState {
         return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
-    private void resetDeviceUsingEvent() {
-        this.triggeredTimeInHours = calculateTriggeredTime();
+    private void resetDeviceUsingEvent(ADevice device) {
         this.timeFromLastDispatchedDeviceUsingEvent = 0;
+        this.triggeredTimeInHours = calculateTriggeredTime();
 
-        log.info(String.format("%s \"%s\" played with object [%s]",
-                inhabitant.getClass().getSimpleName(),
-                inhabitant.getName(),
-                SHSystem.getInstance().getSimulation().getFormattedTime()));
+        if (Math.random() <= inhabitant.getDeviceBreakingChance()) {
+            log.info(String.format("%s \"%s\" broke the object \"%s\" while playing with it :( [%s]",
+                    inhabitant.getClass().getSimpleName(),
+                    inhabitant.getName(),
+                    device.getName(),
+                    SHSystem.getInstance().getSimulation().getFormattedTime()));
+
+            device.toBreak();
+        } else {
+            log.info(String.format("%s \"%s\" didn't break the object \"%s\" while playing with it, HOORAY :D [%s]",
+                    inhabitant.getClass().getSimpleName(),
+                    inhabitant.getName(),
+                    device.getName(),
+                    SHSystem.getInstance().getSimulation().getFormattedTime()));
+        }
     }
 
     @Override
@@ -73,12 +85,11 @@ public class PetAwakeState extends AInhabitantState {
                 if (!allDevices.isEmpty()) {
                     ADevice device = allDevices.get((int) (Math.random() * allDevices.size()));
                     inhabitant.moveTo(device.getRoom());
-                    device.use(inhabitant);
-                    resetDeviceUsingEvent();
+                    resetDeviceUsingEvent(device);
                 }
             } else {
-                devices.get((int) (Math.random() * devices.size())).use(inhabitant);
-                resetDeviceUsingEvent();
+                ADevice device = devices.get((int) (Math.random() * devices.size()));
+                resetDeviceUsingEvent(device);
             }
         }
     }

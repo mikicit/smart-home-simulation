@@ -16,7 +16,7 @@ public class Child extends APerson {
     private static final Logger log = Logger.getLogger(Child.class.getName());
 
     // Constants
-    private final double MIN_TRIGGERED_TIME_IN_HOURS = 2;
+    private final double MIN_TRIGGERED_TIME_IN_HOURS = 4;
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;
 
     // State
@@ -33,7 +33,7 @@ public class Child extends APerson {
         this.gender = gender;
         this.triggeredHungerTimeInHours = calculateTriggeredTime();
         this.triggeredPoopedTimeInHours = calculateTriggeredTime();
-        this.deviceBreakingChance = 0.5;
+        this.deviceBreakingChance = 0.3;
     }
 
     private double calculateTriggeredTime() {

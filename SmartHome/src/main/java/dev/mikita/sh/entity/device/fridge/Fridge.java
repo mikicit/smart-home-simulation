@@ -12,7 +12,7 @@ public class Fridge extends ADevice {
         super(room, name);
         this.state = new FridgeIdleState(this);
         this.fixingTimeInHours = 1;
-        this.operatingTimeInHours = 376;
+        this.operatingTimeInHours = 2500;
         this.usageTimeInHour = 0.25;
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
@@ -72,6 +72,11 @@ public class Fridge extends ADevice {
             person.completeFixingDevice(this);
             changeState(new FridgeIdleState(this));
         }
+    }
+
+    @Override
+    public void toBreak() {
+        changeState(new FridgeBrokenState(this));
     }
 
     @Override

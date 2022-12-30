@@ -2,6 +2,7 @@ package dev.mikita.sh.entity.device.washingMachine;
 
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
+import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.device.washingMachine.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -11,8 +12,8 @@ public class WashingMachine extends ADevice {
     public WashingMachine(Room room, String name) {
         super(room, name);
         this.state = new WashingMachineIdleState(this);
-        this.fixingTimeInHours = 5;
-        this.operatingTimeInHours = 1400;
+        this.fixingTimeInHours = 1;
+        this.operatingTimeInHours = 2000;
         this.usageTimeInHour = 1;
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
@@ -72,6 +73,11 @@ public class WashingMachine extends ADevice {
             person.completeFixingDevice(this);
             changeState(new WashingMachineIdleState(this));
         }
+    }
+
+    @Override
+    public void toBreak() {
+        changeState(new WashingMachineBrokenState(this));
     }
 
     @Override

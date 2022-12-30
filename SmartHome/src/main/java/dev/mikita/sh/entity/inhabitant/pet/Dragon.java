@@ -9,8 +9,8 @@ import dev.mikita.sh.event.HungryPetEvent;
 
 public class Dragon extends APet {
     // Constants
-    private final double MIN_TRIGGERED_TIME_IN_HOURS = 2;
-    private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;
+    private final double MIN_TRIGGERED_TIME_IN_HOURS = 5;
+    private final double MAX_TRIGGERED_TIME_IN_HOURS = 25;
 
     // State
     private long timeFromLastDispatchedHungerEvent = 0;
