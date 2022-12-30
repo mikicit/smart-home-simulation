@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class AdultWaitingState extends AInhabitantState {
     // Constants
-    private final double WAITING_TIME_IN_HOUR = 0.10;
+    private final double WAITING_TIME_IN_HOUR = 0.4;
 
     public AdultWaitingState(AInhabitant inhabitant) {
         super(inhabitant);

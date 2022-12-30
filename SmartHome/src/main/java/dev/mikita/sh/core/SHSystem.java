@@ -11,6 +11,9 @@ import dev.mikita.sh.entity.location.builder.HouseBuilder;
 
 import java.io.IOException;
 
+/**
+ * Class representing the main system
+ */
 public class SHSystem {
     // References
     private static SHSystem instance;
@@ -25,6 +28,10 @@ public class SHSystem {
 
     private SHSystem() {}
 
+    /**
+     * Returns system's instance
+     * @return instance
+     */
     public static SHSystem getInstance() {
         if (instance == null) {
             instance = new SHSystem();
@@ -32,7 +39,10 @@ public class SHSystem {
         return instance;
     }
 
-    public void init() throws IOException {
+    /**
+     * Initializes the house and all needed systems
+     */
+    public void init() {
         this.simulation = new Simulation();
         this.eventDispatcher = new EventDispatcher();
         this.reportSystem = new ReportSystem();
@@ -89,6 +99,12 @@ public class SHSystem {
         wasInitialized = true;
     }
 
+    /**
+     * Starts the simulation
+     * @param speed simulation's speed
+     * @param timeToSimulate time to simulate
+     * @throws Exception system wasn't initialized
+     */
     public void start(int speed, long timeToSimulate) throws Exception {
         if (!wasInitialized) {
             throw new Exception("The system must be initialized");
@@ -97,26 +113,49 @@ public class SHSystem {
         simulation.start(speed, timeToSimulate);
     }
 
+    /**
+     * Stops the simulation
+     */
     public void stop() {
         simulation.stop();
     }
 
+    /**
+     * Returns report system
+     * @return report system
+     */
     public ReportSystem getReportSystem() {
         return reportSystem;
     }
 
+    /**
+     * Returns event dispatcher
+     * @return event dispatcher
+     */
     public EventDispatcher getEventDispatcher() {
         return eventDispatcher;
     }
 
+    /**
+     * Returns simulation
+     * @return simulation
+     */
     public Simulation getSimulation() {
         return simulation;
     }
 
+    /**
+     * Returns task system
+     * @return task system
+     */
     public TaskSystem getTaskSystem() {
         return taskSystem;
     }
 
+    /**
+     * Returns house
+     * @return house
+     */
     public House getHouse() {
         return house;
     }

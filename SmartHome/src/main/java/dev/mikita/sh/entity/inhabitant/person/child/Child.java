@@ -17,7 +17,7 @@ public class Child extends APerson {
 
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 4;
-    private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;
+    private final double MAX_TRIGGERED_TIME_IN_HOURS = 48;
 
     // State
     private long timeFromLastDispatchedHungerEvent = 0;

@@ -13,6 +13,9 @@ import dev.mikita.sh.entity.location.Room;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for creating devices
+ */
 public class DeviceFactory {
     private static DeviceFactory instance;
     private final List<ADevice> devices = new ArrayList<>();
@@ -27,6 +30,13 @@ public class DeviceFactory {
         return instance;
     }
 
+    /**
+     * Creates the device
+     * @param type device's type
+     * @param room device's room
+     * @param name device's name
+     * @return device
+     */
     public ADevice create(String type, Room room, String name) {
         ADevice device = switch (type) {
             case "AIR_CONDITIONER" -> new AirConditioner(room, name);
@@ -44,6 +54,10 @@ public class DeviceFactory {
         return device;
     }
 
+    /**
+     * Returns devices
+     * @return devices
+     */
     public List<ADevice> getDevices() {
         return this.devices;
     }

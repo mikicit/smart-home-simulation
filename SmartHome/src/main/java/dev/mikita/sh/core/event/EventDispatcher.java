@@ -1,10 +1,18 @@
 package dev.mikita.sh.core.event;
-
 import java.util.*;
 
+/**
+ * Class for working with events and event handlers
+ */
 public class EventDispatcher {
     private final Map<String, LinkedList<IEventHandler>> eventHandlers = new HashMap<>();
 
+    /**
+     * Adds new event handler
+     * @param event event to be handled
+     * @param context event's context
+     * @param handler handler to add
+     */
     public void addEventHandler(Class<? extends AEvent> event, String context, IEventHandler handler) {
         String key = event + context;
 
@@ -17,6 +25,12 @@ public class EventDispatcher {
         }
     }
 
+    /**
+     * Removes existing event handler
+     * @param event handled event
+     * @param context event's context
+     * @param handler handler to remove
+     */
     public void removeEventHandler(Class<? extends AEvent> event, String context, IEventHandler handler) {
         String key = event + context;
 
@@ -29,6 +43,11 @@ public class EventDispatcher {
         }
     }
 
+    /**
+     * Dispatches event
+     * @param e event to dispatch
+     * @param context event's context (e.g. location)
+     */
     public void dispatchEvent(AEvent e, String context) {
         String key = e.getClass() + context;
 

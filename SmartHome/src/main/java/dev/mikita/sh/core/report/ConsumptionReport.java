@@ -10,6 +10,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for generating consumption report
+ */
 public class ConsumptionReport {
     private FileWriter consumptionReport = null;
     private static final DecimalFormat df = new DecimalFormat("0.00");
@@ -22,6 +25,10 @@ public class ConsumptionReport {
         }
     }
 
+    /**
+     * Generates report
+     * @throws IOException writing to file is unsuccessful
+     */
     public void generateReport() throws IOException {
         List<ADevice> allDevices = new ArrayList<>(DeviceFactory.getInstance().getDevices());
 

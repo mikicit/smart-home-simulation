@@ -1,5 +1,8 @@
 package dev.mikita.sh.entity.device;
 
+/**
+ * Abstract class representing device's state
+ */
 public abstract class ADeviceState {
     protected long time;
     protected ADevice device;

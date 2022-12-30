@@ -3,6 +3,9 @@ import dev.mikita.sh.core.SHSystem;
 
 import java.util.logging.Logger;
 
+/**
+ * Class representing device's documentation
+ */
 public class Documentation {
     // Logger
     private static final Logger log = Logger.getLogger(Documentation.class.getName());
@@ -15,6 +18,10 @@ public class Documentation {
         this.fixingTimeInHours = fixingTimeInHours;
     }
 
+    /**
+     * Just logging...
+     * @param device that is being fixed
+     */
     public void fixDevice(ADevice device) {
         log.info(String.format("Reading manual for the device \"%s\"... [%s]",
                 device.getName(),

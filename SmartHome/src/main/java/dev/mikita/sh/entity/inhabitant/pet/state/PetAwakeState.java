@@ -35,7 +35,7 @@ public class PetAwakeState extends AInhabitantState {
         return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
-    private void resetDeviceUsingEvent(ADevice device) {
+    private void useDeviceAndResetDeviceUsingEvent(ADevice device) {
         this.timeFromLastDispatchedDeviceUsingEvent = 0;
         this.triggeredTimeInHours = calculateTriggeredTime();
 
@@ -85,11 +85,11 @@ public class PetAwakeState extends AInhabitantState {
                 if (!allDevices.isEmpty()) {
                     ADevice device = allDevices.get((int) (Math.random() * allDevices.size()));
                     inhabitant.moveTo(device.getRoom());
-                    resetDeviceUsingEvent(device);
+                    useDeviceAndResetDeviceUsingEvent(device);
                 }
             } else {
                 ADevice device = devices.get((int) (Math.random() * devices.size()));
-                resetDeviceUsingEvent(device);
+                useDeviceAndResetDeviceUsingEvent(device);
             }
         }
     }

@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class representing time simulation
+ */
 public class Simulation {
     private long time = 0;
     private long tempTime = 0;
@@ -12,6 +15,12 @@ public class Simulation {
     private final List<ITimeTracker> subscribers = new ArrayList<>();
     private boolean exit = false;
 
+
+    /**
+     * Updates time
+     * @param time time
+     * @throws IOException writing to file is unsuccessful
+     */
     private void update(long time) throws IOException {
         this.time += time;
         this.tempTime += time;
@@ -41,6 +50,11 @@ public class Simulation {
         }
     }
 
+    /**
+     * Starts the simulation
+     * @param speed simulation's speed
+     * @param timeToSimulate time to simulate
+     */
     public void start(int speed, long timeToSimulate) {
         exit = false;
 
@@ -64,34 +78,65 @@ public class Simulation {
         }).start();
     }
 
+    /**
+     * Stops the simulation
+     */
     public void stop() {
         exit = true;
     }
 
+    /**
+     * Returns time
+     * @return time
+     */
     public long getTime() {
         return time;
     }
 
+    /**
+     * Returns actual minute
+     * @return minute
+     */
     public int getMin() {
         return min;
     }
 
+    /**
+     * Returns actual hour
+     * @return hour
+     */
     public int getHour() {
         return hour;
     }
 
+    /**
+     * Returns actual day
+     * @return day
+     */
     public int getDay() {
         return day;
     }
 
+    /**
+     * Returns formatted time for printing
+     * @return formatted time
+     */
     public String getFormattedTime() {
         return String.format("Day: %s, Hour: %s, Min: %s", day, hour, min);
     }
 
+    /**
+     * Subscribes an object for time
+     * @param subscriber object to subscribe
+     */
     public void subscribe(ITimeTracker subscriber) {
         this.subscribers.add(subscriber);
     }
 
+    /**
+     * Unsubscribes the object
+     * @param subscriber object to unsubscribe
+     */
     public void unsubscribe(ITimeTracker subscriber) {
         this.subscribers.remove(subscriber);
     }

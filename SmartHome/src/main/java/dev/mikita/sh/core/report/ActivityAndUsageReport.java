@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class for generating activity and usage report
+ */
 public class ActivityAndUsageReport {
     private final Map<APerson, Map<ADevice, Integer>> devices = new HashMap<>();
     private final Map<APerson, Map<AItem, Integer>> items = new HashMap<>();
@@ -22,6 +25,11 @@ public class ActivityAndUsageReport {
         }
     }
 
+    /**
+     * Counts used devices
+     * @param person person that uses a device
+     * @param device device that is used
+     */
     public void deviceCount(APerson person, ADevice device) {
         if (!devices.containsKey(person)) {
             devices.put(person, new HashMap<>());
@@ -34,6 +42,11 @@ public class ActivityAndUsageReport {
         devices.get(person).put(device, devices.get(person).get(device) + 1);
     }
 
+    /**
+     * Counts used items
+     * @param person person that uses an item
+     * @param item item that is used
+     */
     public void itemCount(APerson person, AItem item) {
         if (!items.containsKey(person)) {
             items.put(person, new HashMap<>());
@@ -46,6 +59,10 @@ public class ActivityAndUsageReport {
         items.get(person).put(item, items.get(person).get(item) + 1);
     }
 
+    /**
+     * Generates report
+     * @throws IOException writing to file is unsuccessful
+     */
     public void generateReport() throws IOException {
         int day = SHSystem.getInstance().getSimulation().getDay();
 

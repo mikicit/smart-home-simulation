@@ -176,7 +176,7 @@ public class Adult extends APerson {
             @Override
             public void handle(AEvent e) {
                     if (Math.random() <= 0.40 && !(Adult.this.state instanceof AdultWorkingState)) {
-                        log.info(String.format("Adult \"%s\" did not want to change baby \"%s\" diapers [%s]",
+                        log.info(String.format("Adult \"%s\" doesn't want to change \"%s's\" diaper [%s]",
                                 name,
                                 e.getSource().getName(),
                                 SHSystem.getInstance().getSimulation().getFormattedTime()));
@@ -210,7 +210,7 @@ public class Adult extends APerson {
             @Override
             public void handle(AEvent e) {
                     if (Math.random() <= 0.40 && !(Adult.this.state instanceof AdultWorkingState)) {
-                        log.info(String.format("Adult \"%s\" did not want to feed the baby \"%s\" [%s]",
+                        log.info(String.format("Adult \"%s\" doesn't want to feed the baby \"%s\" [%s]",
                                 name,
                                 e.getSource().getName(),
                                 SHSystem.getInstance().getSimulation().getFormattedTime()));
@@ -244,7 +244,7 @@ public class Adult extends APerson {
             @Override
             public void handle(AEvent e) {
                     if (Math.random() <= 0.40 && !(Adult.this.state instanceof AdultWorkingState)) {
-                        log.info(String.format("Adult \"%s\" did not want to feed the pet \"%s\" [%s]",
+                        log.info(String.format("Adult \"%s\" doesn't want to feed the pet \"%s\" [%s]",
                                 name,
                                 e.getSource().getName(),
                                 SHSystem.getInstance().getSimulation().getFormattedTime()));
@@ -278,7 +278,7 @@ public class Adult extends APerson {
             @Override
             public void handle(AEvent e) {
                     if (Math.random() <= 0.20 && !(Adult.this.state instanceof AdultWorkingState)) {
-                        log.info(String.format("Adult \"%s\" did not want to play with pet \"%s\" [%s]",
+                        log.info(String.format("Adult \"%s\" doesn't want to play with pet \"%s\" [%s]",
                                 name,
                                 e.getSource().getName(),
                                 SHSystem.getInstance().getSimulation().getFormattedTime()));

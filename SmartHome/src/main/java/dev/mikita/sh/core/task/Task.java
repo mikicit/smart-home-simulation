@@ -8,6 +8,9 @@ import dev.mikita.sh.entity.inhabitant.pet.APet;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.*;
 
+/**
+ * Class representing tasks for event handling
+ */
 public class Task {
     private final AEvent event;
 
@@ -15,6 +18,10 @@ public class Task {
         this.event = event;
     }
 
+    /**
+     * Applies task to an adult
+     * @param adult adult
+     */
     public void apply(Adult adult) {
         if (event instanceof DeviceIsBrokenEvent) {
             ((ADevice) event.getSource()).fix(adult);
