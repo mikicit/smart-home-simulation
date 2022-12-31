@@ -12,26 +12,77 @@ import dev.mikita.sh.entity.location.Room;
  * Abstract class representing device
  */
 public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObject {
+    /**
+     * The Room.
+     */
     protected Room room;
+    /**
+     * The State.
+     */
     protected ADeviceState state;
+    /**
+     * The Name.
+     */
     protected String name;
+    /**
+     * The User.
+     */
     protected AInhabitant user = null;
+    /**
+     * The Time.
+     */
     protected long time = 0;
 
-    // Constants
+    /**
+     * The Operating time in hours.
+     */
+// Constants
     protected int operatingTimeInHours = 0;
+    /**
+     * The Usage time in hour.
+     */
     protected double usageTimeInHour = 0;
+    /**
+     * The Doc.
+     */
     protected Documentation doc;
 
-    // Consumption
+    /**
+     * The Current electricity consumption.
+     */
+// Consumption
     protected double currentElectricityConsumption = 0;
+    /**
+     * The Current water consumption.
+     */
     protected double currentWaterConsumption = 0;
+    /**
+     * The Current gas consumption.
+     */
     protected double currentGasConsumption = 0;
+    /**
+     * The Last electricity consumption.
+     */
     protected double lastElectricityConsumption = 0;
+    /**
+     * The Last water consumption.
+     */
     protected double lastWaterConsumption = 0;
+    /**
+     * The Last gas consumption.
+     */
     protected double lastGasConsumption = 0;
+    /**
+     * The Fixing time in hours.
+     */
     protected double fixingTimeInHours = 0;
 
+    /**
+     * Instantiates a new A device.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public ADevice(Room room, String name) {
         this.room = room;
         this.name = name;
@@ -42,6 +93,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Changes device's state (Using, Fixing, Broken, Idle, On, Off)
+     *
      * @param state state to apply
      */
     public void changeState(ADeviceState state) {
@@ -50,7 +102,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns the room in which device is located
-     * @return room
+     *
+     * @return room room
      */
     public Room getRoom() {
         return room;
@@ -58,7 +111,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns device's documentation
-     * @return documentation
+     *
+     * @return documentation documentation
      */
     public Documentation getDocumentation() {
         return doc;
@@ -66,7 +120,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns current electricity consumption
-     * @return consumption
+     *
+     * @return consumption current electricity consumption
      */
     public double getCurrentElectricityConsumption() {
         return currentElectricityConsumption;
@@ -74,6 +129,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Sets electricity consumption
+     *
      * @param consumption consumption to set
      */
     public void setCurrentElectricityConsumption(double consumption) {
@@ -82,7 +138,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns current water consumption
-     * @return consumption
+     *
+     * @return consumption current water consumption
      */
     public double getCurrentWaterConsumption() {
         return currentWaterConsumption;
@@ -90,6 +147,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Sets water consumption
+     *
      * @param consumption consumption to set
      */
     public void setCurrentWaterConsumption(double consumption) {
@@ -98,7 +156,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns current gas consumption
-     * @return consumption
+     *
+     * @return consumption current gas consumption
      */
     public double getCurrentGasConsumption() {
         return currentGasConsumption;
@@ -106,6 +165,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Sets gas consumption
+     *
      * @param consumption consumption to set
      */
     public void setCurrentGasConsumption(double consumption) {
@@ -114,7 +174,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Calculates electricity consumption
-     * @return consumption
+     *
+     * @return consumption double
      */
     public double calculateElectricityConsumption() {
         double result = currentElectricityConsumption - lastElectricityConsumption;
@@ -125,7 +186,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Calculates water consumption
-     * @return consumption
+     *
+     * @return consumption double
      */
     public double calculateWaterConsumption() {
         double result = currentWaterConsumption - lastWaterConsumption;
@@ -136,7 +198,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Calculates gas consumption
-     * @return consumption
+     *
+     * @return consumption double
      */
     public double calculateGasConsumption() {
         double result = currentGasConsumption - lastGasConsumption;
@@ -147,15 +210,16 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns current device's time
-     * @return time
+     *
+     * @return time time
      */
     public long getTime() {
         return time;
     }
 
     /**
-     *
      * Sets device's time
+     *
      * @param time time to set
      */
     public void setTime(long time) {
@@ -164,6 +228,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns time which is needed to fix the device
+     *
      * @return time to fix
      */
     public double getFixingTimeInHours() {
@@ -172,7 +237,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns device's current state
-     * @return
+     *
+     * @return state
      */
     public ADeviceState getState() {
         return state;
@@ -180,7 +246,8 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Returns inhabitant that is currently using the device
-     * @return user
+     *
+     * @return user user
      */
     public AInhabitant getUser() {
         return user;
@@ -188,6 +255,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Sets a new user for the device
+     *
      * @param inhabitant user to set
      */
     public void setUser(AInhabitant inhabitant) {
@@ -278,12 +346,14 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
 
     /**
      * Fix device
+     *
      * @param person person that is fixing the device
      */
     public abstract void fix(Adult person);
 
     /**
      * Complete fixing the device
+     *
      * @param person person that is fixing the device
      */
     public abstract void completeFixing(Adult person);

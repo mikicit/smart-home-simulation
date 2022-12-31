@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
+/**
+ * The type Air conditioner broken state.
+ */
 public class AirConditionerBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(AirConditionerBrokenState.class.getName());
 
+    /**
+     * Instantiates a new Air conditioner broken state.
+     *
+     * @param device the device
+     */
     public AirConditionerBrokenState(ADevice device) {
         super(device);
         SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent(device, device.getRoom()), "global");

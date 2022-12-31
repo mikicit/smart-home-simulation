@@ -7,7 +7,16 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
+/**
+ * The type Washing machine.
+ */
 public class WashingMachine extends ADevice {
+    /**
+     * Instantiates a new Washing machine.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public WashingMachine(Room room, String name) {
         super(room, name);
         this.state = new WashingMachineIdleState(this);

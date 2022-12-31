@@ -7,10 +7,19 @@ import dev.mikita.sh.entity.location.ILocation;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Smoke in room event.
+ */
 public class SmokeInRoomEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(SmokeInRoomEvent.class.getName());
 
+    /**
+     * Instantiates a new Smoke in room event.
+     *
+     * @param source   the source
+     * @param location the location
+     */
     public SmokeInRoomEvent(IEventSource source, ILocation location) {
         super(source, location);
 

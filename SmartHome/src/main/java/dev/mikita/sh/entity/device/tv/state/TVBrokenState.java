@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
+/**
+ * The type Tv broken state.
+ */
 public class TVBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(TVBrokenState.class.getName());
 
+    /**
+     * Instantiates a new Tv broken state.
+     *
+     * @param device the device
+     */
     public TVBrokenState(ADevice device) {
         super(device);
         SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent(device, device.getRoom()), "global");

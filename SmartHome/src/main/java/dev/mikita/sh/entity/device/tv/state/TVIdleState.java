@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Tv idle state.
+ */
 public class TVIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(TVIdleState.class.getName());
 
+    /**
+     * Instantiates a new Tv idle state.
+     *
+     * @param device the device
+     */
     public TVIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.1;

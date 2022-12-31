@@ -7,10 +7,19 @@ import dev.mikita.sh.entity.location.ILocation;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Hungry child event.
+ */
 public class HungryChildEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(HungryChildEvent.class.getName());
 
+    /**
+     * Instantiates a new Hungry child event.
+     *
+     * @param source   the source
+     * @param location the location
+     */
     public HungryChildEvent(IEventSource source, ILocation location) {
         super(source, location);
 

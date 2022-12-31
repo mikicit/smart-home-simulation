@@ -7,7 +7,16 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
+/**
+ * The type Fridge.
+ */
 public class Fridge extends ADevice {
+    /**
+     * Instantiates a new Fridge.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public Fridge(Room room, String name) {
         super(room, name);
         this.state = new FridgeIdleState(this);

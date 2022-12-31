@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Light off state.
+ */
 public class LightOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(LightOffState.class.getName());
 
+    /**
+     * Instantiates a new Light off state.
+     *
+     * @param device the device
+     */
     public LightOffState(ADevice device) {
         super(device);
 

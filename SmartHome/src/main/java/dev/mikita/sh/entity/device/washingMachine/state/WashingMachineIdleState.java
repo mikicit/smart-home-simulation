@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Washing machine idle state.
+ */
 public class WashingMachineIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(WashingMachineIdleState.class.getName());
 
+    /**
+     * Instantiates a new Washing machine idle state.
+     *
+     * @param device the device
+     */
     public WashingMachineIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.1;

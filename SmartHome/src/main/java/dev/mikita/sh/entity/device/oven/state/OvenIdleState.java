@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Oven idle state.
+ */
 public class OvenIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenIdleState.class.getName());
 
+    /**
+     * Instantiates a new Oven idle state.
+     *
+     * @param device the device
+     */
     public OvenIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.2;

@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Oven using state.
+ */
 public class OvenUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenUsingState.class.getName());
 
+    /**
+     * Instantiates a new Oven using state.
+     *
+     * @param device the device
+     */
     public OvenUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.20;

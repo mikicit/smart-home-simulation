@@ -7,7 +7,16 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
+/**
+ * The type Tv.
+ */
 public class TV extends ADevice {
+    /**
+     * Instantiates a new Tv.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public TV(Room room, String name) {
         super(room, name);
         this.state = new TVIdleState(this);

@@ -14,12 +14,18 @@ import dev.mikita.sh.event.*;
 public class Task {
     private final AEvent event;
 
+    /**
+     * Instantiates a new Task.
+     *
+     * @param event the event
+     */
     public Task(AEvent event) {
         this.event = event;
     }
 
     /**
      * Applies task to an adult
+     *
      * @param adult adult
      */
     public void apply(Adult adult) {

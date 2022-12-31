@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Washing machine fixing state.
+ */
 public class WashingMachineFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(WashingMachineFixingState.class.getName());
 
+    /**
+     * Instantiates a new Washing machine fixing state.
+     *
+     * @param device the device
+     */
     public WashingMachineFixingState(ADevice device) {
         super(device);
 

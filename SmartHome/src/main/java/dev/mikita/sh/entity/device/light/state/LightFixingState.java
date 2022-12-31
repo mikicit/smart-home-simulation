@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Light fixing state.
+ */
 public class LightFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(LightFixingState.class.getName());
 
+    /**
+     * Instantiates a new Light fixing state.
+     *
+     * @param device the device
+     */
     public LightFixingState(ADevice device) {
         super(device);
 

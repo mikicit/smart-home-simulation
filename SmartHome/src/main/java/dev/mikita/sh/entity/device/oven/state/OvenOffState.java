@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Oven off state.
+ */
 public class OvenOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenOffState.class.getName());
 
+    /**
+     * Instantiates a new Oven off state.
+     *
+     * @param device the device
+     */
     public OvenOffState(ADevice device) {
         super(device);
 

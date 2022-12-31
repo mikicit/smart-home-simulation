@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Heater fixing state.
+ */
 public class HeaterFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterFixingState.class.getName());
 
+    /**
+     * Instantiates a new Heater fixing state.
+     *
+     * @param device the device
+     */
     public HeaterFixingState(ADevice device) {
         super(device);
 

@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Light idle state.
+ */
 public class LightIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(LightIdleState.class.getName());
 
+    /**
+     * Instantiates a new Light idle state.
+     *
+     * @param device the device
+     */
     public LightIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.1;

@@ -13,6 +13,12 @@ public class Documentation {
     private final ADevice device;
     private final double fixingTimeInHours;
 
+    /**
+     * Instantiates a new Documentation.
+     *
+     * @param device            the device
+     * @param fixingTimeInHours the fixing time in hours
+     */
     public Documentation(ADevice device, double fixingTimeInHours) {
         this.device = device;
         this.fixingTimeInHours = fixingTimeInHours;
@@ -20,6 +26,7 @@ public class Documentation {
 
     /**
      * Just logging...
+     *
      * @param device that is being fixed
      */
     public void fixDevice(ADevice device) {

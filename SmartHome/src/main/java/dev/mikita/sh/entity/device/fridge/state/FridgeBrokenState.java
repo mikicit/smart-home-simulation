@@ -7,10 +7,18 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
+/**
+ * The type Fridge broken state.
+ */
 public class FridgeBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeBrokenState.class.getName());
 
+    /**
+     * Instantiates a new Fridge broken state.
+     *
+     * @param device the device
+     */
     public FridgeBrokenState(ADevice device) {
         super(device);
 

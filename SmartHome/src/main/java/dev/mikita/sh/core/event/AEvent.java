@@ -8,6 +8,12 @@ public abstract class AEvent {
     private final IEventSource source;
     private final ILocation location;
 
+    /**
+     * Instantiates a new A event.
+     *
+     * @param source   the source
+     * @param location the location
+     */
     public AEvent(IEventSource source, ILocation location) {
         this.source = source;
         this.location = location;
@@ -15,7 +21,8 @@ public abstract class AEvent {
 
     /**
      * Returns event's source
-     * @return event's source
+     *
+     * @return event 's source
      */
     public IEventSource getSource() {
         return source;
@@ -23,7 +30,8 @@ public abstract class AEvent {
 
     /**
      * Returns event's location
-     * @return event's location
+     *
+     * @return event 's location
      */
     public ILocation getLocation() {
         return location;

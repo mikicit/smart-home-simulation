@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Microwave using state.
+ */
 public class MicrowaveUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveUsingState.class.getName());
 
+    /**
+     * Instantiates a new Microwave using state.
+     *
+     * @param device the device
+     */
     public MicrowaveUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 3.6;

@@ -8,10 +8,18 @@ import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Heater using state.
+ */
 public class HeaterUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterUsingState.class.getName());
 
+    /**
+     * Instantiates a new Heater using state.
+     *
+     * @param device the device
+     */
     public HeaterUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 3;

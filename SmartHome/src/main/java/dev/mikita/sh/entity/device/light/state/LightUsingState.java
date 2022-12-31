@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Light using state.
+ */
 public class LightUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(LightUsingState.class.getName());
 
+    /**
+     * Instantiates a new Light using state.
+     *
+     * @param device the device
+     */
     public LightUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.4;

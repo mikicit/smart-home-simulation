@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Washing machine using state.
+ */
 public class WashingMachineUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(WashingMachineUsingState.class.getName());
 
+    /**
+     * Instantiates a new Washing machine using state.
+     *
+     * @param device the device
+     */
     public WashingMachineUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 6.8;

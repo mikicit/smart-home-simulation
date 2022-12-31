@@ -5,7 +5,15 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import dev.mikita.sh.entity.device.airConditioner.AirConditioner;
 import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 
+/**
+ * The type Air conditioner using state.
+ */
 public class AirConditionerUsingState extends ADeviceUsingState {
+    /**
+     * Instantiates a new Air conditioner using state.
+     *
+     * @param device the device
+     */
     public AirConditionerUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 3.12;

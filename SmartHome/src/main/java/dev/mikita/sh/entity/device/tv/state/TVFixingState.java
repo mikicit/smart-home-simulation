@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Tv fixing state.
+ */
 public class TVFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(TVFixingState.class.getName());
 
+    /**
+     * Instantiates a new Tv fixing state.
+     *
+     * @param device the device
+     */
     public TVFixingState(ADevice device) {
         super(device);
 

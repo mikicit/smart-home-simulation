@@ -9,7 +9,6 @@ import dev.mikita.sh.entity.inhabitant.pet.PetFactory;
 import dev.mikita.sh.entity.location.Floor;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.location.Room;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import java.util.List;
  * Class for generating house configuration report
  */
 public class HouseConfigurationReport {
-
     private FileWriter houseConfReport = null;
 
     public HouseConfigurationReport() {

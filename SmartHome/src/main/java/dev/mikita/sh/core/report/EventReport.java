@@ -2,7 +2,6 @@ package dev.mikita.sh.core.report;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -14,6 +13,9 @@ public class EventReport {
     private FileWriter eventReport = null;
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
+    /**
+     * Instantiates a new Event report.
+     */
     public EventReport() {
         try {
             this.eventReport = new FileWriter("report/EventReport.txt");
@@ -22,6 +24,12 @@ public class EventReport {
         }
     }
 
+    /**
+     * Generate report.
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     public void generateReport(AEvent event) throws IOException {
         eventReport.write(String.format("Event type \"%s\" from \"%s\" in \"%s\" [%s]\n",
                 event.getClass().getSimpleName(),

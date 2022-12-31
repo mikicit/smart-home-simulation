@@ -17,6 +17,9 @@ public class ConsumptionReport {
     private FileWriter consumptionReport = null;
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
+    /**
+     * Instantiates a new Consumption report.
+     */
     public ConsumptionReport() {
         try {
             this.consumptionReport = new FileWriter("report/ConsumptionReport.txt");
@@ -27,6 +30,7 @@ public class ConsumptionReport {
 
     /**
      * Generates report
+     *
      * @throws IOException writing to file is unsuccessful
      */
     public void generateReport() throws IOException {

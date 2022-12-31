@@ -7,10 +7,19 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
+/**
+ * The type Air conditioner.
+ */
 public class AirConditioner extends ADevice {
     // Constants
     private final double COOLING_PER_HOUR = 3;
 
+    /**
+     * Instantiates a new Air conditioner.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public AirConditioner(Room room, String name) {
         super(room, name);
         this.state = new AirConditionerIdleState(this);
@@ -20,6 +29,11 @@ public class AirConditioner extends ADevice {
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
+    /**
+     * Gets cooling per hour.
+     *
+     * @return the cooling per hour
+     */
     public double getCoolingPerHour() {
         return COOLING_PER_HOUR;
     }

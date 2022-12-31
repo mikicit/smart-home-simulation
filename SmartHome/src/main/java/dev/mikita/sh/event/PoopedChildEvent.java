@@ -7,10 +7,19 @@ import dev.mikita.sh.entity.location.ILocation;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Pooped child event.
+ */
 public class PoopedChildEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(PoopedChildEvent.class.getName());
 
+    /**
+     * Instantiates a new Pooped child event.
+     *
+     * @param source   the source
+     * @param location the location
+     */
     public PoopedChildEvent(IEventSource source, ILocation location) {
         super(source, location);
 

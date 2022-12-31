@@ -3,13 +3,20 @@ package dev.mikita.sh.entity.device.microwave.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-
 import java.util.logging.Logger;
 
+/**
+ * The type Microwave idle state.
+ */
 public class MicrowaveIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveIdleState.class.getName());
 
+    /**
+     * Instantiates a new Microwave idle state.
+     *
+     * @param device the device
+     */
     public MicrowaveIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.35;

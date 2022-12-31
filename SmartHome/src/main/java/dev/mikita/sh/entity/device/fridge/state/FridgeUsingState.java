@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Fridge using state.
+ */
 public class FridgeUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeUsingState.class.getName());
 
+    /**
+     * Instantiates a new Fridge using state.
+     *
+     * @param device the device
+     */
     public FridgeUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 5;

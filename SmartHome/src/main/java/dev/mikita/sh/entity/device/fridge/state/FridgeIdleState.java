@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Fridge idle state.
+ */
 public class FridgeIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
 
+    /**
+     * Instantiates a new Fridge idle state.
+     *
+     * @param device the device
+     */
     public FridgeIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 5;

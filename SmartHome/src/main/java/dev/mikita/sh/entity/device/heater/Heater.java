@@ -17,10 +17,19 @@ import dev.mikita.sh.event.NormalTemperatureEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Heater.
+ */
 public class Heater extends ADevice {
     // Constants
     private final double HEATING_PER_HOUR = 5;
 
+    /**
+     * Instantiates a new Heater.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public Heater(Room room, String name) {
         super(room, name);
         this.state = new HeaterIdleState(this);
@@ -32,6 +41,11 @@ public class Heater extends ADevice {
         initEventHandlers();
     }
 
+    /**
+     * Gets heating per hour.
+     *
+     * @return the heating per hour
+     */
     public double getHeatingPerHour() {
         return HEATING_PER_HOUR;
     }

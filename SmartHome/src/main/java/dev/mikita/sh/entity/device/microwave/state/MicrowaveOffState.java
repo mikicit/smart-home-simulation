@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Microwave off state.
+ */
 public class MicrowaveOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveOffState.class.getName());
 
+    /**
+     * Instantiates a new Microwave off state.
+     *
+     * @param device the device
+     */
     public MicrowaveOffState(ADevice device) {
         super(device);
 

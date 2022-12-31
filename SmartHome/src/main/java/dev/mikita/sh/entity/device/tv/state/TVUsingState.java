@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Tv using state.
+ */
 public class TVUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(TVUsingState.class.getName());
 
+    /**
+     * Instantiates a new Tv using state.
+     *
+     * @param device the device
+     */
     public TVUsingState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 1.6;

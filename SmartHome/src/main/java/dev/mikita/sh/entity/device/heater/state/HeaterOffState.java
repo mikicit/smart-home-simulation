@@ -6,10 +6,18 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Heater off state.
+ */
 public class HeaterOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterOffState.class.getName());
 
+    /**
+     * Instantiates a new Heater off state.
+     *
+     * @param device the device
+     */
     public HeaterOffState(ADevice device) {
         super(device);
 

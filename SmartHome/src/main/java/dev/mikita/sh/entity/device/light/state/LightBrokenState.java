@@ -7,10 +7,18 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Light broken state.
+ */
 public class LightBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(LightBrokenState.class.getName());
 
+    /**
+     * Instantiates a new Light broken state.
+     *
+     * @param device the device
+     */
     public LightBrokenState(ADevice device) {
         super(device);
         SHSystem.getInstance().getEventDispatcher().dispatchEvent(new DeviceIsBrokenEvent(device, device.getRoom()), "global");

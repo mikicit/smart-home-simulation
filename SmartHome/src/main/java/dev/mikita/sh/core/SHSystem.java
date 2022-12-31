@@ -4,9 +4,7 @@ import dev.mikita.sh.core.event.EventDispatcher;
 import dev.mikita.sh.core.report.ReportSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.core.task.TaskSystem;
-import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.location.House;
-import dev.mikita.sh.entity.location.builder.HouseBuilder;
 
 /**
  * Class representing the main system
@@ -31,7 +29,8 @@ public class SHSystem {
 
     /**
      * Returns system's instance
-     * @return instance
+     *
+     * @return instance instance
      */
     public static SHSystem getInstance() {
         if (instance == null) {
@@ -42,6 +41,8 @@ public class SHSystem {
 
     /**
      * Initializes the house and all needed systems
+     *
+     * @param house the house
      */
     public void init(House house) {
         this.reportSystem = new ReportSystem();
@@ -52,7 +53,8 @@ public class SHSystem {
 
     /**
      * Starts the simulation
-     * @param speed simulation's speed
+     *
+     * @param speed          simulation's speed
      * @param timeToSimulate time to simulate
      * @throws Exception system wasn't initialized
      */
@@ -73,6 +75,7 @@ public class SHSystem {
 
     /**
      * Returns report system
+     *
      * @return report system
      */
     public ReportSystem getReportSystem() {
@@ -81,6 +84,7 @@ public class SHSystem {
 
     /**
      * Returns event dispatcher
+     *
      * @return event dispatcher
      */
     public EventDispatcher getEventDispatcher() {
@@ -89,7 +93,8 @@ public class SHSystem {
 
     /**
      * Returns simulation
-     * @return simulation
+     *
+     * @return simulation simulation
      */
     public Simulation getSimulation() {
         return simulation;
@@ -97,6 +102,7 @@ public class SHSystem {
 
     /**
      * Returns task system
+     *
      * @return task system
      */
     public TaskSystem getTaskSystem() {
@@ -105,7 +111,8 @@ public class SHSystem {
 
     /**
      * Returns house
-     * @return house
+     *
+     * @return house house
      */
     public House getHouse() {
         return house;

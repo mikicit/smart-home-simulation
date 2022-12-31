@@ -15,7 +15,6 @@ public class Simulation {
     private final List<ITimeTracker> subscribers = new ArrayList<>();
     private boolean exit = false;
 
-
     /**
      * Updates time
      * @param time time

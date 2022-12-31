@@ -17,6 +17,9 @@ public class ActivityAndUsageReport {
     private final Map<APerson, Map<AItem, Integer>> items = new HashMap<>();
     private FileWriter activityAndUsageReport = null;
 
+    /**
+     * Instantiates a new Activity and usage report.
+     */
     public ActivityAndUsageReport() {
         try {
             this.activityAndUsageReport = new FileWriter("report/ActivityAndUsageReport.txt");
@@ -27,6 +30,7 @@ public class ActivityAndUsageReport {
 
     /**
      * Counts used devices
+     *
      * @param person person that uses a device
      * @param device device that is used
      */
@@ -44,8 +48,9 @@ public class ActivityAndUsageReport {
 
     /**
      * Counts used items
+     *
      * @param person person that uses an item
-     * @param item item that is used
+     * @param item   item that is used
      */
     public void itemCount(APerson person, AItem item) {
         if (!items.containsKey(person)) {
@@ -61,6 +66,7 @@ public class ActivityAndUsageReport {
 
     /**
      * Generates report
+     *
      * @throws IOException writing to file is unsuccessful
      */
     public void generateReport() throws IOException {

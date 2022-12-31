@@ -22,6 +22,11 @@ public class DeviceFactory {
 
     private DeviceFactory() {}
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static DeviceFactory getInstance() {
         if (instance == null) {
             instance = new DeviceFactory();
@@ -32,10 +37,11 @@ public class DeviceFactory {
 
     /**
      * Creates the device
+     *
      * @param type device's type
      * @param room device's room
      * @param name device's name
-     * @return device
+     * @return device a device
      */
     public ADevice create(String type, Room room, String name) {
         ADevice device = switch (type) {
@@ -56,7 +62,8 @@ public class DeviceFactory {
 
     /**
      * Returns devices
-     * @return devices
+     *
+     * @return devices devices
      */
     public List<ADevice> getDevices() {
         return this.devices;

@@ -7,7 +7,16 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
+/**
+ * The type Light.
+ */
 public class Light extends ADevice {
+    /**
+     * Instantiates a new Light.
+     *
+     * @param room the room
+     * @param name the name
+     */
     public Light(Room room, String name) {
         super(room, name);
         this.state = new LightIdleState(this);

@@ -7,10 +7,18 @@ import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Air conditioner idle state.
+ */
 public class AirConditionerIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
 
+    /**
+     * Instantiates a new Air conditioner idle state.
+     *
+     * @param device the device
+     */
     public AirConditionerIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.2;

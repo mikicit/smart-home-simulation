@@ -5,10 +5,18 @@ import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
+/**
+ * The type Heater idle state.
+ */
 public class HeaterIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterIdleState.class.getName());
 
+    /**
+     * Instantiates a new Heater idle state.
+     *
+     * @param device the device
+     */
     public HeaterIdleState(ADevice device) {
         super(device);
         this.ELECTRICITY_CONSUMPTION = 0.5;
