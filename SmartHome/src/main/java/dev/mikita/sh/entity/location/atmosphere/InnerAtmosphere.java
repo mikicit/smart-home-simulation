@@ -9,8 +9,6 @@ public class InnerAtmosphere extends AAtmosphere {
 
     @Override
     public void update(long time) {
-        temperature -= time * (DECREASE_TEMP_RATE_PER_HOUR / (3600L * 1000000000L));
-
-        System.out.println(temperature);
+        temperature -= time * (DECREASE_TEMP_RATE_PER_HOUR / (3600D * 1000000000));
     }
 }

@@ -28,13 +28,13 @@ public class OuterAtmosphere extends AAtmosphere {
             if (windSpeed >= MAX_WIND_SPEED) {
                 windSpeedIsRising = false;
             } else {
-                windSpeed += time * (WIND_SPEED_INCREASE_PER_HOUR / (3600L * 1000000000L));
+                windSpeed += time * (WIND_SPEED_INCREASE_PER_HOUR / (3600D * 1000000000));
             }
         } else {
             if (windSpeed <= MIN_WIND_SPEED) {
                 windSpeedIsRising = true;
             } else {
-                windSpeed -= time * (WIND_SPEED_INCREASE_PER_HOUR / (3600L * 1000000000L));
+                windSpeed -= time * (WIND_SPEED_INCREASE_PER_HOUR / (3600D * 1000000000));
             }
         }
     }

@@ -4,7 +4,6 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.location.builder.HouseBuilder;
-
 import java.io.IOException;
 import java.util.logging.LogManager;
 
@@ -21,52 +20,52 @@ public class Main {
         SHSystem system = SHSystem.getInstance();
 
         // Config 1
-        HouseBuilder houseBuilderOne = new HouseBuilder();
-        House houseOne = houseBuilderOne
-            .addSensor("WIND")
-            .addFloor(1)
-                .addRoom("Bedroom")
-                    .addEntrance("DOOR", 2)
-                    .addEntrance("WINDOW", 3)
-                    .addSensor("HEAT")
-                    .addSensor("LIGHT")
-                    .addSensor("SMOKE")
-                    .addDevice("TV", "Tv")
-                    .addItem("GUITAR", "Guitar")
-                    .addDevice("HEATER", "Heater")
-                    .addPerson("ADULT", "Mikita", PersonGender.MALE)
-                    .addPerson("ADULT", "Roma", PersonGender.MALE)
-                    .addPet("DRAGON", "La la Dragon")
-                    .end()
-                .addRoom("Kitchen")
-                    .addEntrance("DOOR", 2)
-                    .addEntrance("WINDOW", 3)
-                    .addSensor("HEAT")
-                    .addSensor("LIGHT")
-                    .addSensor("SMOKE")
-                    .addSensor("WATER")
-                    .addDevice("HEATER", "Heater")
-                    .addDevice("HEATER", "Heater")
-                    .addDevice("TV", "Tv")
-                    .addDevice("OVEN", "Oven")
-                    .addDevice("MICROWAVE", "Microwave")
-                    .addDevice("WASHING_MACHINE", "Washing machine")
-                    .addDevice("FRIDGE", "Fridge")
-                    .addPerson("CHILD", "Jiri Sebek", PersonGender.MALE)
-                    .addPerson("ADULT", "Darina", PersonGender.FEMALE)
-                    .end()
-                .addRoom("Garage")
-                    .addEntrance("DOOR", 2)
-                    .addEntrance("WINDOW", 3)
-                    .addSensor("HEAT")
-                    .addSensor("SMOKE")
-                    .addItem("CAR", "Car")
-                    .addItem("SKIS", "Skis")
-                    .addItem("BIKE", "Bike")
-                    .addDevice("HEATER", "Heater")
-                    .end()
-                .end()
-            .getResult();
+//        HouseBuilder houseBuilderOne = new HouseBuilder();
+//        House houseOne = houseBuilderOne
+//            .addSensor("WIND")
+//            .addFloor(1)
+//                .addRoom("Bedroom")
+//                    .addEntrance("DOOR", 2)
+//                    .addEntrance("WINDOW", 3)
+//                    .addSensor("HEAT")
+//                    .addSensor("LIGHT")
+//                    .addSensor("SMOKE")
+//                    .addDevice("TV", "Tv")
+//                    .addItem("GUITAR", "Guitar")
+//                    .addDevice("HEATER", "Heater")
+//                    .addPerson("ADULT", "Mikita", PersonGender.MALE)
+//                    .addPerson("ADULT", "Roma", PersonGender.MALE)
+//                    .addPet("DRAGON", "La la Dragon")
+//                    .end()
+//                .addRoom("Kitchen")
+//                    .addEntrance("DOOR", 2)
+//                    .addEntrance("WINDOW", 3)
+//                    .addSensor("HEAT")
+//                    .addSensor("LIGHT")
+//                    .addSensor("SMOKE")
+//                    .addSensor("WATER")
+//                    .addDevice("HEATER", "Heater")
+//                    .addDevice("HEATER", "Heater")
+//                    .addDevice("TV", "Tv")
+//                    .addDevice("OVEN", "Oven")
+//                    .addDevice("MICROWAVE", "Microwave")
+//                    .addDevice("WASHING_MACHINE", "Washing machine")
+//                    .addDevice("FRIDGE", "Fridge")
+//                    .addPerson("CHILD", "Jiri Sebek", PersonGender.MALE)
+//                    .addPerson("ADULT", "Darina", PersonGender.FEMALE)
+//                    .end()
+//                .addRoom("Garage")
+//                    .addEntrance("DOOR", 2)
+//                    .addEntrance("WINDOW", 3)
+//                    .addSensor("HEAT")
+//                    .addSensor("SMOKE")
+//                    .addItem("CAR", "Car")
+//                    .addItem("SKIS", "Skis")
+//                    .addItem("BIKE", "Bike")
+//                    .addDevice("HEATER", "Heater")
+//                    .end()
+//                .end()
+//            .getResult();
 
         // Config 2
         HouseBuilder houseBuilderTwo = new HouseBuilder();

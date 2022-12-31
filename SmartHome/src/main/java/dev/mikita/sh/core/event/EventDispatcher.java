@@ -1,4 +1,7 @@
 package dev.mikita.sh.core.event;
+import dev.mikita.sh.core.SHSystem;
+
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -50,6 +53,12 @@ public class EventDispatcher {
      */
     public void dispatchEvent(AEvent e, String context) {
         String key = e.getClass() + context;
+
+        try {
+            SHSystem.getInstance().getReportSystem().getEventReport().generateReport(e);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
 
         if (eventHandlers.containsKey(key)) {
             Objects.requireNonNull(eventHandlers.get(key).peekLast()).handle(e);

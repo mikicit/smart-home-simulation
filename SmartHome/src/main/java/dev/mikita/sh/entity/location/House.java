@@ -2,7 +2,6 @@ package dev.mikita.sh.entity.location;
 
 import dev.mikita.sh.entity.location.atmosphere.OuterAtmosphere;
 import dev.mikita.sh.entity.sensor.AExternalSensor;
-
 import java.util.ArrayList;
 import java.util.List;
 

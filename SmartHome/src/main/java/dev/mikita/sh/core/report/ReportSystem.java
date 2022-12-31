@@ -36,6 +36,14 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
+     * Returns event report.
+     * @return the event report
+     */
+    public EventReport getEventReport() {
+        return eventReport;
+    }
+
+    /**
      * Generates consumption report
      * @throws IOException writing to file is unsuccessful
      */

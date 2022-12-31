@@ -2,7 +2,6 @@ package dev.mikita.sh.core.report;
 
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.APerson;
 import dev.mikita.sh.entity.inhabitant.person.PersonFactory;
 import dev.mikita.sh.entity.inhabitant.pet.APet;
