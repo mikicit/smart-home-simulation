@@ -1,6 +1,5 @@
 package dev.mikita.sh.entity.entrance;
 
-
 import dev.mikita.sh.entity.location.Room;
 import java.util.ArrayList;
 import java.util.List;

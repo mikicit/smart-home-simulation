@@ -6,7 +6,6 @@ import dev.mikita.sh.core.event.AEventHandler;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.NormalWindEvent;
 import dev.mikita.sh.event.StrongWindEvent;
-
 import java.util.logging.Logger;
 
 public class Window extends AEntrance {

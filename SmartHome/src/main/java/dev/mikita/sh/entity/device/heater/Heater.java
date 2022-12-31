@@ -5,14 +5,7 @@ import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.AEventHandler;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
-import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
-import dev.mikita.sh.entity.device.fridge.state.FridgeFixingState;
-import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
-import dev.mikita.sh.entity.device.fridge.state.FridgeUsingState;
-import dev.mikita.sh.entity.device.heater.state.HeaterBrokenState;
-import dev.mikita.sh.entity.device.heater.state.HeaterIdleState;
-import dev.mikita.sh.entity.device.heater.state.HeaterOffState;
-import dev.mikita.sh.entity.device.heater.state.HeaterUsingState;
+import dev.mikita.sh.entity.device.heater.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -63,7 +56,7 @@ public class Heater extends ADevice {
             if (!(inhabitant instanceof Adult)) return;
 
             ((Adult) inhabitant).useObject(this);
-            changeState(new FridgeUsingState(this));
+            changeState(new HeaterUsingState(this));
         }
     }
 
@@ -71,7 +64,7 @@ public class Heater extends ADevice {
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
             ((Adult) inhabitant).unUseObject(this);
-            changeState(new FridgeIdleState(this));
+            changeState(new HeaterIdleState(this));
         }
     }
 
@@ -80,7 +73,7 @@ public class Heater extends ADevice {
         if (isBroken()) {
             setUser(person);
             person.fixDevice(this);
-            changeState(new FridgeFixingState(this));
+            changeState(new HeaterFixingState(this));
         }
     }
 
