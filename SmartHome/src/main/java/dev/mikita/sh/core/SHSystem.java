@@ -45,6 +45,8 @@ public class SHSystem {
      * @param house the house
      */
     public void init(House house) {
+        if (wasInitialized) return;
+
         this.reportSystem = new ReportSystem();
         this.house = house;
 
