@@ -9,8 +9,13 @@ import dev.mikita.sh.entity.device.heater.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
+import dev.mikita.sh.entity.sensor.ASensor;
+import dev.mikita.sh.entity.sensor.HeatSensor;
 import dev.mikita.sh.event.LowTemperatureEvent;
 import dev.mikita.sh.event.NormalTemperatureEvent;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Heater extends ADevice {
     // Constants
@@ -65,6 +70,14 @@ public class Heater extends ADevice {
         if (isUsing() && inhabitant.equals(getUser())) {
             ((Adult) inhabitant).unUseObject(this);
             changeState(new HeaterIdleState(this));
+
+            List<ASensor> heatSensors = room.getSensors().stream()
+                    .filter(e -> e instanceof HeatSensor)
+                    .collect(Collectors.toList());
+
+            for (ASensor heatSensor : heatSensors) {
+                heatSensor.resetState();
+            }
         }
     }
 

@@ -4,12 +4,9 @@ import dev.mikita.sh.core.event.EventDispatcher;
 import dev.mikita.sh.core.report.ReportSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.core.task.TaskSystem;
-import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.entity.location.builder.HouseBuilder;
-
-import java.io.IOException;
 
 /**
  * Class representing the main system
@@ -26,7 +23,11 @@ public class SHSystem {
     // State
     private boolean wasInitialized = false;
 
-    private SHSystem() {}
+    private SHSystem() {
+        this.simulation = new Simulation();
+        this.eventDispatcher = new EventDispatcher();
+        this.taskSystem = new TaskSystem();
+    }
 
     /**
      * Returns system's instance
@@ -42,59 +43,9 @@ public class SHSystem {
     /**
      * Initializes the house and all needed systems
      */
-    public void init() {
-        this.simulation = new Simulation();
-        this.eventDispatcher = new EventDispatcher();
+    public void init(House house) {
         this.reportSystem = new ReportSystem();
-        this.taskSystem = new TaskSystem();
-
-        // house config
-        HouseBuilder houseBuilder = new HouseBuilder();
-        house = houseBuilder
-                .addSensor("WIND")
-                .addFloor(1)
-                    .addRoom("Bedroom")
-                        .addEntrance("DOOR", 2)
-                        .addEntrance("WINDOW", 3)
-                        .addSensor("HEAT")
-                        .addSensor("LIGHT")
-                        .addSensor("SMOKE")
-                        .addDevice("TV", "Tv")
-                        .addItem("GUITAR", "Guitar")
-                        .addDevice("HEATER", "Heater")
-                        .addPerson("ADULT", "Mikita", PersonGender.MALE)
-                        .addPerson("ADULT", "Roma", PersonGender.MALE)
-                        .addPet("DRAGON", "La la Dragon")
-                        .end()
-                    .addRoom("Kitchen")
-                        .addEntrance("DOOR", 2)
-                        .addEntrance("WINDOW", 3)
-                        .addSensor("HEAT")
-                        .addSensor("LIGHT")
-                        .addSensor("SMOKE")
-                        .addSensor("WATER")
-                        .addDevice("HEATER", "Heater")
-                        .addDevice("HEATER", "Heater")
-                        .addDevice("TV", "Tv")
-                        .addDevice("OVEN", "Oven")
-                        .addDevice("MICROWAVE", "Microwave")
-                        .addDevice("WASHING_MACHINE", "Washing machine")
-                        .addDevice("FRIDGE", "Fridge")
-                        .addPerson("CHILD", "Jiri Sebek", PersonGender.MALE)
-                        .addPerson("ADULT", "Darina", PersonGender.FEMALE)
-                        .end()
-                    .addRoom("Garage")
-                        .addEntrance("DOOR", 2)
-                        .addEntrance("WINDOW", 3)
-                        .addSensor("HEAT")
-                        .addSensor("SMOKE")
-                        .addItem("CAR", "Car")
-                        .addItem("SKIS", "Skis")
-                        .addItem("BIKE", "Bike")
-                        .addDevice("HEATER", "Heater")
-                        .end()
-                    .end()
-                .getResult();
+        this.house = house;
 
         wasInitialized = true;
     }

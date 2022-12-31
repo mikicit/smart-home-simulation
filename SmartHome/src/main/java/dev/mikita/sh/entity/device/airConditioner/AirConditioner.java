@@ -3,7 +3,6 @@ package dev.mikita.sh.entity.device.airConditioner;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
 import dev.mikita.sh.entity.device.airConditioner.state.*;
-import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
@@ -14,6 +13,7 @@ public class AirConditioner extends ADevice {
 
     public AirConditioner(Room room, String name) {
         super(room, name);
+        this.state = new AirConditionerIdleState(this);
         this.fixingTimeInHours = 0.5;
         this.operatingTimeInHours = 1500;
         this.usageTimeInHour = 2;

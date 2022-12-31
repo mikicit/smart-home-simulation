@@ -2,7 +2,6 @@ package dev.mikita.sh.entity.device.light;
 
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.Documentation;
-import dev.mikita.sh.entity.device.fridge.state.FridgeBrokenState;
 import dev.mikita.sh.entity.device.light.state.*;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -11,6 +10,7 @@ import dev.mikita.sh.entity.location.Room;
 public class Light extends ADevice {
     public Light(Room room, String name) {
         super(room, name);
+        this.state = new LightIdleState(this);
         this.fixingTimeInHours = 0.5;
         this.operatingTimeInHours = 2000;
         this.usageTimeInHour = 0;
