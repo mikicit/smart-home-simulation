@@ -46,4 +46,8 @@ public class WindSensor extends AExternalSensor {
     public void resetState() {
         state = WindSensorState.NO_WIND;
     }
+
+    public WindSensorState getState() {
+        return this.state;
+    }
 }

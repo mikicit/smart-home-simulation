@@ -10,7 +10,7 @@ public class SmokeSensor extends AInternalSensor {
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 192;
 
     // State
-    private enum SmokeSensorState {
+    enum SmokeSensorState {
         BIG_SMOKE,
         NO_SMOKE
     }
@@ -47,5 +47,9 @@ public class SmokeSensor extends AInternalSensor {
         this.time = 0;
         state = SmokeSensorState.NO_SMOKE;
         triggeredTimeInHours = calculateTriggeredTime();
+    }
+
+    public SmokeSensorState getState() {
+        return this.state;
     }
 }

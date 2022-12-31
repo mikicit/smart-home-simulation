@@ -46,4 +46,8 @@ public class HeatSensor extends AInternalSensor {
     public void resetState() {
         state = HeatSensorState.NORMAL;
     }
+
+    public HeatSensorState getState() {
+        return this.state;
+    }
 }

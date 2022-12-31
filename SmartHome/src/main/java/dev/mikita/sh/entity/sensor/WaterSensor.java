@@ -12,7 +12,7 @@ public class WaterSensor extends AInternalSensor {
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 192;
 
     // State
-    private enum WaterSensorState {
+    enum WaterSensorState {
         WATER,
         NO_WATER
     }
@@ -49,5 +49,9 @@ public class WaterSensor extends AInternalSensor {
         this.time = 0;
         state = WaterSensorState.NO_WATER;
         triggeredTimeInHours = calculateTriggeredTime();
+    }
+
+    public WaterSensorState getState() {
+        return this.state;
     }
 }

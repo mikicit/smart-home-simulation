@@ -4,7 +4,7 @@ public class InnerAtmosphere extends AAtmosphere {
     private final double DECREASE_TEMP_RATE_PER_HOUR = 2;
 
     public InnerAtmosphere() {
-        temperature = 22;
+        this.temperature = 22;
     }
 
     @Override

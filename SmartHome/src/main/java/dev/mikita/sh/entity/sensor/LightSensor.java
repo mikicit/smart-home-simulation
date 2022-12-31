@@ -29,4 +29,8 @@ public class LightSensor extends AInternalSensor {
     public void resetState() {
         state = LightSensorState.ENOUGH_LIGHT;
     }
+
+    public LightSensorState getState() {
+        return this.state;
+    }
 }
