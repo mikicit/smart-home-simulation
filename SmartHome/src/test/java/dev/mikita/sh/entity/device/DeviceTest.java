@@ -1,6 +1,11 @@
 package dev.mikita.sh.entity.device;
 
 import dev.mikita.sh.core.SHSystem;
+import dev.mikita.sh.entity.device.heater.state.HeaterIdleState;
+import dev.mikita.sh.entity.device.heater.state.HeaterOffState;
+import dev.mikita.sh.entity.device.tv.state.TVBrokenState;
+import dev.mikita.sh.entity.device.tv.state.TVIdleState;
+import dev.mikita.sh.entity.device.tv.state.TVUsingState;
 import dev.mikita.sh.entity.inhabitant.person.PersonFactory;
 import dev.mikita.sh.entity.inhabitant.person.PersonGender;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
@@ -48,7 +53,7 @@ public class DeviceTest {
 
         device.toBreak();
 
-        assertEquals("TVBrokenState", device.getState().getClass().getSimpleName());
+        assertTrue(device.getState() instanceof TVBrokenState);
         assertTrue(device.isBroken());
     }
 
@@ -71,7 +76,7 @@ public class DeviceTest {
         device.fix((Adult) PersonFactory.getInstance().getPersons().get(0));
         device.completeFixing((Adult) PersonFactory.getInstance().getPersons().get(0));
 
-        assertEquals("TVIdleState", device.getState().getClass().getSimpleName());
+        assertTrue(device.getState() instanceof TVIdleState);
         assertFalse(device.isBroken());
     }
 
@@ -81,7 +86,7 @@ public class DeviceTest {
 
         device.use(PersonFactory.getInstance().getPersons().get(1));
 
-        assertEquals("TVUsingState", device.getState().getClass().getSimpleName());
+        assertTrue(device.getState() instanceof TVUsingState);
         assertTrue(device.isUsing());
     }
 
@@ -91,7 +96,7 @@ public class DeviceTest {
 
         device.on();
 
-        assertEquals("HeaterIdleState", device.getState().getClass().getSimpleName());
+        assertTrue(device.getState() instanceof HeaterIdleState);
         assertTrue(device.isOn());
     }
 
@@ -101,7 +106,7 @@ public class DeviceTest {
 
         device.off();
 
-        assertEquals("HeaterOffState", device.getState().getClass().getSimpleName());
+        assertTrue(device.getState() instanceof HeaterOffState);
         assertTrue(device.isOff());
     }
 }

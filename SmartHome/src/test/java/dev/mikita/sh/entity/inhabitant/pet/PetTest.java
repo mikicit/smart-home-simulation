@@ -1,20 +1,18 @@
-package dev.mikita.sh.entity.sensor;
+package dev.mikita.sh.entity.inhabitant.pet;
 
 import dev.mikita.sh.core.SHSystem;
-import dev.mikita.sh.entity.inhabitant.person.PersonGender;
+import dev.mikita.sh.entity.inhabitant.pet.state.PetAwakeState;
+import dev.mikita.sh.entity.inhabitant.pet.state.PetSleepingState;
 import dev.mikita.sh.entity.location.House;
-import dev.mikita.sh.entity.location.atmosphere.AAtmosphere;
-import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 import dev.mikita.sh.entity.location.builder.HouseBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static dev.mikita.sh.entity.sensor.SmokeSensor.SmokeSensorState.BIG_SMOKE;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SmokeSensorTest {
+public class PetTest {
 
     SHSystem system = SHSystem.getInstance();
 
@@ -35,8 +33,7 @@ public class SmokeSensorTest {
 //                .addPerson("ADULT", "Kate", PersonGender.FEMALE)
                 .end()
                 .addRoom("Living room")
-                .addSensor("SMOKE")
-                .addDevice("HEATER", "Heater")
+                .addPet("DRAGON", "Oliver")
                 .end()
                 .end()
                 .addFloor(2)
@@ -49,22 +46,38 @@ public class SmokeSensorTest {
     }
 
     @Test
-    void checkSensorWork() throws IOException {
-        ASensor sensor = system.getHouse().getFloors().get(0).getRooms().get(1).getSensors().get(0);
+    void checkPetState() {
+        APet pet = PetFactory.getInstance().getPets().get(0);
 
-        sensor.update(192 * 3600L * 1000000000L);
+        pet.changeState(new PetSleepingState(pet));
 
-        assertEquals(BIG_SMOKE, ((SmokeSensor) sensor).getState());
+        assertTrue(pet.getState() instanceof PetSleepingState);
     }
 
     @Test
-    void checkSensorState() {
-        ASensor sensor = system.getHouse().getFloors().get(0).getRooms().get(1).getSensors().get(0);
-        sensor.resetState();
+    void checkPetAwakeState() {
+        APet pet = PetFactory.getInstance().getPets().get(0);
 
-        sensor.switchState();
+        pet.changeState(new PetAwakeState(pet));
 
-        assertEquals(BIG_SMOKE, ((SmokeSensor )sensor).getState());
+        assertTrue(pet.getState() instanceof PetAwakeState);
     }
 
+    @Test
+    void checkHungryEvent() throws IOException {
+        APet pet = PetFactory.getInstance().getPets().get(0);
+
+        pet.update(26 * 3600L * 1000000000L);
+
+        assertTrue(pet.getDispatchedHungerEvent());
+    }
+
+    @Test
+    void checkBoredEvent() throws IOException {
+        APet pet = PetFactory.getInstance().getPets().get(0);
+
+        pet.update(26 * 3600L * 1000000000L);
+
+        assertTrue(pet.getDispatchedPlayedEvent());
+    }
 }

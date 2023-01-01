@@ -58,4 +58,8 @@ public abstract class AInhabitant implements ITimeTracker, IEventSource {
     public void changeState(AInhabitantState state) {
         this.state = state;
     }
+
+    public AInhabitantState getState() {
+        return this.state;
+    }
 }

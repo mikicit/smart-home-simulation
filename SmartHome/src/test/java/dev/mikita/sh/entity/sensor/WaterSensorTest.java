@@ -48,6 +48,7 @@ public class WaterSensorTest {
     @Test
     void checkSensorState() {
         ASensor sensor = system.getHouse().getFloors().get(0).getRooms().get(1).getSensors().get(0);
+        sensor.resetState();
 
         sensor.switchState();
 

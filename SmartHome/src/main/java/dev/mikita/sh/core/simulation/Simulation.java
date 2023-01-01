@@ -139,4 +139,17 @@ public class Simulation {
     public void unsubscribe(ITimeTracker subscriber) {
         this.subscribers.remove(subscriber);
     }
+
+    // For tests
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
 }
