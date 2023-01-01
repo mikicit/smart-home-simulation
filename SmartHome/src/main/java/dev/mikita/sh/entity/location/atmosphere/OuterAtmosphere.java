@@ -1,5 +1,8 @@
 package dev.mikita.sh.entity.location.atmosphere;
 
+/**
+ * Class representing the outer atmosphere (outside the house)
+ */
 public class OuterAtmosphere extends AAtmosphere {
     // State
     private double windSpeed = 8;
@@ -14,14 +17,26 @@ public class OuterAtmosphere extends AAtmosphere {
         this.windSpeed = 8;
     }
 
+    /**
+     * Returns the wind speed
+     * @return speed
+     */
     public double getWindSpeed() {
         return this.windSpeed;
     }
 
+    /**
+     * Sets the wind speed
+     * @param windSpeed speed to set
+     */
     public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         if (windSpeedIsRising) {

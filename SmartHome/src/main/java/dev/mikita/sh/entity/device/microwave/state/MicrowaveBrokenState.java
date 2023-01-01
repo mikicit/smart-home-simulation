@@ -8,14 +8,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * The type Microwave broken state.
+ * Class representing the Microwave broken state
  */
 public class MicrowaveBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveBrokenState.class.getName());
 
     /**
-     * Instantiates a new Microwave broken state.
+     * Instantiates a new Microwave broken state
      *
      * @param device the device
      */
@@ -29,6 +29,10 @@ public class MicrowaveBrokenState extends ADeviceBrokenState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

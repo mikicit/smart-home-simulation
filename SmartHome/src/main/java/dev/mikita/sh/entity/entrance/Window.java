@@ -8,6 +8,9 @@ import dev.mikita.sh.event.NormalWindEvent;
 import dev.mikita.sh.event.StrongWindEvent;
 import java.util.logging.Logger;
 
+/**
+ * Class representing the window
+ */
 public class Window extends AEntrance {
     // Logger
     private static final Logger log = Logger.getLogger(Window.class.getName());
@@ -17,6 +20,9 @@ public class Window extends AEntrance {
         initEventHandlers();
     }
 
+    /**
+     * Initiates event handlers
+     */
     private void initEventHandlers() {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalWindEvent.class, "global", new AEventHandler() {
             @Override
@@ -45,6 +51,9 @@ public class Window extends AEntrance {
         });
     }
 
+    /**
+     * Opens the window
+     */
     @Override
     public void open() {
         state = EntranceState.OPEN;
@@ -53,6 +62,9 @@ public class Window extends AEntrance {
                 room.getName(), SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Closes the window
+     */
     @Override
     public void close() {
         state = EntranceState.CLOSE;

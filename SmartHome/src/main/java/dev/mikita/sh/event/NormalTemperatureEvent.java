@@ -5,11 +5,11 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
 
 /**
- * The type Normal temperature event.
+ * Class representing a normal temperature event
  */
 public class NormalTemperatureEvent extends AEvent {
     /**
-     * Instantiates a new Normal temperature event.
+     * Instantiates a new normal temperature event
      *
      * @param source   the source
      * @param location the location

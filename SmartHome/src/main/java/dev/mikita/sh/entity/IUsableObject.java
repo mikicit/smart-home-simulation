@@ -31,38 +31,9 @@ public interface IUsableObject {
     double getUsageTimeInHour();
 
     /**
-     * Returns time that object can work before breaking
-     * @return time
-     */
-    int getOperatingTimeInHours();
-
-    /**
-     * Checks if object is turned on
-     * @return true if turned on
-     */
-    boolean isOn();
-
-    /**
-     * Checks if object is turned off
-     * @return true if turned off
-     */
-    boolean isOff();
-
-    /**
      * Checks if object is being used
      * @return true if being used
      */
     boolean isUsing();
 
-    /**
-     * Checks if object is broken
-     * @return true if broken
-     */
-    boolean isBroken();
-
-    /**
-     * Checks if object is being fixed
-     * @return true if being fixed
-     */
-    boolean isFixing();
 }

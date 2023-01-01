@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * The type Tv.
+ * Class representing the TV
  */
 public class TV extends ADevice {
     /**
-     * Instantiates a new Tv.
+     * Instantiates a new Tv
      *
      * @param room the room
      * @param name the name
@@ -26,6 +26,9 @@ public class TV extends ADevice {
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
+    /**
+     * Turns the TV on
+     */
     @Override
     public void on() {
         if (isOff()) {
@@ -33,6 +36,9 @@ public class TV extends ADevice {
         }
     }
 
+    /**
+     * Turns the TV off
+     */
     @Override
     public void off() {
         if (isOn()) {
@@ -40,6 +46,10 @@ public class TV extends ADevice {
         }
     }
 
+    /**
+     * Use the TV
+     * @param inhabitant inhabitant that uses object
+     */
     @Override
     public void use(AInhabitant inhabitant) {
         if (!isUsing() && !isBroken()) {
@@ -56,6 +66,10 @@ public class TV extends ADevice {
         }
     }
 
+    /**
+     * UnUse the TV
+     * @param inhabitant inhabitant that unUses object
+     */
     @Override
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
@@ -65,6 +79,10 @@ public class TV extends ADevice {
         }
     }
 
+    /**
+     * To fix the TV
+     * @param person person that is fixing the device
+     */
     @Override
     public void fix(Adult person) {
         if (isBroken()) {
@@ -74,6 +92,10 @@ public class TV extends ADevice {
         }
     }
 
+    /**
+     * Complete fixing the TV
+     * @param person person that is fixing the device
+     */
     @Override
     public void completeFixing(Adult person) {
         if (isFixing() && person.equals(getUser())) {
@@ -83,11 +105,18 @@ public class TV extends ADevice {
         }
     }
 
+    /**
+     * To break the TV
+     */
     @Override
     public void toBreak() {
         changeState(new TVBrokenState(this));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

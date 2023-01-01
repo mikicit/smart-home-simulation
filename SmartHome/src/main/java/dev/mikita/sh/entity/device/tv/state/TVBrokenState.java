@@ -7,14 +7,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * The type Tv broken state.
+ * Class representing the TV broken state
  */
 public class TVBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(TVBrokenState.class.getName());
 
     /**
-     * Instantiates a new Tv broken state.
+     * Instantiates a new Tv broken state
      *
      * @param device the device
      */
@@ -28,6 +28,10 @@ public class TVBrokenState extends ADeviceBrokenState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

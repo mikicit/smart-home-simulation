@@ -7,6 +7,9 @@ import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 
 import java.util.logging.Logger;
 
+/**
+ * Class representing adult working state
+ */
 public class AdultWorkingState extends AInhabitantState  {
     // Logger
     private static final Logger log = Logger.getLogger(AdultWorkingState.class.getName());
@@ -20,6 +23,10 @@ public class AdultWorkingState extends AInhabitantState  {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

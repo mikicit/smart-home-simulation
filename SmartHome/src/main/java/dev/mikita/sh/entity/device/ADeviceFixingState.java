@@ -5,7 +5,7 @@ package dev.mikita.sh.entity.device;
  */
 public abstract class ADeviceFixingState extends ADeviceState {
     /**
-     * Instantiates a new A device fixing state.
+     * Instantiates a new device fixing state
      *
      * @param device the device
      */

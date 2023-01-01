@@ -8,14 +8,14 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * The type Air conditioner.
+ * Class representing the Air conditioner
  */
 public class AirConditioner extends ADevice {
     // Constants
     private final double COOLING_PER_HOUR = 3;
 
     /**
-     * Instantiates a new Air conditioner.
+     * Instantiates a new Air conditioner
      *
      * @param room the room
      * @param name the name
@@ -30,7 +30,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Gets cooling per hour.
+     * Gets cooling per hour
      *
      * @return the cooling per hour
      */
@@ -38,6 +38,9 @@ public class AirConditioner extends ADevice {
         return COOLING_PER_HOUR;
     }
 
+    /**
+     * Turns the air conditioner on
+     */
     @Override
     public void on() {
         if (isOff()) {
@@ -45,6 +48,9 @@ public class AirConditioner extends ADevice {
         }
     }
 
+    /**
+     * Turns the air conditioner off
+     */
     @Override
     public void off() {
         if (isOn()) {
@@ -52,6 +58,10 @@ public class AirConditioner extends ADevice {
         }
     }
 
+    /**
+     * Use air conditioner
+     * @param inhabitant inhabitant that uses object
+     */
     @Override
     public void use(AInhabitant inhabitant) {
         if (!isUsing() && !isBroken()) {
@@ -68,6 +78,10 @@ public class AirConditioner extends ADevice {
         }
     }
 
+    /**
+     * UnUse air conditioner
+     * @param inhabitant inhabitant that unUses object
+     */
     @Override
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
@@ -77,6 +91,10 @@ public class AirConditioner extends ADevice {
         }
     }
 
+    /**
+     * Fix air conditioner
+     * @param person person that is fixing the device
+     */
     @Override
     public void fix(Adult person) {
         if (isBroken()) {
@@ -86,6 +104,10 @@ public class AirConditioner extends ADevice {
         }
     }
 
+    /**
+     * Complete fixing air conditioner
+     * @param person person that is fixing the device
+     */
     @Override
     public void completeFixing(Adult person) {
         if (isFixing() && person.equals(getUser())) {
@@ -95,11 +117,18 @@ public class AirConditioner extends ADevice {
         }
     }
 
+    /**
+     * To break air conditioner
+     */
     @Override
     public void toBreak() {
         changeState(new AirConditionerBrokenState(this));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

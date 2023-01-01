@@ -18,7 +18,7 @@ public class ConsumptionReport {
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     /**
-     * Instantiates a new Consumption report.
+     * Instantiates a new Consumption report
      */
     public ConsumptionReport() {
         try {

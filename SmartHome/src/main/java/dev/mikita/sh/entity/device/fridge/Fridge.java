@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * The type Fridge.
+ * Class representing the Fridge
  */
 public class Fridge extends ADevice {
     /**
-     * Instantiates a new Fridge.
+     * Instantiates a new Fridge
      *
      * @param room the room
      * @param name the name
@@ -26,6 +26,9 @@ public class Fridge extends ADevice {
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
+    /**
+     * Turns the fridge on
+     */
     @Override
     public void on() {
         if (isOff()) {
@@ -33,6 +36,9 @@ public class Fridge extends ADevice {
         }
     }
 
+    /**
+     * Turns the fridge off
+     */
     @Override
     public void off() {
         if (isOn()) {
@@ -40,6 +46,10 @@ public class Fridge extends ADevice {
         }
     }
 
+    /**
+     * Use the fridge
+     * @param inhabitant inhabitant that uses object
+     */
     @Override
     public void use(AInhabitant inhabitant) {
         if (!isUsing() && !isBroken()) {
@@ -56,6 +66,10 @@ public class Fridge extends ADevice {
         }
     }
 
+    /**
+     * UnUse the fridge
+     * @param inhabitant inhabitant that unUses object
+     */
     @Override
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
@@ -65,6 +79,10 @@ public class Fridge extends ADevice {
         }
     }
 
+    /**
+     * Fix the fridge
+     * @param person person that is fixing the device
+     */
     @Override
     public void fix(Adult person) {
         if (isBroken()) {
@@ -74,6 +92,10 @@ public class Fridge extends ADevice {
         }
     }
 
+    /**
+     * Complete fixing the fridge
+     * @param person person that is fixing the device
+     */
     @Override
     public void completeFixing(Adult person) {
         if (isFixing() && person.equals(getUser())) {
@@ -83,11 +105,18 @@ public class Fridge extends ADevice {
         }
     }
 
+    /**
+     * To break the fridge
+     */
     @Override
     public void toBreak() {
         changeState(new FridgeBrokenState(this));
     }
 
+    /**
+     * Update
+     * @param time
+     */
     @Override
     public void update(long time) {
         this.time += time;

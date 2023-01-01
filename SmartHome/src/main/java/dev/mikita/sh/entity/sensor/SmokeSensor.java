@@ -4,6 +4,9 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.SmokeInRoomEvent;
 
+/**
+ * Class representing a smoke sensor
+ */
 public class SmokeSensor extends AInternalSensor {
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 96;
@@ -23,10 +26,18 @@ public class SmokeSensor extends AInternalSensor {
         this.triggeredTimeInHours = calculateTriggeredTime();
     }
 
+    /**
+     * Calculates an event triggered time
+     * @return time
+     */
     private double calculateTriggeredTime() {
        return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;
@@ -37,11 +48,17 @@ public class SmokeSensor extends AInternalSensor {
         }
     }
 
+    /**
+     * Switches the state
+     */
     @Override
     protected void switchState() {
         state = state == SmokeSensorState.NO_SMOKE ? SmokeSensorState.BIG_SMOKE : SmokeSensorState.NO_SMOKE;
     }
 
+    /**
+     * Resets the state
+     */
     @Override
     public void resetState() {
         this.time = 0;
@@ -49,6 +66,10 @@ public class SmokeSensor extends AInternalSensor {
         triggeredTimeInHours = calculateTriggeredTime();
     }
 
+    /**
+     * Returns the state
+     * @return state
+     */
     public SmokeSensorState getState() {
         return this.state;
     }

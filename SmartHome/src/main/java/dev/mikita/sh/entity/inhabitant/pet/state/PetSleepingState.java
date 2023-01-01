@@ -7,6 +7,9 @@ import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 
 import java.util.logging.Logger;
 
+/**
+ * Class representing pet sleeping state
+ */
 public class PetSleepingState extends AInhabitantState {
     // Logger
     private static final Logger log = Logger.getLogger(PetSleepingState.class.getName());
@@ -19,6 +22,10 @@ public class PetSleepingState extends AInhabitantState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

@@ -6,6 +6,9 @@ import dev.mikita.sh.event.WaterInRoomEvent;
 
 import java.io.IOException;
 
+/**
+ * Class representing a water sensor
+ */
 public class WaterSensor extends AInternalSensor {
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 48;
@@ -25,10 +28,19 @@ public class WaterSensor extends AInternalSensor {
         this.triggeredTimeInHours = calculateTriggeredTime();
     }
 
+    /**
+     * Calculates an event triggered time
+     * @return time
+     */
     private double calculateTriggeredTime() {
         return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
+    /**
+     * Update
+     * @param time the time
+     * @throws IOException exception
+     */
     @Override
     public void update(long time) throws IOException {
         this.time += time;
@@ -39,11 +51,17 @@ public class WaterSensor extends AInternalSensor {
         }
     }
 
+    /**
+     * Switches the state
+     */
     @Override
     protected void switchState() {
         state = state == WaterSensorState.NO_WATER ? WaterSensorState.WATER : WaterSensorState.NO_WATER;
     }
 
+    /**
+     * Resets the state
+     */
     @Override
     public void resetState() {
         this.time = 0;
@@ -51,6 +69,10 @@ public class WaterSensor extends AInternalSensor {
         triggeredTimeInHours = calculateTriggeredTime();
     }
 
+    /**
+     * Returns the state
+     * @return state
+     */
     public WaterSensorState getState() {
         return this.state;
     }

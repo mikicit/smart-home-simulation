@@ -1,5 +1,8 @@
 package dev.mikita.sh.entity.inhabitant;
 
+/**
+ * Abstract class representing inhabitant's state
+ */
 public abstract class AInhabitantState {
     // References
     protected AInhabitant inhabitant;
@@ -11,5 +14,9 @@ public abstract class AInhabitantState {
         this.inhabitant = inhabitant;
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     public abstract void update(long time);
 }

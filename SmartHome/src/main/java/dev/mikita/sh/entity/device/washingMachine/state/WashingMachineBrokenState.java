@@ -8,14 +8,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * The type Washing machine broken state.
+ * Class representing the Washing machine broken state
  */
 public class WashingMachineBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(WashingMachineBrokenState.class.getName());
 
     /**
-     * Instantiates a new Washing machine broken state.
+     * Instantiates a new Washing machine broken state
      *
      * @param device the device
      */
@@ -28,6 +28,10 @@ public class WashingMachineBrokenState extends ADeviceBrokenState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

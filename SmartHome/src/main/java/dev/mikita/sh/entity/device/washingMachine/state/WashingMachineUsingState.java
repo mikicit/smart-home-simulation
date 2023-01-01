@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import java.util.logging.Logger;
 
 /**
- * The type Washing machine using state.
+ * Class representing the Washing machine using state
  */
 public class WashingMachineUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(WashingMachineUsingState.class.getName());
 
     /**
-     * Instantiates a new Washing machine using state.
+     * Instantiates a new Washing machine using state
      *
      * @param device the device
      */
@@ -29,6 +29,10 @@ public class WashingMachineUsingState extends ADeviceUsingState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         // Wear out time

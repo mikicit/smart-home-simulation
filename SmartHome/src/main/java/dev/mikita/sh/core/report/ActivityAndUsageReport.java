@@ -18,7 +18,7 @@ public class ActivityAndUsageReport {
     private FileWriter activityAndUsageReport = null;
 
     /**
-     * Instantiates a new Activity and usage report.
+     * Instantiates a new Activity and usage report
      */
     public ActivityAndUsageReport() {
         try {

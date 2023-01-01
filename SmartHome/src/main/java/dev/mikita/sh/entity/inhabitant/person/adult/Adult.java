@@ -18,9 +18,11 @@ import dev.mikita.sh.entity.sensor.ASensor;
 import dev.mikita.sh.entity.sensor.SmokeSensor;
 import dev.mikita.sh.entity.sensor.WaterSensor;
 import dev.mikita.sh.event.*;
-
 import java.util.logging.Logger;
 
+/**
+ * Class representing the adult
+ */
 public class Adult extends APerson {
     // Logger
     private static final Logger log = Logger.getLogger(Adult.class.getName());
@@ -34,6 +36,10 @@ public class Adult extends APerson {
         initEventHandlers();
     }
 
+    /**
+     * Feeds the child
+     * @param child the child
+     */
     public void feedChild(Child child) {
         if (!room.equals(child.getRoom())) {
             moveTo(child.getRoom());
@@ -45,6 +51,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Changes child's diapers
+     * @param child the child
+     */
     public void changeDiapers(Child child) {
         if (!room.equals(child.getRoom())) {
             moveTo(child.getRoom());
@@ -56,6 +66,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Feed the pet
+     * @param pet the pet
+     */
     public void feedPet(APet pet) {
         if (!room.equals(pet.getRoom())) {
             moveTo(pet.getRoom());
@@ -67,6 +81,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Plays with pet
+     * @param pet the pet
+     */
     public void playWithPet(APet pet) {
         if (!room.equals(pet.getRoom())) {
             moveTo(pet.getRoom());
@@ -78,6 +96,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Fixes water leak
+     * @param room the room
+     */
     public void fixWaterLeak(Room room) {
         if (!this.room.equals(room)) {
             moveTo(room);
@@ -95,6 +117,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Puts out the fire
+     * @param room the room
+     */
     public void putOutTheFire(Room room) {
         if (!this.room.equals(room)) {
             moveTo(room);
@@ -112,6 +138,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Fixes the device
+     * @param device the device
+     */
     public void fixDevice(ADevice device) {
         Documentation doc = device.getDocumentation();
         usingObject = device;
@@ -119,6 +149,10 @@ public class Adult extends APerson {
         doc.fixDevice(device);
     }
 
+    /**
+     * Completes fixing the device
+     * @param device the device
+     */
     public void completeFixingDevice(ADevice device) {
         device.setTime(0);
         usingObject = null;
@@ -131,6 +165,10 @@ public class Adult extends APerson {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Use the object (device, item)
+     * @param object the object
+     */
     public void useObject(IUsableObject object) {
         this.usingObject = object;
 
@@ -143,16 +181,27 @@ public class Adult extends APerson {
         changeState(new AdultDeviceUsingState(this));
     }
 
+    /**
+     * UnUse the object
+     * @param object the object
+     */
     public void unUseObject(IUsableObject object) {
         this.usingObject = null;
         changeState(new AdultWaitingState(this));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.state.update(time);
     }
 
+    /**
+     * Initiates event handlers
+     */
     private void initEventHandlers() {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(DeviceIsBrokenEvent.class, "global", new AEventHandler() {
             @Override

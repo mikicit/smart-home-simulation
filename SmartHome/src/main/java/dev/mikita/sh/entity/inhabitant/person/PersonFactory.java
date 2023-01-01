@@ -7,6 +7,9 @@ import dev.mikita.sh.entity.location.Room;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for creating persons
+ */
 public class PersonFactory {
     private static PersonFactory instance;
     private final List<APerson> persons = new ArrayList<>();
@@ -21,6 +24,14 @@ public class PersonFactory {
         return instance;
     }
 
+    /**
+     * Creates the person
+     * @param type the type (adult, child)
+     * @param name the name
+     * @param gender the gender
+     * @param room the room
+     * @return person
+     */
     public APerson create(String type, String name, PersonGender gender, ILocation room) {
         APerson person = switch (type) {
             case "ADULT" -> new Adult((Room) room, name, gender);
@@ -32,6 +43,10 @@ public class PersonFactory {
         return person;
     }
 
+    /**
+     * Returns persons
+     * @return persons
+     */
     public List<APerson> getPersons() {
         return persons;
     }

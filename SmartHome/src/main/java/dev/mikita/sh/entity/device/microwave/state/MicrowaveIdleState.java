@@ -6,14 +6,14 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
 /**
- * The type Microwave idle state.
+ * Class representing the Microwave idle state
  */
 public class MicrowaveIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveIdleState.class.getName());
 
     /**
-     * Instantiates a new Microwave idle state.
+     * Instantiates a new Microwave idle state
      *
      * @param device the device
      */
@@ -26,6 +26,10 @@ public class MicrowaveIdleState extends ADeviceIdleState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         // Wear out time

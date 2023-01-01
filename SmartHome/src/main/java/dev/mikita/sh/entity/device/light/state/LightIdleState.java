@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
 /**
- * The type Light idle state.
+ * Class representing the Light idle state
  */
 public class LightIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(LightIdleState.class.getName());
 
     /**
-     * Instantiates a new Light idle state.
+     * Instantiates a new Light idle state
      *
      * @param device the device
      */
@@ -28,6 +28,10 @@ public class LightIdleState extends ADeviceIdleState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         // Wear out time

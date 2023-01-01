@@ -14,7 +14,7 @@ public class EventReport {
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     /**
-     * Instantiates a new Event report.
+     * Instantiates a new Event report
      */
     public EventReport() {
         try {
@@ -25,7 +25,7 @@ public class EventReport {
     }
 
     /**
-     * Generate report.
+     * Generate report
      *
      * @param event the event
      * @throws IOException the io exception

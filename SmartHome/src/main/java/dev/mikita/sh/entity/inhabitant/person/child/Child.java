@@ -11,6 +11,9 @@ import dev.mikita.sh.event.PoopedChildEvent;
 
 import java.util.logging.Logger;
 
+/**
+ * Class representing the child
+ */
 public class Child extends APerson {
     // Logger
     private static final Logger log = Logger.getLogger(Child.class.getName());
@@ -36,28 +39,52 @@ public class Child extends APerson {
         this.deviceBreakingChance = 0.3;
     }
 
+    /**
+     * Calculates event triggered time
+     * @return time
+     */
     private double calculateTriggeredTime() {
         return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
+    /**
+     * Feeds the child
+     * @param adult the adult
+     */
     public void feed(Adult adult) {
         adult.feedChild(this);
         dispatchedHungerEvent = false;
     }
 
+    /**
+     * Changes child's diaper
+     * @param adult the adult
+     */
     public void changeDiaper(Adult adult) {
         adult.changeDiapers(this);
         dispatchedPoopedEvent = false;
     }
 
+    /**
+     * Checks pooped event
+     * @return true if dispatched
+     */
     public boolean getDispatchedPoopedEvent() {
         return dispatchedPoopedEvent;
     }
 
+    /**
+     * Checks hungry event
+     * @return true if dispatched
+     */
     public boolean getDispatchedHungerEvent() {
         return dispatchedHungerEvent;
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

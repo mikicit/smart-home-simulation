@@ -15,6 +15,9 @@ import dev.mikita.sh.entity.item.ItemFactory;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class representing adult waiting state
+ */
 public class AdultWaitingState extends AInhabitantState {
     // Constants
     private final double WAITING_TIME_IN_HOUR = 0.4;
@@ -23,6 +26,10 @@ public class AdultWaitingState extends AInhabitantState {
         super(inhabitant);
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

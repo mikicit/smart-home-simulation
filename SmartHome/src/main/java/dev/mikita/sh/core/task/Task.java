@@ -15,7 +15,7 @@ public class Task {
     private final AEvent event;
 
     /**
-     * Instantiates a new Task.
+     * Instantiates a new Task
      *
      * @param event the event
      */

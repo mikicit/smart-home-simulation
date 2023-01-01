@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 import java.util.logging.Logger;
 
 /**
- * The type Oven fixing state.
+ * Class representing the Oven fixing state
  */
 public class OvenFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenFixingState.class.getName());
 
     /**
-     * Instantiates a new Oven fixing state.
+     * Instantiates a new Oven fixing state
      *
      * @param device the device
      */
@@ -27,6 +27,10 @@ public class OvenFixingState extends ADeviceFixingState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

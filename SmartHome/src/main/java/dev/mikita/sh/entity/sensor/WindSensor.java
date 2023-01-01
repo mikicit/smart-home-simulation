@@ -5,6 +5,9 @@ import dev.mikita.sh.entity.location.House;
 import dev.mikita.sh.event.NormalWindEvent;
 import dev.mikita.sh.event.StrongWindEvent;
 
+/**
+ * Class representing a wind sensor
+ */
 public class WindSensor extends AExternalSensor {
     // Constants
     private final double MIN_SPEED = 8;
@@ -22,6 +25,10 @@ public class WindSensor extends AExternalSensor {
         super(house);
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time =+ time;
@@ -37,16 +44,26 @@ public class WindSensor extends AExternalSensor {
         }
     }
 
+    /**
+     * Switches the state
+     */
     @Override
     protected void switchState() {
         state = state == WindSensorState.WIND ? WindSensorState.NO_WIND : WindSensorState.WIND;
     }
 
+    /**
+     * Resets the state
+     */
     @Override
     public void resetState() {
         state = WindSensorState.NO_WIND;
     }
 
+    /**
+     * Returns the state
+     * @return state
+     */
     public WindSensorState getState() {
         return this.state;
     }

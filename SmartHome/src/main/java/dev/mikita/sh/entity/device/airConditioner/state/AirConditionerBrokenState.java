@@ -7,14 +7,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * The type Air conditioner broken state.
+ * Class representing the Air conditioner broken state
  */
 public class AirConditionerBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(AirConditionerBrokenState.class.getName());
 
     /**
-     * Instantiates a new Air conditioner broken state.
+     * Instantiates a new Air conditioner broken state
      *
      * @param device the device
      */
@@ -28,6 +28,10 @@ public class AirConditionerBrokenState extends ADeviceBrokenState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

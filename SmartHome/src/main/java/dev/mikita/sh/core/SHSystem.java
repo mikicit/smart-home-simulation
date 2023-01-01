@@ -30,7 +30,7 @@ public class SHSystem {
     /**
      * Returns system's instance
      *
-     * @return instance instance
+     * @return instance
      */
     public static SHSystem getInstance() {
         if (instance == null) {
@@ -114,7 +114,7 @@ public class SHSystem {
     /**
      * Returns house
      *
-     * @return house house
+     * @return house
      */
     public House getHouse() {
         return house;

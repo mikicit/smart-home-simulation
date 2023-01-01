@@ -4,11 +4,11 @@ import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceOffState;
 
 /**
- * The type Air conditioner off state.
+ * Class representing the Air conditioner off state
  */
 public class AirConditionerOffState extends ADeviceOffState {
     /**
-     * Instantiates a new Air conditioner off state.
+     * Instantiates a new Air conditioner off state
      *
      * @param device the device
      */
@@ -16,6 +16,10 @@ public class AirConditionerOffState extends ADeviceOffState {
         super(device);
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

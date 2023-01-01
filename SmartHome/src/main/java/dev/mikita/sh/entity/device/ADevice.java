@@ -12,73 +12,28 @@ import dev.mikita.sh.entity.location.Room;
  * Abstract class representing device
  */
 public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObject {
-    /**
-     * The Room.
-     */
     protected Room room;
-    /**
-     * The State.
-     */
     protected ADeviceState state;
-    /**
-     * The Name.
-     */
     protected String name;
-    /**
-     * The User.
-     */
     protected AInhabitant user = null;
-    /**
-     * The Time.
-     */
     protected long time = 0;
 
-    /**
-     * The Operating time in hours.
-     */
 // Constants
     protected int operatingTimeInHours = 0;
-    /**
-     * The Usage time in hour.
-     */
     protected double usageTimeInHour = 0;
-    /**
-     * The Doc.
-     */
     protected Documentation doc;
 
-    /**
-     * The Current electricity consumption.
-     */
 // Consumption
     protected double currentElectricityConsumption = 0;
-    /**
-     * The Current water consumption.
-     */
     protected double currentWaterConsumption = 0;
-    /**
-     * The Current gas consumption.
-     */
     protected double currentGasConsumption = 0;
-    /**
-     * The Last electricity consumption.
-     */
     protected double lastElectricityConsumption = 0;
-    /**
-     * The Last water consumption.
-     */
     protected double lastWaterConsumption = 0;
-    /**
-     * The Last gas consumption.
-     */
     protected double lastGasConsumption = 0;
-    /**
-     * The Fixing time in hours.
-     */
     protected double fixingTimeInHours = 0;
 
     /**
-     * Instantiates a new A device.
+     * Instantiates a new device
      *
      * @param room the room
      * @param name the name
@@ -103,7 +58,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     /**
      * Returns the room in which device is located
      *
-     * @return room room
+     * @return room
      */
     public Room getRoom() {
         return room;
@@ -211,7 +166,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     /**
      * Returns current device's time
      *
-     * @return time time
+     * @return time
      */
     public long getTime() {
         return time;
@@ -224,6 +179,14 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
      */
     public void setTime(long time) {
         this.time = time;
+    }
+
+    /**
+     * Returns time that device can be used before breaking
+     * @return time
+     */
+    public int getOperatingTimeInHours() {
+        return operatingTimeInHours;
     }
 
     /**
@@ -263,21 +226,44 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
+     * Checks if device is turned on
+     * @return true if turned on
+     */
+    public boolean isOn() {
+        return state instanceof ADeviceIdleState;
+    }
+
+    /**
+     * Checks if device is turned off
+     * @return true if turned off
+     */
+    public boolean isOff() {
+        return state instanceof ADeviceOffState;
+    }
+
+    /**
+     * Checks if device is broken
+     * @return true if broken
+     */
+    public boolean isBroken() {
+        return state instanceof ADeviceBrokenState;
+    }
+
+    /**
+     * Checks if device is being fixed
+     * @return true if being fixed
+     */
+    public boolean isFixing() {
+        return state instanceof ADeviceFixingState;
+    }
+
+    /**
      * Returns device's name (Fridge, Oven, etc.)
      * @return name
      */
     @Override
     public String getName() {
         return name;
-    }
-
-    /**
-     * Returns time that device can be used before breaking
-     * @return time
-     */
-    @Override
-    public int getOperatingTimeInHours() {
-        return operatingTimeInHours;
     }
 
     /**
@@ -290,48 +276,12 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Checks if device is turned on
-     * @return true if turned on
-     */
-    @Override
-    public boolean isOn() {
-        return state instanceof ADeviceIdleState;
-    }
-
-    /**
-     * Checks if device is turned off
-     * @return true if turned off
-     */
-    @Override
-    public boolean isOff() {
-        return state instanceof ADeviceOffState;
-    }
-
-    /**
      * Checks if device is being used
      * @return true if being used
      */
     @Override
     public boolean isUsing() {
         return state instanceof ADeviceUsingState;
-    }
-
-    /**
-     * Checks if device is broken
-     * @return true if broken
-     */
-    @Override
-    public boolean isBroken() {
-        return state instanceof ADeviceBrokenState;
-    }
-
-    /**
-     * Checks if device is being fixed
-     * @return true if being fixed
-     */
-    @Override
-    public boolean isFixing() {
-        return state instanceof ADeviceFixingState;
     }
 
     /**

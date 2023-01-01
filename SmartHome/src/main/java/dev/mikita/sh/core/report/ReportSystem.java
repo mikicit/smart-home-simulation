@@ -36,7 +36,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Returns event report.
+     * Returns event report
      * @return the event report
      */
     public EventReport getEventReport() {

@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import java.util.logging.Logger;
 
 /**
- * The type Microwave using state.
+ * Class representing the Microwave using state
  */
 public class MicrowaveUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveUsingState.class.getName());
 
     /**
-     * Instantiates a new Microwave using state.
+     * Instantiates a new Microwave using state
      *
      * @param device the device
      */
@@ -27,6 +27,10 @@ public class MicrowaveUsingState extends ADeviceUsingState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         // Wear out time

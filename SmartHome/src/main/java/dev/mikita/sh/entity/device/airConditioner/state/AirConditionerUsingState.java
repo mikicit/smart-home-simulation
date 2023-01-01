@@ -6,11 +6,11 @@ import dev.mikita.sh.entity.device.airConditioner.AirConditioner;
 import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 
 /**
- * The type Air conditioner using state.
+ * Class representing the Air conditioner using state
  */
 public class AirConditionerUsingState extends ADeviceUsingState {
     /**
-     * Instantiates a new Air conditioner using state.
+     * Instantiates a new Air conditioner using state
      *
      * @param device the device
      */
@@ -19,6 +19,10 @@ public class AirConditionerUsingState extends ADeviceUsingState {
         this.ELECTRICITY_CONSUMPTION = 3.12;
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         // Wear out time

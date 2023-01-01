@@ -23,7 +23,7 @@ public class DeviceFactory {
     private DeviceFactory() {}
 
     /**
-     * Gets instance.
+     * Gets instance
      *
      * @return the instance
      */

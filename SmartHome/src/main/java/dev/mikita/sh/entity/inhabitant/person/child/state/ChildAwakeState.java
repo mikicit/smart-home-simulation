@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+/**
+ * Class representing child awake state
+ */
 public class ChildAwakeState extends AInhabitantState {
     // Logger
     private static final Logger log = Logger.getLogger(ChildAwakeState.class.getName());
@@ -29,10 +32,18 @@ public class ChildAwakeState extends AInhabitantState {
         this.triggeredTimeInHours = calculateTriggeredTime();
     }
 
+    /**
+     * Calculates device using triggered time
+     * @return time
+     */
     private double calculateTriggeredTime() {
         return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
+    /**
+     * Uses the device and resets the time
+     * @param device the device
+     */
     private void useDeviceAndResetDeviceUsingEvent(ADevice device) {
         this.timeFromLastDispatchedDeviceUsingEvent = 0;
         this.triggeredTimeInHours = calculateTriggeredTime();
@@ -54,6 +65,10 @@ public class ChildAwakeState extends AInhabitantState {
         }
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

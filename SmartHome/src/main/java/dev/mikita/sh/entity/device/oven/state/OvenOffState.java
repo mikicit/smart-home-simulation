@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 import java.util.logging.Logger;
 
 /**
- * The type Oven off state.
+ * Class representing the Oven off state
  */
 public class OvenOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenOffState.class.getName());
 
     /**
-     * Instantiates a new Oven off state.
+     * Instantiates a new Oven off state
      *
      * @param device the device
      */
@@ -27,6 +27,10 @@ public class OvenOffState extends ADeviceOffState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

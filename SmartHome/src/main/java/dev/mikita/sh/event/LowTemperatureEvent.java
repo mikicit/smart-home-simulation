@@ -5,11 +5,11 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
 
 /**
- * The type Low temperature event.
+ * Class representing a low temperature event
  */
 public class LowTemperatureEvent extends AEvent {
     /**
-     * Instantiates a new Low temperature event.
+     * Instantiates a new low temperature event
      *
      * @param source   the source
      * @param location the location

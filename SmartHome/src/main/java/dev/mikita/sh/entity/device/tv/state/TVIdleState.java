@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
 /**
- * The type Tv idle state.
+ * Class representing the TV idle state
  */
 public class TVIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(TVIdleState.class.getName());
 
     /**
-     * Instantiates a new Tv idle state.
+     * Instantiates a new Tv idle state
      *
      * @param device the device
      */
@@ -28,6 +28,10 @@ public class TVIdleState extends ADeviceIdleState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         // Wear out time

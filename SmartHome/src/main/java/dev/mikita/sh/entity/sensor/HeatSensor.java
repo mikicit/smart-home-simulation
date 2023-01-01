@@ -5,6 +5,9 @@ import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.LowTemperatureEvent;
 import dev.mikita.sh.event.NormalTemperatureEvent;
 
+/**
+ * Class representing a heat sensor
+ */
 public class HeatSensor extends AInternalSensor {
     // Constants
     private final double MIN_TEMP = 18;
@@ -22,6 +25,10 @@ public class HeatSensor extends AInternalSensor {
         super(room);
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time =+ time;
@@ -37,16 +44,26 @@ public class HeatSensor extends AInternalSensor {
         }
     }
 
+    /**
+     * Switches the state
+     */
     @Override
     protected void switchState() {
         state = state == HeatSensorState.NORMAL ? HeatSensorState.COLD : HeatSensorState.NORMAL;
     }
 
+    /**
+     * Resets the state
+     */
     @Override
     public void resetState() {
         state = HeatSensorState.NORMAL;
     }
 
+    /**
+     * Returns the state
+     * @return state
+     */
     public HeatSensorState getState() {
         return this.state;
     }

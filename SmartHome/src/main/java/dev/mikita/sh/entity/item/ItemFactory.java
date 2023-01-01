@@ -4,12 +4,19 @@ import dev.mikita.sh.entity.location.Room;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for creating items
+ */
 public class ItemFactory {
     private static ItemFactory instance;
     private final List<AItem> items = new ArrayList<>();
 
     private ItemFactory() {}
 
+    /**
+     * Returns the instance
+     * @return instance
+     */
     public static ItemFactory getInstance() {
         if (instance == null) {
             instance = new ItemFactory();
@@ -18,6 +25,14 @@ public class ItemFactory {
         return instance;
     }
 
+    /**
+     * Creates an item
+     * @param type the type
+     * @param room the room
+     * @param name the name
+     * @return item
+     * @throws IllegalArgumentException unknown item type
+     */
     public AItem create(String type, Room room, String name) throws IllegalArgumentException {
         AItem item = switch (type) {
             case "BIKE" -> new Bike(room, name);
@@ -31,6 +46,10 @@ public class ItemFactory {
         return item;
     }
 
+    /**
+     * Returns items
+     * @return items
+     */
     public List<AItem> getItems() {
         return this.items;
     }

@@ -14,7 +14,7 @@ public class Documentation {
     private final double fixingTimeInHours;
 
     /**
-     * Instantiates a new Documentation.
+     * Instantiates a new Documentation
      *
      * @param device            the device
      * @param fixingTimeInHours the fixing time in hours

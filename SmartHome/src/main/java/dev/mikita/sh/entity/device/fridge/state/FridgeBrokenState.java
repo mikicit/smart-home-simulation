@@ -8,14 +8,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * The type Fridge broken state.
+ * Class representing the Fridge broken state
  */
 public class FridgeBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeBrokenState.class.getName());
 
     /**
-     * Instantiates a new Fridge broken state.
+     * Instantiates a new Fridge broken state
      *
      * @param device the device
      */
@@ -31,6 +31,10 @@ public class FridgeBrokenState extends ADeviceBrokenState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

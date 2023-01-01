@@ -5,6 +5,9 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
+/**
+ * Abstract class representing an item
+ */
 public abstract class AItem implements IUsableObject {
     // Constants
     protected int operatingTimeInHours = 0;
@@ -24,58 +27,57 @@ public abstract class AItem implements IUsableObject {
         this.name = name;
     }
 
+    /**
+     * Returns the room in which item is located
+     * @return room
+     */
     public Room getRoom() {
         return room;
     }
 
+    /**
+     * Returns the name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
-    @Override
-    public int getOperatingTimeInHours() {
-        return operatingTimeInHours;
-    }
-
+    /**
+     * Returns the time that item is supposed to be used
+     * @return time
+     */
     @Override
     public double getUsageTimeInHour() {
         return usageTimeInHour;
     }
 
+    /**
+     * Uses the item
+     * @param inhabitant inhabitant that uses object
+     */
     @Override
     public void use(AInhabitant inhabitant) {
         ((Adult) inhabitant).useObject(this);
         isUsing = true;
     }
 
+    /**
+     * UnUses the item
+     * @param inhabitant inhabitant that unUses object
+     */
     @Override
     public void unUse(AInhabitant inhabitant) {
         ((Adult) inhabitant).unUseObject(this);
         isUsing = false;
     }
 
-    @Override
-    public boolean isOn() {
-        return false;
-    }
-
-    @Override
-    public boolean isOff() {
-        return false;
-    }
-
+    /**
+     * Checks if item is being used
+     * @return true if being used
+     */
     @Override
     public boolean isUsing() {
         return isUsing;
-    }
-
-    @Override
-    public boolean isBroken() {
-        return false;
-    }
-
-    @Override
-    public boolean isFixing() {
-        return false;
     }
 }

@@ -5,7 +5,7 @@ package dev.mikita.sh.entity.device;
  */
 public abstract class ADeviceOffState extends ADeviceState {
     /**
-     * Instantiates a new A device off state.
+     * Instantiates a new device off state
      *
      * @param device the device
      */

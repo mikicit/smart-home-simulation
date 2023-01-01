@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 import java.util.logging.Logger;
 
 /**
- * The type Fridge fixing state.
+ * Class representing the Fridge fixing state
  */
 public class FridgeFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeFixingState.class.getName());
 
     /**
-     * Instantiates a new Fridge fixing state.
+     * Instantiates a new Fridge fixing state
      *
      * @param device the device
      */
@@ -27,6 +27,10 @@ public class FridgeFixingState extends ADeviceFixingState {
                 SHSystem.getInstance().getSimulation().getFormattedTime()));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

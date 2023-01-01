@@ -6,12 +6,19 @@ import dev.mikita.sh.entity.sensor.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for creating internal sensors
+ */
 public class InternalSensorFactory implements ISensorFactory {
     private static InternalSensorFactory instance;
     private final List<ASensor> sensors = new ArrayList<>();
 
     private InternalSensorFactory() {}
 
+    /**
+     * Returns the instance
+     * @return instance
+     */
     public static InternalSensorFactory getInstance() {
         if (instance == null) {
             instance = new InternalSensorFactory();
@@ -20,6 +27,12 @@ public class InternalSensorFactory implements ISensorFactory {
         return instance;
     }
 
+    /**
+     * Creates a sensor
+     * @param type the type
+     * @param room location
+     * @return sensor
+     */
     public ASensor create(String type, ILocation room) {
         ASensor sensor = switch (type) {
             case "HEAT" -> new HeatSensor((Room) room);
@@ -33,6 +46,10 @@ public class InternalSensorFactory implements ISensorFactory {
         return sensor;
     }
 
+    /**
+     * Returns the sensors
+     * @return sensors
+     */
     public List<ASensor> getSensors() {
         return sensors;
     }

@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * The type Microwave.
+ * Class representing the Microwave
  */
 public class Microwave extends ADevice {
     /**
-     * Instantiates a new Microwave.
+     * Instantiates a new Microwave
      *
      * @param room the room
      * @param name the name
@@ -26,6 +26,9 @@ public class Microwave extends ADevice {
         this.doc = new Documentation(this, this.fixingTimeInHours);
     }
 
+    /**
+     * Turns the microwave on
+     */
     @Override
     public void on() {
         if (isOff()) {
@@ -33,6 +36,9 @@ public class Microwave extends ADevice {
         }
     }
 
+    /**
+     * Turns the microwave off
+     */
     @Override
     public void off() {
         if (isOn()) {
@@ -40,6 +46,10 @@ public class Microwave extends ADevice {
         }
     }
 
+    /**
+     * Use the microwave
+     * @param inhabitant inhabitant that uses object
+     */
     @Override
     public void use(AInhabitant inhabitant) {
         if (!isUsing() && !isBroken()) {
@@ -56,6 +66,10 @@ public class Microwave extends ADevice {
         }
     }
 
+    /**
+     * UnUse the microwave
+     * @param inhabitant inhabitant that unUses object
+     */
     @Override
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
@@ -65,6 +79,10 @@ public class Microwave extends ADevice {
         }
     }
 
+    /**
+     * To fix the microwave
+     * @param person person that is fixing the device
+     */
     @Override
     public void fix(Adult person) {
         if (isBroken()) {
@@ -74,6 +92,10 @@ public class Microwave extends ADevice {
         }
     }
 
+    /**
+     * To complete fixing the microwave
+     * @param person person that is fixing the device
+     */
     @Override
     public void completeFixing(Adult person) {
         if (isFixing() && person.equals(getUser())) {
@@ -83,11 +105,18 @@ public class Microwave extends ADevice {
         }
     }
 
+    /**
+     * To break the microwave
+     */
     @Override
     public void toBreak() {
         changeState(new MicrowaveBrokenState(this));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

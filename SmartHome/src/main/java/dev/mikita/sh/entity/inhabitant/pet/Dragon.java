@@ -7,6 +7,9 @@ import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.BoredPetEvent;
 import dev.mikita.sh.event.HungryPetEvent;
 
+/**
+ * Class representing a dragon
+ */
 public class Dragon extends APet {
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 5;
@@ -26,28 +29,52 @@ public class Dragon extends APet {
         this.triggeredPlayedTimeInHours = calculateTriggeredTime();
     }
 
+    /**
+     * Calculates event triggered time
+     * @return time
+     */
     private double calculateTriggeredTime() {
         return Math.random() * (MAX_TRIGGERED_TIME_IN_HOURS - MIN_TRIGGERED_TIME_IN_HOURS + 1) + MIN_TRIGGERED_TIME_IN_HOURS;
     }
 
+    /**
+     * Feeds the dragon
+     * @param adult the adult
+     */
     public void feed(Adult adult) {
         adult.feedPet(this);
         dispatchedHungerEvent = false;
     }
 
+    /**
+     * Plays with dragon
+     * @param adult the adult
+     */
     public void play(Adult adult) {
         adult.playWithPet(this);
         dispatchedPlayedEvent = false;
     }
 
+    /**
+     * Checks bored event
+     * @return true if dispatched
+     */
     public boolean getDispatchedPlayedEvent() {
         return dispatchedPlayedEvent;
     }
 
+    /**
+     * Checks hungry event
+     * @return true if dispatched
+     */
     public boolean getDispatchedHungerEvent() {
         return dispatchedHungerEvent;
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;

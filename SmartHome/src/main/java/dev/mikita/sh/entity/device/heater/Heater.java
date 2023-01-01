@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * The type Heater.
+ * Class representing the Heater
  */
 public class Heater extends ADevice {
     // Constants
     private final double HEATING_PER_HOUR = 5;
 
     /**
-     * Instantiates a new Heater.
+     * Instantiates a new Heater
      *
      * @param room the room
      * @param name the name
@@ -42,7 +42,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Gets heating per hour.
+     * Gets heating per hour
      *
      * @return the heating per hour
      */
@@ -50,6 +50,9 @@ public class Heater extends ADevice {
         return HEATING_PER_HOUR;
     }
 
+    /**
+     * Turns the heater on
+     */
     @Override
     public void on() {
         if (isOff()) {
@@ -57,6 +60,9 @@ public class Heater extends ADevice {
         }
     }
 
+    /**
+     * Turns the heater off
+     */
     @Override
     public void off() {
         if (isOn()) {
@@ -64,6 +70,10 @@ public class Heater extends ADevice {
         }
     }
 
+    /**
+     * Use the heater
+     * @param inhabitant inhabitant that uses object
+     */
     @Override
     public void use(AInhabitant inhabitant) {
         if (!isUsing() && !isBroken()) {
@@ -79,6 +89,10 @@ public class Heater extends ADevice {
         }
     }
 
+    /**
+     * UnUse the heater
+     * @param inhabitant inhabitant that unUses object
+     */
     @Override
     public void unUse(AInhabitant inhabitant) {
         if (isUsing() && inhabitant.equals(getUser())) {
@@ -95,6 +109,10 @@ public class Heater extends ADevice {
         }
     }
 
+    /**
+     * Fix the heater
+     * @param person person that is fixing the device
+     */
     @Override
     public void fix(Adult person) {
         if (isBroken()) {
@@ -104,6 +122,10 @@ public class Heater extends ADevice {
         }
     }
 
+    /**
+     * Complete fixing the heater
+     * @param person person that is fixing the device
+     */
     @Override
     public void completeFixing(Adult person) {
         if (isFixing() && person.equals(getUser())) {
@@ -113,17 +135,27 @@ public class Heater extends ADevice {
         }
     }
 
+    /**
+     * To break the heater
+     */
     @Override
     public void toBreak() {
         changeState(new HeaterBrokenState(this));
     }
 
+    /**
+     * Update
+     * @param time the time
+     */
     @Override
     public void update(long time) {
         this.time += time;
         state.update(time);
     }
 
+    /**
+     * Initiates event handlers
+     */
     private void initEventHandlers() {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(LowTemperatureEvent.class, room.getName(), new AEventHandler() {
             @Override

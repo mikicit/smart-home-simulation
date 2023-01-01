@@ -5,11 +5,11 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
 
 /**
- * The type Strong wind event.
+ * Class representing a strong wind event
  */
 public class StrongWindEvent extends AEvent {
     /**
-     * Instantiates a new Strong wind event.
+     * Instantiates a new strong wind event
      *
      * @param source   the source
      * @param location the location
