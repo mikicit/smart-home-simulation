@@ -11,20 +11,14 @@
           "entrances": [
             {
               "type": "DOOR",
-              "quantity": 3
+              "quantity": 1
             },
             {
               "type": "WINDOW",
-              "quantity": 2
+              "quantity": 3
             }
           ],
           "sensors": ["HEAT", "LIGHT"],
-          "items": [
-            {
-              "type": "GUITAR",
-              "name": "Guitar"
-            }
-          ],
           "devices": [
             {
               "type": "HEATER",
@@ -107,10 +101,6 @@
             {
               "type": "FRIDGE",
               "name": "Fridge"
-            },
-            {
-              "type": "OVEN",
-              "name": "Oven"
             }
           ],
           "persons": [
@@ -151,9 +141,13 @@
             {
               "type": "DOOR",
               "quantity": 2
+            },
+            {
+              "type": "WINDOW",
+              "quantity": 2
             }
           ],
-          "sensors": ["HEAT", "LIGHT"],
+          "sensors": ["HEAT", "LIGHT", "SMOKE", "WATER"],
           "items": [
             {
               "type": "SKIS",
@@ -166,14 +160,6 @@
             {
               "type": "BIKE",
               "name": "Road bike"
-            },
-            {
-              "type": "CAR",
-              "name": "Ferrari"
-            },
-            {
-              "type": "GUITAR",
-              "name": "Guitar"
             }
           ],
           "devices": [
@@ -186,12 +172,27 @@
               "name": "Lamp"
             },
             {
-              "type": "LIGHT",
-              "name": "Lamp 2"
+              "type": "WASHING_MACHINE",
+              "name": "Washing machine"
             },
             {
-              "type": "LIGHT",
-              "name": "Lamp 3"
+              "type": "FRIDGE",
+              "name": "Fridge"
+            },
+            {
+              "type": "AIR_CONDITIONER",
+              "name": "Air conditioner"
+            },
+            {
+              "type": "OVEN",
+              "name": "Oven"
+            }
+          ],
+          "persons": [
+            {
+              "type": "ADULT",
+              "name": "Oleg",
+              "gender": "MALE"
             }
           ]
         }
@@ -212,7 +213,7 @@
               "quantity": 2
             }
           ],
-          "sensors": ["HEAT", "LIGHT"],
+          "sensors": ["HEAT", "LIGHT", "SMOKE"],
           "items": [
             {
               "type": "GUITAR",
@@ -244,19 +245,8 @@
           "persons": [
             {
               "type": "ADULT",
-              "name": "Oleg",
-              "gender": "MALE"
-            },
-            {
-              "type": "ADULT",
               "name": "Alina",
               "gender": "FEMALE"
-            }
-          ],
-          "pets": [
-            {
-              "type": "DRAGON",
-              "name": "Hello Kitty"
             }
           ]
         },
@@ -269,10 +259,10 @@
             },
             {
               "type": "WINDOW",
-              "quantity": 1
+              "quantity": 2
             }
           ],
-          "sensors": ["HEAT", "LIGHT"],
+          "sensors": ["HEAT", "LIGHT", "SMOKE"],
           "devices": [
             {
               "type": "HEATER",
@@ -293,6 +283,12 @@
               "type": "CHILD",
               "name": "Babis",
               "gender": "FEMALE"
+            }
+          ],
+          "pets": [
+            {
+              "type": "DRAGON",
+              "name": "Hello Kitty"
             }
           ]
         }
