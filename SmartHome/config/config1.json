@@ -1,0 +1,298 @@
+{
+  "sensors": [
+    "WIND"
+  ],
+  "floors": [
+    {
+      "level": 1,
+      "rooms": [
+        {
+          "name": "Living room",
+          "entrances": [
+            {
+              "type": "DOOR",
+              "quantity": 3
+            },
+            {
+              "type": "WINDOW",
+              "quantity": 2
+            }
+          ],
+          "sensors": ["HEAT", "LIGHT"],
+          "items": [
+            {
+              "type": "GUITAR",
+              "name": "Guitar"
+            }
+          ],
+          "devices": [
+            {
+              "type": "HEATER",
+              "name": "Heater"
+            },
+            {
+              "type": "TV",
+              "name": "TV"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp 2"
+            },
+            {
+              "type": "AIR_CONDITIONER",
+              "name": "Air conditioner"
+            }
+          ],
+          "persons": [
+            {
+              "type": "ADULT",
+              "name": "Mikita",
+              "gender": "MALE"
+            },
+            {
+              "type": "ADULT",
+              "name": "Roma",
+              "gender": "MALE"
+            }
+          ],
+          "pets": [
+            {
+              "type": "DRAGON",
+              "name": "La la Dragon"
+            }
+          ]
+        },
+        {
+          "name": "Kitchen",
+          "entrances": [
+            {
+              "type": "DOOR",
+              "quantity": 2
+            },
+            {
+              "type": "WINDOW",
+              "quantity": 2
+            }
+          ],
+          "sensors": ["HEAT", "LIGHT", "SMOKE", "WATER"],
+          "devices": [
+            {
+              "type": "HEATER",
+              "name": "Heater"
+            },
+            {
+              "type": "TV",
+              "name": "TV"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp 2"
+            },
+            {
+              "type": "MICROWAVE",
+              "name": "Microwave"
+            },
+            {
+              "type": "WASHING_MACHINE",
+              "name": "Washing machine"
+            },
+            {
+              "type": "FRIDGE",
+              "name": "Fridge"
+            }
+          ],
+          "persons": [
+            {
+              "type": "ADULT",
+              "name": "Darina",
+              "gender": "FEMALE"
+            }
+          ],
+          "pets": [
+            {
+              "type": "DRAGON",
+              "name": "Mimimi"
+            }
+          ]
+        },
+        {
+          "name": "Guest Bathroom",
+          "sensors": ["HEAT", "LIGHT", "WATER"],
+          "devices": [
+            {
+              "type": "HEATER",
+              "name": "Heater"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp"
+            },
+            {
+              "type": "WASHING_MACHINE",
+              "name": "Washing machine"
+            }
+          ]
+        },
+        {
+          "name": "Garage",
+          "entrances": [
+            {
+              "type": "DOOR",
+              "quantity": 2
+            }
+          ],
+          "sensors": ["HEAT", "LIGHT"],
+          "items": [
+            {
+              "type": "SKIS",
+              "name": "Big skis"
+            },
+            {
+              "type": "BIKE",
+              "name": "Mountain bike"
+            },
+            {
+              "type": "BIKE",
+              "name": "Road bike"
+            },
+            {
+              "type": "CAR",
+              "name": "Ferrari"
+            },
+            {
+              "type": "GUITAR",
+              "name": "Guitar"
+            }
+          ],
+          "devices": [
+            {
+              "type": "HEATER",
+              "name": "Heater"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp 2"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "rooms": [
+        {
+          "name": "Bedroom",
+          "entrances": [
+            {
+              "type": "DOOR",
+              "quantity": 1
+            },
+            {
+              "type": "WINDOW",
+              "quantity": 2
+            }
+          ],
+          "sensors": ["HEAT", "LIGHT"],
+          "items": [
+            {
+              "type": "GUITAR",
+              "name": "Guitar"
+            }
+          ],
+          "devices": [
+            {
+              "type": "HEATER",
+              "name": "Heater"
+            },
+            {
+              "type": "TV",
+              "name": "TV"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp 2"
+            },
+            {
+              "type": "AIR_CONDITIONER",
+              "name": "Air conditioner"
+            }
+          ],
+          "persons": [
+            {
+              "type": "ADULT",
+              "name": "Oleg",
+              "gender": "MALE"
+            },
+            {
+              "type": "ADULT",
+              "name": "Alina",
+              "gender": "FEMALE"
+            }
+          ],
+          "pets": [
+            {
+              "type": "DRAGON",
+              "name": "Hello Kitty"
+            }
+          ]
+        },
+        {
+          "name": "Children's room",
+          "entrances": [
+            {
+              "type": "DOOR",
+              "quantity": 1
+            },
+            {
+              "type": "WINDOW",
+              "quantity": 1
+            }
+          ],
+          "sensors": ["HEAT", "LIGHT"],
+          "devices": [
+            {
+              "type": "HEATER",
+              "name": "Heater"
+            },
+            {
+              "type": "LIGHT",
+              "name": "Lamp"
+            }
+          ],
+          "persons": [
+            {
+              "type": "CHILD",
+              "name": "Rimnac",
+              "gender": "MALE"
+            },
+            {
+              "type": "CHILD",
+              "name": "Babis",
+              "gender": "FEMALE"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

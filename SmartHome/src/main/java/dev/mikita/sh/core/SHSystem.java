@@ -40,6 +40,20 @@ public class SHSystem {
         return instance;
     }
 
+    /**
+     * Initializes the house and all needed systems
+     *
+     * @param house the house
+     */
+    public void init(House house) {
+        if (wasInitialized) return;
+
+        this.reportSystem = new ReportSystem();
+        this.house = house;
+
+        wasInitialized = true;
+    }
+
     public void init(String path) {
         if (wasInitialized) return;
 

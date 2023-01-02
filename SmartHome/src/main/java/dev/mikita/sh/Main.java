@@ -153,8 +153,5 @@ public class Main {
 
         system.init("config/config1.json");
         system.start(10000,9000000000000000000L);
-
-//        Thread.sleep(1000);
-//        system.stop();
     }
 }

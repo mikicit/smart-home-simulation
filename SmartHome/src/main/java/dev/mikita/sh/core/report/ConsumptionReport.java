@@ -3,7 +3,6 @@ package dev.mikita.sh.core.report;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.DeviceFactory;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;

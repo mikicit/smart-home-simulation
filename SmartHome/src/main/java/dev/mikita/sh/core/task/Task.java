@@ -10,6 +10,8 @@ import dev.mikita.sh.event.*;
 
 /**
  * Class representing tasks for event handling
+ * <p>
+ * Used in case no one has been able to handle the event at the moment, then it will go into the queue.
  */
 public class Task {
     private final AEvent event;

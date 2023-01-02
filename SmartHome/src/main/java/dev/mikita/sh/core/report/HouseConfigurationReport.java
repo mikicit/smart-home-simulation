@@ -21,7 +21,6 @@ public class HouseConfigurationReport {
     private FileWriter houseConfReport = null;
 
     public HouseConfigurationReport() {
-
     }
 
     /**
