@@ -1,5 +1,6 @@
 dev.mikita.sh
 dev.mikita.sh.core
+dev.mikita.sh.core.config
 dev.mikita.sh.core.event
 dev.mikita.sh.core.report
 dev.mikita.sh.core.simulation
