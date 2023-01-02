@@ -31,6 +31,8 @@ Our devices have no content. (didn't have time and considered it not basic :( )
 Real-time simulation with acceleration capability.
 - **F12 +** <br/>
 The possibility of postponing tasks if no one was able to solve the problem at the time (e.g. feeding the cat).
+- **F13 +** <br/>
+The devices have a limited lifespan and can break down not only because of someone's use, but also because of the passage of time.
 
 ## Design patterns
 - **Singleton** <br/>
