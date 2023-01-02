@@ -12,9 +12,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * The type Config builder.
+ * <p>
+ * An auxiliary static class for parsing and initialising the configuration.
+ */
 public class ConfigBuilder {
     private static JSONObject jo;
 
+    /**
+     * Build house.
+     *
+     * @param path the path
+     * @return the house
+     */
     public static House build(String path) {
         File file = new File(path);
         try {
