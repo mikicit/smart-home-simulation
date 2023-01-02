@@ -2,6 +2,7 @@
 **Authors**: [Darina Mingazova](@mingadar), [Mikita A Citarovič](@citarmik)
 ## Description
 The main challenge for us was to realise an interesting smart home simulation using suitable design patterns. <br/>
+Of the features, you can specify the simulation acceleration factor. Also, as we are using real time, it will not be difficult to visualise it. The entire logic of the simulation of inhabitants, devices and so on is time-dependent. <br/>
 Full description - [ProjektSmartHome](docs/ProjektSmartHome.pdf)
 ## UML class diagram
 ### Powered by draw.io
@@ -45,3 +46,6 @@ Used in conjunction with the builder to create items, devices, entrances and inh
 Used in conjunction with the builder to create different types of sensors (internal and external).
 - **Proxy** <br/>
 In our case, the SHSystem class has a "start" method which, after some logic, triggers the "start" method of the Simulation class. 
+
+## Config
+The configuration is defined by means of a json file, which is then parsed.
