@@ -1,5 +1,6 @@
 package dev.mikita.sh.core;
 
+import dev.mikita.sh.core.config.ConfigBuilder;
 import dev.mikita.sh.core.event.EventDispatcher;
 import dev.mikita.sh.core.report.ReportSystem;
 import dev.mikita.sh.core.simulation.Simulation;
@@ -39,16 +40,11 @@ public class SHSystem {
         return instance;
     }
 
-    /**
-     * Initializes the house and all needed systems
-     *
-     * @param house the house
-     */
-    public void init(House house) {
+    public void init(String path) {
         if (wasInitialized) return;
 
         this.reportSystem = new ReportSystem();
-        this.house = house;
+        this.house = ConfigBuilder.build(path);
 
         wasInitialized = true;
     }
