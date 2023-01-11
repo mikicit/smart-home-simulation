@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the TV using state
+ * Class representing the TV using state.
  */
 public class TVUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(TVUsingState.class.getName());
 
     /**
-     * Instantiates a new Tv using state
+     * Instantiates a new Tv using state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class TVUsingState extends ADeviceUsingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

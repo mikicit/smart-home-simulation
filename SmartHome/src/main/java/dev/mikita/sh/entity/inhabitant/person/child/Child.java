@@ -12,7 +12,7 @@ import dev.mikita.sh.event.PoopedChildEvent;
 import java.util.logging.Logger;
 
 /**
- * Class representing the child
+ * Class representing the child.
  */
 public class Child extends APerson {
     // Logger
@@ -40,7 +40,7 @@ public class Child extends APerson {
     }
 
     /**
-     * Calculates event triggered time
+     * Calculates event triggered time.
      * @return time
      */
     private double calculateTriggeredTime() {
@@ -48,7 +48,7 @@ public class Child extends APerson {
     }
 
     /**
-     * Feeds the child
+     * Feeds the child.
      * @param adult the adult
      */
     public void feed(Adult adult) {
@@ -57,7 +57,7 @@ public class Child extends APerson {
     }
 
     /**
-     * Changes child's diaper
+     * Changes child's diaper.
      * @param adult the adult
      */
     public void changeDiaper(Adult adult) {
@@ -66,7 +66,7 @@ public class Child extends APerson {
     }
 
     /**
-     * Checks pooped event
+     * Checks pooped event.
      * @return true if dispatched
      */
     public boolean getDispatchedPoopedEvent() {
@@ -74,7 +74,7 @@ public class Child extends APerson {
     }
 
     /**
-     * Checks hungry event
+     * Checks hungry event.
      * @return true if dispatched
      */
     public boolean getDispatchedHungerEvent() {
@@ -82,7 +82,7 @@ public class Child extends APerson {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

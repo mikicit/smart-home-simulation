@@ -3,7 +3,7 @@ package dev.mikita.sh.entity.sensor;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing a light sensor
+ * Class representing a light sensor.
  */
 public class LightSensor extends AInternalSensor {
     // State
@@ -19,7 +19,7 @@ public class LightSensor extends AInternalSensor {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
@@ -28,7 +28,7 @@ public class LightSensor extends AInternalSensor {
     }
 
     /**
-     * Switches the state
+     * Switches the state.
      */
     @Override
     protected void switchState() {
@@ -36,7 +36,7 @@ public class LightSensor extends AInternalSensor {
     }
 
     /**
-     * Resets the state
+     * Resets the state.
      */
     @Override
     public void resetState() {
@@ -44,7 +44,7 @@ public class LightSensor extends AInternalSensor {
     }
 
     /**
-     * Returns the state
+     * Returns the state.
      * @return state
      */
     public LightSensorState getState() {

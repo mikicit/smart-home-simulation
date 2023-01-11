@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for creating items
+ * Class for creating items.
  */
 public class ItemFactory {
     private static ItemFactory instance;
@@ -14,7 +14,7 @@ public class ItemFactory {
     private ItemFactory() {}
 
     /**
-     * Returns the instance
+     * Returns the instance.
      * @return instance
      */
     public static ItemFactory getInstance() {
@@ -26,7 +26,7 @@ public class ItemFactory {
     }
 
     /**
-     * Creates an item
+     * Creates an item.
      * @param type the type
      * @param room the room
      * @param name the name
@@ -47,7 +47,7 @@ public class ItemFactory {
     }
 
     /**
-     * Returns items
+     * Returns items.
      * @return items
      */
     public List<AItem> getItems() {

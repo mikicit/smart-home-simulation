@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the TV idle state
+ * Class representing the TV idle state.
  */
 public class TVIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(TVIdleState.class.getName());
 
     /**
-     * Instantiates a new Tv idle state
+     * Instantiates a new Tv idle state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class TVIdleState extends ADeviceIdleState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

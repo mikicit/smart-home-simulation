@@ -4,13 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Class representing task system
+ * Class representing task system.
  */
 public class TaskSystem {
     private final Queue<Task> tasks = new LinkedList<>();
 
     /**
-     * Add task to the queue
+     * Add task to the queue.
      * @param task task to add
      */
     public void addTask(Task task) {
@@ -18,7 +18,7 @@ public class TaskSystem {
     }
 
     /**
-     * Returns task from the queue
+     * Returns task from the queue.
      * @return task
      */
     public Task getTask() {
@@ -26,7 +26,7 @@ public class TaskSystem {
     }
 
     /**
-     * Checks if queue is empty
+     * Checks if queue is empty.
      * @return true if empty
      */
     public boolean isEmpty() {

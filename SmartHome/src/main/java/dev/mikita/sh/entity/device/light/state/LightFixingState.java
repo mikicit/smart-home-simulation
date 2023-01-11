@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Light fixing state
+ * Class representing the Light fixing state.
  */
 public class LightFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(LightFixingState.class.getName());
 
     /**
-     * Instantiates a new Light fixing state
+     * Instantiates a new Light fixing state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class LightFixingState extends ADeviceFixingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

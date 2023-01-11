@@ -9,7 +9,7 @@ import dev.mikita.sh.event.StrongWindEvent;
 import java.util.logging.Logger;
 
 /**
- * Class representing the window
+ * Class representing the window.
  */
 public class Window extends AEntrance {
     // Logger
@@ -21,7 +21,7 @@ public class Window extends AEntrance {
     }
 
     /**
-     * Initiates event handlers
+     * Initiates event handlers.
      */
     private void initEventHandlers() {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(NormalWindEvent.class, "global", new AEventHandler() {
@@ -52,7 +52,7 @@ public class Window extends AEntrance {
     }
 
     /**
-     * Opens the window
+     * Opens the window.
      */
     @Override
     public void open() {
@@ -63,7 +63,7 @@ public class Window extends AEntrance {
     }
 
     /**
-     * Closes the window
+     * Closes the window.
      */
     @Override
     public void close() {

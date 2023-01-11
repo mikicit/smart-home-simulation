@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for generating consumption report
+ * Class for generating consumption report.
  */
 public class ConsumptionReport {
     private FileWriter consumptionReport = null;
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     /**
-     * Instantiates a new Consumption report
+     * Instantiates a new Consumption report.
      */
     public ConsumptionReport() {
         try {
@@ -28,7 +28,7 @@ public class ConsumptionReport {
     }
 
     /**
-     * Generates report
+     * Generates report.
      *
      * @throws IOException writing to file is unsuccessful
      */

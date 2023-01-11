@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Light idle state
+ * Class representing the Light idle state.
  */
 public class LightIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(LightIdleState.class.getName());
 
     /**
-     * Instantiates a new Light idle state
+     * Instantiates a new Light idle state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class LightIdleState extends ADeviceIdleState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

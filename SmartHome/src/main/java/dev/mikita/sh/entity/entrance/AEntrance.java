@@ -4,7 +4,7 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Abstract class representing entrance
+ * Abstract class representing entrance.
  */
 public abstract class AEntrance implements IEventSource {
     // State
@@ -21,7 +21,7 @@ public abstract class AEntrance implements IEventSource {
     }
 
     /**
-     * Returns the room
+     * Returns the room.
      * @return room
      */
     public Room getRoom() {
@@ -29,7 +29,7 @@ public abstract class AEntrance implements IEventSource {
     }
 
     /**
-     * Checks if open
+     * Checks if open.
      * @return true if open
      */
     public boolean isOpen() {
@@ -37,7 +37,7 @@ public abstract class AEntrance implements IEventSource {
     }
 
     /**
-     * Returns the name
+     * Returns the name.
      * @return name
      */
     public String getName() {
@@ -45,12 +45,12 @@ public abstract class AEntrance implements IEventSource {
     }
 
     /**
-     * Opens the entrance
+     * Opens the entrance.
      */
     public abstract void open();
 
     /**
-     * Closes the entrance
+     * Closes the entrance.
      */
     public abstract void close();
 }

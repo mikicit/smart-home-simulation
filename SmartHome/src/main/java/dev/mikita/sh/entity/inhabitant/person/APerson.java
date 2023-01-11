@@ -4,7 +4,7 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Abstract class representing the person
+ * Abstract class representing the person.
  */
 public abstract class APerson extends AInhabitant {
     protected PersonGender gender;
@@ -14,7 +14,7 @@ public abstract class APerson extends AInhabitant {
     }
 
     /**
-     * Returns the gender
+     * Returns the gender.
      * @return gender
      */
     public PersonGender getGender() {

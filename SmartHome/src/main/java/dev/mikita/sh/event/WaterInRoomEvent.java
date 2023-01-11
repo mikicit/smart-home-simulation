@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.location.ILocation;
 import java.util.logging.Logger;
 
 /**
- * Class representing water in room event
+ * Class representing water in room event.
  */
 public class WaterInRoomEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(WaterInRoomEvent.class.getName());
 
     /**
-     * Instantiates new water in room event
+     * Instantiates new water in room event.
      *
      * @param source   the source
      * @param location the location

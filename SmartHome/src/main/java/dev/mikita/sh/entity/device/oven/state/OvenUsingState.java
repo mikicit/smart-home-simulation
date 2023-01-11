@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Oven using state
+ * Class representing the Oven using state.
  */
 public class OvenUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenUsingState.class.getName());
 
     /**
-     * Instantiates a new Oven using state
+     * Instantiates a new Oven using state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class OvenUsingState extends ADeviceUsingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

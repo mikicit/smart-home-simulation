@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Class representing adult waiting state
+ * Class representing adult waiting state.
  */
 public class AdultWaitingState extends AInhabitantState {
     // Constants
@@ -27,7 +27,7 @@ public class AdultWaitingState extends AInhabitantState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

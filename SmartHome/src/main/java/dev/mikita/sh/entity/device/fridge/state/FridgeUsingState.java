@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Fridge using state
+ * Class representing the Fridge using state.
  */
 public class FridgeUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeUsingState.class.getName());
 
     /**
-     * Instantiates a new Fridge using state
+     * Instantiates a new Fridge using state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class FridgeUsingState extends ADeviceUsingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

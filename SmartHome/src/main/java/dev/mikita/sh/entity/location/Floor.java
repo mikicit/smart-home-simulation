@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class representing a floor
+ * Class representing a floor.
  */
 public class Floor {
     private final int level;
@@ -15,7 +15,7 @@ public class Floor {
     }
 
     /**
-     * Adds a room
+     * Adds a room.
      * @param room the room to add
      */
     public void addRoom(Room room) {
@@ -23,7 +23,7 @@ public class Floor {
     }
 
     /**
-     * Returns the rooms
+     * Returns the rooms.
      * @return rooms
      */
     public List<Room> getRooms() {
@@ -31,7 +31,7 @@ public class Floor {
     }
 
     /**
-     * Returns the level
+     * Returns the level.
      * @return level
      */
     public int getLevel() {

@@ -3,7 +3,7 @@ package dev.mikita.sh.entity.item;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing a bike
+ * Class representing a bike.
  */
 public class Bike extends AItem {
     public Bike(Room room, String name) {

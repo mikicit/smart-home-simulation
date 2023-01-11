@@ -21,7 +21,7 @@ import dev.mikita.sh.event.*;
 import java.util.logging.Logger;
 
 /**
- * Class representing the adult
+ * Class representing the adult.
  */
 public class Adult extends APerson {
     // Logger
@@ -37,7 +37,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Feeds the child
+     * Feeds the child.
      * @param child the child
      */
     public void feedChild(Child child) {
@@ -52,7 +52,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Changes child's diapers
+     * Changes child's diapers.
      * @param child the child
      */
     public void changeDiapers(Child child) {
@@ -67,7 +67,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Feed the pet
+     * Feed the pet.
      * @param pet the pet
      */
     public void feedPet(APet pet) {
@@ -82,7 +82,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Plays with pet
+     * Plays with pet.
      * @param pet the pet
      */
     public void playWithPet(APet pet) {
@@ -97,7 +97,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Fixes water leak
+     * Fixes water leak.
      * @param room the room
      */
     public void fixWaterLeak(Room room) {
@@ -118,7 +118,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Puts out the fire
+     * Puts out the fire.
      * @param room the room
      */
     public void putOutTheFire(Room room) {
@@ -139,7 +139,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Fixes the device
+     * Fixes the device.
      * @param device the device
      */
     public void fixDevice(ADevice device) {
@@ -150,7 +150,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Completes fixing the device
+     * Completes fixing the device.
      * @param device the device
      */
     public void completeFixingDevice(ADevice device) {
@@ -166,7 +166,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Use the object (device, item)
+     * Use the object (device, item).
      * @param object the object
      */
     public void useObject(IUsableObject object) {
@@ -182,7 +182,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * UnUse the object
+     * UnUse the object.
      * @param object the object
      */
     public void unUseObject(IUsableObject object) {
@@ -191,7 +191,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
@@ -200,7 +200,7 @@ public class Adult extends APerson {
     }
 
     /**
-     * Initiates event handlers
+     * Initiates event handlers.
      */
     private void initEventHandlers() {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(DeviceIsBrokenEvent.class, "global", new AEventHandler() {

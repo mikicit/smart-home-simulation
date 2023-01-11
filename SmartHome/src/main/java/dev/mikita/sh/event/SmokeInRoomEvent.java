@@ -8,14 +8,14 @@ import dev.mikita.sh.entity.location.ILocation;
 import java.util.logging.Logger;
 
 /**
- * Class representing a smoke in room event
+ * Class representing a smoke in room event.
  */
 public class SmokeInRoomEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(SmokeInRoomEvent.class.getName());
 
     /**
-     * Instantiates a new smoke in room event
+     * Instantiates a new smoke in room event.
      *
      * @param source   the source
      * @param location the location

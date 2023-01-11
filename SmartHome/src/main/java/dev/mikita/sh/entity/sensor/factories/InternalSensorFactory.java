@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for creating internal sensors
+ * Class for creating internal sensors.
  */
 public class InternalSensorFactory implements ISensorFactory {
     private static InternalSensorFactory instance;
@@ -16,7 +16,7 @@ public class InternalSensorFactory implements ISensorFactory {
     private InternalSensorFactory() {}
 
     /**
-     * Returns the instance
+     * Returns the instance.
      * @return instance
      */
     public static InternalSensorFactory getInstance() {
@@ -28,7 +28,7 @@ public class InternalSensorFactory implements ISensorFactory {
     }
 
     /**
-     * Creates a sensor
+     * Creates a sensor.
      * @param type the type
      * @param room location
      * @return sensor
@@ -47,7 +47,7 @@ public class InternalSensorFactory implements ISensorFactory {
     }
 
     /**
-     * Returns the sensors
+     * Returns the sensors.
      * @return sensors
      */
     public List<ASensor> getSensors() {

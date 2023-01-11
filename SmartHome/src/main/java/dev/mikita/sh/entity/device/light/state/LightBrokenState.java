@@ -8,14 +8,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Light broken state
+ * Class representing the Light broken state.
  */
 public class LightBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(LightBrokenState.class.getName());
 
     /**
-     * Instantiates a new Light broken state
+     * Instantiates a new Light broken state.
      *
      * @param device the device
      */
@@ -30,7 +30,7 @@ public class LightBrokenState extends ADeviceBrokenState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

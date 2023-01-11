@@ -8,14 +8,14 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the Air conditioner
+ * Class representing the Air conditioner.
  */
 public class AirConditioner extends ADevice {
     // Constants
     private final double COOLING_PER_HOUR = 3;
 
     /**
-     * Instantiates a new Air conditioner
+     * Instantiates a new Air conditioner.
      *
      * @param room the room
      * @param name the name
@@ -30,7 +30,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Gets cooling per hour
+     * Gets cooling per hour.
      *
      * @return the cooling per hour
      */
@@ -39,7 +39,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Turns the air conditioner on
+     * Turns the air conditioner on.
      */
     @Override
     public void on() {
@@ -49,7 +49,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Turns the air conditioner off
+     * Turns the air conditioner off.
      */
     @Override
     public void off() {
@@ -59,7 +59,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Use air conditioner
+     * Use air conditioner.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -79,7 +79,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * UnUse air conditioner
+     * UnUse air conditioner.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -92,7 +92,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Fix air conditioner
+     * Fix air conditioner.
      * @param person person that is fixing the device
      */
     @Override
@@ -105,7 +105,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Complete fixing air conditioner
+     * Complete fixing air conditioner.
      * @param person person that is fixing the device
      */
     @Override
@@ -118,7 +118,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * To break air conditioner
+     * To break air conditioner.
      */
     @Override
     public void toBreak() {
@@ -126,7 +126,7 @@ public class AirConditioner extends ADevice {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

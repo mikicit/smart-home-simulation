@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the Microwave
+ * Class representing the Microwave.
  */
 public class Microwave extends ADevice {
     /**
-     * Instantiates a new Microwave
+     * Instantiates a new Microwave.
      *
      * @param room the room
      * @param name the name
@@ -27,7 +27,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * Turns the microwave on
+     * Turns the microwave on.
      */
     @Override
     public void on() {
@@ -37,7 +37,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * Turns the microwave off
+     * Turns the microwave off.
      */
     @Override
     public void off() {
@@ -47,7 +47,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * Use the microwave
+     * Use the microwave.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -67,7 +67,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * UnUse the microwave
+     * UnUse the microwave.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -80,7 +80,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * To fix the microwave
+     * To fix the microwave.
      * @param person person that is fixing the device
      */
     @Override
@@ -93,7 +93,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * To complete fixing the microwave
+     * To complete fixing the microwave.
      * @param person person that is fixing the device
      */
     @Override
@@ -106,7 +106,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * To break the microwave
+     * To break the microwave.
      */
     @Override
     public void toBreak() {
@@ -114,7 +114,7 @@ public class Microwave extends ADevice {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

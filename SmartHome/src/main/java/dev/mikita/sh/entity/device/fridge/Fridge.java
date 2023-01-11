@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the Fridge
+ * Class representing the Fridge.
  */
 public class Fridge extends ADevice {
     /**
-     * Instantiates a new Fridge
+     * Instantiates a new Fridge.
      *
      * @param room the room
      * @param name the name
@@ -27,7 +27,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * Turns the fridge on
+     * Turns the fridge on.
      */
     @Override
     public void on() {
@@ -37,7 +37,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * Turns the fridge off
+     * Turns the fridge off.
      */
     @Override
     public void off() {
@@ -47,7 +47,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * Use the fridge
+     * Use the fridge.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -67,7 +67,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * UnUse the fridge
+     * UnUse the fridge.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -80,7 +80,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * Fix the fridge
+     * Fix the fridge.
      * @param person person that is fixing the device
      */
     @Override
@@ -93,7 +93,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * Complete fixing the fridge
+     * Complete fixing the fridge.
      * @param person person that is fixing the device
      */
     @Override
@@ -106,7 +106,7 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * To break the fridge
+     * To break the fridge.
      */
     @Override
     public void toBreak() {
@@ -114,8 +114,8 @@ public class Fridge extends ADevice {
     }
 
     /**
-     * Update
-     * @param time
+     * Update.
+     * @param time the time
      */
     @Override
     public void update(long time) {

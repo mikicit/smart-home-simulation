@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
- * Class representing child awake state
+ * Class representing child awake state.
  */
 public class ChildAwakeState extends AInhabitantState {
     // Logger
@@ -33,7 +33,7 @@ public class ChildAwakeState extends AInhabitantState {
     }
 
     /**
-     * Calculates device using triggered time
+     * Calculates device using triggered time.
      * @return time
      */
     private double calculateTriggeredTime() {
@@ -41,7 +41,7 @@ public class ChildAwakeState extends AInhabitantState {
     }
 
     /**
-     * Uses the device and resets the time
+     * Uses the device and resets the time.
      * @param device the device
      */
     private void useDeviceAndResetDeviceUsingEvent(ADevice device) {
@@ -66,7 +66,7 @@ public class ChildAwakeState extends AInhabitantState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Washing machine fixing state
+ * Class representing the Washing machine fixing state.
  */
 public class WashingMachineFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(WashingMachineFixingState.class.getName());
 
     /**
-     * Instantiates a new Washing machine fixing state
+     * Instantiates a new Washing machine fixing state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class WashingMachineFixingState extends ADeviceFixingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

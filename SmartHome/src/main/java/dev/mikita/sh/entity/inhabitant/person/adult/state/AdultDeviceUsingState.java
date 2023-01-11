@@ -6,7 +6,7 @@ import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import java.util.logging.Logger;
 
 /**
- * Class representing adult device using state
+ * Class representing adult device using state.
  */
 public class AdultDeviceUsingState extends AInhabitantState {
     // Logger
@@ -23,7 +23,7 @@ public class AdultDeviceUsingState extends AInhabitantState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

@@ -8,7 +8,7 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the Light
+ * Class representing the Light.
  */
 public class Light extends ADevice {
     /**
@@ -27,7 +27,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * Turns the light on
+     * Turns the light on.
      */
     @Override
     public void on() {
@@ -37,7 +37,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * Turns the light off
+     * Turns the light off.
      */
     @Override
     public void off() {
@@ -47,7 +47,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * Use the light
+     * Use the light.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -67,7 +67,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * UnUse the light
+     * UnUse the light.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -80,7 +80,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * Fix the light
+     * Fix the light.
      * @param person person that is fixing the device
      */
     @Override
@@ -93,7 +93,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * Complete fixing the light
+     * Complete fixing the light.
      * @param person person that is fixing the device
      */
     @Override
@@ -106,7 +106,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * To break the light
+     * To break the light.
      */
     @Override
     public void toBreak() {
@@ -114,7 +114,7 @@ public class Light extends ADevice {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

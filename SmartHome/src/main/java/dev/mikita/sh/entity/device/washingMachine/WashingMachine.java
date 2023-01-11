@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the Washing machine
+ * Class representing the Washing machine.
  */
 public class WashingMachine extends ADevice {
     /**
-     * Instantiates a new Washing machine
+     * Instantiates a new Washing machine.
      *
      * @param room the room
      * @param name the name
@@ -27,7 +27,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * Turns the washing machine on
+     * Turns the washing machine on.
      */
     @Override
     public void on() {
@@ -37,7 +37,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * Turns the washing machine off
+     * Turns the washing machine off.
      */
     @Override
     public void off() {
@@ -47,7 +47,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * Use the washing machine
+     * Use the washing machine.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -67,7 +67,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * UnUse the washing machine
+     * UnUse the washing machine.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -80,7 +80,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * To fix the washing machine
+     * To fix the washing machine.
      * @param person person that is fixing the device
      */
     @Override
@@ -93,7 +93,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * Complete fixing the washing machine
+     * Complete fixing the washing machine.
      * @param person person that is fixing the device
      */
     @Override
@@ -106,7 +106,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * To break the washing machine
+     * To break the washing machine.
      */
     @Override
     public void toBreak() {
@@ -114,7 +114,7 @@ public class WashingMachine extends ADevice {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

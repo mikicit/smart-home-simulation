@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Class for working with events and event handlers
+ * Class for working with events and event handlers.
  */
 public class EventDispatcher {
     private final Map<String, LinkedList<IEventHandler>> eventHandlers = new HashMap<>();
 
     /**
-     * Adds new event handler
+     * Adds new event handler.
      * @param event event to be handled
      * @param context event's context
      * @param handler handler to add
@@ -29,7 +29,7 @@ public class EventDispatcher {
     }
 
     /**
-     * Removes existing event handler
+     * Removes existing event handler.
      * @param event handled event
      * @param context event's context
      * @param handler handler to remove
@@ -47,7 +47,7 @@ public class EventDispatcher {
     }
 
     /**
-     * Dispatches event
+     * Dispatches event.
      * @param e event to dispatch
      * @param context event's context (e.g. location)
      */

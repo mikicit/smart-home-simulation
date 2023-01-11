@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for generating house configuration report
+ * Class for generating house configuration report.
  */
 public class HouseConfigurationReport {
     private FileWriter houseConfReport = null;
@@ -24,7 +24,7 @@ public class HouseConfigurationReport {
     }
 
     /**
-     * Generates report
+     * Generates report.
      * @throws IOException writing to file is unsuccessful
      */
     public void generateReport() throws IOException {

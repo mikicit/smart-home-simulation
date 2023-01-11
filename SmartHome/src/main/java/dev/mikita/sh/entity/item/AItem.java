@@ -6,7 +6,7 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Abstract class representing an item
+ * Abstract class representing an item.
  */
 public abstract class AItem implements IUsableObject {
     // Constants
@@ -28,7 +28,7 @@ public abstract class AItem implements IUsableObject {
     }
 
     /**
-     * Returns the room in which item is located
+     * Returns the room in which item is located.
      * @return room
      */
     public Room getRoom() {
@@ -36,7 +36,7 @@ public abstract class AItem implements IUsableObject {
     }
 
     /**
-     * Returns the name
+     * Returns the name.
      * @return name
      */
     public String getName() {
@@ -44,7 +44,7 @@ public abstract class AItem implements IUsableObject {
     }
 
     /**
-     * Returns the time that item is supposed to be used
+     * Returns the time that item is supposed to be used.
      * @return time
      */
     @Override
@@ -53,7 +53,7 @@ public abstract class AItem implements IUsableObject {
     }
 
     /**
-     * Uses the item
+     * Uses the item.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -63,7 +63,7 @@ public abstract class AItem implements IUsableObject {
     }
 
     /**
-     * UnUses the item
+     * UnUses the item.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -73,7 +73,7 @@ public abstract class AItem implements IUsableObject {
     }
 
     /**
-     * Checks if item is being used
+     * Checks if item is being used.
      * @return true if being used
      */
     @Override

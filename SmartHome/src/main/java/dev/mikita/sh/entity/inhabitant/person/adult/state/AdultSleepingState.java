@@ -8,7 +8,7 @@ import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import java.util.logging.Logger;
 
 /**
- * Class representing adult sleeping state
+ * Class representing adult sleeping state.
  */
 public class AdultSleepingState extends AInhabitantState {
     // Logger
@@ -24,7 +24,7 @@ public class AdultSleepingState extends AInhabitantState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

@@ -9,7 +9,7 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Abstract class representing device
+ * Abstract class representing device.
  */
 public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObject {
     protected Room room;
@@ -33,7 +33,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     protected double fixingTimeInHours = 0;
 
     /**
-     * Instantiates a new device
+     * Instantiates a new device.
      *
      * @param room the room
      * @param name the name
@@ -47,7 +47,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Changes device's state (Using, Fixing, Broken, Idle, On, Off)
+     * Changes device's state (Using, Fixing, Broken, Idle, On, Off).
      *
      * @param state state to apply
      */
@@ -56,7 +56,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns the room in which device is located
+     * Returns the room in which device is located.
      *
      * @return room
      */
@@ -65,7 +65,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns device's documentation
+     * Returns device's documentation.
      *
      * @return documentation documentation
      */
@@ -74,7 +74,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns current electricity consumption
+     * Returns current electricity consumption.
      *
      * @return consumption current electricity consumption
      */
@@ -83,7 +83,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Sets electricity consumption
+     * Sets electricity consumption.
      *
      * @param consumption consumption to set
      */
@@ -92,7 +92,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns current water consumption
+     * Returns current water consumption.
      *
      * @return consumption current water consumption
      */
@@ -101,7 +101,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Sets water consumption
+     * Sets water consumption.
      *
      * @param consumption consumption to set
      */
@@ -110,7 +110,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns current gas consumption
+     * Returns current gas consumption.
      *
      * @return consumption current gas consumption
      */
@@ -119,7 +119,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Sets gas consumption
+     * Sets gas consumption.
      *
      * @param consumption consumption to set
      */
@@ -128,7 +128,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Calculates electricity consumption
+     * Calculates electricity consumption.
      *
      * @return consumption double
      */
@@ -140,7 +140,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Calculates water consumption
+     * Calculates water consumption.
      *
      * @return consumption double
      */
@@ -152,7 +152,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Calculates gas consumption
+     * Calculates gas consumption.
      *
      * @return consumption double
      */
@@ -164,7 +164,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns current device's time
+     * Returns current device's time.
      *
      * @return time
      */
@@ -173,7 +173,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Sets device's time
+     * Sets device's time.
      *
      * @param time time to set
      */
@@ -182,7 +182,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns time that device can be used before breaking
+     * Returns time that device can be used before breaking.
      * @return time
      */
     public int getOperatingTimeInHours() {
@@ -190,7 +190,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns time which is needed to fix the device
+     * Returns time which is needed to fix the device.
      *
      * @return time to fix
      */
@@ -199,7 +199,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns device's current state
+     * Returns device's current state.
      *
      * @return state
      */
@@ -208,7 +208,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns inhabitant that is currently using the device
+     * Returns inhabitant that is currently using the device.
      *
      * @return user user
      */
@@ -217,7 +217,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Sets a new user for the device
+     * Sets a new user for the device.
      *
      * @param inhabitant user to set
      */
@@ -226,7 +226,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Checks if device is turned on
+     * Checks if device is turned on.
      * @return true if turned on
      */
     public boolean isOn() {
@@ -234,7 +234,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Checks if device is turned off
+     * Checks if device is turned off.
      * @return true if turned off
      */
     public boolean isOff() {
@@ -242,7 +242,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Checks if device is broken
+     * Checks if device is broken.
      * @return true if broken
      */
     public boolean isBroken() {
@@ -250,7 +250,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Checks if device is being fixed
+     * Checks if device is being fixed.
      * @return true if being fixed
      */
     public boolean isFixing() {
@@ -258,7 +258,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns device's name (Fridge, Oven, etc.)
+     * Returns device's name (Fridge, Oven, etc.).
      * @return name
      */
     @Override
@@ -267,7 +267,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Returns time that device is supposed to be used
+     * Returns time that device is supposed to be used.
      * @return time
      */
     @Override
@@ -276,7 +276,7 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Checks if device is being used
+     * Checks if device is being used.
      * @return true if being used
      */
     @Override
@@ -285,31 +285,31 @@ public abstract class ADevice implements ITimeTracker, IEventSource, IUsableObje
     }
 
     /**
-     * Turns the device on
+     * Turns the device on.
      */
     public abstract void on();
 
     /**
-     * Turns the device off
+     * Turns the device off.
      */
     public abstract void off();
 
     /**
-     * Fix device
+     * Fix device.
      *
      * @param person person that is fixing the device
      */
     public abstract void fix(Adult person);
 
     /**
-     * Complete fixing the device
+     * Complete fixing the device.
      *
      * @param person person that is fixing the device
      */
     public abstract void completeFixing(Adult person);
 
     /**
-     * Break the device
+     * Break the device.
      */
     public abstract void toBreak();
 }

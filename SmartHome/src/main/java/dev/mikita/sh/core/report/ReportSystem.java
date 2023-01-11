@@ -5,7 +5,7 @@ import dev.mikita.sh.core.simulation.ITimeTracker;
 import java.io.IOException;
 
 /**
- * Class for working with reports
+ * Class for working with reports.
  */
 public class ReportSystem implements ITimeTracker {
     private long time = 0;
@@ -20,7 +20,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Returns activity and usage report
+     * Returns activity and usage report.
      * @return activity and usage report
      */
     public ActivityAndUsageReport getActivityAndUsageReport() {
@@ -28,7 +28,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Returns consumption report
+     * Returns consumption report.
      * @return consumption report
      */
     public ConsumptionReport getConsumptionReport() {
@@ -36,7 +36,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Returns event report
+     * Returns event report.
      * @return the event report
      */
     public EventReport getEventReport() {
@@ -44,7 +44,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Generates consumption report
+     * Generates consumption report.
      * @throws IOException writing to file is unsuccessful
      */
     private void generateConsumptionReport() throws IOException {
@@ -52,7 +52,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Generates activity and usage report
+     * Generates activity and usage report.
      * @throws IOException writing to file is unsuccessful
      */
     private void generateActivityAndUsageReport() throws IOException {
@@ -60,7 +60,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Generates house configuration report
+     * Generates house configuration report.
      * @throws IOException writing to file is unsuccessful
      */
     private void generateHouseConfReport() throws IOException {
@@ -68,7 +68,7 @@ public class ReportSystem implements ITimeTracker {
     }
 
     /**
-     * Updates local time
+     * Updates local time.
      * @param time time
      * @throws IOException writing to file is unsuccessful
      */

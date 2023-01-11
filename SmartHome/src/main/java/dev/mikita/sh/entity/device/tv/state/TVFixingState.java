@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceFixingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the TV fixing state
+ * Class representing the TV fixing state.
  */
 public class TVFixingState extends ADeviceFixingState {
     // Logger
     private static final Logger log = Logger.getLogger(TVFixingState.class.getName());
 
     /**
-     * Instantiates a new Tv fixing state
+     * Instantiates a new Tv fixing state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class TVFixingState extends ADeviceFixingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

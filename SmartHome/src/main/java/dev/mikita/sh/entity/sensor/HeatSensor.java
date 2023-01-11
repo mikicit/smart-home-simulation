@@ -6,7 +6,7 @@ import dev.mikita.sh.event.LowTemperatureEvent;
 import dev.mikita.sh.event.NormalTemperatureEvent;
 
 /**
- * Class representing a heat sensor
+ * Class representing a heat sensor.
  */
 public class HeatSensor extends AInternalSensor {
     // Constants
@@ -26,7 +26,7 @@ public class HeatSensor extends AInternalSensor {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
@@ -45,7 +45,7 @@ public class HeatSensor extends AInternalSensor {
     }
 
     /**
-     * Switches the state
+     * Switches the state.
      */
     @Override
     protected void switchState() {
@@ -53,7 +53,7 @@ public class HeatSensor extends AInternalSensor {
     }
 
     /**
-     * Resets the state
+     * Resets the state.
      */
     @Override
     public void resetState() {
@@ -61,7 +61,7 @@ public class HeatSensor extends AInternalSensor {
     }
 
     /**
-     * Returns the state
+     * Returns the state.
      * @return state
      */
     public HeatSensorState getState() {

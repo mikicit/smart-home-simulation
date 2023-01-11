@@ -7,14 +7,14 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 /**
- * Class for generating event report
+ * Class for generating event report.
  */
 public class EventReport {
     private FileWriter eventReport = null;
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     /**
-     * Instantiates a new Event report
+     * Instantiates a new Event report.
      */
     public EventReport() {
         try {
@@ -25,7 +25,7 @@ public class EventReport {
     }
 
     /**
-     * Generate report
+     * Generate report.
      *
      * @param event the event
      * @throws IOException the io exception

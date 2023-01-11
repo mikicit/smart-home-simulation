@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for creating devices
+ * Class for creating devices.
  */
 public class DeviceFactory {
     private static DeviceFactory instance;
@@ -23,7 +23,7 @@ public class DeviceFactory {
     private DeviceFactory() {}
 
     /**
-     * Gets instance
+     * Gets instance.
      *
      * @return the instance
      */
@@ -36,7 +36,7 @@ public class DeviceFactory {
     }
 
     /**
-     * Creates the device
+     * Creates the device.
      *
      * @param type device's type
      * @param room device's room
@@ -61,7 +61,7 @@ public class DeviceFactory {
     }
 
     /**
-     * Returns devices
+     * Returns devices.
      *
      * @return devices devices
      */

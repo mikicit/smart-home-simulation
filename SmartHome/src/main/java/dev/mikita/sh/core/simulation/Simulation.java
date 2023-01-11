@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class representing time simulation
+ * Class representing time simulation.
  */
 public class Simulation {
     private long time = 0;
@@ -16,7 +16,7 @@ public class Simulation {
     private boolean exit = false;
 
     /**
-     * Updates time
+     * Updates time.
      * @param time time
      * @throws IOException writing to file is unsuccessful
      */
@@ -50,7 +50,7 @@ public class Simulation {
     }
 
     /**
-     * Starts the simulation
+     * Starts the simulation.
      * @param speed simulation's speed
      * @param timeToSimulate time to simulate
      */
@@ -78,14 +78,14 @@ public class Simulation {
     }
 
     /**
-     * Stops the simulation
+     * Stops the simulation.
      */
     public void stop() {
         exit = true;
     }
 
     /**
-     * Returns time
+     * Returns time.
      * @return time
      */
     public long getTime() {
@@ -93,7 +93,7 @@ public class Simulation {
     }
 
     /**
-     * Returns actual minute
+     * Returns actual minute.
      * @return minute
      */
     public int getMin() {
@@ -101,7 +101,7 @@ public class Simulation {
     }
 
     /**
-     * Returns actual hour
+     * Returns actual hour.
      * @return hour
      */
     public int getHour() {
@@ -109,7 +109,7 @@ public class Simulation {
     }
 
     /**
-     * Returns actual day
+     * Returns actual day.
      * @return day
      */
     public int getDay() {
@@ -117,7 +117,7 @@ public class Simulation {
     }
 
     /**
-     * Returns formatted time for printing
+     * Returns formatted time for printing.
      * @return formatted time
      */
     public String getFormattedTime() {
@@ -125,7 +125,7 @@ public class Simulation {
     }
 
     /**
-     * Subscribes an object for time
+     * Subscribes an object for time.
      * @param subscriber object to subscribe
      */
     public void subscribe(ITimeTracker subscriber) {
@@ -133,7 +133,7 @@ public class Simulation {
     }
 
     /**
-     * Unsubscribes the object
+     * Unsubscribes the object.
      * @param subscriber object to unsubscribe
      */
     public void unsubscribe(ITimeTracker subscriber) {

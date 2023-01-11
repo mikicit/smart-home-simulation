@@ -2,7 +2,7 @@ package dev.mikita.sh.core.event;
 import dev.mikita.sh.entity.location.ILocation;
 
 /**
- * Abstract class representing event
+ * Abstract class representing event.
  */
 public abstract class AEvent {
     private final IEventSource source;
@@ -20,7 +20,7 @@ public abstract class AEvent {
     }
 
     /**
-     * Returns event's source
+     * Returns event's source.
      *
      * @return event 's source
      */
@@ -29,7 +29,7 @@ public abstract class AEvent {
     }
 
     /**
-     * Returns event's location
+     * Returns event's location.
      *
      * @return event 's location
      */

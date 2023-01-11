@@ -7,14 +7,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * Class representing the TV broken state
+ * Class representing the TV broken state.
  */
 public class TVBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(TVBrokenState.class.getName());
 
     /**
-     * Instantiates a new Tv broken state
+     * Instantiates a new Tv broken state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class TVBrokenState extends ADeviceBrokenState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

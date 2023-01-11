@@ -1,7 +1,7 @@
 package dev.mikita.sh.entity.device;
 
 /**
- * Abstract class representing device's state
+ * Abstract class representing device's state.
  */
 public abstract class ADeviceState {
     protected long time;
@@ -12,7 +12,7 @@ public abstract class ADeviceState {
     protected double GAS_CONSUMPTION = 0;
 
     /**
-     * Instantiates a new device state
+     * Instantiates a new device state.
      *
      * @param device the device
      */
@@ -21,7 +21,7 @@ public abstract class ADeviceState {
     }
 
     /**
-     * Gets electricity consumption
+     * Gets electricity consumption.
      *
      * @return the electricity consumption
      */
@@ -30,7 +30,7 @@ public abstract class ADeviceState {
     }
 
     /**
-     * Gets water consumption
+     * Gets water consumption.
      *
      * @return the water consumption
      */
@@ -39,7 +39,7 @@ public abstract class ADeviceState {
     }
 
     /**
-     * Gets gas consumption
+     * Gets gas consumption.
      *
      * @return the gas consumption
      */
@@ -48,7 +48,7 @@ public abstract class ADeviceState {
     }
 
     /**
-     * Update
+     * Update.
      *
      * @param time the time
      */

@@ -4,7 +4,7 @@ import dev.mikita.sh.core.SHSystem;
 import java.util.logging.Logger;
 
 /**
- * Class representing device's documentation
+ * Class representing device's documentation.
  */
 public class Documentation {
     // Logger
@@ -14,7 +14,7 @@ public class Documentation {
     private final double fixingTimeInHours;
 
     /**
-     * Instantiates a new Documentation
+     * Instantiates a new Documentation.
      *
      * @param device            the device
      * @param fixingTimeInHours the fixing time in hours

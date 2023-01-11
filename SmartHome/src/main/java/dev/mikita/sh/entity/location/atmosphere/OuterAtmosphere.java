@@ -1,7 +1,7 @@
 package dev.mikita.sh.entity.location.atmosphere;
 
 /**
- * Class representing the outer atmosphere (outside the house)
+ * Class representing the outer atmosphere (outside the house).
  */
 public class OuterAtmosphere extends AAtmosphere {
     // State
@@ -18,7 +18,7 @@ public class OuterAtmosphere extends AAtmosphere {
     }
 
     /**
-     * Returns the wind speed
+     * Returns the wind speed.
      * @return speed
      */
     public double getWindSpeed() {
@@ -26,7 +26,7 @@ public class OuterAtmosphere extends AAtmosphere {
     }
 
     /**
-     * Sets the wind speed
+     * Sets the wind speed.
      * @param windSpeed speed to set
      */
     public void setWindSpeed(double windSpeed) {
@@ -34,7 +34,7 @@ public class OuterAtmosphere extends AAtmosphere {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

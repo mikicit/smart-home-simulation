@@ -13,7 +13,7 @@ import dev.mikita.sh.entity.sensor.factories.InternalSensorFactory;
 import dev.mikita.sh.entity.sensor.factories.ISensorFactory;
 
 /**
- * Class for building the room
+ * Class for building the room.
  */
 public class RoomBuilder {
     private final Room room;
@@ -29,7 +29,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Adds a person
+     * Adds a person.
      * @param type person's type (child, adult)
      * @param name the name
      * @param gender the gender
@@ -43,7 +43,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Adds a pet
+     * Adds a pet.
      * @param type pet's type
      * @param name the name
      * @return room builder
@@ -56,7 +56,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Adds an entrance
+     * Adds an entrance.
      * @param type entrance's type (door, window)
      * @param quantity the quantity
      * @return room builder
@@ -72,7 +72,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Adds a device
+     * Adds a device.
      * @param type device's type
      * @param name the name
      * @return room builder
@@ -85,7 +85,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Adds an item
+     * Adds an item.
      * @param type item's type
      * @param name the name
      * @return room builder
@@ -98,7 +98,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Adds a sensor
+     * Adds a sensor.
      * @param type sensor's type
      * @return room builder
      */
@@ -110,7 +110,7 @@ public class RoomBuilder {
     }
 
     /**
-     * Ends a builder
+     * Ends a builder.
      * @return floor builder
      */
     public FloorBuilder end() {

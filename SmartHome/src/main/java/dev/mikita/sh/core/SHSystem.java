@@ -8,7 +8,7 @@ import dev.mikita.sh.core.task.TaskSystem;
 import dev.mikita.sh.entity.location.House;
 
 /**
- * Class representing the main system
+ * Class representing the main system.
  */
 public class SHSystem {
     // References
@@ -29,7 +29,7 @@ public class SHSystem {
     }
 
     /**
-     * Returns system's instance
+     * Returns system's instance.
      *
      * @return instance
      */
@@ -41,7 +41,7 @@ public class SHSystem {
     }
 
     /**
-     * Initializes the house and all needed systems
+     * Initializes the house and all needed systems.
      *
      * @param house the house
      */
@@ -64,7 +64,7 @@ public class SHSystem {
     }
 
     /**
-     * Starts the simulation
+     * Starts the simulation.
      *
      * @param speed          simulation's speed
      * @param timeToSimulate time to simulate
@@ -79,14 +79,14 @@ public class SHSystem {
     }
 
     /**
-     * Stops the simulation
+     * Stops the simulation.
      */
     public void stop() {
         simulation.stop();
     }
 
     /**
-     * Returns report system
+     * Returns report system.
      *
      * @return report system
      */
@@ -95,7 +95,7 @@ public class SHSystem {
     }
 
     /**
-     * Returns event dispatcher
+     * Returns event dispatcher.
      *
      * @return event dispatcher
      */
@@ -104,7 +104,7 @@ public class SHSystem {
     }
 
     /**
-     * Returns simulation
+     * Returns simulation.
      *
      * @return simulation simulation
      */
@@ -113,7 +113,7 @@ public class SHSystem {
     }
 
     /**
-     * Returns task system
+     * Returns task system.
      *
      * @return task system
      */
@@ -122,7 +122,7 @@ public class SHSystem {
     }
 
     /**
-     * Returns house
+     * Returns house.
      *
      * @return house
      */

@@ -5,7 +5,7 @@ import dev.mikita.sh.entity.sensor.AExternalSensor;
 import dev.mikita.sh.entity.sensor.factories.ExternalSensorFactory;
 
 /**
- * Class for building the house
+ * Class for building the house.
  */
 public class HouseBuilder {
     private final House house = new House();
@@ -18,7 +18,7 @@ public class HouseBuilder {
     }
 
     /**
-     * Adds a floor
+     * Adds a floor.
      * @param level floor's level
      * @return floor builder
      */
@@ -27,7 +27,7 @@ public class HouseBuilder {
     }
 
     /**
-     * Returns the house
+     * Returns the house.
      * @return house
      */
     public House getResult() {

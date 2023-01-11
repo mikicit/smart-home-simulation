@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for creating external sensors
+ * Class for creating external sensors.
  */
 public class ExternalSensorFactory implements ISensorFactory {
     private static ExternalSensorFactory instance;
@@ -16,7 +16,7 @@ public class ExternalSensorFactory implements ISensorFactory {
     private ExternalSensorFactory() {}
 
     /**
-     * Returns the instance
+     * Returns the instance.
      * @return instance
      */
     public static ExternalSensorFactory getInstance() {
@@ -28,7 +28,7 @@ public class ExternalSensorFactory implements ISensorFactory {
     }
 
     /**
-     * Creates a sensor
+     * Creates a sensor.
      * @param type the type
      * @param house location
      * @return sensor
@@ -44,7 +44,7 @@ public class ExternalSensorFactory implements ISensorFactory {
     }
 
     /**
-     * Returns the sensors
+     * Returns the sensors.
      * @return sensors
      */
     public List<ASensor> getSensors() {

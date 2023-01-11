@@ -6,7 +6,7 @@ import dev.mikita.sh.event.NormalWindEvent;
 import dev.mikita.sh.event.StrongWindEvent;
 
 /**
- * Class representing a wind sensor
+ * Class representing a wind sensor.
  */
 public class WindSensor extends AExternalSensor {
     // Constants
@@ -26,7 +26,7 @@ public class WindSensor extends AExternalSensor {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
@@ -45,7 +45,7 @@ public class WindSensor extends AExternalSensor {
     }
 
     /**
-     * Switches the state
+     * Switches the state.
      */
     @Override
     protected void switchState() {
@@ -53,7 +53,7 @@ public class WindSensor extends AExternalSensor {
     }
 
     /**
-     * Resets the state
+     * Resets the state.
      */
     @Override
     public void resetState() {
@@ -61,7 +61,7 @@ public class WindSensor extends AExternalSensor {
     }
 
     /**
-     * Returns the state
+     * Returns the state.
      * @return state
      */
     public WindSensorState getState() {

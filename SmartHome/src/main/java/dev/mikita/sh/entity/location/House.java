@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class representing a house
+ * Class representing a house.
  */
 public class House implements ILocation {
     private final OuterAtmosphere atmosphere = new OuterAtmosphere();
@@ -14,7 +14,7 @@ public class House implements ILocation {
     private final List<AExternalSensor> sensors = new ArrayList<>();
 
     /**
-     * Adds a floor
+     * Adds a floor.
      * @param floor the floor
      */
     public void addFloor(Floor floor) {
@@ -22,7 +22,7 @@ public class House implements ILocation {
     }
 
     /**
-     * Adds an external sensor
+     * Adds an external sensor.
      * @param sensor the sensor
      */
     public void addSensor(AExternalSensor sensor) {
@@ -30,7 +30,7 @@ public class House implements ILocation {
     }
 
     /**
-     * Returns the outer atmosphere
+     * Returns the outer atmosphere.
      * @return atmosphere
      */
     public OuterAtmosphere getAtmosphere() {
@@ -38,7 +38,7 @@ public class House implements ILocation {
     }
 
     /**
-     * Returns the name
+     * Returns the name.
      * @return name
      */
     public String getName() {
@@ -46,7 +46,7 @@ public class House implements ILocation {
     }
 
     /**
-     * Returns the floors
+     * Returns the floors.
      * @return floors
      */
     public List<Floor> getFloors() {
@@ -54,7 +54,7 @@ public class House implements ILocation {
     }
 
     /**
-     * Returns external sensors
+     * Returns external sensors.
      * @return sensors
      */
     public List<AExternalSensor> getExternalSensors() {

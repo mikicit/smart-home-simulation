@@ -8,14 +8,14 @@ import dev.mikita.sh.entity.location.ILocation;
 import java.util.logging.Logger;
 
 /**
- * Class representing a hungry child event
+ * Class representing a hungry child event.
  */
 public class HungryChildEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(HungryChildEvent.class.getName());
 
     /**
-     * Instantiates a new hungry child event
+     * Instantiates a new hungry child event.
      *
      * @param source   the source
      * @param location the location

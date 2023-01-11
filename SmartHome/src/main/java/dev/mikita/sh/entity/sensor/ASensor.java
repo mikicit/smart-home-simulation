@@ -5,7 +5,7 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.simulation.ITimeTracker;
 
 /**
- * Abstract class representing a sensor
+ * Abstract class representing a sensor.
  */
 public abstract class ASensor implements ITimeTracker, IEventSource {
     protected long time = 0;
@@ -16,7 +16,7 @@ public abstract class ASensor implements ITimeTracker, IEventSource {
     }
 
     /**
-     * Returns a name
+     * Returns a name.
      * @return the name
      */
     public String getName() {
@@ -24,12 +24,12 @@ public abstract class ASensor implements ITimeTracker, IEventSource {
     }
 
     /**
-     * Switches a state
+     * Switches a state.
      */
     protected abstract void switchState();
 
     /**
-     * Resets a state
+     * Resets a state.
      */
     public abstract void resetState();
 }

@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the TV off state
+ * Class representing the TV off state.
  */
 public class TVOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(TVOffState.class.getName());
 
     /**
-     * Instantiates a new Tv off state
+     * Instantiates a new Tv off state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class TVOffState extends ADeviceOffState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

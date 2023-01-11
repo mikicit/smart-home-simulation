@@ -5,11 +5,11 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
 
 /**
- * Class representing a device broken event
+ * Class representing a device broken event.
  */
 public class DeviceIsBrokenEvent extends AEvent {
     /**
-     * Instantiates a new device is broken event
+     * Instantiates a new device is broken event.
      *
      * @param source   the source
      * @param location the location

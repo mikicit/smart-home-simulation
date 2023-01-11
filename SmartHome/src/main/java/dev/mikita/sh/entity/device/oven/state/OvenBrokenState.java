@@ -8,14 +8,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Oven broken state
+ * Class representing the Oven broken state.
  */
 public class OvenBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(OvenBrokenState.class.getName());
 
     /**
-     * Instantiates a new Oven broken state
+     * Instantiates a new Oven broken state.
      *
      * @param device the device
      */
@@ -30,7 +30,7 @@ public class OvenBrokenState extends ADeviceBrokenState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

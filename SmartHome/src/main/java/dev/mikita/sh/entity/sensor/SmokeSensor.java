@@ -5,7 +5,7 @@ import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.SmokeInRoomEvent;
 
 /**
- * Class representing a smoke sensor
+ * Class representing a smoke sensor.
  */
 public class SmokeSensor extends AInternalSensor {
     // Constants
@@ -27,7 +27,7 @@ public class SmokeSensor extends AInternalSensor {
     }
 
     /**
-     * Calculates an event triggered time
+     * Calculates an event triggered time.
      * @return time
      */
     private double calculateTriggeredTime() {
@@ -35,7 +35,7 @@ public class SmokeSensor extends AInternalSensor {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
@@ -49,7 +49,7 @@ public class SmokeSensor extends AInternalSensor {
     }
 
     /**
-     * Switches the state
+     * Switches the state.
      */
     @Override
     protected void switchState() {
@@ -57,7 +57,7 @@ public class SmokeSensor extends AInternalSensor {
     }
 
     /**
-     * Resets the state
+     * Resets the state.
      */
     @Override
     public void resetState() {
@@ -67,7 +67,7 @@ public class SmokeSensor extends AInternalSensor {
     }
 
     /**
-     * Returns the state
+     * Returns the state.
      * @return state
      */
     public SmokeSensorState getState() {

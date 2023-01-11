@@ -8,11 +8,11 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the Oven
+ * Class representing the Oven.
  */
 public class Oven extends ADevice {
     /**
-     * Instantiates a new Oven
+     * Instantiates a new Oven.
      *
      * @param room the room
      * @param name the name
@@ -27,7 +27,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * Turns the oven on
+     * Turns the oven on.
      */
     @Override
     public void on() {
@@ -37,7 +37,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * Turns the oven off
+     * Turns the oven off.
      */
     @Override
     public void off() {
@@ -47,7 +47,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * Use the oven
+     * Use the oven.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -67,7 +67,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * UnUse the oven
+     * UnUse the oven.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -80,7 +80,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * To fix the oven
+     * To fix the oven.
      * @param person person that is fixing the device
      */
     @Override
@@ -93,7 +93,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * Complete fixing the oven
+     * Complete fixing the oven.
      * @param person person that is fixing the device
      */
     @Override
@@ -106,7 +106,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * To break the oven
+     * To break the oven.
      */
     @Override
     public void toBreak() {
@@ -114,7 +114,7 @@ public class Oven extends ADevice {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

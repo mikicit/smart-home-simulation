@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Heater off state
+ * Class representing the Heater off state.
  */
 public class HeaterOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterOffState.class.getName());
 
     /**
-     * Instantiates a new Heater off state
+     * Instantiates a new Heater off state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class HeaterOffState extends ADeviceOffState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

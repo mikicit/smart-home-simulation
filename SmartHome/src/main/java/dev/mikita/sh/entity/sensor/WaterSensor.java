@@ -7,7 +7,7 @@ import dev.mikita.sh.event.WaterInRoomEvent;
 import java.io.IOException;
 
 /**
- * Class representing a water sensor
+ * Class representing a water sensor.
  */
 public class WaterSensor extends AInternalSensor {
     // Constants
@@ -29,7 +29,7 @@ public class WaterSensor extends AInternalSensor {
     }
 
     /**
-     * Calculates an event triggered time
+     * Calculates an event triggered time.
      * @return time
      */
     private double calculateTriggeredTime() {
@@ -37,7 +37,7 @@ public class WaterSensor extends AInternalSensor {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      * @throws IOException exception
      */
@@ -52,7 +52,7 @@ public class WaterSensor extends AInternalSensor {
     }
 
     /**
-     * Switches the state
+     * Switches the state.
      */
     @Override
     protected void switchState() {
@@ -60,7 +60,7 @@ public class WaterSensor extends AInternalSensor {
     }
 
     /**
-     * Resets the state
+     * Resets the state.
      */
     @Override
     public void resetState() {
@@ -70,7 +70,7 @@ public class WaterSensor extends AInternalSensor {
     }
 
     /**
-     * Returns the state
+     * Returns the state.
      * @return state
      */
     public WaterSensorState getState() {

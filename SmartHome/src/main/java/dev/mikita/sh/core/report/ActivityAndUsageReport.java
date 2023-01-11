@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class for generating activity and usage report
+ * Class for generating activity and usage report.
  */
 public class ActivityAndUsageReport {
     private final Map<APerson, Map<ADevice, Integer>> devices = new HashMap<>();
@@ -18,7 +18,7 @@ public class ActivityAndUsageReport {
     private FileWriter activityAndUsageReport = null;
 
     /**
-     * Instantiates a new Activity and usage report
+     * Instantiates a new Activity and usage report.
      */
     public ActivityAndUsageReport() {
         try {
@@ -29,7 +29,7 @@ public class ActivityAndUsageReport {
     }
 
     /**
-     * Counts used devices
+     * Counts used devices.
      *
      * @param person person that uses a device
      * @param device device that is used
@@ -47,7 +47,7 @@ public class ActivityAndUsageReport {
     }
 
     /**
-     * Counts used items
+     * Counts used items.
      *
      * @param person person that uses an item
      * @param item   item that is used
@@ -65,7 +65,7 @@ public class ActivityAndUsageReport {
     }
 
     /**
-     * Generates report
+     * Generates report.
      *
      * @throws IOException writing to file is unsuccessful
      */

@@ -3,7 +3,7 @@ package dev.mikita.sh.entity.entrance;
 import dev.mikita.sh.entity.location.Room;
 
 /**
- * Class representing the door
+ * Class representing the door.
  */
 public class Door extends AEntrance {
     public Door(Room room) {
@@ -11,7 +11,7 @@ public class Door extends AEntrance {
     }
 
     /**
-     * Opens the door
+     * Opens the door.
      */
     @Override
     public void open() {
@@ -19,7 +19,7 @@ public class Door extends AEntrance {
     }
 
     /**
-     * Closes the door
+     * Closes the door.
      */
     @Override
     public void close() {

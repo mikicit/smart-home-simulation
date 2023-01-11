@@ -6,14 +6,14 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Heater idle state
+ * Class representing the Heater idle state.
  */
 public class HeaterIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterIdleState.class.getName());
 
     /**
-     * Instantiates a new Heater idle state
+     * Instantiates a new Heater idle state.
      *
      * @param device the device
      */
@@ -27,7 +27,7 @@ public class HeaterIdleState extends ADeviceIdleState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

@@ -7,14 +7,14 @@ import dev.mikita.sh.event.DeviceIsBrokenEvent;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Heater broken state
+ * Class representing the Heater broken state.
  */
 public class HeaterBrokenState extends ADeviceBrokenState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterBrokenState.class.getName());
 
     /**
-     * Instantiates a new Heater broken state
+     * Instantiates a new Heater broken state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class HeaterBrokenState extends ADeviceBrokenState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

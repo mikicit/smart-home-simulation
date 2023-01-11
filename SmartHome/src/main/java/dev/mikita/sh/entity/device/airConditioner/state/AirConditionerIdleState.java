@@ -8,14 +8,14 @@ import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Air conditioner idle state
+ * Class representing the Air conditioner idle state.
  */
 public class AirConditionerIdleState extends ADeviceIdleState {
     // Logger
     private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
 
     /**
-     * Instantiates a new Air conditioner idle state
+     * Instantiates a new Air conditioner idle state.
      *
      * @param device the device
      */
@@ -29,7 +29,7 @@ public class AirConditionerIdleState extends ADeviceIdleState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

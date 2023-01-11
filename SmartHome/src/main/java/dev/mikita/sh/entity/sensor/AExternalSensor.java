@@ -3,7 +3,7 @@ package dev.mikita.sh.entity.sensor;
 import dev.mikita.sh.entity.location.House;
 
 /**
- * Abstract class representing an external sensor
+ * Abstract class representing an external sensor.
  */
 public abstract class AExternalSensor extends ASensor {
     protected House house;
@@ -13,7 +13,7 @@ public abstract class AExternalSensor extends ASensor {
     }
 
     /**
-     * Returns the location
+     * Returns the location.
      * @return house
      */
     public House getHouse() {

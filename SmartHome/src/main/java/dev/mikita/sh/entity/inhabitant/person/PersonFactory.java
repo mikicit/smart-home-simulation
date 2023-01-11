@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for creating persons
+ * Class for creating persons.
  */
 public class PersonFactory {
     private static PersonFactory instance;
@@ -25,7 +25,7 @@ public class PersonFactory {
     }
 
     /**
-     * Creates the person
+     * Creates the person.
      * @param type the type (adult, child)
      * @param name the name
      * @param gender the gender
@@ -44,7 +44,7 @@ public class PersonFactory {
     }
 
     /**
-     * Returns persons
+     * Returns persons.
      * @return persons
      */
     public List<APerson> getPersons() {

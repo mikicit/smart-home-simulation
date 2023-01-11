@@ -9,14 +9,14 @@ import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Heater using state
+ * Class representing the Heater using state.
  */
 public class HeaterUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(HeaterUsingState.class.getName());
 
     /**
-     * Instantiates a new Heater using state
+     * Instantiates a new Heater using state.
      *
      * @param device the device
      */
@@ -30,7 +30,7 @@ public class HeaterUsingState extends ADeviceUsingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

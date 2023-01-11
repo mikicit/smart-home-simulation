@@ -4,7 +4,7 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.ITimeTracker;
 
 /**
- * Abstract class representing atmosphere
+ * Abstract class representing atmosphere.
  */
 public abstract class AAtmosphere implements ITimeTracker {
     public AAtmosphere() {
@@ -15,7 +15,7 @@ public abstract class AAtmosphere implements ITimeTracker {
     protected double temperature;
 
     /**
-     * Returns the temperature
+     * Returns the temperature.
      * @return temperature
      */
     public double getTemperature() {
@@ -23,7 +23,7 @@ public abstract class AAtmosphere implements ITimeTracker {
     }
 
     /**
-     * Sets the temperature
+     * Sets the temperature.
      * @param temperature the temperature
      */
     public void setTemperature(double temperature) {

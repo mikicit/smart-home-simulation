@@ -4,7 +4,7 @@ import dev.mikita.sh.entity.location.Floor;
 import dev.mikita.sh.entity.location.House;
 
 /**
- * Class for building the floors
+ * Class for building the floors.
  */
 public class FloorBuilder {
     private final Floor floor;
@@ -20,7 +20,7 @@ public class FloorBuilder {
     }
 
     /**
-     * Adds the room to the floor
+     * Adds the room to the floor.
      * @param name the name
      * @return room builder
      */
@@ -29,7 +29,7 @@ public class FloorBuilder {
     }
 
     /**
-     * Ends a builder
+     * Ends a builder.
      * @return house builder
      */
     public HouseBuilder end() {

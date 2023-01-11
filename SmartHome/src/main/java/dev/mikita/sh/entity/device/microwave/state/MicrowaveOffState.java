@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Microwave off state
+ * Class representing the Microwave off state.
  */
 public class MicrowaveOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(MicrowaveOffState.class.getName());
 
     /**
-     * Instantiates a new Microwave off state
+     * Instantiates a new Microwave off state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class MicrowaveOffState extends ADeviceOffState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

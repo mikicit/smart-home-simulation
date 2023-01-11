@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for creating the entrance
+ * Class for creating the entrance.
  */
 public class EntranceFactory {
     private static EntranceFactory instance;
@@ -14,7 +14,7 @@ public class EntranceFactory {
     private EntranceFactory() {}
 
     /**
-     * Returns the instance
+     * Returns the instance.
      * @return instance
      */
     public static EntranceFactory getInstance() {
@@ -26,7 +26,7 @@ public class EntranceFactory {
     }
 
     /**
-     * Creates the entrance
+     * Creates the entrance.
      * @param type type
      * @param room room
      * @return entrance
@@ -43,7 +43,7 @@ public class EntranceFactory {
     }
 
     /**
-     * Returns sensors
+     * Returns sensors.
      * @return sensors
      */
     public List<AEntrance> getSensors() {

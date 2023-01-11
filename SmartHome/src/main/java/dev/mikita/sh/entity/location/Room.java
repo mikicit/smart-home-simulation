@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * Class representing a room
+ * Class representing a room.
  */
 public class Room implements ILocation {
     // Logger
@@ -32,7 +32,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Fixes a water leak
+     * Fixes a water leak.
      * @param adult the adult
      */
     public void fixWaterLeak(Adult adult) {
@@ -40,7 +40,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Puts out the fire
+     * Puts out the fire.
      * @param adult the adult
      */
     public void putOutTheFire(Adult adult) {
@@ -48,7 +48,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Adds an inhabitant
+     * Adds an inhabitant.
      * @param inhabitant the inhabitant
      */
     public void addInhabitant(AInhabitant inhabitant) {
@@ -56,7 +56,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Adds an entrance
+     * Adds an entrance.
      * @param entrance the entrance
      */
     public void addEntrance(AEntrance entrance) {
@@ -64,7 +64,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Adds a device
+     * Adds a device.
      * @param device the device
      */
     public void addDevice(ADevice device) {
@@ -72,7 +72,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Adds an item
+     * Adds an item.
      * @param item the item
      */
     public void addItem(AItem item) {
@@ -80,7 +80,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Adds an internal sensor
+     * Adds an internal sensor.
      * @param sensor the sensor
      */
     public void addSensor(AInternalSensor sensor) {
@@ -88,7 +88,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Returns an atmosphere inside the house
+     * Returns an atmosphere inside the house.
      * @return atmosphere
      */
     public InnerAtmosphere getAtmosphere() {
@@ -96,7 +96,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Returns the name
+     * Returns the name.
      * @return name
      */
     public String getName() {
@@ -104,7 +104,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Returns the devices
+     * Returns the devices.
      * @return devices
      */
     public List<ADevice> getDevices() {
@@ -112,7 +112,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Returns the items
+     * Returns the items.
      * @return items
      */
     public List<AItem> getItems() {
@@ -120,7 +120,7 @@ public class Room implements ILocation {
     }
 
     /**
-     * Returns the internal sensors
+     * Returns the internal sensors.
      * @return sensors
      */
     public List<AInternalSensor> getSensors() {

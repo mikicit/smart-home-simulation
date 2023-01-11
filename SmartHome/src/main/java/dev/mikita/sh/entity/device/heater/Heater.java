@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Class representing the Heater
+ * Class representing the Heater.
  */
 public class Heater extends ADevice {
     // Constants
     private final double HEATING_PER_HOUR = 5;
 
     /**
-     * Instantiates a new Heater
+     * Instantiates a new Heater.
      *
      * @param room the room
      * @param name the name
@@ -42,7 +42,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Gets heating per hour
+     * Gets heating per hour.
      *
      * @return the heating per hour
      */
@@ -51,7 +51,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Turns the heater on
+     * Turns the heater on.
      */
     @Override
     public void on() {
@@ -61,7 +61,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Turns the heater off
+     * Turns the heater off.
      */
     @Override
     public void off() {
@@ -71,7 +71,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Use the heater
+     * Use the heater.
      * @param inhabitant inhabitant that uses object
      */
     @Override
@@ -90,7 +90,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * UnUse the heater
+     * UnUse the heater.
      * @param inhabitant inhabitant that unUses object
      */
     @Override
@@ -110,7 +110,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Fix the heater
+     * Fix the heater.
      * @param person person that is fixing the device
      */
     @Override
@@ -123,7 +123,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Complete fixing the heater
+     * Complete fixing the heater.
      * @param person person that is fixing the device
      */
     @Override
@@ -136,7 +136,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * To break the heater
+     * To break the heater.
      */
     @Override
     public void toBreak() {
@@ -144,7 +144,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
@@ -154,7 +154,7 @@ public class Heater extends ADevice {
     }
 
     /**
-     * Initiates event handlers
+     * Initiates event handlers.
      */
     private void initEventHandlers() {
         SHSystem.getInstance().getEventDispatcher().addEventHandler(LowTemperatureEvent.class, room.getName(), new AEventHandler() {

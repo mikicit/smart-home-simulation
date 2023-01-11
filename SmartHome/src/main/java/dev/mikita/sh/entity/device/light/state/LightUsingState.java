@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceUsingState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Light using state
+ * Class representing the Light using state.
  */
 public class LightUsingState extends ADeviceUsingState {
     // Logger
     private static final Logger log = Logger.getLogger(LightUsingState.class.getName());
 
     /**
-     * Instantiates a new Light using state
+     * Instantiates a new Light using state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class LightUsingState extends ADeviceUsingState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override

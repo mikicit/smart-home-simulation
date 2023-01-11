@@ -8,14 +8,14 @@ import dev.mikita.sh.entity.location.ILocation;
 import java.util.logging.Logger;
 
 /**
- * Class representing a bored pet event
+ * Class representing a bored pet event.
  */
 public class BoredPetEvent extends AEvent {
     // Logger
     private static final Logger log = Logger.getLogger(BoredPetEvent.class.getName());
 
     /**
-     * Instantiates a new bored pet event
+     * Instantiates a new bored pet event.
      *
      * @param source   the source
      * @param location the location

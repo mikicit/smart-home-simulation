@@ -7,14 +7,14 @@ import dev.mikita.sh.entity.device.ADeviceOffState;
 import java.util.logging.Logger;
 
 /**
- * Class representing the Light off state
+ * Class representing the Light off state.
  */
 public class LightOffState extends ADeviceOffState {
     // Logger
     private static final Logger log = Logger.getLogger(LightOffState.class.getName());
 
     /**
-     * Instantiates a new Light off state
+     * Instantiates a new Light off state.
      *
      * @param device the device
      */
@@ -28,7 +28,7 @@ public class LightOffState extends ADeviceOffState {
     }
 
     /**
-     * Update
+     * Update.
      * @param time the time
      */
     @Override
