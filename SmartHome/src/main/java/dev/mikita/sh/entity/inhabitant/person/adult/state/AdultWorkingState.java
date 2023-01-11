@@ -14,6 +14,10 @@ public class AdultWorkingState extends AInhabitantState  {
     // Logger
     private static final Logger log = Logger.getLogger(AdultWorkingState.class.getName());
 
+    //Constants
+    private final int START_HOME_TIME = 10;
+    private final int END_HOME_TIME = 17;
+
     public AdultWorkingState(AInhabitant inhabitant) {
         super(inhabitant);
 
@@ -34,7 +38,7 @@ public class AdultWorkingState extends AInhabitantState  {
         Simulation simulationTime = SHSystem.getInstance().getSimulation();
 
         // Go home
-        if (simulationTime.getHour() < 10 || simulationTime.getHour() >= 17) {
+        if (simulationTime.getHour() < START_HOME_TIME || simulationTime.getHour() >= END_HOME_TIME) {
             inhabitant.changeState(new AdultWaitingState(inhabitant));
 
             log.info(String.format("%s \"%s\" arrived home from work [%s]",

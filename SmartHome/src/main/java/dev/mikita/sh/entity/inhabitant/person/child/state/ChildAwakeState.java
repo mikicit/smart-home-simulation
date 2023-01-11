@@ -22,6 +22,8 @@ public class ChildAwakeState extends AInhabitantState {
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 2;
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;
+    private final int START_SLEEPING_TIME = 21;
+    private final int END_SLEEPING_TIME =  8;
 
     // State
     private long timeFromLastDispatchedDeviceUsingEvent = 0;
@@ -78,7 +80,7 @@ public class ChildAwakeState extends AInhabitantState {
 
         // Sleeping time
         if (!((Child) inhabitant).getDispatchedHungerEvent() && !((Child) inhabitant).getDispatchedPoopedEvent()) {
-            if (simulationTime.getHour() >= 21 || simulationTime.getHour() < 8) {
+            if (simulationTime.getHour() >= START_SLEEPING_TIME || simulationTime.getHour() < END_SLEEPING_TIME) {
                 inhabitant.changeState(new ChildSleepingState(inhabitant));
                 return;
             }

@@ -24,6 +24,8 @@ public class PetAwakeState extends AInhabitantState {
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 6;
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;
+    private final int START_SLEEPING_TIME = 23;
+    private final int END_SLEEPING_TIME = 7;
 
     // State
     private long timeFromLastDispatchedDeviceUsingEvent = 0;
@@ -80,7 +82,7 @@ public class PetAwakeState extends AInhabitantState {
 
         // Sleeping time
         if (!((APet) inhabitant).getDispatchedHungerEvent() && !((APet) inhabitant).getDispatchedPlayedEvent()) {
-            if (simulationTime.getHour() >= 23 || simulationTime.getHour() < 7) {
+            if (simulationTime.getHour() >= START_SLEEPING_TIME || simulationTime.getHour() < END_SLEEPING_TIME) {
                 inhabitant.changeState(new PetSleepingState(inhabitant));
                 return;
             }

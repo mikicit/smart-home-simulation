@@ -21,6 +21,10 @@ import java.util.stream.Collectors;
 public class AdultWaitingState extends AInhabitantState {
     // Constants
     private final double WAITING_TIME_IN_HOUR = 0.4;
+    private final int START_WORKING_TIME = 10;
+    private final int END_WORKING_TIME = 17;
+    private final int START_SLEEPING_TIME = 23;
+    private final int END_SLEEPING_TIME = 7;
 
     public AdultWaitingState(AInhabitant inhabitant) {
         super(inhabitant);
@@ -38,13 +42,13 @@ public class AdultWaitingState extends AInhabitantState {
         TaskSystem taskSystem = SHSystem.getInstance().getTaskSystem();
 
         // Sleeping time
-        if (simulationTime.getHour() >= 23 || simulationTime.getHour() < 7) {
+        if (simulationTime.getHour() >= START_SLEEPING_TIME || simulationTime.getHour() < END_SLEEPING_TIME) {
             inhabitant.changeState(new AdultSleepingState(inhabitant));
             return;
         }
 
         // Work time
-        if (simulationTime.getHour() >= 10 && simulationTime.getHour() < 17
+        if (simulationTime.getHour() >= START_WORKING_TIME && simulationTime.getHour() < END_WORKING_TIME
                 && ((Adult) inhabitant).getGender() == PersonGender.MALE) {
             inhabitant.changeState(new AdultWorkingState(inhabitant));
             return;

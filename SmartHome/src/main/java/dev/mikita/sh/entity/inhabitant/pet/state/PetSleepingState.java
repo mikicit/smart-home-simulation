@@ -14,6 +14,10 @@ public class PetSleepingState extends AInhabitantState {
     // Logger
     private static final Logger log = Logger.getLogger(PetSleepingState.class.getName());
 
+    //Constants
+    private final int START_WAKE_TIME = 23;
+    private final int END_WAKE_TIME = 7;
+
     public PetSleepingState(AInhabitant inhabitant) {
         super(inhabitant);
 
@@ -32,7 +36,7 @@ public class PetSleepingState extends AInhabitantState {
 
         Simulation simulationTime = SHSystem.getInstance().getSimulation();
 
-        if (simulationTime.getHour() < 23 && simulationTime.getHour() >= 7) {
+        if (simulationTime.getHour() < START_WAKE_TIME && simulationTime.getHour() >= END_WAKE_TIME) {
             inhabitant.changeState(new PetAwakeState(inhabitant));
 
             log.info(String.format("Pet \"%s\" woke up [%s]",

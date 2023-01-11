@@ -13,6 +13,10 @@ public class ChildSleepingState extends AInhabitantState {
     // Logger
     private static final Logger log = Logger.getLogger(ChildSleepingState.class.getName());
 
+    //Constants
+    private final int START_WAKE_TIME = 21;
+    private final int END_WAKE_TIME = 8;
+
     public ChildSleepingState(AInhabitant inhabitant) {
         super(inhabitant);
 
@@ -31,7 +35,7 @@ public class ChildSleepingState extends AInhabitantState {
 
         Simulation simulationTime = SHSystem.getInstance().getSimulation();
 
-        if (simulationTime.getHour() < 21 && simulationTime.getHour() >= 8) {
+        if (simulationTime.getHour() < START_WAKE_TIME && simulationTime.getHour() >= END_WAKE_TIME) {
             inhabitant.changeState(new ChildAwakeState(inhabitant));
 
             log.info(String.format("Child \"%s\" woke up [%s]",
