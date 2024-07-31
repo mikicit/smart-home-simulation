@@ -1,9 +1,20 @@
-**/log/log.txt.*
-**/report/*.txt
-**/.idea
-**/*.iml
-**/target
-**/node_modules
-**/generated-sources
-**/npm-debug.log
-**/.DS_Store
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store:;
+
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# App
+log/
+report/
