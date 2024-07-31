@@ -3,17 +3,13 @@ package dev.mikita.sh.entity.device.airConditioner.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Air conditioner idle state.
  */
+@Slf4j
 public class AirConditionerIdleState extends ADeviceIdleState {
-    // Logger
-    private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
-
     /**
      * Instantiates a new Air conditioner idle state.
      *

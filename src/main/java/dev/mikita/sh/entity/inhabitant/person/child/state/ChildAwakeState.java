@@ -7,18 +7,16 @@ import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.inhabitant.person.child.Child;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
  * Class representing child awake state.
  */
+@Slf4j
 public class ChildAwakeState extends AInhabitantState {
-    // Logger
-    private static final Logger log = Logger.getLogger(ChildAwakeState.class.getName());
-
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 2;
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;

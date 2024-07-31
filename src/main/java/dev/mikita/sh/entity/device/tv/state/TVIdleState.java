@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.tv.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the TV idle state.
  */
+@Slf4j
 public class TVIdleState extends ADeviceIdleState {
-    // Logger
-    private static final Logger log = Logger.getLogger(TVIdleState.class.getName());
-
     /**
      * Instantiates a new Tv idle state.
      *

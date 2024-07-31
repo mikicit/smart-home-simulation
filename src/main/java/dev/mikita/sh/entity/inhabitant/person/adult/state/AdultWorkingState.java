@@ -4,16 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing adult working state.
  */
+@Slf4j
 public class AdultWorkingState extends AInhabitantState  {
-    // Logger
-    private static final Logger log = Logger.getLogger(AdultWorkingState.class.getName());
-
     //Constants
     private final int START_HOME_TIME = 10;
     private final int END_HOME_TIME = 17;

@@ -8,16 +8,13 @@ import dev.mikita.sh.entity.inhabitant.person.child.state.ChildAwakeState;
 import dev.mikita.sh.entity.location.Room;
 import dev.mikita.sh.event.HungryChildEvent;
 import dev.mikita.sh.event.PoopedChildEvent;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the child.
  */
+@Slf4j
 public class Child extends APerson {
-    // Logger
-    private static final Logger log = Logger.getLogger(Child.class.getName());
-
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 4;
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 48;

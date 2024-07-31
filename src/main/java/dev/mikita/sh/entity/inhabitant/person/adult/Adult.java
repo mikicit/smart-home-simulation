@@ -18,15 +18,13 @@ import dev.mikita.sh.entity.sensor.ASensor;
 import dev.mikita.sh.entity.sensor.SmokeSensor;
 import dev.mikita.sh.entity.sensor.WaterSensor;
 import dev.mikita.sh.event.*;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the adult.
  */
+@Slf4j
 public class Adult extends APerson {
-    // Logger
-    private static final Logger log = Logger.getLogger(Adult.class.getName());
-
     public Adult(Room room, String name, PersonGender gender) {
         super(room, name);
         this.state = new AdultWaitingState(this);

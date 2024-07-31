@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.light.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceUsingState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Light using state.
  */
+@Slf4j
 public class LightUsingState extends ADeviceUsingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(LightUsingState.class.getName());
-
     /**
      * Instantiates a new Light using state.
      *

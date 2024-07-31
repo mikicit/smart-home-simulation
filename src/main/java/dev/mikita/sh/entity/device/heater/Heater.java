@@ -13,7 +13,6 @@ import dev.mikita.sh.entity.sensor.ASensor;
 import dev.mikita.sh.entity.sensor.HeatSensor;
 import dev.mikita.sh.event.LowTemperatureEvent;
 import dev.mikita.sh.event.NormalTemperatureEvent;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

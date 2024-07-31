@@ -4,15 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing child sleeping state.
  */
+@Slf4j
 public class ChildSleepingState extends AInhabitantState {
-    // Logger
-    private static final Logger log = Logger.getLogger(ChildSleepingState.class.getName());
-
     //Constants
     private final int START_WAKE_TIME = 21;
     private final int END_WAKE_TIME = 8;

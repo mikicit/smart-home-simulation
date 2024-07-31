@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.microwave.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceUsingState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Microwave using state.
  */
+@Slf4j
 public class MicrowaveUsingState extends ADeviceUsingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(MicrowaveUsingState.class.getName());
-
     /**
      * Instantiates a new Microwave using state.
      *

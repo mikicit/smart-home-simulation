@@ -4,15 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the TV broken state.
  */
+@Slf4j
 public class TVBrokenState extends ADeviceBrokenState {
-    // Logger
-    private static final Logger log = Logger.getLogger(TVBrokenState.class.getName());
-
     /**
      * Instantiates a new Tv broken state.
      *

@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.oven.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Oven idle state.
  */
+@Slf4j
 public class OvenIdleState extends ADeviceIdleState {
-    // Logger
-    private static final Logger log = Logger.getLogger(OvenIdleState.class.getName());
-
     /**
      * Instantiates a new Oven idle state.
      *

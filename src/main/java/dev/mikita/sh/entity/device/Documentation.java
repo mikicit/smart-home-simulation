@@ -1,15 +1,13 @@
 package dev.mikita.sh.entity.device;
-import dev.mikita.sh.core.SHSystem;
 
-import java.util.logging.Logger;
+import dev.mikita.sh.core.SHSystem;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing device's documentation.
  */
+@Slf4j
 public class Documentation {
-    // Logger
-    private static final Logger log = Logger.getLogger(Documentation.class.getName());
-
     private final ADevice device;
     private final double fixingTimeInHours;
 

@@ -3,24 +3,21 @@ package dev.mikita.sh.entity.inhabitant.pet.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.device.ADevice;
-import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
 import dev.mikita.sh.entity.device.DeviceFactory;
-import dev.mikita.sh.entity.device.fridge.state.FridgeIdleState;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
 import dev.mikita.sh.entity.inhabitant.pet.APet;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
  * Class representing pet awake state
  */
+@Slf4j
 public class PetAwakeState extends AInhabitantState {
-    // Logger
-    private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
-
     // Constants
     private final double MIN_TRIGGERED_TIME_IN_HOURS = 6;
     private final double MAX_TRIGGERED_TIME_IN_HOURS = 24;

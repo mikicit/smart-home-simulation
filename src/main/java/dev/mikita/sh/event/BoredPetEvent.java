@@ -4,16 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing a bored pet event.
  */
+@Slf4j
 public class BoredPetEvent extends AEvent {
-    // Logger
-    private static final Logger log = Logger.getLogger(BoredPetEvent.class.getName());
-
     /**
      * Instantiates a new bored pet event.
      *

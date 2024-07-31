@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.washingMachine.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceUsingState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Washing machine using state.
  */
+@Slf4j
 public class WashingMachineUsingState extends ADeviceUsingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(WashingMachineUsingState.class.getName());
-
     /**
      * Instantiates a new Washing machine using state.
      *

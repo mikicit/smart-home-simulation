@@ -3,15 +3,13 @@ package dev.mikita.sh.entity.inhabitant.person.adult.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing adult device using state.
  */
+@Slf4j
 public class AdultDeviceUsingState extends AInhabitantState {
-    // Logger
-    private static final Logger log = Logger.getLogger(AdultDeviceUsingState.class.getName());
-
     public AdultDeviceUsingState(AInhabitant inhabitant) {
         super(inhabitant);
 

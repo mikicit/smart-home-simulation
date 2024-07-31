@@ -4,16 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.simulation.Simulation;
 import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.AInhabitantState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing pet sleeping state
  */
+@Slf4j
 public class PetSleepingState extends AInhabitantState {
-    // Logger
-    private static final Logger log = Logger.getLogger(PetSleepingState.class.getName());
-
     //Constants
     private final int START_WAKE_TIME = 23;
     private final int END_WAKE_TIME = 7;

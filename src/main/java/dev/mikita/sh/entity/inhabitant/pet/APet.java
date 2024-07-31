@@ -4,15 +4,13 @@ import dev.mikita.sh.entity.inhabitant.AInhabitant;
 import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.inhabitant.pet.state.PetAwakeState;
 import dev.mikita.sh.entity.location.Room;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Abstract class representing a pet
  */
+@Slf4j
 public abstract class APet extends AInhabitant  {
-    // Logger
-    private static final Logger log = Logger.getLogger(APet.class.getName());
-
     public APet(Room room, String name) {
         super(room, name);
         this.state = new PetAwakeState(this);

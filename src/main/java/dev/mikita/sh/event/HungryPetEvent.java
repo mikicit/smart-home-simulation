@@ -4,16 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing a hungry pet event.
  */
+@Slf4j
 public class HungryPetEvent extends AEvent {
-    // Logger
-    private static final Logger log = Logger.getLogger(HungryPetEvent.class.getName());
-
     /**
      * Instantiates a new hungry pet event.
      *

@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.tv.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceFixingState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the TV fixing state.
  */
+@Slf4j
 public class TVFixingState extends ADeviceFixingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(TVFixingState.class.getName());
-
     /**
      * Instantiates a new Tv fixing state.
      *

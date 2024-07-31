@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.microwave.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceFixingState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Microwave fixing state.
  */
+@Slf4j
 public class MicrowaveFixingState extends ADeviceFixingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(MicrowaveFixingState.class.getName());
-
     /**
      * Instantiates a new Microwave fixing state.
      *

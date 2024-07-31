@@ -7,18 +7,16 @@ import dev.mikita.sh.entity.inhabitant.person.adult.Adult;
 import dev.mikita.sh.entity.item.AItem;
 import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
 import dev.mikita.sh.entity.sensor.AInternalSensor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Class representing a room.
  */
+@Slf4j
 public class Room implements ILocation {
-    // Logger
-    private static final Logger log = Logger.getLogger(Room.class.getName());
-
     private final String name;
     private final InnerAtmosphere atmosphere = new InnerAtmosphere();
     private final List<AInhabitant> inhabitants = new ArrayList<>();

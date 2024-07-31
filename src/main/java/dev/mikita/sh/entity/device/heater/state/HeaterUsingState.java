@@ -5,16 +5,13 @@ import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceUsingState;
 import dev.mikita.sh.entity.device.heater.Heater;
 import dev.mikita.sh.entity.location.atmosphere.InnerAtmosphere;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Heater using state.
  */
+@Slf4j
 public class HeaterUsingState extends ADeviceUsingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(HeaterUsingState.class.getName());
-
     /**
      * Instantiates a new Heater using state.
      *

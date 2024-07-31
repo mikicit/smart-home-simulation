@@ -5,15 +5,13 @@ import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.core.simulation.ITimeTracker;
 import dev.mikita.sh.entity.IUsableObject;
 import dev.mikita.sh.entity.location.Room;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Abstract class representing inhabitant
  */
+@Slf4j
 public abstract class AInhabitant implements ITimeTracker, IEventSource {
-    // Logger
-    private static final Logger log = Logger.getLogger(AInhabitant.class.getName());
-
     protected final String name;
     protected Room room;
     protected AInhabitantState state;

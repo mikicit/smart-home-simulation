@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.fridge.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Fridge idle state.
  */
+@Slf4j
 public class FridgeIdleState extends ADeviceIdleState {
-    // Logger
-    private static final Logger log = Logger.getLogger(FridgeIdleState.class.getName());
-
     /**
      * Instantiates a new Fridge idle state.
      *

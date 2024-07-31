@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.oven.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceFixingState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Oven fixing state.
  */
+@Slf4j
 public class OvenFixingState extends ADeviceFixingState {
-    // Logger
-    private static final Logger log = Logger.getLogger(OvenFixingState.class.getName());
-
     /**
      * Instantiates a new Oven fixing state.
      *

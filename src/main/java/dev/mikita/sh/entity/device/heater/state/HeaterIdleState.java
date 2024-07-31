@@ -3,15 +3,13 @@ package dev.mikita.sh.entity.device.heater.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Heater idle state.
  */
+@Slf4j
 public class HeaterIdleState extends ADeviceIdleState {
-    // Logger
-    private static final Logger log = Logger.getLogger(HeaterIdleState.class.getName());
-
     /**
      * Instantiates a new Heater idle state.
      *

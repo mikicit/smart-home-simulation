@@ -4,15 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.core.event.AEvent;
 import dev.mikita.sh.core.event.IEventSource;
 import dev.mikita.sh.entity.location.ILocation;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing water in room event.
  */
+@Slf4j
 public class WaterInRoomEvent extends AEvent {
-    // Logger
-    private static final Logger log = Logger.getLogger(WaterInRoomEvent.class.getName());
-
     /**
      * Instantiates new water in room event.
      *

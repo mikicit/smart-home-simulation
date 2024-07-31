@@ -3,16 +3,13 @@ package dev.mikita.sh.entity.device.light.state;
 import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceIdleState;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Light idle state.
  */
+@Slf4j
 public class LightIdleState extends ADeviceIdleState {
-    // Logger
-    private static final Logger log = Logger.getLogger(LightIdleState.class.getName());
-
     /**
      * Instantiates a new Light idle state.
      *

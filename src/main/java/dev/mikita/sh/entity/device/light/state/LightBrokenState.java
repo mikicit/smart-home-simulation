@@ -4,16 +4,13 @@ import dev.mikita.sh.core.SHSystem;
 import dev.mikita.sh.entity.device.ADevice;
 import dev.mikita.sh.entity.device.ADeviceBrokenState;
 import dev.mikita.sh.event.DeviceIsBrokenEvent;
-
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Class representing the Light broken state.
  */
+@Slf4j
 public class LightBrokenState extends ADeviceBrokenState {
-    // Logger
-    private static final Logger log = Logger.getLogger(LightBrokenState.class.getName());
-
     /**
      * Instantiates a new Light broken state.
      *
